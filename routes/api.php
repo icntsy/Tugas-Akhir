@@ -14,6 +14,7 @@ use App\Http\Controllers\API\ServiceController;
 use App\Http\Controllers\API\QueueController;
 use App\Http\Controllers\API\ImmunizationController;
 use App\Http\Controllers\API\FamilyplanningController;
+// use App\Http\Controllers\API\PendaftaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::resource('room', RoomController::class, ['as' => 'room.api'])->middleware
 Route::resource('diagnosis', DiagnosisController::class, ['as' => 'gianosis.api'])->middleware('auth:sanctum');
 Route::resource('service', ServiceController::class, ['as' => 'service.api'])->middleware('auth:sanctum');
 Route::resource('queue', QueueController::class, ['as' => 'queue.api'])->middleware('auth:sanctum');
+// Route::resource('pendaftaran', PendaftaranController::class, ['as' => 'pendaftaran.api'])->middleware('auth:sanctum');
 Route::resource('immunization', ImmunizationController::class, ['as' => 'imunization.api'])->middleware('auth:sanctum');
 Route::resource('familyplanning',FamilyplanningController::class, ['as' => 'familyplanning.api'])->middleware('auth:sanctum');
 

@@ -52,6 +52,7 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
+    // Route::get('antrian/process/{pendaftaran}', \App\Http\Livewire\Queue\Process::class)->name('queue.process');
     Route::get('antrian/process/{queue}', \App\Http\Livewire\Queue\Process::class)->name('queue.process');
     Route::get('dokumentasi/add-params-and-request/{doc}', AddParamAndRequest::class)->name('doc.add-param');
     Route::get('antri/obat', \App\Http\Livewire\Queue\Drug::class)->name('queue.drug');

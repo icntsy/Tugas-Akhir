@@ -30,9 +30,10 @@
                             <option selected="selected" value="">--Pilih Type User--</option>
                             <option value="admin">Admin</option>
                             <option value="dokter">Dokter</option>
-                            <option value="staff">Staff</option>
+                            <option value="bidan">Bidan</option>
+                            {{-- <option value="staff">Staff</option> --}}
                             <option value="apoteker">Apoteker</option>
-                            <option value="pengguna">pengguna</option>
+                            <option value="pengguna">Pengguna</option>
                         </select>
                     </div>
                     <div class='form-group col-md-6'>

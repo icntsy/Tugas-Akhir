@@ -1,5 +1,5 @@
 @section('meta_title', 'LAB')
-@section('page_title', 'DATA ANTRIAN HARI INI')
+@section('page_title', 'DATA PENDAFTARAN HARI INI')
 @section('page_title_icon')
     <i class="metismenu-icon fa fa-clipboard-list"></i>
 @endsection
@@ -8,14 +8,12 @@
         <div class="mb-3 card">
             <div class="card-body">
                 <div class="row">
-                    @role('admin')
                     <div class="col-md-6 col-sm-12">
                         <a href="{{ route('queue.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
                             Tambah
                             Antrian</a>
                     </div>
-                    @endrole
-                    <div class="col-md-6 col-sm-12 d-flex justify-content-end">
+                    <div class="col-md-6 col-sm-12">
                         <div class="input-group">
                             <input type="text" class="form-control form-control" wire:model.lazy="search"
                                 placeholder="{{ __('Cari Antrian') }}" value="{{ request('search') }}">
