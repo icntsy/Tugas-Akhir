@@ -48,6 +48,12 @@
                         Pendaftaran Antrian
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
+                        <i class="metismenu-icon fa fa-clipboard"></i>
+                        Antrian Obat
+                    </a>
+                </li>
                 @endrole
                 <li>
                     <a href="{{ route('queue.index') }}" class="@if (Request::is('antrian*')) mm-active @endif">
@@ -55,12 +61,7 @@
                         Antrian Periksa
                     </a>
                 </li>
-                <li>
-                    <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
-                        <i class="metismenu-icon fa fa-clipboard"></i>
-                        Antrian Obat
-                    </a>
-                </li>
+
                 <li class="app-sidebar__heading">Data Master</li>
                 <li>
                     <a href="{{ route('patient.index') }}" class="@if (Request::is('pasien*')) mm-active @endif">
@@ -202,6 +203,23 @@
                     </a>
                 </li>
                 <li>
+                @endrole
+
+                @role('apoteker')
+                <li class="app-sidebar__heading">Data Antrian</li>
+                <li>
+                    <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
+                        <i class="metismenu-icon fa fa-clipboard"></i>
+                        Antrian Obat
+                    </a>
+                </li>
+                <li class="app-sidebar__heading">Data Obat</li>
+                <li>
+                    <a href="{{ route('drug.index') }}" class="@if (Request::is('obat*')) mm-active @endif">
+                        <i class="metismenu-icon fa fa-prescription-bottle-alt"></i>
+                        Data Obat
+                    </a>
+                </li>
                 @endrole
             </ul>
         </div>
