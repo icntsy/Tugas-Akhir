@@ -41,26 +41,27 @@
                 </li>
                 @role('admin|dokter')
                 <li class="app-sidebar__heading">Data Antrian</li>
-                @role('admin')
-                <li>
+
+                {{-- <li>
                     <a href="{{ route('queue.index') }}" class="@if (Request::is('pendaftaran*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-clipboard-list"></i>
                         Pendaftaran Antrian
                     </a>
-                </li>
-                <li>
-                    <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
-                        <i class="metismenu-icon fa fa-clipboard"></i>
-                        Antrian Obat
-                    </a>
-                </li>
-                @endrole
+                </li> --}}
                 <li>
                     <a href="{{ route('queue.index') }}" class="@if (Request::is('antrian*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-clipboard-list"></i>
                         Antrian Periksa
                     </a>
                 </li>
+                {{-- <li>
+                    <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
+                        <i class="metismenu-icon fa fa-clipboard"></i>
+                        Antrian Obat
+                    </a>
+                </li> --}}
+
+
 
                 <li class="app-sidebar__heading">Data Master</li>
                 <li>
@@ -81,12 +82,12 @@
                         Data Obat
                     </a>
                 </li> --}}
-                <li>
+                {{-- <li>
                     <a href="{{ route('lab.index') }}" class="@if (Request::is('lab*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-file-medical-alt"></i>
                         Data Lab
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="{{ route('diagnosis.index') }}" class="@if (Request::is('diagnosis*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-file-alt"></i>
@@ -100,12 +101,12 @@
                         Data Obat
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="{{ route('room.index') }}" class="@if (Request::is('ruangan*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-door-open"></i>
                         Data Ruangan
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="{{ route('service.index') }}" class="@if (Request::is('layanan*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-file-medical-alt"></i>
@@ -185,23 +186,30 @@
                     </a>
                 </li>
                 <li>
+                    <a href="">
+                        <i class="metismenu-icon fa fa-clipboard-list"></i>
+                        Data Rekam Medis
+                    </a>
+                </li>
+                <li>
                     <a href="{{ route('immunization.index') }}" class="@if (Request::is('imunisasi*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-clipboard"></i>
                         Data Imunisasi
                     </a>
                 </li>
+
                 <li>
                     <a href="{{ route('familyplanning.index') }}" class="@if (Request::is('keluargaberencana*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-clipboard-list"></i>
                         Data Keluarga Berencana
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="{{ route('bpjs.index') }}" class="@if (Request::is('bpjs*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-notes-medical"></i>
                         Data BPJS
                     </a>
-                </li>
+                </li> --}}
                 <li>
                 @endrole
 
@@ -218,6 +226,12 @@
                     <a href="{{ route('drug.index') }}" class="@if (Request::is('obat*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-prescription-bottle-alt"></i>
                         Data Obat
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="metismenu-icon fa fa-prescription-bottle-alt"></i>
+                        Laporan Obat
                     </a>
                 </li>
                 @endrole
