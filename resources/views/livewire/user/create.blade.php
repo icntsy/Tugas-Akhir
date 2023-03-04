@@ -24,7 +24,6 @@
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
                     <div class='col-md-6 form-group'>
-
                         <label for='study' class='control-label'> {{ __('Type user') }}</label>
                         <select  id="gender" class="form-control custom-select" wire:model="role" name="role">
                             <option selected="selected" value="">--Pilih Type User--</option>

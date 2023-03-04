@@ -48,7 +48,6 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
     Route::get('/show/{pregnantmom}', \App\Http\Livewire\Pregnantmom\Show::class)->name('pregnantmom.show');
     Route::get('/dokumentasi_api', [\App\Http\Controllers\DokumentasiController::class,'index'])->name('dokumentasi_api');
 
-
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
