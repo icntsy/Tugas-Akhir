@@ -82,12 +82,12 @@
                         Data Obat
                     </a>
                 </li> --}}
-                {{-- <li>
-                    <a href="{{ route('lab.index') }}" class="@if (Request::is('lab*')) mm-active @endif">
+                <li>
+                     <a href="{{ route('lab.index') }}" class="@if (Request::is('lab*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-file-medical-alt"></i>
                         Data Lab
                     </a>
-                </li> --}}
+                </li>
                 <li>
                     <a href="{{ route('diagnosis.index') }}" class="@if (Request::is('diagnosis*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-file-alt"></i>
@@ -101,12 +101,12 @@
                         Data Obat
                     </a>
                 </li>
-                {{-- <li>
+                <li>
                     <a href="{{ route('room.index') }}" class="@if (Request::is('ruangan*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-door-open"></i>
                         Data Ruangan
                     </a>
-                </li> --}}
+                </li>
                 <li>
                     <a href="{{ route('service.index') }}" class="@if (Request::is('layanan*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-file-medical-alt"></i>
@@ -116,12 +116,12 @@
                 @endrole
                 @role('admin')
                 {{-- <li class="app-sidebar__heading">Laporan</li>
-                <li>
+                {{-- <li>
                     <a href="{{ route('medicalrecord.index') }}" class="@if (Request::is('report*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-notes-medical"></i>
                         Laporan Pengunjung
                     </a>
-                </li>
+                </li> --}}
                 <li>
                     <a href="{{ route('medicalrecord.index') }}" class="@if (Request::is('report*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-notes-medical"></i>
