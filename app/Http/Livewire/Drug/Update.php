@@ -16,7 +16,6 @@ class Update extends Component
 
     protected $rules = [
         'nama' => 'required',
-        'dosis' => 'required',
         'stok' => 'required',
         'harga' => 'required',
         'min_stok' => 'required|lte:stok'
@@ -31,7 +30,7 @@ class Update extends Component
     {
         $this->validate();
 
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('UpdatedMessage', ['name' => __('Article') ]) ]);
+        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => 'Berhasil menyimpan data.' ]);
 
         $this->drug->update([
             'nama' => $this->nama,

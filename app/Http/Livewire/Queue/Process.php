@@ -20,12 +20,14 @@ class Process extends Component
     public $weight;
     public $blood_pressure;
     public $color_blind;
-    public $blood;
-    public $respirasi;
+    public $blood; 
+    public $respiration;
+    public $pulse;
     public $temperature;
     public $disability;
     public $anamnesis;
     public $main_complaint;
+    public $history_disease;
 
     protected $listeners = [
         'diagnosaAdded',
@@ -41,10 +43,12 @@ class Process extends Component
             'blood_pressure' => 'required',
             'color_blind' => 'required',
             'blood' => 'required',
-            'respirasi' => 'required',
+            'respiration' => 'required',
+            'pulse' => 'required',
+            'history_disease' => 'required',
             'temperature' => 'required',
             'disability' => 'required',
-            "anamnesis" => 'required',
+            'anamnesis' => 'required',
         ];
     }
 
@@ -134,7 +138,9 @@ class Process extends Component
                         "blood" => $this->blood,
                         "blood_pressure" => $this->blood_pressure,
                         "color_blind" => $this->color_blind,
-                        "respirasi" => $this->respirasi,
+                        "respiration" => $this->respiration,
+                        "pulse" => $this->pulse,
+                        "history_disease" => $this->history_disease,
                         "disability" => $this->disability,
                         "temperature" => $this->temperature
                     ]

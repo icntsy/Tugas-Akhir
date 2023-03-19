@@ -93,7 +93,7 @@
             <div class="col-md-12">
                 <div class="main-card">
                     <div class="card-header">
-                        Data Amnamnesa Dan Pemeriksaan Fisik
+                        Data Anamnesa Dan Pemeriksaan Fisik
                     </div>
                     <div class="card-body row">
                         <div class='form-group col-md-6'>
@@ -108,6 +108,13 @@
                             <textarea wire:model="main_complaint" class="form-control @error('main_complaint') is-invalid
 @enderror">{{$queue->patient->main_complaint ?? ""}}</textarea>
                             @error('main_complaint')
+                            <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                        </div>
+                        <div class='form-group col-md-6'>
+                            <label for='history_disease' class='control-label'> {{ __('Riwayat Penyakit') }}</label>
+                           <textarea wire:model="history_disease" class="form-control @error('history_disease') is-invalid
+@enderror">{{$queue->patient->history_disease ?? ""}}</textarea>
+                            @error('history_disease')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
                         <div class='form-group col-md-3'>
@@ -127,7 +134,7 @@
                         </div>
                         <div class='form-group col-md-3'>
                             <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah (mmHg)') }}</label>
-                            <input type='text' autofocus wire:model.lazy='blood_pressure' placeholder="Tekanan Darah"
+                            <input type='number' autofocus wire:model.lazy='blood_pressure' placeholder="Tekanan Darah"
                                    class="form-control @error('blood_pressure') is-invalid @enderror"
                                    id='blood_pressure'>
                             @error('blood_pressure')
@@ -158,11 +165,19 @@
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
                         <div class='form-group col-md-3'>
-                            <label for='respirasi' class='control-label'> {{ __('Respirasi') }}</label>
-                            <input type='text' autofocus wire:model.lazy='respirasi' placeholder="Respirasi"
-                                   class="form-control @error('respirasi') is-invalid @enderror"
-                                   id='respirasi'>
-                            @error('respirasi')
+                            <label for='respiration' class='control-label'> {{ __('Respirasi (X/Menit)') }}</label>
+                            <input type='number' autofocus wire:model.lazy='respiration' placeholder="Respirasi"
+                                   class="form-control @error('respiration') is-invalid @enderror"
+                                   id='respiration'>
+                            @error('respiration')
+                            <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                        </div>
+                        <div class='form-group col-md-3'>
+                            <label for='pulse' class='control-label'> {{ __('Nadi (X/Menit)') }}</label>
+                            <input type='number' autofocus wire:model.lazy='pulse' placeholder="Nadi"
+                                   class="form-control @error('pulse') is-invalid @enderror"
+                                   id='pulse'>
+                            @error('pulse')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
                         <div class='form-group col-md-3'>
@@ -325,7 +340,7 @@
                                                 </td>
                                                 <td>{{$drug["drug"]["harga"]}}</td>
 
-                                                <td>{{$listDrug[$index]["quantity"] * $drug["drug"]["harga"] }}</td>
+                                                <td>{{(int)($listDrug[$index]["quantity"]) * $drug["drug"]["harga"] }}</td>
                                                 <td>
                                                     <button wire:click="deleteDrug({{$index}})" class="btn btn-sm
                                                         btn-danger">Hapus</button>

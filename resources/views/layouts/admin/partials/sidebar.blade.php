@@ -115,7 +115,7 @@
                 </li>
                 @endrole
                 @role('admin')
-                {{-- <li class="app-sidebar__heading">Laporan</li>
+                {{-- <li class="app-sidebar__heading">Laporan</li> --}}
                 {{-- <li>
                     <a href="{{ route('medicalrecord.index') }}" class="@if (Request::is('report*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-notes-medical"></i>
@@ -128,7 +128,7 @@
                         Laporan Obat
                     </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="{{ route('medicalrecord.index') }}" class="@if (Request::is('report*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-notes-medical"></i>
                         Laporan Obat
