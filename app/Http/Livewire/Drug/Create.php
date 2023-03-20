@@ -8,17 +8,19 @@ use Livewire\Component;
 class Create extends Component
 {
     public $nama;
-    public $keterangan;
+    // public $keterangan;
     public $stok;
-    public $harga;
+    // public $harga;
     public $min_stok;
+    public $harga;
 
     protected $rules = [
         'nama' => 'required',
-        'keterangan' => 'required',
+        // 'keterangan' => 'required',
         'stok' => 'required',
-        'harga' => 'required',
-        'min_stok' => 'required|lte:stok'
+        // 'harga' => 'required',
+        'min_stok' => 'required|lte:stok',
+        'harga' => 'required'
     ];
 
     public function create()
@@ -27,7 +29,7 @@ class Create extends Component
 
         Drug::create([
             'nama' => $this->nama,
-            'keterangan' => $this->keterangan,
+            // 'keterangan' => $this->keterangan,
             'stok' => $this->stok,
             'min_stok' => $this->min_stok,
             'harga' => $this->harga,

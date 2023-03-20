@@ -232,10 +232,11 @@ class DrugController extends Controller
         //
         $this->validate($request, [
             'nama' => 'required',
-            'keterangan' => 'required',
+            // 'keterangan' => 'required',
             'stok' => 'required',
-            'harga' => 'required',
-            'min_stok' => 'required'
+            // 'harga' => 'required',
+            'min_stok' => 'required',
+            'harga' => 'required'
         ]);
         $drugs = Drug::create($request->all());
         return response()->json($drugs);
@@ -281,17 +282,19 @@ class DrugController extends Controller
 
         $request->validate([
             'nama' => 'required',
-            'keterangan' => 'required',
+            // 'keterangan' => 'required',
             'stok' => 'required',
-            'harga' => 'required',
-            'min_stok' => 'required'
+            // 'harga' => 'required',
+            'min_stok' => 'required',
+            'harga' => 'required'
         ]);
         $drug->update([
             'nama' => $request->nama,
-            'keterangan' => $request->keterangan,
+            // 'keterangan' => $request->keterangan,
             'stok' => $request->stok,
-            'harga' => $request->harga,
-            'min_stok' => $request->min_stok
+            // 'harga' => $request->harga,
+            'min_stok' => $request->min_stok,
+            'harga' => $request->harga
         ]);
 
         return response()->json($drug);

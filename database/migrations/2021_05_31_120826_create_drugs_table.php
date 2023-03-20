@@ -16,11 +16,12 @@ class CreateDrugsTable extends Migration
         Schema::create('drugs', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('keterangan')->nullable();
-            $table->double('harga')->default(0);
+            // $table->string('keterangan')->nullable();
+            // $table->double('harga')->default(0);
             $table->bigInteger('stok')->default(0);
             $table->bigInteger('min_stok')->default(0);
-            $table->date('expire_date')->nullable();
+            $table->double('harga')->default(0);
+            // $table->date('expire_date')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

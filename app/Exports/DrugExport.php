@@ -31,13 +31,14 @@ class DrugExport implements
         return [
             $row->nama,
             // $row->takaran,
-            $row->keterangan,
+            // $row->keterangan,
             // $row->satuan,
             $row->stok,
-            $row->harga,
+            // $row->harga,
             $row->min_stok,
-            $row->expired_date,
-            $row->created_at
+            $row->harga,
+            // $row->expired_date,
+            // $row->created_at
         ];
     }
 
@@ -46,13 +47,14 @@ class DrugExport implements
         return [
             'Nama',
             // 'Takaran',
-            'Keterangan',
+            // 'Keterangan',
             // 'Satuan',
             'Stok',
-            'Harga',
+            // 'Harga',
             'Min Stok',
-            'Expire Date',
-            'Created At'
+            'Harga'
+            // 'Expire Date',
+            // 'Created At'
         ];
     }
 

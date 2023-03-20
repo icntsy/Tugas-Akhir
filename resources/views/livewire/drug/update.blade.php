@@ -15,13 +15,13 @@
                         @error('nama')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
-                    <div class='form-group col-md-4'>
+                    {{-- <div class='form-group col-md-4'>
                         <label for='dosis' class='control-label'> {{ __('Dosis Obat') }}</label>
                         <input type='text' wire:model.lazy='dosis' placeholder="Dosis Obat"
                                class="form-control @error('dosis') is-invalid @enderror" id='dosis'>
                         @error('dosis')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                    </div>
+                    </div> --}}
                     <div class='form-group col-md-4'>
                         <label for='harga' class='control-label'> {{ __('Harga Obat') }}</label>
                         <input type='number' wire:model.lazy='harga'  placeholder="Harga Obat"

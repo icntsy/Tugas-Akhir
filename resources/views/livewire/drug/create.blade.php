@@ -47,7 +47,7 @@
                         @error('min_stok')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
-                    <div class='form-group col-md-12'>
+                    {{-- <div class='form-group col-md-12'>
                         <label for='keterangan' class='control-label'> {{ __('Keterangan') }}</label>
                         <textarea class="form-control @error('keterangan')
                             is-invalid @enderror " wire:model="keterangan"
@@ -55,7 +55,7 @@
                         </textarea>
                         @error('keterangan')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-info">{{ __('Simpan Data') }}</button>
