@@ -11,6 +11,7 @@
                     <div class="col-md-6 col-sm-12">
                         <a href="{{route('lab.create')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Data</a>
                     </div>
+                    
                     <div class="col-md-6 col-sm-12">
                         <div class="input-group">
                             <input type="text" class="form-control form-control" wire:model.lazy="search"

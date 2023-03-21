@@ -56,7 +56,8 @@
                             </thead>
                             <tbody>
                                 @forelse($drugs as $drug)
-                                    <livewire:drug.single :drug="$drug" :key="time().$drug->id" />
+                                <livewire:drug.single :drug="$drug" :key="time() . $drug->id" />
+                                    {{-- <livewire:drug.single :drug="$drug" :key="time().$drug->id" /> --}}
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse

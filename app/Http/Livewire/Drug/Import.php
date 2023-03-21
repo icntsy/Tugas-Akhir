@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Drug;
 
 use App\Imports\DrugImport;
+use Illuminate\Http\Request;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Maatwebsite\Excel\Facades\Excel;
@@ -20,13 +21,20 @@ class Import extends Component
         $this->emit('drugImported');
     }
     protected $rules = [
-        'file' => 'file|mimes:xlsx,xls'
+        'file' => 'required'
     ];
-
-
 
     public function render()
     {
         return view('livewire.drug.import');
     }
+
+    // public function drugimportexcel(Request $request){
+    //     $file = $request->file('file');
+    //     $namaFile = $file->getClientOriginalName();
+    //     $file->move('DataDrug', $namaFile);
+
+    //     Excel::import(new DrugImport, public_path('/DataDrug/'.$namaFile));
+    //     return view('livewire.drug');
+    // }
 }
