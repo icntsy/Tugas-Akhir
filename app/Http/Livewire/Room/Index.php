@@ -2,9 +2,11 @@
 
 namespace App\Http\Livewire\Room;
 
+use App\Exports\RoomExport;
 use App\Models\Room;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Index extends Component
 {
@@ -16,6 +18,15 @@ class Index extends Component
     public $sortType;
     public $sortColumn;
 
+    public function importData()
+    {
+        $this->dispatchBrowserEvent('show-model', ['id' => 'modal']);
+    }
+
+    public function downloadData()
+    {
+        return Excel::download(new RoomExport, 'Data-Ruangan.xlsx');
+    }
     public function sort($column)
     {
         $sort = $this->sortType == 'desc' ? 'asc' : 'desc';
@@ -30,8 +41,8 @@ class Index extends Component
     public function render()
     {
         $rooms = Room::query();
-        $rooms->where('name', 'like', '%'.$this->search.'%');
-        $rooms =$rooms->paginate(10);
+        $rooms->where('name', 'like', '%' . $this->search . '%');
+        $rooms = $rooms->paginate(10);
         return view('livewire.room.index', compact('rooms'));
     }
 }

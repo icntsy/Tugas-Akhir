@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\ImportLabController;
 use App\Http\Controllers\ImportObatController;
+use App\Http\Controllers\ImportRoomController;
 use App\Http\Controllers\SelectController;
 use App\Http\Controllers\UserController;
 use App\Http\Livewire\Documentation\AddParamAndRequest;
@@ -52,6 +54,8 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
+    Route::post("/lab/import", [ImportLabController::class, "import"]);
+    Route::post("/ruangan/import", [ImportRoomController::class, "import"]);
     Route::post("/obat/import", [ImportObatController::class, "import"]);
     // Route::get('antrian/process/{pendaftaran}', \App\Http\Livewire\Queue\Process::class)->name('queue.process');
     Route::get('antrian/process/{queue}', \App\Http\Livewire\Queue\Process::class)->name('queue.process');
