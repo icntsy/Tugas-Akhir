@@ -19,7 +19,7 @@ class Single extends Component
 
     public function delete(){
         $this->diagnosis->delete();
-        $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('Diagnosis Terhapus', ['name' => __('Article') ]) ]);
+        // $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('Diagnosis Terhapus', ['name' => __('Article') ]) ]);
         $this->emit('diagnosisDeleted');
     }
 }

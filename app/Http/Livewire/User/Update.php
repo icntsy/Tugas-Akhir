@@ -15,7 +15,8 @@ class Update extends Component
 
     protected $rules = [
         'name' => 'required',
-        'email' => 'required|email|unique:users,email',
+        // 'email' => 'required|email|unique:users,email',
+        'email'=> 'required',
         'password' => 'required|confirmed',
         'role' => 'required'
     ];

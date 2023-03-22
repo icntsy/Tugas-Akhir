@@ -9,21 +9,22 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="file" >Pilih File</label>
-                    <input type="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" wire:model="file" id="file" class="form-control-file @error('file')
-                        is-invalid
-@enderror">
-                    @error('file')
-                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
-
+            <form action="{{ url('/diagnosis/import') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="file">Pilih File</label>
+                        <input type="file" class="form-control-file" name="file" id="file">
+                    </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" wire:click="saveData" class="btn btn-primary">Save changes</button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    {{-- <button type="button" wire:click="saveData" class="btn btn-primary">Save changes</button> --}}
+                    <button type="submit" class="btn btn-primary">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

@@ -32,7 +32,7 @@
                             <option value="bidan">Bidan</option>
                             {{-- <option value="staff">Staff</option> --}}
                             <option value="apoteker">Apoteker</option>
-                            <option value="pengguna">Pengguna</option>
+                            {{-- <option value="pengguna">Pengguna</option> --}}
                         </select>
                     </div>
                     <div class='form-group col-md-6'>

@@ -30,7 +30,7 @@
                         <table class="mb-0 table table-sm table-bordered">
                             <thead>
                             <tr>
-                                <th>Id User</th>
+                                <th>No</th>
                                 <th>Nama Lengkap User</th>
                                 <th>Email User</th>
                                 <th>Type User</th>

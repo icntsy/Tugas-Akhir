@@ -4,9 +4,9 @@ namespace App\Imports;
 
 use App\Models\Diagnosis;
 use Maatwebsite\Excel\Concerns\ToModel;
-use Maatwebsite\Excel\Concerns\WithHeadingRow;
+// use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class DiagnosisImport implements ToModel, WithHeadingRow
+class DiagnosisImport implements ToModel
 {
     /**
     * @param array $row
@@ -16,9 +16,10 @@ class DiagnosisImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         return new Diagnosis([
-            'code' => $row['kode_diagnosa'],
-            'icc_code' => $row['jenis_kode'],
-            'diagnosis' => $row['diagnosa']
+            'category' => $row[0],
+            'subcategory' => $row[1],
+            'english_name' => $row[2],
+            'indonesian_name' => $row[3]
         ]);
     }
 }
