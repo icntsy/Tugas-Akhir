@@ -27,6 +27,7 @@ class ModalDiagnosa extends Component
         } else {
             $diagnoses->latest('id');
         }
+        // $diagnoses = $diagnoses->paginate(5);
         $diagnoses = $diagnoses->paginate(5);
         return view('livewire.component.modal-diagnosa', compact('diagnoses'));
     }
