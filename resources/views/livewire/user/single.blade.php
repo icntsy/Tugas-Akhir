@@ -1,6 +1,7 @@
 <tr>
+
     {{-- <td>{{ $user->id }}</td> --}}
-    <td>{{ $user->iteration }}</td>
+    <td>{{ $user->id }}</td>
     <td>{{ $user->name }}</td>
     <td>{{ $user->email }}</td>
     <td>{{ $user->role }}</td>
