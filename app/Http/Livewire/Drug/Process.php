@@ -4,11 +4,17 @@ namespace App\Http\Livewire\Drug;
 
 use App\Models\Drug;
 use App\Models\Queue;
+use App\Models\Transaction;
 use Livewire\Component;
 
 class Process extends Component
 {
     public $queue;
+    public $payment;
+
+    protected $rules = [
+        'payment' => 'required|numeric',
+    ];
 
     public  function mount(Queue $queue){
         $this->queue = $queue;
@@ -29,6 +35,14 @@ class Process extends Component
         } catch (\Exception $e) {
             dd($e);
         }
+    }
+    public function submit () {
+        $this->validate();
+        Transaction::create([
+            'queue_id' =>$this->queue->id,
+            'payment' => $this->payment
+        ]);
+        $this->redirectRoute('queue.drug');
     }
     public function render()
     {

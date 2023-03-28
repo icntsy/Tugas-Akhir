@@ -22,4 +22,6 @@ class Drug extends Model
         'harga'
         // 'expire_date'
     ];
+
+    
 }

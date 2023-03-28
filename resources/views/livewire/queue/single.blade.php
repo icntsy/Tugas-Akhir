@@ -1,3 +1,4 @@
+{{-- {{ dd($queue) }} --}}
 <tr>
     <td>{{$queue->patient->name}}</td>
     <td>{{$queue->queue_number}}</td>

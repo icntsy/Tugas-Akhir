@@ -9,16 +9,16 @@
             <div class="card-body">
                 <div class="row">
                     @role('admin')
-                    {{-- <div class="col-md-6 col-sm-12">
+                        {{-- <div class="col-md-6 col-sm-12">
                         <a href="{{ route('queue.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
                             Tambah
                             Antrian</a>
                     </div> --}}
-                    <div class="col-md-6 col-sm-12">
-                        <a href="{{ route('queue.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
-                            Tambah
-                            Antrian</a>
-                    </div>
+                        <div class="col-md-6 col-sm-12">
+                            <a href="{{ route('queue.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
+                                Tambah
+                                Antrian</a>
+                        </div>
                     @endrole
                     <div class="col-md-6 col-sm-12 d-flex justify-content-end">
                         <div class="input-group">
@@ -50,8 +50,8 @@
                             <tbody>
                                 @forelse($queues as $queue)
                                     {{-- <livewire:queue.single :queue="$queue" :key="time().$queue->id" /> --}}
-                                        <livewire:queue.single :queue="$queue" :key="time() . $queue->id" />
-                                    @empty
+                                    <livewire:queue.single :queue="$queue" :key="time() . $queue->id" />
+                                @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse
                             </tbody>

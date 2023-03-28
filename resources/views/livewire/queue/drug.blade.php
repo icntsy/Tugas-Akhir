@@ -42,7 +42,9 @@
                             </thead>
                             <tbody>
                                 @forelse($queues as $queue)
-                                    <livewire:queue.drug-table :queue="$queue" :key="time().$queue->id" />
+                                    @if (!$queue->transaction)
+                                        <livewire:queue.drug-table :queue="$queue" :key="time() . $queue->id" />
+                                    @endif
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse

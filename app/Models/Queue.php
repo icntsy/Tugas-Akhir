@@ -36,6 +36,10 @@ class Queue extends Model
     public function medicalrecord(){
         return $this->belongsTo(MedicalRecord::class, 'medical_record_id');
     }
+
+    public function transaction(){
+        return $this->hasOne(Transaction::class, 'queue_id', 'id');
+    }
     protected $with = [
         'patient',
         'doctor',
