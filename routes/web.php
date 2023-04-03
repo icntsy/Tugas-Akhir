@@ -86,7 +86,9 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
         });
     }
 });
-Route::get('login', \App\Http\Livewire\Auth\Login::class)->name('login');
+// Route::get('login', \App\Http\Livewire\Auth\Login::class, 'authenticate')->name('login');
+Route::get('login', \App\Http\Livewire\Auth\Login::class)->name('login')->middleware('guest');
+// Route::get('login', \App\Http\Livewire\Auth\Login::class)->name('login');
 Route::group(['prefix' => 'select'], function () {
     Route::get('doctor', [SelectController::class, 'doctor'])->name('select.doctor');
     Route::get('service', [SelectController::class, 'service'])->name('select.service');

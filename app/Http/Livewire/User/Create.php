@@ -14,8 +14,9 @@ class Create extends Component
     public $role;
 
     protected $rules = [
-        'name' => 'required',
-        'email' => 'required|email|unique:users,email',
+        'name' => 'required|max:255',
+        'email' => 'required|email:dns|unique:users,email',
+        // 'email' => 'required|email|unique:users,email',
         'password' => 'required|confirmed',
         'role' => 'required'
     ];

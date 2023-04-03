@@ -4,6 +4,7 @@
             <div class="mx-auto app-login-box col-md-8">
                 <div class="modal-dialog w-100 mx-auto">
                     <form class="" method="post" wire:submit.prevent="login">
+                    @csrf
                     <div class="modal-content">
 
                         <div class="modal-body">
@@ -17,8 +18,8 @@
                                 <div class="form-row">
                                     <div class="col-md-12">
                                         <div class="position-relative form-group">
-                                            <label for="exampleEmail" class="control-label">Alamat Email</label>
-                                            <input wire:model="email" name="email" id="exampleEmail"
+                                            <label for="email" class="control-label">Alamat Email</label>
+                                            <input wire:model="email" name="email" id="email"
                                                    placeholder="Masukan Email" type="email" autofocus
                                                    class="form-control @error('email') is-invalid @enderror">
                                             @error('email')
@@ -27,8 +28,8 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="position-relative form-group">
-                                            <label for="examplePassword" class="control-label">Password</label>
-                                            <input wire:model="password" name="password" id="examplePassword"
+                                            <label for="password" class="control-label">Password</label>
+                                            <input wire:model="password" name="password" id="password"
                                                    placeholder="Masukan Password" type="password"
                                                    class="form-control @error('password') is-invalid @enderror">
                                             @error('password')
