@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\kirimEmailController;
+use App\Http\Controllers\CobaController;
 use App\Http\Controllers\ImportDiagnosisController;
 use App\Http\Controllers\ImportLabController;
 use App\Http\Controllers\ImportObatController;
@@ -27,6 +28,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get("/coba", [CobaController::class, "index"]);
 
 $list_menu = [
     'lab' => 'lab',
