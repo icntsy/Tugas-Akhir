@@ -87,7 +87,7 @@
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Obat</th>
-                                            {{-- <th>Harga Satuan</th> --}}
+                                            <!-- {{-- <th>Harga Satuan</th> --}} -->
                                             <th>Qty</th>
                                             <th>Aturan Pakai</th>
                                             <th>Total</th>
@@ -98,7 +98,7 @@
                                             <tr>
                                                 <td>{{$drug->id}}</td>
                                                 <td>{{$drug->nama}}</td>
-                                                {{-- <td>{{$drug->harga}}</td> --}}
+                                                <!-- {{-- <td>{{$drug->harga}}</td> --}} -->
                                                 <td>{{$drug->pivot->quantity}}</td>
                                                 <td>{{$drug->pivot->instruction}}</td>
                                                 <td><div class="input-group mb-3">

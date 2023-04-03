@@ -30,7 +30,7 @@
                         <div class="col-md-6">
                             <table width="100%">
                                 <tbody><tr>
-                                    <td style="font-weight: bold;" width="35%">Nama Lenkap</td>
+                                    <td style="font-weight: bold;" width="35%">Nama Lengkap</td>
                                     <td width="1%">:</td>
                                     <td>
                                         {{$queue->patient->name}}                               </td>
@@ -277,6 +277,7 @@
                                             <th>Subcategory</th>
                                             <th>English Name</th>
                                             <th>Indonesian Name</th>
+                                            <th>Keterangan</th>
                                             <th>Aksi</th>
                                         </tr>
                                         </thead>

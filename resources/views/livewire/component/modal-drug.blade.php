@@ -28,9 +28,10 @@
                                 <thead>
                                 <tr>
                                     <th>Nama Obat</th>
-                                    <th>Satuan Dosis</th>
-                                    {{-- <th>Harga</th> --}}
-                                    {{-- <th>Action</th> --}}
+                                    <th>Action</th>
+                                    <!-- <th>Satuan Dosis</th> -->
+                                    <!-- {{-- <th>Harga</th> --}} -->
+                                      
                                 </tr>
                                 </thead>
 
