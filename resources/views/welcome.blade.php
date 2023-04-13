@@ -81,7 +81,66 @@
         </div>
     </div>
 </div>
-@elserole('staff')
+@elserole('apoteker')
+<div class="row">
+
+    <div class="col-md-3">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Data Obat</div>
+                        <div class="widget-subheading">Jumlah obat</div>
+                        <div class="widget-numbers">{{\App\Models\Drug::count()}}</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="text-primary">
+                            <i class="fa fa-3x fa-prescription-bottle-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Data Nota Obat</div>
+                        <div class="widget-subheading">Jumlah Nota Obat</div>
+                        <div class="widget-numbers">{{\App\Models\Transaction::count()}}</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="text-success">
+                            <i class="fa fa-3x fa-users"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Data Harga Jasa</div>
+                        <div class="widget-subheading">Jumlah Harga Jasa</div>
+                        <div class="widget-numbers">{{\App\Models\User::where('role', 'dokter')->count()}}</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="text-primary">
+                            <i class="fa fa-3x fa-file-medical-alt"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{-- @elserole('staff')
 <div class="row">
     <div class="col-md-3">
         <div class="card mb-3 widget-content">
@@ -155,10 +214,10 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @elserole('dokter')
 <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-3">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
@@ -176,14 +235,50 @@
             </div>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-3">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Data Dokter</div>
-                        <div class="widget-subheading">Jumlah Dokter</div>
-                        <div class="widget-numbers">{{\App\Models\User::where('role', 'dokter')->count()}}</div>
+                        <div class="widget-heading">Data Pasien</div>
+                        <div class="widget-subheading">Jumlah Pasien</div>
+                        <div class="widget-numbers">{{\App\Models\Patient::count()}}</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="text-warning">
+                            <i class="fa fa-3x fa-medkit"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Data Rekam Medis</div>
+                        <div class="widget-subheading">Jumlah Rekam Medis</div>
+                        <div class="widget-numbers">{{\App\Models\MedicalRecord::count()}}</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="text-warning">
+                            <i class="fa fa-3x fa-medkit"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading">Data Diagnosis</div>
+                        <div class="widget-subheading">Jumlah Diagnosis</div>
+                        <div class="widget-numbers">{{\App\Models\Diagnosis::count()}}</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="text-warning">

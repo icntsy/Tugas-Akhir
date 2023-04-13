@@ -52,7 +52,8 @@ class Index extends Component
     public function render()
     {
         $drugs = Drug::query();
-        $drugs->where('nama', 'like', '%' . $this->search . '%');
+        $drugs->where('nama', 'like', '%' . $this->search . '%')
+        ->orWhere('harga', 'like', '%'.$this->search.'%');
         if ($this->sortColumn) {
             $drugs->orderBy($this->sortColumn, $this->sortType);
         } else {

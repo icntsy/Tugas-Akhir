@@ -47,7 +47,9 @@ class Index extends Component
     {
         $diagnoses = Diagnosis::query();
         $diagnoses->where('english_name', 'like', '%' . $this->search . '%')
-            ->orWhere('indonesian_name', 'like', '%' . $this->search . '%');
+            ->orWhere('indonesian_name', 'like', '%' . $this->search . '%')
+            ->orWhere('subcategory', 'like', '%' . $this->search . '%')
+            ->orWhere('category', 'like', '%' . $this->search . '%');
         if ($this->sortColumn) {
             $diagnoses->orderBy($this->sortColumn, $this->sortType);
         } else {

@@ -36,7 +36,7 @@ class Index extends Component
     {
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
-            'message' => 'Data Berhasil di Hapus'
+            'message' => 'Data Lab Berhasil di Hapus'
         ]);
     }
     public function sort($column)
@@ -48,7 +48,9 @@ class Index extends Component
 
     public function render()
     {
-        $labs = Lab::query()->where('nama', 'like', '%' . $this->search . '%');
+        $labs = Lab::query()->where('nama', 'like', '%' . $this->search . '%')
+        ->orWhere('harga', 'like', '%'.$this->search.'%')
+        ->orWhere('satuan', 'like', '%'.$this->search.'%');
         if ($this->sortColumn) {
             $labs->orderBy($this->sortColumn, $this->sortType);
         } else {

@@ -71,13 +71,13 @@
                                 <option value="Perguruan Tinggi">Perguruan Tinggi</option>
                             </select>
                         </div>
-                        <div class='form-group col-md-12'>
+                        {{-- <div class='form-group col-md-12'> --}}
                             {{--                        <label for='bpjs_number' class='control-label'> {{ __('Nomer Bpjs (tidak wajib)') }}</label>--}}
-                            <input type='text' wire:model.lazy='bpjs_number'
+                            {{-- <input type='text' wire:model.lazy='bpjs_number'
                                    class="form-control @error('bpjs_number') is-invalid @enderror" id='bpjs_number' placeholder="Nomer BPJS">
-                            @error('bpjs_number')
-                            <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                        </div>
+                            @error('bpjs_number') --}}
+                            {{-- <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                        </div> --}}
                         <div class='form-group col-md-12'>
                             {{--                        --}}{{--                        <label for='address' class='control-label'> {{ __('Alamat Lengkap') }}</label>--}}
                             <textarea class="form-control" wire:model="allergy" placeholder="List Alergi Yang di derita"></textarea>

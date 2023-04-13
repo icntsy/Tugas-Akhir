@@ -5,9 +5,13 @@ namespace App\Http\Livewire\Queue;
 use App\Models\Queue;
 use Carbon\Carbon;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Drug extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
+    public $search;
     protected $listeners = [
         'queueDeleted','queueUpdated'
     ];
@@ -22,7 +26,7 @@ class Drug extends Component
     {
         $queues = Queue::query();
         $queues->whereDate('created_at', Carbon::today())->where('has_check', true)->where('has_drug', false);
-        $queues = $queues->paginate(10);
+        $queues = $queues->paginate(5);
         return view('livewire.queue.drug', compact('queues'));
     }
 }

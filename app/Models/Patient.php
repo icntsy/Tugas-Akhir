@@ -20,7 +20,7 @@ class Patient extends Model
         'address',
         'phone_number',
         'study',
-        'bpjs_number',
+        // 'bpjs_number',
         'profession',
         'allergy',
     ];

@@ -32,8 +32,10 @@ class Index extends Component
     {
         $users = User::query();
         $users1 = User::query();
-        $users->where('name', 'like', '%'.$this->search.'%');
-        $users = $users->paginate(10);
+        $users->where('name', 'like', '%'.$this->search.'%')
+        ->orWhere('email', 'like', '%'.$this->search.'%')
+        ->orWhere('role', 'like', '%'.$this->search.'%');
+        $users = $users->paginate(5);
         return view('livewire.user.index', compact('users', 'users1'));
     }
 }

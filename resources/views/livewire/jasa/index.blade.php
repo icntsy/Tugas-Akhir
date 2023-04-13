@@ -15,9 +15,9 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        <button class="btn btn-secondary" wire:click="downloadData"><i class="fa fa-file-import"></i>
+                        {{-- <button class="btn btn-secondary" wire:click="downloadData"><i class="fa fa-file-import"></i>
                             Export
-                            Excel</button>
+                            Excel</button> --}}
                             <button class="btn btn-secondary" wire:click="importData">
                                 <i class="fa fa-file-import"></i>
                                 Tambah Harga Jasa

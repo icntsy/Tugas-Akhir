@@ -27,7 +27,7 @@ class Datauser extends Component
     {
         $patients = Patient::query();
         $patients->where('name', 'like', '%'.$this->search.'%');
-        $patients = $patients->paginate(10);
+        $patients = $patients->paginate(5);
         return view('livewire.medicalrecord.datauser', compact('patients'));
     }
 }

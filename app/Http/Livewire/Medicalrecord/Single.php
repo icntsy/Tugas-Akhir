@@ -22,3 +22,4 @@ class Single extends Component
         return view('livewire.medicalrecord.single');
     }
 }
+

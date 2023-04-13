@@ -24,7 +24,7 @@ class Table extends Component
     public function render()
     {
         $records = MedicalRecord::query();
-        $records = $records->paginate(10);
+        $records = $records->paginate(5);
         return view('livewire.medicalrecord.table', compact('records'));
     }
 }

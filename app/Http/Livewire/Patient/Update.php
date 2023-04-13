@@ -15,7 +15,7 @@ class Update extends Component
     public $address;
     public $phone_number;
     public $study;
-    public $bpjs_number;
+    // public $bpjs_number;
     public $profession;
     public $allergy;
 
@@ -38,7 +38,7 @@ class Update extends Component
     {
         $this->validate();
 
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Berhasil memperbarui data', ['name' => __('Article') ]) ]);
+        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Data Pasien Berhasil Diupdate', ['name' => __('Article') ]) ]);
 
         $this->patient->update([
             'name' => $this->name,
@@ -47,10 +47,11 @@ class Update extends Component
             'address' => $this->address,
             'phone_number' => $this->phone_number,
             'study' => $this->study,
-            'bpjs_number' => $this->bpjs_number,
+            // 'bpjs_number' => $this->bpjs_number,
             'profession' => $this->profession,
             'allergy' => $this->allergy,
         ]);
+        return redirect("/pasien");
     }
     public function mount(Patient $patient)
     {
@@ -61,7 +62,7 @@ class Update extends Component
         $this->address = $patient->address;
         $this->phone_number = $patient->phone_number;
         $this->study = $patient->study;
-        $this->bpjs_number = $patient->bpjs_number;
+        // $this->bpjs_number = $patient->bpjs_number;
         $this->profession = $patient->profession;
         $this->allergy = $patient->allergy;
     }

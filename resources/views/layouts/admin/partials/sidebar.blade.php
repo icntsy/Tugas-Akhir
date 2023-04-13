@@ -123,12 +123,12 @@
                         Laporan Pengunjung
                     </a>
                 </li> --}}
-                <li>
+                {{-- <li>
                     <a href="{{ route('medicalrecord.index') }}" class="@if (Request::is('report*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-notes-medical"></i>
                         Laporan Obat
                     </a>
-                </li>
+                </li> --}}
                 {{-- <li>
                     <a href="{{ route('medicalrecord.index') }}" class="@if (Request::is('report*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-notes-medical"></i>

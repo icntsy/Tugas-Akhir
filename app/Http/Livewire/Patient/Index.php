@@ -33,7 +33,10 @@ class Index extends Component
     {
         $patients = Patient::query();
         $patients->where('name', 'like', '%'.$this->search.'%')
-        ->orWhere('nik', 'like', '%'.$this->search.'%');
+        ->orWhere('nik', 'like', '%'.$this->search.'%')
+        ->orWhere('gender', 'like', '%'.$this->search.'%')
+        ->orWhere('address', 'like', '%'.$this->search.'%')
+        ->orWhere('phone_number', 'like', '%'.$this->search.'%');
         if($this->sortColumn){
             $patients->orderBy($this->sortColumn, $this->sortType);
         }else{
