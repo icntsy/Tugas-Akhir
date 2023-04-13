@@ -14,4 +14,12 @@ class TransactionController extends Controller
         $transaction= Transaction::create($request->all());
         return response()->json($transaction);
     }
+
+    public function render()
+    {
+        $transaction = Transaction::query();
+        // $transaction->where('payment', 'like', '%'.$this->search.'%');
+        $transaction = $transaction->paginate(10);
+        return view('livewire.nota-obat.index', compact("transaction"));
+    }
 }

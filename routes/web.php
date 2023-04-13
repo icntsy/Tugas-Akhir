@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\kirimEmailController;
 use App\Http\Controllers\CobaController;
 use App\Http\Controllers\ImportDiagnosisController;
@@ -47,7 +48,9 @@ $list_menu = [
     'bpjs' => 'bpjs',
     'documentation' => 'dokumentasi',
     'parameter' => 'parameter',
-    'response' => 'response'
+    'response' => 'response',
+    'nota' => 'nota',
+    'jasa' => 'jasa'
 ];
 
 
@@ -59,6 +62,10 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
     Route::get('/', function () {
         return view('welcome');
     })->name('home');
+
+
+    Route::post("/jasa", [\App\Http\Livewire\Jasa\Process::class, "store_harga"]);
+    Route::get("/nota-obat", [TransactionController::class,'render']);
     Route::get('/obat/kirim-email',[kirimEmailController::class,'index']);
     Route::post("/diagnosis/import", [ImportDiagnosisController::class, "import"]);
     Route::post("/lab/import", [ImportLabController::class, "import"]);
@@ -69,6 +76,7 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
     Route::get('dokumentasi/add-params-and-request/{doc}', AddParamAndRequest::class)->name('doc.add-param');
     Route::get('antri/obat', \App\Http\Livewire\Queue\Drug::class)->name('queue.drug');
     Route::get('antri/obat/process/{queue}', \App\Http\Livewire\Drug\Process::class)->name('queue.drug.process');
+    Route::post('antri/obat/process/{queue}', [\App\Http\Livewire\Drug\Store::class, "store"]);
 
     foreach ($list_menu as $key => $menu) {
         $name = ucfirst($key);

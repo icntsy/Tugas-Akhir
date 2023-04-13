@@ -1,11 +1,12 @@
 @section('meta_title', 'MEDICAL RECORD')
 @section('page_title', 'PROCESS  PENYIAPAN OBAT')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-list"></i>
+<i class="metismenu-icon fa fa-list"></i>
 @endsection
 
 <div class="row">
-    <form  wire:submit.prevent="submit">
+    <form action="{{ url('/antri/obat/process/'.$queue->id) }}" method="POST">
+        @csrf
         <div class="card col-md-12">
             <div class="card-header">
                 <div class="btn-actions-pane-right text-capitalize">
@@ -23,64 +24,67 @@
                         <div class="card-body row">
                             <div class="col-md-6">
                                 <table width="100%">
-                                    <tbody><tr>
-                                        <td style="font-weight: bold;" width="35%">Nama Lengkap</td>
-                                        <td width="1%">:</td>
-                                        <td>
-                                            {{$queue->patient->name}}                               </td>
-                                    </tr>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">Nama Lengkap</td>
+                                            <td width="1%">:</td>
+                                            <td>
+                                                {{$queue->patient->name}}
+                                            </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td style="font-weight: bold;" width="35%">No Antrian</td>
-                                        <td>:</td>
-                                        <td>{{$queue->queue_number}}</td>
-                                    </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">No Antrian</td>
+                                            <td>:</td>
+                                            <td>{{$queue->queue_number}}</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td style="font-weight: bold;" width="35%">TTL</td>
-                                        <td>:</td>
-                                        <td>{{$queue->patient->birth_date}}</td>
-                                    </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">TTL</td>
+                                            <td>:</td>
+                                            <td>{{$queue->patient->birth_date}}</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td style="font-weight: bold;" width="35%">Sex / Umur</td>
-                                        <td>:</td>
-                                        <td>{{$queue->patient->gender}} / {{\Carbon\Carbon::parse($queue->patient->birth_date)
-                            ->diffInYears
-                            ()}}
-                                            Thn</td>
-                                    </tr>
-                                    </tbody></table>
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">Sex / Umur</td>
+                                            <td>:</td>
+                                            <td>
+                                                {{$queue->patient->gender}} / {{\Carbon\Carbon::parse($queue->patient->birth_date)->diffInYears()}} Thn
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                             <div class="col-md-6">
                                 <table width="100%">
-                                    <tbody><tr>
-                                        <td style="font-weight: bold;" width="35%">Waktu Kunjungan</td>
-                                        <td width="1%">:</td>
-                                        <td>{{$queue->created_at}}</td>
-                                    </tr>
+                                    <tbody>
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">Waktu Kunjungan</td>
+                                            <td width="1%">:</td>
+                                            <td>{{$queue->created_at}}</td>
+                                        </tr>
 
 
-                                    <tr>
-                                        <td style="font-weight: bold;" width="35%">Jenis Pasien</td>
-                                        <td>:</td>
-                                        <td>Umum </td>
-                                    </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">Jenis Pasien</td>
+                                            <td>:</td>
+                                            <td>Umum </td>
+                                        </tr>
 
-                                    <tr>
-                                        <td style="font-weight: bold;" width="35%">Layanan </td>
-                                        <td>:</td>
-                                        <td>{{$queue->service->name}}</td>
-                                    </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">Layanan </td>
+                                            <td>:</td>
+                                            <td>{{$queue->service->name}}</td>
+                                        </tr>
 
-                                    <tr>
-                                        <td style="font-weight: bold;" width="35%">Dokter Pemeriksa</td>
-                                        <td>:</td>
-                                        <td>{{$queue->doctor->name}}</td>
-                                    </tr>
-                                    </tbody></table>
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">Dokter Pemeriksa</td>
+                                            <td>:</td>
+                                            <td>{{$queue->doctor->name}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
-                            <hr>
                             <div class="col-md-12">
                                 <table class="table">
                                     <thead>
@@ -94,24 +98,26 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @php
+                                        $subtotal = 0;
+                                        @endphp
                                         @foreach($queue->medicalrecord->drugs as $drug)
-                                            <tr>
-                                                <td>{{$drug->id}}</td>
-                                                <td>{{$drug->nama}}</td>
-                                                <!-- {{-- <td>{{$drug->harga}}</td> --}} -->
-                                                <td>{{$drug->pivot->quantity}}</td>
-                                                <td>{{$drug->pivot->instruction}}</td>
-                                                <td><div class="input-group mb-3">
-                                                    <span class="input-group-text">$</span>
-                                                    <input type="text" wire:model='payment' placeholder="payment" class="form-control @error('payment') is-invalid @enderror"   id='payment' >
-                                                    @error('payment')
-                                                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                                                  </div></td>
-                                                {{-- <td>{{$drug->harga * $drug->pivot->quantity}}</td> --}}
-                                            </tr>
+                                        @php
+                                        $subtotal += $drug->harga * $drug->pivot->quantity;
+                                        @endphp
+                                        <tr>
+                                            <td>{{$drug->id}}</td>
+                                            <td>{{$drug->nama}}</td>
+                                            <!-- {{-- <td>{{$drug->harga}}</td> --}} -->
+                                            <td>{{$drug->pivot->quantity}}</td>
+                                            <td>{{$drug->pivot->instruction}}</td>
+                                            <td>Rp. {{ number_format($drug->harga) }}</td>
+                                        </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
+
+                                Subtotal : <input type="text" name="payment" placeholder="payment" class="form-control"  id='payment' style="width: 50%" value="{{ $subtotal + $queue->doctor->harga_jasa }}" readonly>
                             </div>
                         </div>
                     </div>

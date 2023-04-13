@@ -82,12 +82,7 @@
                         Data Obat
                     </a>
                 </li> --}}
-                <li>
-                     <a href="{{ route('lab.index') }}" class="@if (Request::is('lab*')) mm-active @endif">
-                        <i class="metismenu-icon fa fa-file-medical-alt"></i>
-                        Data Lab
-                    </a>
-                </li>
+
                 <li>
                     <a href="{{ route('diagnosis.index') }}" class="@if (Request::is('diagnosis*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-file-alt"></i>
@@ -99,6 +94,12 @@
                     <a href="{{ route('drug.index') }}" class="@if (Request::is('obat*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-prescription-bottle-alt"></i>
                         Data Obat
+                    </a>
+                </li>
+                <li>
+                     <a href="{{ route('lab.index') }}" class="@if (Request::is('lab*')) mm-active @endif">
+                        <i class="metismenu-icon fa fa-file-medical-alt"></i>
+                        Data Lab
                     </a>
                 </li>
                 <li>
@@ -229,9 +230,17 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                <a href="{{ route('nota.index') }}" class="@if (Request::is('nota*')) mm-active @endif">
+
                         <i class="metismenu-icon fa fa-prescription-bottle-alt"></i>
-                        Laporan Obat
+                        Nota Obat
+                    </a>
+                </li>
+                <li class="app-sidebar__heading">Setting</li>
+                <li>
+                    <a href="{{ route('jasa.index') }}" class="@if (Request::is('jasa*')) mm-active @endif">
+                        <i class="metismenu-icon fa fa-clipboard"></i>
+                        Harga Jasa
                     </a>
                 </li>
                 @endrole

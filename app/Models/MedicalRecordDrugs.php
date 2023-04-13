@@ -6,17 +6,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Transaction extends Model
+class MedicalRecordDrugs extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'queue_id',
-        'payment',
+    protected $table = "medical_record_drugs";
 
-    ];
-
-    public function queue(){
-        return $this->belongsTo(Queue::class);
-    }
 }

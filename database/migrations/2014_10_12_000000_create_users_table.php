@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->softDeletes();
             $table->enum('role', ['apoteker', 'staff', 'dokter', 'pengguna','admin', 'bidan', 'dokumentasi'])->default('pengguna');
+            $table->double('harga_jasa')->nullable();
             $table->timestamps();
         });
     }
