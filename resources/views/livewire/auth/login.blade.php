@@ -1,7 +1,7 @@
 <div class="app-container">
-    <div class="h-100 bg-white bg-animation">
+    {{-- <div class="h-100 bg-white bg-animation"> --}}
         <div class="d-flex h-100 justify-content-center align-items-center">
-            <div class="mx-auto app-login-box col-md-8">
+            <div class="mx-auto app-login-box col-md-4">
                 <div class="modal-dialog w-100 mx-auto">
                     <form class="" method="post" wire:submit.prevent="login">
                     @csrf
@@ -10,17 +10,17 @@
                         <div class="modal-body">
                             <div class="h5 modal-title text-center">
                                 <h4 class="mt-2">
-                                    <img src="{{asset('assets/images/logo.png')}}" alt="">
-                                    <div class="mt-3">Selamat Datang</div>
+                                    <img src="{{asset('images/zyro-image (2).png')}}" alt="">
+                                    <div class="mt-3">E-Klinik Laa Tachzan</div>
                                 </h4>
                             </div>
 
                                 <div class="form-row">
                                     <div class="col-md-12">
                                         <div class="position-relative form-group">
-                                            <label for="email" class="control-label">Alamat Email</label>
+                                            <label for="email" class="control-label">Email Address</label>
                                             <input wire:model="email" name="email" id="email"
-                                                   placeholder="Masukan Email" type="email" autofocus
+                                                   placeholder="name@example.com" type="email" autofocus
                                                    class="form-control @error('email') is-invalid @enderror">
                                             @error('email')
                                             <div class='invalid-feedback'>{{ $message }}</div>@enderror
@@ -37,19 +37,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="position-relative form-check">
+                                {{-- <div class="position-relative form-check">
                                     <input name="check" wire:model="keeplogin" id="exampleCheck" type="checkbox"
                                            class="form-check-input">
                                     <label for="exampleCheck" class="form-check-label">Keep me logged in</label>
-                                </div>
+                                </div> --}}
                         </div>
                         <div class="modal-footer clearfix">
-                            <div class="float-left">
+                            {{-- <div class="float-left">
                                 <a href="javascript:void(0);" class="btn-lg btn btn-link">Recover Password</a>
-                            </div>
+                            </div> --}}
                             <div class="float-right">
-                                <button type="submit" class="btn btn-primary btn-lg">Login to
-                                    Dashboard
+                                <button type="submit" class="btn btn-primary btn-lg">Login
                                 </button>
                             </div>
                         </div>
@@ -58,5 +57,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    {{-- </div> --}}
 </div>
