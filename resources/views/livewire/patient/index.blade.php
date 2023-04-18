@@ -1,7 +1,8 @@
 @section('meta_title', 'Pasien')
-@section('page_title', 'MASTER DATA PASIEN')
+@section('page_title', 'DATA PASIEN')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-portrait"></i>
+<i class="fa fa-users" aria-hidden="true"></i>
+    {{-- <i class="metismenu-icon fa fa-portrait"></i> --}}
 @endsection
 <div class="row">
     <div class="col-12">

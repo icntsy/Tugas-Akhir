@@ -1,7 +1,8 @@
 @section('meta_title', 'Mediical Record')
-@section('page_title', 'DATA MEDICAL RECORD')
+@section('page_title', 'DATA REKAM MEDIS')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-notes-medical"></i>
+<i class="fa fa-medkit" aria-hidden="true"></i>
+    {{-- <i class="metismenu-icon fa fa-notes-medical"></i> --}}
 @endsection
 <div class="row">
     <div class="col-12">

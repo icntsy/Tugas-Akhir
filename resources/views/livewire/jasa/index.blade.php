@@ -2,7 +2,9 @@
 @section('page_title', 'HARGA JASA')
 
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-prescription-bottle-alt"></i>
+<i class="metismenu-icon fa fa-credit-card" aria-hidden="true"></i>
+{{-- <i class="metismenu-icon fa fa-money" aria-hidden="true"></i> --}}
+    {{-- <i class="metismenu-icon fa fa-prescription-bottle-alt"></i> --}}
 @endsection
 
 @section('modal')

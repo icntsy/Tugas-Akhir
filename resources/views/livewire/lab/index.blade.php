@@ -1,5 +1,5 @@
 @section('meta_title', 'LAB')
-@section('page_title', 'MASTER DATA LAB')
+@section('page_title', 'DATA LABORATORIUM')
 @section('page_title_icon')
     <i class="metismenu-icon fa fa-file-medical-alt"></i>
 @endsection

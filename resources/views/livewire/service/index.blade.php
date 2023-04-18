@@ -1,7 +1,7 @@
 @section('meta_title', 'LAB')
-@section('page_title', 'MASTER DATA LAYANAN')
+@section('page_title', 'DATA LAYANAN')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-file-medical-alt"></i>
+<i class="metismenu-icon fa fa-server" aria-hidden="true"></i>
 @endsection
 <div class="row">
     <div class="col-12">

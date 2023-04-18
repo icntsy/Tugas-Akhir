@@ -1,8 +1,8 @@
 @section('meta_title', 'OBAT')
-@section('page_title', 'MASTER DATA DIAGNOSIS')
+@section('page_title', 'DATA DIAGNOSIS')
 
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-file-alt"></i>
+<i class="metismenu-icon fa fa-info-circle" aria-hidden="true"></i>
 @endsection
 
 @section('modal')
