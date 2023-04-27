@@ -63,7 +63,8 @@
                                 <tbody><tr>
                                     <td style="font-weight: bold;" width="35%">Waktu Kunjungan</td>
                                     <td width="1%">:</td>
-                                    <td>{{\Carbon\Carbon::parse($queue->created_at)->isoFormat('hh:mm, D MMMM Y')}}</td>
+                                    <td>{{\Carbon\Carbon::parse($queue->created_at)->format('H:i, d F Y')}}</td>
+                                    {{-- <td>{{\Carbon\Carbon::parse($queue->created_at)->isoFormat('hh:mm, D MMMM Y')}}</td> --}}
                                 </tr>
 
 
@@ -340,9 +341,9 @@
                                                            wire:model="listDrug.{{$index}}.instruction"
                                                            placeholder="Aturan Pakai"/>
                                                 </td>
-                                                {{-- <td>{{$drug["drug"]["harga"]}}</td> --}}
+                                                <td>{{$drug["drug"]["harga"]}}</td>
 
-                                                {{-- <td>{{(int)($listDrug[$index]["quantity"]) * $drug["drug"]["harga"] }}</td> --}}
+                                                <td>{{(int)($listDrug[$index]["quantity"]) * $drug["drug"]["harga"] }}</td>
                                                 <td>
                                                     <button wire:click="deleteDrug({{$index}})" class="btn btn-sm
                                                         btn-danger">Hapus</button>

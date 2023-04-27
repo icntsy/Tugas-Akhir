@@ -7,6 +7,7 @@ use Illuminate\View\View;
 use Livewire\Component;
 
 
+
 class Index extends Component
 {
 

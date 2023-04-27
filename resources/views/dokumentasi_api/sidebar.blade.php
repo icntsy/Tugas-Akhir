@@ -151,7 +151,7 @@
                 <section class="">
                     <p class="d-flex justify-content-center align-items-center"></p>
                     <p class="big"><span>KLINIK LAA TACHZAN</span></p>
-                    <p class="big"><span>© 2022 Copyright</span></p>
+                    <p class="big"><span>© 2023 Copyright</span></p>
                 </section>
                 <!-- Section: CTA -->
             </div>
