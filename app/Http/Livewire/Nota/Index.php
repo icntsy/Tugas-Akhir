@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Nota;
 
-use App\Exports\DrugExport;
+use App\Exports\TransactionExport;
 use App\Models\Transaction;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -22,7 +22,7 @@ class Index extends Component
 
     public function downloadData()
     {
-        return Excel::download(new DrugExport, 'drug-data.xlsx');
+        return Excel::download(new TransactionExport, 'nota-data.xlsx');
     }
     public function drugCreated()
     {
