@@ -9,6 +9,7 @@ use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMapping;
 use Maatwebsite\Excel\Concerns\WithStyles;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
+use Carbon\Carbon;
 
 class TransactionExport implements
     FromCollection,
@@ -28,7 +29,11 @@ class TransactionExport implements
     public function map($row): array
     {
         return [
-            $row->queue_id,
+
+            $row->queue->patient->name,
+            Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->isoFormat('D MMMM Y'),
+            $row->queue->doctor->name,
+            $row->queue->service->name,
             $row->payment,
 
         ];
@@ -37,7 +42,11 @@ class TransactionExport implements
     public function headings(): array
     {
         return [
-            'Id Pendaftaran',
+
+            'Nama Lengkap',
+            'Tanggal Periksa',
+            'Dokter',
+            'Layanan',
             'Jumlah Pembayaran'
 
         ];

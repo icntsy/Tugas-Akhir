@@ -8,24 +8,24 @@ use Livewire\WithPagination;
 
 class Table extends Component
 {
-
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    public $search;
     protected $queryString = ['search'];
 
-    protected $listeners = ['articleDeleted', 'drugCreated'];
+    public $search;
     public $sortType;
     public $sortColumn;
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
+
+    protected $listeners  = [
+        'labDeleted'
+    ];
+
+
     public function render()
     {
         $records = MedicalRecord::query();
         $records = $records->paginate(5);
+
         return view('livewire.medicalrecord.table', compact('records'));
     }
 }

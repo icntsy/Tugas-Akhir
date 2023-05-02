@@ -1,3 +1,7 @@
+@php
+    use App\Models\MedicalRecordDrugs;
+@endphp
+
 @section('meta_title', 'OBAT')
 @section('page_title', 'DATA OBAT')
 

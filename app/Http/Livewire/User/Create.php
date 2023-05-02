@@ -30,6 +30,10 @@ class Create extends Component
             'role' => $this->role
         ]);
 
+        $this->dispatchBrowserEvent('show-message', [
+            'type' => 'success',
+            'message' => 'Sukses menambah data user'
+        ]);
         $this->redirectRoute('user.index');
     }
     /**

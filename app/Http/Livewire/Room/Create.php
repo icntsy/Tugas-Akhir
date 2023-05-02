@@ -21,6 +21,10 @@ class Create extends Component
             'price' => $this->price,
         ]);
 
+        $this->dispatchBrowserEvent('show-message', [
+            'type' => 'success',
+            'message' => 'Sukses menambah data ruangan'
+        ]);
         $this->redirectRoute('room.index');
     }
     /**

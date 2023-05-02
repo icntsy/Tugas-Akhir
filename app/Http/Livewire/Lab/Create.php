@@ -27,6 +27,12 @@ class Create extends Component
                 'harga' => $this->harga,
             ]
         );
+        $this->dispatchBrowserEvent('show-message', [
+            'type' => 'success',
+            'message' => 'Sukses menambah data laboratorium'
+        ]);
+
+
         $this->redirectRoute('lab.index');
     }
 

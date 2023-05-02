@@ -1,10 +1,16 @@
+@php
+use App\Models\MedicalRecordDrugs;
+$stok = MedicalRecordDrugs::where("drug_id", $drug["id"])->sum("quantity");
+    $kurang = $drug["stok"] - $stok;
+@endphp
+
 <tr>
     <td>{{$drug->nama}}</td>
     {{-- <td>{{$drug->keterangan }}</td> --}}
     <td>@rupiah($drug->harga)</td>
     <td>
         <span class="badge @if($available) badge-primary @else badge-danger @endif">
-            {{$drug->stok}} {{$available ? "Tersedia" : "Hampir Habis"}}
+            {{{$kurang}}} {{$available ? "Tersedia" : "Hampir Habis"}}
         </span>
     </td>
     <td>

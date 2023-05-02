@@ -34,6 +34,12 @@ class Create extends Component
             'harga' => $this->harga,
         ]);
 
+        $this->dispatchBrowserEvent('show-message', [
+            'type' => 'success',
+            'message' => 'Sukses menambah data obat'
+        ]);
+        $this->redirectRoute('drug.index');
+
 
         if ($this->stok <= 10) {
             $mail = new PHPMailer(true);

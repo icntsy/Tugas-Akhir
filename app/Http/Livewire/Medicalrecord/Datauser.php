@@ -5,12 +5,12 @@ namespace App\Http\Livewire\MedicalRecord;
 use App\Models\Patient;
 use Illuminate\View\View;
 use Livewire\Component;
-use Livewire\WithPagination;
+// use Livewire\WithPagination;
 
 class Datauser extends Component
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+    // use WithPagination;
+    // protected $paginationTheme = 'bootstrap';
     protected $queryString = ['search'];
     /**
      * @var mixed
@@ -27,7 +27,7 @@ class Datauser extends Component
     {
         $patients = Patient::query();
         $patients->where('name', 'like', '%'.$this->search.'%');
-        $patients = $patients->paginate(5);
+        // $patients = $patients->paginate(5);
         return view('livewire.medicalrecord.datauser', compact('patients'));
     }
 }

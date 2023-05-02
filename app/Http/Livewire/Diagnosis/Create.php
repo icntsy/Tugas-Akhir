@@ -29,6 +29,12 @@ class Create extends Component
             'english_name' => $this->english_name,
             'indonesian_name' => $this->indonesian_name
         ]);
+        $this->dispatchBrowserEvent('show-message', [
+            'type' => 'success',
+            'message' => 'Sukses menambah data diagnosis'
+        ]);
+
+
 
         $this->reset();
         $this->redirectRoute('diagnosis.index');

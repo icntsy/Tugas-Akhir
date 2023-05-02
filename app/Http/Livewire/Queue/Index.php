@@ -6,6 +6,7 @@ use App\Models\Queue;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
 
 
 class Index extends Component
@@ -31,7 +32,13 @@ class Index extends Component
         $queues->whereDate('created_at', Carbon::today())->where(
             'has_check', false,
         );
-        $queues = $queues->paginate(5);
-        return view('livewire.queue.index', compact('queues'));
+
+        if (Auth::user()->role == "admin") {
+            $queues = $queues->paginate(5);
+           } else {
+            $queues = $queues->where("doctor_id", Auth::user()->id)->paginate(5);
+           }
+        // $queues = $queues->where("doctor_id", Auth::user()->id)->paginate(5);
+         return view('livewire.queue.index', compact('queues'));
     }
 }

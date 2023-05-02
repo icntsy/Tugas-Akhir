@@ -46,6 +46,10 @@ class Create extends Component
             'nik' => $this->nik,
         ]);
 
+        $this->dispatchBrowserEvent('show-message', [
+            'type' => 'success',
+            'message' => 'Sukses menambah data pasien'
+        ]);
         $this->redirectRoute('patient.index');
     }
 
