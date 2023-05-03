@@ -29,7 +29,7 @@
                             <option selected="selected" value="">--Pilih Type User--</option>
                             <option value="admin">Admin</option>
                             <option value="dokter">Dokter</option>
-                            <option value="staff">Staff</option>
+                            <option value="bidan">Bidan</option>
                             <option value="apoteker">Apoteker</option>
                         </select>
                     </div>

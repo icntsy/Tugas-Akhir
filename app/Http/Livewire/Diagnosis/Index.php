@@ -33,7 +33,7 @@ class Index extends Component
     {
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
-            'message' => 'Data Berhasil di Hapus'
+            'message' => 'Data Diagnosis Berhasil di Hapus'
         ]);
     }
 

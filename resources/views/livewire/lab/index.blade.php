@@ -41,16 +41,20 @@
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Nama Lab</th>
+                                    <th>Nama Laboratorium</th>
                                     <th>Harga</th>
                                     <th>Satuan</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($labs as $lab)
+                                @forelse ($labs as $lab)
+                                {{-- @foreach ($labs as $lab) --}}
                                     <livewire:lab.single :lab="$lab" :key="time() . $lab->id" />
-                                @endforeach
+                                        @empty
+                                        @include('layouts.empty', ['colspan' => 7])
+                                @endforelse
+                                {{-- @endforeach --}}
                             </tbody>
                         </table>
                     </div>

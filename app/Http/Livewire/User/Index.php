@@ -20,7 +20,7 @@ class Index extends Component
     public function userDeleted(){
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
-            'message' => "Data Berhasil Di Hapus"
+            'message' => "Data User Berhasil Di Hapus"
         ]);
     }
     /**

@@ -40,7 +40,7 @@
                     <div class='form-group col-md-6'>
 {{--                        <label for='job' class='control-label'> {{ __('Nama Pekerjaan') }}</label>--}}
                         <input type='text' wire:model.lazy='profession'
-                               class="form-control @error('pro') is-invalid @enderror" id='pro' placeholder="Nama Pekerjaan pasien">
+                               class="form-control @error('pro') is-invalid @enderror" id='pro' placeholder="Nama Pekerjaan Pasien">
                         @error('profession')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
@@ -48,7 +48,7 @@
                     <div class='form-group col-md-6'>
 {{--                        <label for='phone_number' class='control-label'> {{ __('Nomer Handphone') }}</label>--}}
                         <input type='text' wire:model.lazy='phone_number'
-                               class="form-control @error('phone_number') is-invalid @enderror" id='phone_number' placeholder="Nomer Handphone pasien">
+                               class="form-control @error('phone_number') is-invalid @enderror" id='phone_number' placeholder="Nomer Handphone Pasien">
                         @error('phone_number')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>

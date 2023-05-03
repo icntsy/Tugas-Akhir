@@ -244,7 +244,7 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">List Antrian Hari Ini</div>
                         <div class="widget-subheading">Jumlah Pasien</div>
-                        <div class="widget-numbers">{{\App\Models\Patient::count()}}</div>
+                        <div class="widget-numbers">{{\App\Models\Queue::count()}}</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="text-success">
@@ -368,7 +368,7 @@
             </div>
         </div>
     </div>
-    <div class="col-md-3">
+    {{-- <div class="col-md-3">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
@@ -385,7 +385,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 @elserole('dokumentasi')
 <div class="row">

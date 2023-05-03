@@ -11,7 +11,7 @@
         ->get();
 @endphp
 <tr>
-    <td>1</td>
+    <td>{{ $transaksi->id }}</td>
     <td>{{ $transaksi->queue->patient->name }}</td>
     <td>
         {!! Carbon::createFromFormat('Y-m-d H:i:s', $transaksi->queue->medicalrecord->created_at)->isoFormat('D MMMM Y') !!}

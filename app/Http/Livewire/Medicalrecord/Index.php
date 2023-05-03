@@ -6,6 +6,8 @@ use App\Models\MedicalRecord;
 use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
+
 
 class Index extends Component
 {
@@ -38,6 +40,11 @@ class Index extends Component
         }
         $records = $records->paginate(5);
 
+        // if (Auth::user()->role == "admin") {
+        //     $records = $records->paginate(5);
+        //    } else {
+        //     $records = $records->where("doctor_id", Auth::user()->id)->paginate(5);
+        //    }
         return view('livewire.medicalrecord.index', compact('records'));
     }
 }

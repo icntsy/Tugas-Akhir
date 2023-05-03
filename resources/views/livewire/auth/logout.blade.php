@@ -13,7 +13,9 @@
                         </a>
                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
                             {{-- <button type="button" tabindex="0" class="dropdown-item">User Account</button> --}}
-                            <button wire:click="logout" type="button" tabindex="0" class="dropdown-item" ><i class="fa fa-sign-out"></i>Logout</button>
+                            {{-- <button wire:click="logout" type="button" tabindex="0" class="dropdown-item" >
+                                <div class="font-icon-wrapper"><i class="fa fa-fw" aria-hidden="true" title="fa-power-off"></i></div>Logout</button> --}}
+                            <button wire:click="logout" type="button" tabindex="0" class="dropdown-item" ><i class="fa fa-fw" aria-hidden="true" title="fa-power-off">        </i>Logout</button>
 
                         </div>
                     </div>

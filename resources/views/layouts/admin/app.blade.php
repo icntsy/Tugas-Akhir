@@ -23,19 +23,26 @@
         }
 
         .vertical-nav-menu li a.mm-active {
-            color: #1FAF9E;
+            color: #1e9c77;
+            /* color: #198754; */
+
+            /* color: #1FAF9E; */
         }
 
         .btn-primary {
             color: #fff;
-            background-color: #1FAF9E;
-            border-color: #1FAF9E;
+
+            background-color: #198754;
+            border-color: #198754;
+            /* background-color: #1FAF9E;
+            border-color: #1FAF9E; */
         }
 
         .btn-primary:hover {
             color: #fff;
             background-color: #1b9d8e;
             border-color: #1b9d8e
+
         }
 
         . .btn-primary:disabled {
