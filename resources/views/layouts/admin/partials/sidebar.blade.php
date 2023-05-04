@@ -260,7 +260,9 @@
                 </li>
                 @endrole
             </ul>
+            {{-- @include('layouts.admin.partials.footer'); --}}
         </div>
+
     </div>
-    {{-- @include('layouts.admin.partials.footer'); --}}
+
 </div>

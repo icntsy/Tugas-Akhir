@@ -16,7 +16,8 @@
     <td>
         {!! Carbon::createFromFormat('Y-m-d H:i:s', $transaksi->queue->medicalrecord->created_at)->isoFormat('D MMMM Y') !!}
     </td>
-    <td>{{$transaksi->payment}}</td>
+    <td>Rp. {{ number_format($transaksi->payment)}}</td>
+    {{-- <td>{{$transaksi->payment}}</td> --}}
     {{-- <td>{{$transaksi->keterangan }}</td> --}}
     <td>
         @foreach (json_decode($cek) as $item)

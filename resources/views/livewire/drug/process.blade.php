@@ -111,12 +111,15 @@
                                             <!-- {{-- <td>{{$drug->harga}}</td> --}} -->
                                             <td>{{$drug->pivot->quantity}}</td>
                                             <td>{{$drug->pivot->instruction}}</td>
-                                            <td>Rp. {{ number_format($drug->harga) }}</td>
+                                            {{-- <td>{{  $subtotal += $drug->harga * $drug->pivot->quantity }}</td> --}}
+                                            <td>Rp. {{ number_format($drug->harga * $drug->pivot->quantity) }}</td>
+                                            {{-- <td>{{(int)($listDrug[$index]["quantity"]) * $drug["drug"]["harga"] }}</td> --}}
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
 
+                                {{-- Subtotal : <input type="text" name="payment" placeholder="payment" class="form-control"  id='payment' style="width: 50%" value="{{ number_format($subtotal + $queue->doctor->harga_jasa) }}" readonly> --}}
                                 Subtotal : <input type="text" name="payment" placeholder="payment" class="form-control"  id='payment' style="width: 50%" value="{{ $subtotal + $queue->doctor->harga_jasa }}" readonly>
                             </div>
                         </div>
