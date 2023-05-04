@@ -235,7 +235,7 @@
                         Antrian Obat
                     </a>
                 </li>
-                <li class="app-sidebar__heading">Data Obat</li>
+                <li class="app-sidebar__heading">Data Master</li>
                 <li>
                     <a href="{{ route('drug.index') }}" class="@if (Request::is('obat*')) mm-active @endif">
                         {{-- <i class="metismenu-icon  fa fa-thermometer-full" aria-hidden="true"></i> --}}
