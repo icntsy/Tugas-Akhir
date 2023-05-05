@@ -1,7 +1,7 @@
 @section('meta_title', 'Lab')
 @section('page_title', 'TAMBAH DATA ANTRIAN')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-list"></i>
+    <i class="metismenu-icon fa fa-clipboard"></i>
 @endsection
 @section('modal')
     <livewire:queue.select-patient/>
@@ -92,7 +92,7 @@
                 </div>
             </div>
             <div class="card-footer text-right">
-                <button type="submit" wire:click="create" class="btn btn-info">{{ __('Simpan Data') }}</button>
+                <button type="submit" wire:click="create" class="btn btn-success">{{ __('Simpan Data') }}</button>
             </div>
         </div>
     </div>

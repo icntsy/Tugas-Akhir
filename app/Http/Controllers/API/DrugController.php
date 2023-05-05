@@ -300,6 +300,20 @@ class DrugController extends Controller
         return response()->json($drug);
     }
 
+    public function updatestok(Request $request, $id)
+    {
+        //
+        $drug = Drug::find($id);
+
+        $drug->update([
+
+            'stok' => $request->stok
+
+        ]);
+
+        return response()->json($drug);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

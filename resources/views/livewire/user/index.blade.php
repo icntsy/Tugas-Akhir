@@ -1,7 +1,7 @@
 @section('meta_title', 'USER')
 @section('page_title', 'MASTER DATA USER')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-user"></i>
+    <i class="metismenu-icon fa fa-users"></i>
 @endsection
 <div class="row">
     <div class="col-12">

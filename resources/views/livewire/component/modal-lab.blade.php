@@ -6,7 +6,7 @@
 
             <div class="card">
                 <div class="card-header">
-                    PILIH LAB
+                    PILIH LABORATORIUM
                     <div class="btn-actions-pane-right text-capitalize">
                         <div class="input-group">
                             <input type="text" class="form-control form-control" wire:model.lazy="search"

@@ -61,7 +61,8 @@
                                         <tr>
                                             <td style="font-weight: bold;" width="35%">Waktu Kunjungan</td>
                                             <td width="1%">:</td>
-                                            <td>{{$queue->created_at}}</td>
+                                            <td>{{\Carbon\Carbon::parse($queue->created_at)->format('H:i, d F Y')}}</td>
+                                            {{-- <td>{{$queue->created_at}}</td> --}}
                                         </tr>
 
 

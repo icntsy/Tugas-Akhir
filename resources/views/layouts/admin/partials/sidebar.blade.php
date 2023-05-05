@@ -91,7 +91,7 @@
 
                 <li>
                     <a href="{{ route('diagnosis.index') }}" class="@if (Request::is('diagnosis*')) mm-active @endif">
-                        <i class="metismenu-icon fa fa-info-circle" aria-hidden="true"></i>
+                        <i class="metismenu-icon fa fa-file-alt" aria-hidden="true"></i>
                         {{-- <i class="metismenu-icon fa fa-file-alt"></i> --}}
                         Data Diagnosis
                     </a>
@@ -260,7 +260,25 @@
                 </li>
                 @endrole
             </ul>
-            {{-- @include('layouts.admin.partials.footer'); --}}
+            <footer class="text-center text-white" style="background-color: #fff;  height: 75px; position: relative; bottom:0; left: 0; width: 280px">
+                <!-- Grid container -->
+                <div class="container p-0 pb-0">
+                    <!-- Section: CTA -->
+                    {{-- <section class="">
+                        <p class="d-flex justify-content-center align-items-center"></p>
+                        <p class="big"><span>KLINIK LAA TACHZAN</span></p>
+                        <p class="big"><span>© 2023 Copyright</span></p>
+                    </section> --}}
+                    <!-- Section: CTA -->
+                </div>
+                <!-- Grid container -->
+                <div class="text-center p-0" style="background-color: #fff; ">
+                {{-- <div class="text-center p-0" style="background-color: #fff; color: black;"> --}}
+                    <p class="d-flex justify-content-center align-items-center"></p>
+                        <p class="big"><span>KLINIK LAA TACHZAN</span></p>
+                        <p class="big"><span>© 2023 Copyright</span></p>
+                </div>
+            </footer>
         </div>
 
     </div>

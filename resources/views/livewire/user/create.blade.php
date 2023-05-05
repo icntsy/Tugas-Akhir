@@ -1,7 +1,7 @@
 @section('meta_title', 'OBAT')
 @section('page_title', 'TAMBAH DATA USER')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-user"></i>
+    <i class="metismenu-icon fa fa-users"></i>
 @endsection
 <div class="row">
     <div class="col-md-12">
@@ -51,7 +51,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-info">{{ __('Simpan Data') }}</button>
+                    <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
                 </div>
             </form>
         </div>

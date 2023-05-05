@@ -33,6 +33,8 @@ Route::middleware(['cors'])->get('/user', function (Request $request) {
 
 //ROUTE WEB SERVICE//
 
+
+Route::post('/obat/update/{id}', [DrugController::class, "updatestok"]);
 Route::resource('patient', PatientController::class)->middleware('auth:sanctum');
 Route::resource('doctors', DoctorController::class, ['as' => 'doctors.api'])->middleware('auth:sanctum');
 Route::resource('drugs', DrugController::class, ['as' => 'drugs.api' ])->middleware('auth:sanctum');

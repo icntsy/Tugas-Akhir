@@ -1,5 +1,5 @@
 @section('meta_title', 'OBAT')
-@section('page_title', 'EDIT DATA LAB')
+@section('page_title', 'EDIT DATA LABORATORIUM')
 @section('page_title_icon')
     <i class="metismenu-icon fa fa-file-medical-alt"></i>
 @endsection

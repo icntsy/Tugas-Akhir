@@ -29,13 +29,13 @@
                         @error('harga')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
-                    <div class='form-group col-md-4'>
+                    {{-- <div class='form-group col-md-4'>
                         <label for='stok' class='control-label'> {{ __('Stock Obat') }}</label>
                         <input type='number' wire:model.lazy='stok' placeholder="Jumlah Obat"
                                class="form-control @error('stok') is-invalid @enderror" id='stok'>
                         @error('stok')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                    </div>
+                    </div> --}}
                     <div class='form-group col-md-4'>
                         <label for='min_stok' class='control-label'> {{ __('Minimal Stock Obat') }}</label>
                         <input type='number' wire:model.lazy='min_stok' placeholder="Minimal Jumlah Obat"
@@ -45,7 +45,7 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-info">{{ __('Simpan Data') }}</button>
+                    <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
                 </div>
             </form>
         </div>

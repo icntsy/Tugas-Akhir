@@ -58,7 +58,7 @@
                     </div> --}}
                 </div>
                 <div class="card-footer">
-                    <button type="submit" class="btn btn-info">{{ __('Simpan Data') }}</button>
+                    <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
                 </div>
             </form>
         </div>

@@ -1,4 +1,4 @@
-<div class="app-wrapper-footer">
+{{-- <div class="app-wrapper-footer">
     <div class="app-footer">
         <div class="app-footer__inner">
             <div class="app-footer-left">
@@ -241,4 +241,25 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+
+<!-- Footer -->
+<footer class="text-center text-white" style="background-color: #e3e6e5; height: 60px">
+    <!-- Grid container -->
+    <div class="container p-0 pb-0">
+        <!-- Section: CTA -->
+        {{-- <section class="">
+            <p class="d-flex justify-content-center align-items-center"></p>
+            <p class="big"><span>KLINIK LAA TACHZAN</span></p>
+            <p class="big"><span>© 2023 Copyright</span></p>
+        </section> --}}
+        <!-- Section: CTA -->
+    </div>
+    <!-- Grid container -->
+    <div class="text-center p-0" style="background-color: #ffff;">
+        <p class="d-flex justify-content-center align-items-center" ></p>
+            <p class="big" style="color: #2f9c69;"><span>KLINIK LAA TACHZAN
+               <br> © 2023 Copyright  </span></p>
+            {{-- <p class="big"><span>© 2023 Copyright</span></p> --}}
+    </div>
+</footer>

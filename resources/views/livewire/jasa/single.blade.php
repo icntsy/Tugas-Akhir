@@ -17,8 +17,5 @@
         Rp. {{ number_format($users->harga_jasa) }}
         @endif
     </td>
-    <td>
 
-
-    </td>
 </tr>

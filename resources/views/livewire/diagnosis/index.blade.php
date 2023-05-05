@@ -2,7 +2,7 @@
 @section('page_title', 'DATA DIAGNOSIS')
 
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-info-circle" aria-hidden="true"></i>
+<i class="metismenu-icon fa fa-file-alt" aria-hidden="true"></i>
 @endsection
 
 @section('modal')
