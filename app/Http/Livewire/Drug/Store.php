@@ -15,10 +15,11 @@ class Store extends Component
     {
         // Untuk mengurangi obat
         $queue = Queue::findOrFail($queue);
-        $drug = Drug::findOrFail($queue->medicalrecord->medicalRecordDrugs->drug_id);
-        $drug->update([
-            'stok' => $drug->stok - $queue->medicalrecord->medicalRecordDrugs->quantity
-        ]);
+        foreach ($queue->medicalrecord->drugs as $drug) {
+            Drug::where('id', $drug->pivot->drug_id)->update([
+                'stok' => $drug->stok - $drug->pivot->quantity
+            ]);
+        }
 
         Transaction::create([
             'queue_id' => $queue->id,

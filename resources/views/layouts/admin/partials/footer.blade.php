@@ -258,8 +258,8 @@
     <!-- Grid container -->
     <div class="text-center p-0" style="background-color: #ffff;">
         <p class="d-flex justify-content-center align-items-center" ></p>
-            <p class="big" style="color: #2f9c69;"><span>KLINIK LAA TACHZAN
-               <br> © 2023 Copyright  </span></p>
+            <p class="big" style="color: #2f9c69;"><span><strong>KLINIK LAA TACHZAN</strong>
+               <br> <strong>© 2023 Copyright</strong>   </span></p>
             {{-- <p class="big"><span>© 2023 Copyright</span></p> --}}
     </div>
 </footer>
