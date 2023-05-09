@@ -32,6 +32,7 @@ aria-labelledby="myLargeModalLabel" aria-hidden="true">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
+                        <label for="">  Pilih Dokter </label>
                         <select name="id" class="form-control" id="id">
                             <option value="">- Pilih Dokter -</option>
                             @foreach ($users as $user)

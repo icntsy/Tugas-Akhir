@@ -38,8 +38,27 @@ class Index extends Component
 
     public function render()
     {
-        $transaksi = Transaction::query();
-        $transaksi->where('payment', 'like', '%' . $this->search . '%');
+        $transaksi = Transaction::query()
+            ->where('payment', 'like', '%' . $this->search . '%')
+            ->orWhere('id', 'like', '%'.$this->search.'%')
+            ->orWhereHas('queue.patient', function($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })
+            ->with('queue.patient')
+            ->orWhereHas('queue.doctor', function($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })
+            ->with('queue.doctor')
+            ->orWhereHas('queue.service', function($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })
+            ->with('queue.service')
+            ->orWhereHas('queue.medicalrecord', function($query) {
+                $query->where('created_at', 'like', '%' . $this->search . '%');
+            })
+            ->with('queue.medicalrecord');
+
+
         if ($this->sortColumn) {
             $transaksi->orderBy($this->sortColumn, $this->sortType);
         } else {

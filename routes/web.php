@@ -63,6 +63,8 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
         return view('welcome');
     })->name('home');
 
+    // Route::get('readuser', [UserController::class, 'readuser'])->name('auth.readuser');
+     Route::get("/readuser", [UserController::class,'readuser']);
 
     Route::post("/jasa", [\App\Http\Livewire\Jasa\Process::class, "store_harga"]);
     Route::get("/nota-obat", [TransactionController::class,'render']);
@@ -106,6 +108,7 @@ Route::group(['prefix' => 'select'], function () {
 
 // Route::get('/greet', 'UserController@greet');
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
+// Route::post('readuser', [UserController::class, 'readuser'])->name('readuser');
 
 // Route generator
 Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')

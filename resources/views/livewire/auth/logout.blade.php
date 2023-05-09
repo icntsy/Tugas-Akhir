@@ -12,7 +12,11 @@
 
                         </a>
                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                            {{-- <button type="button" tabindex="0" class="dropdown-item">User Account</button> --}}
+                            {{-- <button type="button" tabindex="0" class="dropdown-item"><a href="{{ route('auth.readuser') }}"></a><i class="pe-7s-users"> </i>User Account</button> --}}
+                            {{-- <a href="{{ route('auth.readuser') }}" class="btn text-warning">
+                                <i class="fa fa-edit fa-1x"></i>
+                            </a> --}}
+
                             {{-- <button wire:click="logout" type="button" tabindex="0" class="dropdown-item" >
                                 <div class="font-icon-wrapper"><i class="fa fa-fw" aria-hidden="true" title="fa-power-off"></i></div>Logout</button> --}}
                             <button wire:click="logout" type="button" tabindex="0" class="dropdown-item" ><i class="fa fa-fw" aria-hidden="true" title="fa-power-off">        </i>Logout</button>

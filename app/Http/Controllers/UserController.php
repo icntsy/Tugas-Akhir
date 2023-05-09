@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Livewire\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,5 +24,10 @@ class UserController extends Controller
     {
         Auth::logout();
         return redirect()->route('login');
+    }
+
+    public function readuser() {
+        return view('livewire.auth.readuser');
+        // return view('livewire.auth.readuser', compact("readuser"));
     }
 }

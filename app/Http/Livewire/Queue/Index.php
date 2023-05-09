@@ -28,17 +28,17 @@ class Index extends Component
     }
     public function render()
     {
+
         $queues = Queue::query();
+        $queues->where('queue_number', 'like', '%' . $this->search . '%');
         $queues->whereDate('created_at', Carbon::today())->where(
             'has_check', false,
         );
-
         if (Auth::user()->role == "admin") {
             $queues = $queues->paginate(5);
            } else {
             $queues = $queues->where("doctor_id", Auth::user()->id)->paginate(5);
            }
-        // $queues = $queues->where("doctor_id", Auth::user()->id)->paginate(5);
          return view('livewire.queue.index', compact('queues'));
     }
 }

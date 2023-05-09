@@ -24,4 +24,6 @@ class Patient extends Model
         'profession',
         'allergy',
     ];
+
+
 }
