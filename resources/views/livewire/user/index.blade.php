@@ -38,8 +38,28 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php $no = 0 @endphp
                                 @foreach ($users as $user)
-                                    <livewire:user.single :user="$user" :key="time() . $user->id" />
+
+                                <tr>
+
+                                    {{-- <td>{{ $user->id }}</td> --}}
+                                    <td>{{ ++$no  }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->role }}</td>
+                                    <td>
+                                        @if ($user->role != 'admin')
+                                            <button wire:click.prevent="delete" class="btn text-danger">
+                                                <i class="fa fa-trash fa-1x"></i>
+                                            </button>
+                                        @endif
+                                        <a href="{{ route('user.update', ['user' => $user->id]) }}" class="btn text-warning">
+                                            <i class="fa fa-edit fa-1x"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                                    {{-- <livewire:user.single :user="$user" :key="time() . $user->id" /> --}}
                                 @endforeach
                             </tbody>
                         </table>

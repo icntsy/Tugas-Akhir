@@ -1,7 +1,9 @@
+{{-- @php $no = 0 @endphp --}}
 <tr>
 
-    {{-- <td>{{ $user->id }}</td> --}}
+
     <td>{{ $user->id }}</td>
+    {{-- <td>{{ ++$no  }}</td> --}}
     <td>{{ $user->name }}</td>
     <td>{{ $user->email }}</td>
     <td>{{ $user->role }}</td>
@@ -16,3 +18,5 @@
         </a>
     </td>
 </tr>
+
+
