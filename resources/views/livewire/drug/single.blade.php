@@ -17,7 +17,7 @@ $stok = MedicalRecordDrugs::where("drug_id", $drug["id"])->sum("quantity");
             <input type="number" name="stok" id="stok" class="form-control"
             placeholder="Stok" value="{{ $drug->stok }}" data-id="{{$drug->id}}" onkeyup="changeStok(event)">
             <i class="fa fa-plus-circle mr-1" onclick="addDrug(event)" data-id="{{$drug->id}}" data-stok="{{$drug->stok}}"></i>
-            <i class="fa fa-minus-circle" onclick="minDrug(event)" data-id="{{$drug->id}}" data-stok="{{$drug->stok}}"></i>
+            {{-- <i class="fa fa-minus-circle" onclick="minDrug(event)" data-id="{{$drug->id}}" data-stok="{{$drug->stok}}"></i> --}}
         </form>
     </td>
     <td>

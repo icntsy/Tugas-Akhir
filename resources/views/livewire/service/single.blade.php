@@ -1,6 +1,15 @@
 <tr>
     <td>{{$service->name}}</td>
     <td>
+        @if ($service->status == 1)
+            dokter
+        @elseif ($service->status == 2)
+            bidan
+        @else
+        @endif
+
+    </td>
+    <td>
         <button wire:click.prevent="delete" class="btn text-danger">
             <i class="fa fa-trash fa-1x"></i>
         </button>

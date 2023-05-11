@@ -5,8 +5,12 @@ namespace App\Http\Livewire\Queue;
 use App\Models\Diagnosis;
 use App\Models\Lab;
 use App\Models\MedicalRecord;
+use App\Models\Pregnantmom;
 use App\Models\Queue;
+use App\Models\Gravida;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class Process extends Component
 {
@@ -29,7 +33,18 @@ class Process extends Component
     public $main_complaint;
     public $history_disease;
 
-    protected $listeners = [
+    public $anak_ke;
+    public $hpht;
+    public $pregnant_age;
+    public $lila;
+    public $hpl;
+    public $tfu;
+    public $djj;
+    public $immunization_tt;
+    public $description;
+    public $complaint;
+
+        protected $listeners = [
         'diagnosaAdded',
         'labAdded',
         'drugAdded'
@@ -138,30 +153,69 @@ class Process extends Component
         # code...
     }
 
-    public function save()
+    public function save(Request $request)
     {
-        $this->validate();
+        // $this->validate();
         try {
-            $medical_record = MedicalRecord::create([
-                'anamnesis' => $this->anamnesis,
-                'physical_test' => json_encode(
-                    [
-                        "height" => $this->height,
-                        "weight" => $this->weight,
-                        "blood" => $this->blood,
-                        "blood_pressure" => $this->blood_pressure,
-                        "color_blind" => $this->color_blind,
-                        "respiration" => $this->respiration,
-                        "pulse" => $this->pulse,
-                        "history_disease" => $this->history_disease,
-                        "disability" => $this->disability,
-                        "temperature" => $this->temperature
-                    ]
-                ),
-                'main_complaint' => $this->main_complaint,
-                'doctor_id' => $this->queue->doctor->id,
-                'patient_id' => $this->queue->patient->id,
-            ]);
+            if (Auth::user()->role == "dokter") {
+                $medical_record = MedicalRecord::create([
+                    'anamnesis' => $this->anamnesis,
+                    'physical_test' => json_encode(
+                        [
+                            "height" => $this->height,
+                            "weight" => $this->weight,
+                            "blood" => $this->blood,
+                            "blood_pressure" => $this->blood_pressure,
+                            "color_blind" => $this->color_blind,
+                            "respiration" => $this->respiration,
+                            "pulse" => $this->pulse,
+                            "history_disease" => $this->history_disease,
+                            "disability" => $this->disability,
+                            "temperature" => $this->temperature
+                        ]
+                    ),
+                    'main_complaint' => $this->main_complaint,
+                    'doctor_id' => $this->queue->doctor->id,
+                    'patient_id' => $this->queue->patient->id,
+                ]);
+            } else if (Auth::user()->role == "bidan") {
+
+                $cek = Gravida::where("patien_id", $request->patient_id)->count();
+
+                if ($cek == 0) {
+                    $gravida = Gravida::create([
+
+                        "patien_id" => $request->patient_id,
+                        "bidan_id" => $request->doctor_id,
+                        "hpl" => "Senin"
+
+                    ]);
+                }
+
+                $kondisi = Gravida::where("patien_id", $request->patient_id)->first();
+
+                if (empty($kondisi)) {
+                    $gravida_id = $request->gravida_id;
+                } else {
+                    $gravida_id = $kondisi->id;
+                }
+
+                $pregnantmoms = Pregnantmom::create([
+                    "gravida_id" => $gravida_id,
+                    "anak_ke" => $request->anak_ke,
+                    "hpht" => $request->hpht,
+                    "pregnant_age" => $request->pregnant_age,
+                    "lila" => $request->lila,
+                    "weight" => $request->weight,
+                    "blood_pressure" => $request->blood_pressure,
+                    "tfu" => $request->tfu,
+                    "djj" => $request->djj,
+                    "immunization_tt" => $request->immunization_tt,
+                    "description" => $request->description,
+                    "complaint" => $request->complaint
+                ]);
+
+            }
             foreach ($this->listDiagnosa as $diagnosa) {
                 $medical_record->diagnoses()->attach($diagnosa["diagnosa"]["id"], [
                     "description" => $diagnosa["description"]
@@ -179,11 +233,19 @@ class Process extends Component
                     "instruction" => $drug["instruction"]
                 ]);
             }
-            $this->queue->update([
-                'has_check' => true,
-                'medical_record_id' => $medical_record->id,
-            ]);
-            $this->redirectRoute('queue.index');
+
+            if (Auth::user()->role == "dokter") {
+                $this->queue->update([
+                    'has_check' => true,
+                    'medical_record_id' => $medical_record->id,
+                ]);
+                $this->redirectRoute('queue.index');
+            } else if (Auth::user()->role == "bidan") {
+                Queue::where("patient_id", $request->patient_id)->update([
+                    "has_check" => true
+                ]);
+                return redirect("/antrian");
+            }
         } catch (\Exception $e) {
             dd($e);
         }

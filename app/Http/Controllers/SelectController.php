@@ -19,7 +19,9 @@ class SelectController extends Controller
                ->get();
        }else{
            $data =  User::select("id","name")
-               ->where('role', 'dokter')->limit(5)->get();
+               ->where('role', 'dokter')
+               ->orWhere("role", "bidan")
+               ->limit(5)->get();
        }
        return response()->json($data);
    }
@@ -58,5 +60,5 @@ class SelectController extends Controller
         return response()->json($data);
     }
 
-    
+
 }

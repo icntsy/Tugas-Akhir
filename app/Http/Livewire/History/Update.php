@@ -1,18 +1,15 @@
 <?php
 
-namespace App\Http\Livewire\Drug;
+namespace App\Http\Livewire\History;
 
-use App\Models\Drug;
+use App\Models\Gravida;
+use App\Models\Pregnantmom;
 use Livewire\Component;
 
 class Update extends Component
 {
-    public $nama;
-    public $dosis;
-    public $stok;
-    public $harga;
-    public $min_stok;
-    public $drug;
+
+    public $record;
 
     protected $rules = [
         'nama' => 'required',
@@ -43,17 +40,19 @@ class Update extends Component
         return redirect("/obat");
     }
 
-    public function mount(Drug $drug){
-        $this->drug = $drug;
-        $this->nama = $drug->nama;
-        $this->dosis = $drug->dosis;
-        $this->stok = $drug->stok;
-        $this->harga = $drug->harga;
-        $this->min_stok = $drug->min_stok;
+    public function mount(Gravida $history){
+        $this->history = $history;
+        // $this->nama = $drug->nama;
+        // $this->dosis = $drug->dosis;
+        // $this->stok = $drug->stok;
+        // $this->harga = $drug->harga;
+        // $this->min_stok = $drug->min_stok;
 
     }
     public function render()
     {
-        return view('livewire.drug.update');
+        $data = Pregnantmom::where("gravida_id", $this->history->id)->get();
+
+        return view('livewire.history.detail', compact("data"));
     }
 }

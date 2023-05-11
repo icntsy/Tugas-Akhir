@@ -5,14 +5,87 @@
 @endsection
 <div class="row">
     <div class="col-md-12">
+
+        <div class="col-md-12">
+            <div class="main-card">
+                <div class="card-header">
+                    Data Pasien
+                </div>
+                <div class="card-body row">
+                    <div class="col-md-6">
+                        <table width="100%">
+                            <tbody><tr>
+                                <td style="font-weight: bold;" width="35%">Nama Lengkap</td>
+                                <td width="1%">:</td>
+                                <td>
+                                    {{$queue->patient->name}}
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;" width="35%">No Antrian</td>
+                                <td>:</td>
+                                <td>{{$queue->queue_number}}</td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;" width="35%">Tanggal Lahir</td>
+                                <td>:</td>
+                                <td>{{\Carbon\Carbon::parse($queue->patient->birth_date)->isoFormat('D MMMM Y')}}</td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;" width="35%">Sex / Umur</td>
+                                <td>:</td>
+                                <td>{{$queue->patient->gender}} / {{\Carbon\Carbon::parse($queue->patient->birth_date)
+                    ->diffInYears
+                    ()}}
+                                    Thn</td>
+                            </tr>
+                            </tbody></table>
+                    </div>
+                    <div class="col-md-6">
+                        <table width="100%">
+                            <tbody><tr>
+                                <td style="font-weight: bold;" width="35%">Waktu Kunjungan</td>
+                                <td width="1%">:</td>
+                                <td>{{\Carbon\Carbon::parse($queue->created_at)->format('H:i, d F Y')}}</td>
+                                {{-- <td>{{\Carbon\Carbon::parse($queue->created_at)->isoFormat('hh:mm, D MMMM Y')}}</td> --}}
+                            </tr>
+
+
+                            <tr>
+                                <td style="font-weight: bold;" width="35%">Jenis Pasien</td>
+                                <td>:</td>
+                                <td>Umum </td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;" width="35%">Layanan </td>
+                                <td>:</td>
+                                <td>{{$queue->service->name}}</td>
+                            </tr>
+
+                            <tr>
+                                <td style="font-weight: bold;" width="35%">Dokter Pemeriksa</td>
+                                <td>:</td>
+                                <td>{{$queue->doctor->name}}</td>
+                            </tr>
+                            </tbody></table>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+
         <div class="card">
             <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
-                
+
                 <div class="card-body row">
                     <div class='form-group col-md-6'>
                         <label for='name' class='control-label'> {{ __('Nama Lengkap') }}</label>
                         <input type='text' wire:model.lazy='name'
-                               class="form-control @error('name') is-invalid @enderror" id='name' autofocus placeholder="Nama Lengkap Pasien">
+                               class="form-control @error('name') is-invalid @enderror" id='name' value="{{$queue->patient->name}}" readonly placeholder="Nama Lengkap Pasien">
                         @error('name')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>

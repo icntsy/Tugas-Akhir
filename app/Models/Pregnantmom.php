@@ -10,9 +10,7 @@ class Pregnantmom extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'age',
-        'address',
+        'gravida_id',
         'anak_ke',
         'hpht',
         'hpl',

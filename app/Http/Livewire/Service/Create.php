@@ -8,17 +8,20 @@ use Livewire\Component;
 class Create extends Component
 {
     public $name;
+    public $status;
 
     public function rules(){
         return [
-            'name' => 'required|unique:services,name'
+            'name' => 'required|unique:services,name',
+            'status' => 'required'
         ];
     }
 
     public function create(){
         $this->validate();
         Service::create([
-            'name' => $this->name
+            'name' => $this->name,
+            'status' => $this->status
         ]);
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',

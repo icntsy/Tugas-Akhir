@@ -15,12 +15,13 @@ class CreatePregnantmomsTable extends Migration
     {
         Schema::create('pregnantmoms', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('age');
-            $table->text('address');
+            // $table->string('name');
+            // $table->string('age');
+            // $table->text('address');
+            $table->integer('gravida_id');
             $table->string('anak_ke');
             $table->string('hpht');
-            $table->string('hpl');
+            // $table->string('hpl');
             $table->string('pregnant_age');
             $table->string('lila');
             $table->string('weight');
@@ -33,6 +34,7 @@ class CreatePregnantmomsTable extends Migration
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

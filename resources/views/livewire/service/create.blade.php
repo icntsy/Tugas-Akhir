@@ -11,7 +11,7 @@
             </div>
             <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
                 <div class="card-body row">
-                    <div class='form-group col-md-12'>
+                    <div class='form-group col-md-6'>
                         <label for='name' class='control-label'> {{ __('Nama Layanan') }}</label>
                         <input type='text' wire:model.lazy='name'
                                class="form-control @error('name') is-invalid @enderror" id='name'
@@ -19,8 +19,18 @@
                         @error('name')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
+                    <div class='col-md-6 form-group'>
+                        <label for='study' class='control-label'> {{ __('Status') }}</label>
+                        <select  id="status" class="form-control custom-select" wire:model="status" name="status">
+                            <option selected="selected" value="">--Pilih Status Layanan--</option>
+                            <option value="1">dokter</option>
+                            <option value="2">bidan</option>
 
+                        </select>
+                    </div>
                 </div>
+
+
                 <div class="card-footer text-right">
                     <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
                 </div>

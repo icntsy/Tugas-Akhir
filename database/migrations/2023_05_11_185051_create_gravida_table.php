@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateServicesTable extends Migration
+class CreateGravidaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('services', function (Blueprint $table) {
+        Schema::create('gravida', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->enum('status', [1, 2]);
+            $table->integer('patien_id');
+            $table->integer('bidan_id');
+            $table->string('hpl');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('services');
+        Schema::dropIfExists('gravida');
     }
 }
