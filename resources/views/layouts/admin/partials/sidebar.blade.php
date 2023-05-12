@@ -195,14 +195,14 @@
                 <li>
                     <a href="{{ route('queue.index') }}" class="@if (Request::is('antrian*')) mm-active @endif">
 
-                        <i class="metismenu-icon fa fa-portrait"></i>
+                        <i class="metismenu-icon fa fa-clipboard" aria-hidden="true"></i>
                         Antrian Periksa
                     </a>
                 </li>
                 <li class="app-sidebar__heading">Data Bidan</li>
                 <li>
                     <a href="{{ route('history.index') }}" class="@if (Request::is('history*')) mm-active @endif">
-                        <i class="metismenu-icon fa fa-portrait"></i>
+                        <i class="metismenu-icon fa fa-medkit" aria-hidden="true"></i>
                         Pemeriksaan ANC
                     </a>
                 </li>

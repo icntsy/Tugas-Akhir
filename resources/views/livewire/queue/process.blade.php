@@ -222,6 +222,13 @@
                         Data Pemeriksaaan
                     </div>
                     <div class="card-body row">
+                        {{-- <div class='form-group col-md-6'>
+                            <label for='main_complaint' class='control-label'> {{ __('Keluhan Saat Datang') }}</label>
+                            <textarea wire:model="main_complaint" class="form-control @error('main_complaint') is-invalid
+                            @enderror">{{$queue->patient->main_complaint ?? ""}}</textarea>
+                            @error('main_complaint')
+                            <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                        </div> --}}
                         <div class='form-group col-md-6'>
                             <label for='anak_ke' class='control-label'> {{ __('Hamil Anak ke') }}</label>
                             <input type='text' name='anak_ke'
@@ -303,7 +310,7 @@
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
 
-                        <div class='form-group col-md-12'>
+                        <div class='form-group col-md-6'>
                             <label for='complaint' class='control-label'> {{ __('Keluhan') }}</label>
                             <input type='text' name='complaint'
                                    class="form-control @error('complaint') is-invalid @enderror" id='complaint' autofocus placeholder="Keluhan">

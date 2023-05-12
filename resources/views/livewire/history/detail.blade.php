@@ -1,5 +1,5 @@
 @section('meta_title', 'MEDICAL RECORD')
-@section('page_title', 'PROCESS CHECKUP MEDICAL RECORD')
+@section('page_title', 'PEMERIKSAAN ANC')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-list"></i>
 @endsection
@@ -56,6 +56,14 @@
                                         <td>:</td>
                                         <td>{{$history->patient->phone_number}} </td>
                                     </tr>
+                                    <tr>
+                                        <td style="font-weight: bold;" width="35%">Umur</td>
+                                        <td>:</td>
+                                        <td>{{\Carbon\Carbon::parse($history->birth_date)
+                                            ->diffInYears
+                                            ()}}
+                                            Thn</td>
+                                    </tr>
                                 </tbody></table>
 
                             </div>
@@ -67,6 +75,9 @@
 
                     </div>
                     <div class="card-body row">
+                        <div class="card-header">
+                            Data Pemeriksaan
+                        </div>
                         <table class="table table-responsive">
                             <thead>
                                 <tr>
@@ -81,15 +92,6 @@
                                     <th>Imunisasi TT</th>
                                     <th>Keterangan Obat</th>
                                     <th>Keluhan</th>
-
-
-
-
-
-
-
-
-
 
                                 </tr>
                             </thead>
@@ -107,6 +109,7 @@
                                         <td>{{ $history->immunization_tt }}</td>
                                         <td>{{ $history->description }}</td>
                                         <td>{{ $history->complaint }}</td>
+
                                     </tr>
                                 @endforeach
                             </tbody>
