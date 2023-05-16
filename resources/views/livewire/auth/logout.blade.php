@@ -16,7 +16,10 @@
                             {{-- <a href="{{ route('auth.readuser') }}" class="btn text-warning">
                                 <i class="fa fa-edit fa-1x"></i>
                             </a> --}}
-
+                            <a href="{{ route('profile.index') }}" class="dropdown-item">
+                                <i class="pe-7s-users"></i>
+                                User Account
+                              </a>
                             {{-- <button wire:click="logout" type="button" tabindex="0" class="dropdown-item" >
                                 <div class="font-icon-wrapper"><i class="fa fa-fw" aria-hidden="true" title="fa-power-off"></i></div>Logout</button> --}}
                             <button wire:click="logout" type="button" tabindex="0" class="dropdown-item" ><i class="fa fa-fw" aria-hidden="true" title="fa-power-off">        </i>Logout</button>

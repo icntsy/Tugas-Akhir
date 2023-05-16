@@ -52,7 +52,8 @@ $list_menu = [
     'response' => 'response',
     'nota' => 'nota',
     'jasa' => 'jasa',
-    'history' => 'history'
+    'history' => 'history',
+    'profile' => 'profile'
 ];
 
 
