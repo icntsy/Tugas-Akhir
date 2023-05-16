@@ -14,12 +14,16 @@
             @foreach($record->diagnoses as $diagnosis)
                 <li>{{$diagnosis->diagnosis}}</li>
             @endforeach
-        </ul></td>
+        </ul>
+    </td>
     <td>
         <ul>
             @foreach($record->drugs as $drug)
                 <li>{{$drug->nama}}</li>
             @endforeach
         </ul>
+    </td>
+    <td>
+        <livewire:medical-record.detail-medial-record :record="$record->physical_test" />
     </td>
 </tr>
