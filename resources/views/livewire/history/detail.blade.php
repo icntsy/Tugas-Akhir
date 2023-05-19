@@ -1,5 +1,5 @@
 @section('meta_title', 'MEDICAL RECORD')
-@section('page_title', 'PEMERIKSAAN ANC')
+@section('page_title', 'PEMERIKSAAN ACN')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-list"></i>
 @endsection
@@ -59,7 +59,7 @@
                                     <tr>
                                         <td style="font-weight: bold;" width="35%">Umur</td>
                                         <td>:</td>
-                                        <td>{{\Carbon\Carbon::parse($history->birth_date)
+                                        <td> {{\Carbon\Carbon::parse($history->patient->birth_date)
                                             ->diffInYears
                                             ()}}
                                             Thn</td>
@@ -81,6 +81,7 @@
                         <table class="table table-responsive">
                             <thead>
                                 <tr>
+                                    <th>Tgl. Pemeriksaan</th>
                                     <th>Hamil Anak Ke</th>
                                     <th>HPHT</th>
                                     <th>Usia Kehamilan</th>
@@ -98,6 +99,7 @@
                             <tbody>
                                 @foreach ($data as $history)
                                     <tr>
+                                        <td>{{\Carbon\Carbon::parse($history->created_at)->format('H:i, d F Y')}}</td>
                                         <td>{{ $history->anak_ke }}</td>
                                         <td>{{ $history->hpht }}</td>
                                         <td>{{ $history->pregnant_age }}</td>

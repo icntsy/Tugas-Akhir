@@ -4,13 +4,17 @@ namespace App\Http\Livewire\Profile;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
+use Livewire\WithFileUploads;
 
 class Update extends Component
 {
+    use WithFileUploads;
+
     public $name;
     public $email;
     public $password;
     public $password_confirmation;
+    public $image;
 
     public function mount()
     {
@@ -21,11 +25,11 @@ class Update extends Component
 
     public function update()
     {
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Data Profile Berhasil Diupdate', ['name' => __('Article')])]);
         $validatedData = $this->validate([
             'name' => 'required',
             'email' => 'required|email',
             'password' => 'nullable|min:8|confirmed',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg',
         ]);
 
         $user = Auth::user();
@@ -36,12 +40,20 @@ class Update extends Component
             $user->password = bcrypt($this->password);
         }
 
+        if ($this->image) {
+            $imageName = time() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->storeAs('public/images', $imageName);
+            $user->image = $imageName;
+        }
+
         $user->save();
 
-        // session()->flash('message', 'Data profile berhasil diperbarui.');
+        $this->dispatchBrowserEvent('show-message', [
+            'type' => 'success',
+            'message' => __('Data Profile Berhasil Diupdate', ['name' => __('Article')]),
+        ]);
 
         return redirect("/profile");
-        // return redirect()->back();
     }
 
     public function render()

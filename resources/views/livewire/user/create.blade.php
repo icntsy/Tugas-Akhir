@@ -49,6 +49,14 @@
                         @error('password_confirmation')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
+                    <div class="form-group col-md-6">
+                        <label for="image" class="control-label">{{ __('Image') }}</label>
+                        <input type="file" wire:model="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
+                        @error('image')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+
+                    </div>
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>

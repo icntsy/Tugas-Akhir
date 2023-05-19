@@ -1,5 +1,5 @@
 @section('meta_title', 'OBAT')
-@section('page_title', 'DETAIL DATA HISTORY')
+@section('page_title', 'UPDATE DATA OBAT')
 @section('page_title_icon')
     <i class="metismenu-icon fa fa-prescription-bottle-alt"></i>
 @endsection
@@ -30,7 +30,7 @@
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
                 </div>
-                <div class="card-body row">
+                {{-- <div class="card-body row">
                     <div class='form-group col-md-12'>
                         <label for='nama' class='control-label'> {{ __('Nama Obat') }}</label>
                         <input type='text' autofocus wire:model.lazy='nama' placeholder="Nama Obat"
@@ -52,7 +52,7 @@
                         @error('min_stok')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
-                </div>
+                </div> --}}
                 <div class="card-footer">
                     <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
                 </div>

@@ -34,6 +34,7 @@
                                     <th>Nama Lengkap User</th>
                                     <th>Email User</th>
                                     <th>Type User</th>
+                                    <th>Foto</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -49,10 +50,21 @@
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role }}</td>
                                     <td>
+                                        @if ($user->image)
+                                            <img src="{{ asset('storage/images/' . $user->image) }}"
+                                                alt="{{ $user->name }}" class="img-thumbnail" width="80" height="80">
+                                        @else
+                                            No image available.
+                                        @endif
+                                    </td>
+                                    <td>
                                         @if ($user->role != 'admin')
-                                            <button wire:click.prevent="delete" class="btn text-danger">
+                                            <button wire:click="delete({{ $user->id }})" class="btn text-danger">
                                                 <i class="fa fa-trash fa-1x"></i>
                                             </button>
+                                            {{-- <button wire:click.prevent="delete" class="btn text-danger">
+                                                <i class="fa fa-trash fa-1x"></i>
+                                            </button> --}}
                                         @endif
                                         <a href="{{ route('user.update', ['user' => $user->id]) }}" class="btn text-warning">
                                             <i class="fa fa-edit fa-1x"></i>

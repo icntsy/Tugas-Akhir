@@ -4,30 +4,44 @@ namespace App\Http\Livewire\User;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class Create extends Component
 {
+
+    use WithFileUploads;
+
     public $name;
     public $email;
     public $password;
     public $password_confirmation;
     public $role;
+    public $image;
 
     protected $rules = [
         'name' => 'required|max:255',
         'email' => 'required|email:dns|unique:users,email',
         // 'email' => 'required|email|unique:users,email',
         'password' => 'required|confirmed',
-        'role' => 'required'
+        'role' => 'required',
+        'image' => 'image|mimes:jpeg,png,jpg'
     ];
 
     public function create(){
         $this->validate();
+
+        $imageName = null;
+        if ($this->image) {
+            $imageName = time() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->storeAs('public/images', $imageName);
+        }
+
         User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => \Hash::make($this->password),
-            'role' => $this->role
+            'role' => $this->role,
+            'image' => $imageName
         ]);
 
         $this->dispatchBrowserEvent('show-message', [

@@ -5,22 +5,34 @@ namespace App\Http\Livewire\User;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
 
 class Index extends Component
 {
     use WithPagination;
+    use WithFileUploads;
     protected $paginationTheme = 'bootstrap';
     public $search;
     protected $queryString = ['search'];
 
-    protected $listeners = ['userDeleted'];
+    // protected $listeners = ['userDeleted'];
     public $sortType;
     public $sortColumn;
 
-    public function userDeleted(){
+    // public function userDeleted(){
+    //     $this->dispatchBrowserEvent('show-message', [
+    //         'type' => 'success',
+    //         'message' => "Data User Berhasil Di Hapus"
+    //     ]);
+    // }
+
+    public function delete(User $user)
+    {
+        $user->delete();
+
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
-            'message' => "Data User Berhasil Di Hapus"
+            'message' => 'Data user berhasil dihapus.'
         ]);
     }
     /**

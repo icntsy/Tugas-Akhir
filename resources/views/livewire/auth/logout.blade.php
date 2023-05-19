@@ -5,8 +5,13 @@
                 <div class="widget-content-left">
                     <div class="btn-group">
                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="p-0 btn">
-                            <img width="42" class="rounded-circle" src="{{ asset('assets/images/avatars/1.jpg') }}"
-                            alt="">
+                            {{-- <img width="42" class="rounded-circle" src="{{ asset('assets/images/avatars/1.jpg') }}"
+                            alt=""> --}}
+                            @if (Auth::user()->image)
+                            <img src="{{ asset('storage/images/'.Auth::user()->image) }}" alt="Avatar" class="img-fluid profile-image rounded-circle" style="width: 42px; height: 42px;">
+                        @else
+                            <p>No image available</p>
+                        @endif
                             {{ Auth::user()->name . ' (' . Auth::user()->role . ')' }}
                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
 
