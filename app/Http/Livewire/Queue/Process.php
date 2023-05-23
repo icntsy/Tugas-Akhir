@@ -32,6 +32,14 @@ class Process extends Component
     public $anamnesis;
     public $main_complaint;
     public $history_disease;
+    public $komplikasi;
+    public $kepala;
+    public $mata;
+    public $leher;
+    public $thoraks;
+    public $pulmo;
+    public $abdomen;
+    public $ekstremitas;
 
     public $anak_ke;
     public $hpht;
@@ -65,6 +73,14 @@ class Process extends Component
             'temperature' => 'required',
             'disability' => 'required',
             'anamnesis' => 'required',
+            'komplikasi' => 'required',
+            'kepala' => 'required',
+            'mata' => 'required',
+            'leher' => 'required',
+            'thoraks' => 'required',
+            'pulmo' => 'required',
+            'abdomen' => 'required',
+            'ekstremitas' => 'required',
         ];
     }
 
@@ -171,7 +187,15 @@ class Process extends Component
                             "pulse" => $this->pulse,
                             "history_disease" => $this->history_disease,
                             "disability" => $this->disability,
-                            "temperature" => $this->temperature
+                            "temperature" => $this->temperature,
+                            "komplikasi" => $this->komplikasi,
+                            "kepala" => $this->kepala,
+                            "mata" => $this->mata,
+                            "leher" => $this->leher,
+                            "thoraks" => $this->thoraks,
+                            "pulmo" => $this->pulmo,
+                            "abdomen" => $this->abdomen,
+                            "ekstremitas" => $this->ekstremitas
                         ]
                     ),
                     'main_complaint' => $this->main_complaint,

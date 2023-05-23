@@ -1,7 +1,7 @@
 <tr>
     <td>{{$record->id}}</td>
     <td>{{$record->patient->name}}</td>
-    <td>{{$record->patient->name}}</td>
+    <td>{{$record->patient->nik}}</td>
     <td>{{$record->patient->gender}}</td>
     <td>{{$record->patient->phone_number}}</td>
     <td>
