@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Queue;
 use App\Models\Diagnosis;
 use App\Models\Lab;
 use App\Models\MedicalRecord;
+use App\Models\MedicalRecordDetail;
 use App\Models\Pregnantmom;
 use App\Models\Queue;
 use App\Models\Gravida;
@@ -202,6 +203,12 @@ class Process extends Component
                     'doctor_id' => $this->queue->doctor->id,
                     'patient_id' => $this->queue->patient->id,
                 ]);
+
+                MedicalRecordDetail::create([
+                    "queue_id" => $medical_record->id,
+                    "status" => 0
+                ]);
+
             } else if (Auth::user()->role == "bidan") {
 
                 $cek = Gravida::where("patien_id", $request->patient_id)->count();

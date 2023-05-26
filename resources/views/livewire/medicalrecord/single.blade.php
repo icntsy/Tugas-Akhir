@@ -1,7 +1,8 @@
 <tr>
     <td>{{$record->id}}</td>
     <td>{{$record->patient->name}}</td>
-    <td>{{$record->created_at}}</td>
+    <td>{{\Carbon\Carbon::parse($record->created_at)->format('d F Y ')}}</td>
+    {{-- <td>{{$record->created_at}}</td> --}}
     <td>{{$record->main_complaint}}</td>
     <td>
         <ul>

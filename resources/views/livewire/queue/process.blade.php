@@ -105,6 +105,11 @@
                                         <td>:</td>
                                         <td>{{$queue->service->name}}</td>
                                     </tr>
+                                    <tr>
+                                        <td style="font-weight: bold;" width="35%">Jenis Rawat </td>
+                                        <td>:</td>
+                                        <td>{{$queue->jenis_rawat}}</td>
+                                    </tr>
 
 
                                 </tbody></table>
@@ -149,13 +154,6 @@
                                 @error('history_disease')
                                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
                             </div>
-                            {{-- <div class='form-group col-md-3'>
-                                <label for='height' class='control-label'> {{ __('Tinggi Badan (CM)') }}</label>
-                                <input type='number' autofocus wire:model.lazy='height' placeholder="Tinggi Badan"
-                                class="form-control @error('height') is-invalid @enderror" id='height'>
-                                @error('height')
-                                <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                            </div> --}}
                             <div class=" form-group col-md-6">
                                 <label for='komplikasi' class='control-label'> {{ __('Komplikasi') }}</label>
                                 <textarea  wire:model.lazy='komplikasi' placeholder="Komplikasi"
@@ -164,13 +162,21 @@
                                 @error('komplikasi')
                                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
                             </div>
-                            {{-- <div class='form-group col-md-3'>
+                            <div class='form-group col-md-3'>
+                                <label for='height' class='control-label'> {{ __('Tinggi Badan (CM)') }}</label>
+                                <input type='number' autofocus wire:model.lazy='height' placeholder="Tinggi Badan"
+                                class="form-control @error('height') is-invalid @enderror" id='height'>
+                                @error('height')
+                                <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                            </div>
+
+                            <div class='form-group col-md-3'>
                                 <label for='weight' class='control-label'> {{ __('Berat Badan (KG)') }}</label>
                                 <input type='number' autofocus wire:model.lazy='weight' placeholder="Berat Badan"
                                 class="form-control @error('weight') is-invalid @enderror" id='weight'>
                                 @error('weight')
                                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                            </div> --}}
+                            </div>
                             {{-- <div class='form-group col-md-3'>
                                 <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah (mmHg)') }}</label>
                                 <input type='number' autofocus wire:model.lazy='blood_pressure' placeholder="Tekanan Darah"
@@ -190,7 +196,7 @@
                             @error('color_blind')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div> --}}
-                        {{-- <div class='form-group col-md-3'>
+                        <div class='form-group col-md-3'>
                             <label for='blood' class='control-label'> {{ __('Golongan Darah') }}</label>
                             <select  wire:model.lazy='blood'
                             class="form-control @error('blood') is-invalid @enderror" id='blood'>
@@ -199,10 +205,11 @@
                             <option value="B" >B</option>
                             <option value="AB" >AB</option>
                             <option value="O" >O</option>
+                            <option value="tidak" >Tidak Tahu</option>
                         </select>
                         @error('blood')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                    </div> --}}
+                    </div>
                     {{-- <div class='form-group col-md-3'>
                         <label for='respiration' class='control-label'> {{ __('Respirasi (X/Menit)') }}</label>
                         <input type='number' autofocus wire:model.lazy='respiration' placeholder="Respirasi"
@@ -363,26 +370,26 @@
                 Pemeriksaan Fisik
             </div>
             <div class="card-body row">
-                <div class='form-group col-md-3'>
+                {{-- <div class='form-group col-md-3'>
                     <label for='height' class='control-label'> {{ __('Tinggi Badan (CM)') }}</label>
                     <input type='number' autofocus wire:model.lazy='height' placeholder="Tinggi Badan"
                     class="form-control @error('height') is-invalid @enderror" id='height'>
                     @error('height')
                     <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                </div>
+                </div> --}}
 
-                <div class='form-group col-md-3'>
+                {{-- <div class='form-group col-md-3'>
                     <label for='weight' class='control-label'> {{ __('Berat Badan (KG)') }}</label>
                     <input type='number' autofocus wire:model.lazy='weight' placeholder="Berat Badan"
                     class="form-control @error('weight') is-invalid @enderror" id='weight'>
                     @error('weight')
                     <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                </div>
-                <div class='form-group col-md-3'>
+                </div> --}}
+                {{-- <div class='form-group col-md-3'>
                     <label for='blood' class='control-label'> {{ __('Golongan Darah') }}</label>
                     <select  wire:model.lazy='blood'
                     class="form-control @error('blood') is-invalid @enderror" id='blood'>
-                    {{-- <option value="" >---Golongan Darah--</option> --}}
+                    <option value="" >---Golongan Darah--</option>
                     <option value="A" >A</option>
                     <option value="B" >B</option>
                     <option value="AB" >AB</option>
@@ -391,12 +398,12 @@
                 </select>
                 @error('blood')
                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
-            </div>
+            </div> --}}
                 <div class='form-group col-md-3'>
                     <label for='kepala' class='control-label'> {{ __('Kepala') }}</label>
                     <select  wire:model.lazy='kepala'
                     class="form-control @error('kepala') is-invalid @enderror" id='kepala'>
-                    {{-- <option value="" >---Kepala--</option> --}}
+                    <option value="" >---Kepala--</option>
                     <option value="normochepal" >Normochepal</option>
                     <option value="tidak" >Tidak</option>
                 </select>
@@ -407,7 +414,7 @@
                     <label for='mata' class='control-label'> {{ __('Mata') }}</label>
                     <select  wire:model.lazy='mata'
                     class="form-control @error('mata') is-invalid @enderror" id='mata'>
-                    {{-- <option value="" >---Mata--</option> --}}
+                    <option value="" >---Mata--</option>
                     <option value="conjungtiva(-)" >Conjungtiva Anemis (-)</option>
                     <option value="conjungtiva(+)" >Conjungtiva Anemis (+)</option>
                     <option value="sklera(-)" >Sklera Ikterik (-)</option>
@@ -430,7 +437,7 @@
                 <label for='thoraks' class='control-label'> {{ __('Thoraks') }}</label>
                 <select  wire:model.lazy='thoraks'
                 class="form-control @error('thoraks') is-invalid @enderror" id='thoraks'>
-                {{-- <option value="" >---Thoraks--</option> --}}
+                <option value="" >---Thoraks--</option>
                 <option value="regular" >Bj I-II Murni regular</option>
                 <option value="iregular" >Bj I-II Murni iregular</option>
                 <option value="murmur(-)" >Murmur (-)</option>
@@ -445,7 +452,7 @@
                 <label for='pulmo' class='control-label'> {{ __('Pulmo') }}</label>
                 <select  wire:model.lazy='pulmo'
                 class="form-control @error('pulmo') is-invalid @enderror" id='pulmo'>
-                {{-- <option value="" >---Pulmo--</option> --}}
+                <option value="" >---Pulmo--</option>
                 <option value="vbs" >VBS Ka=Ki</option>
                 <option value="wheezing(-)" >Wheezing (-)</option>
                 <option value="wheezing(+)" >Wheezing (+)</option>
@@ -460,7 +467,7 @@
                 <label for='abdomen' class='control-label'> {{ __('Abdomen') }}</label>
                 <select  wire:model.lazy='abdomen'
                 class="form-control @error('abdomen') is-invalid @enderror" id='abdomen'>
-                {{-- <option value="" >---Abdomen--</option> --}}
+                <option value="" >---Abdomen--</option>
                 <option value="nyeri(-)" >Nyeri Tekan (-)</option>
                 <option value="nyeri(+)" >Nyeri Tekan (+)</option>
             </select>
@@ -471,7 +478,7 @@
                 <label for='ekstremitas' class='control-label'> {{ __('Ekstremitas') }}</label>
                 <select  wire:model.lazy='ekstremitas'
                 class="form-control @error('ekstremitas') is-invalid @enderror" id='ekstremitas'>
-                {{-- <option value="" >---Ekstremitas--</option> --}}
+                <option value="" >---Ekstremitas--</option>
                 <option value="hangat" >Akral Hangat</option>
                 <option value="dingin" >Akral Dingin</option>
                 <option value="crt" >CRT < 2 detik</option>

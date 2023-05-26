@@ -18,6 +18,7 @@ class Queue extends Model
         'doctor_id',
         'main_complaint',
         'service_id',
+        'jenis_rawat',
         'medical_record_id'
     ];
 

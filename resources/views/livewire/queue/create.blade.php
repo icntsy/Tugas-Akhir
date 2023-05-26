@@ -66,7 +66,17 @@
                                 <button class="btn"> Layanan&nbsp;&nbsp;:</button>
                             </div>
                             <select id="service" class="multiselect-dropdown form-control @error('service_id')
-                                is-invalid @enderror">
+                                is-invalid @enderror" onclick="tampung()">
+                            </select>
+                        </div>
+                        <div id="optionMati" style="display: none" class="input-group mt-2" wire:ignore>
+                            <div class="input-group-prepend">
+                                <button class="btn"> Pilihan Rawat&nbsp;&nbsp;:</button>
+                            </div>
+                            <select id="jenis_rawat" class="form-control" wire:model="jenis_rawat" >
+                                <option value="">- Pilih -</option>
+                                <option value="Jalan">Rawat Jalan</option>
+                                <option value="Inap">Rawat Inap</option>
                             </select>
                         </div>
                         <div class="input-group mt-2" wire:ignore>
@@ -136,8 +146,13 @@
             }).on('change', function (e){
                 var data = $('#service').select2("val")
                 @this.set('service_id', data)
-            });
 
+                if ($(this).val() === "1") {
+                    $("#optionMati").show();
+                } else {
+                    $("#optionMati").hide();
+                }
+            });
 
             $("#doctor").select2({
                 theme: "bootstrap4",
@@ -176,7 +191,7 @@
             }).on("change", function (e){
                 var data = $('#doctor').select2("val")
                 @this.set('doctor_id', data)
-            })
+            });
         })
     </script>
 @endpush

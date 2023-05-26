@@ -15,10 +15,14 @@ class Create extends Component
     public $service_id;
     public $doctor_id;
     public $main_complaint;
+    public $jenis_rawat;
 
-    public function rules(){
-       return ['service_id' => 'required', 'doctor_id' => 'required','patient' => 'required'];
-    }
+    protected $rules = [
+           'service_id' => 'required',
+           'doctor_id' => 'required',
+           'patient' => 'required',
+           'jenis_rawat' => 'required'
+        ];
 
     protected $listeners = [
         'patientSelected'
@@ -61,6 +65,7 @@ class Create extends Component
                 'patient_id' => $this->patient->id,
                 'doctor_id' => $this->doctor_id,
                 'service_id' => $this->service_id,
+                'jenis_rawat' => $this->jenis_rawat,
                 'main_complaint' => $this->main_complaint,
             ]);
             $this->dispatchBrowserEvent('show-message', [

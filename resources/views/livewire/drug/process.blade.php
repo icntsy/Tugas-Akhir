@@ -101,7 +101,11 @@
                                             <td>:</td>
                                             <td>{{$queue->service->name}}</td>
                                         </tr>
-
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">Jenis Rawat </td>
+                                            <td>:</td>
+                                            <td>{{$queue->jenis_rawat}}</td>
+                                        </tr>
 
                                     </tbody>
                                 </table>

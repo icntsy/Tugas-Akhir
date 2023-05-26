@@ -16,6 +16,7 @@
         </a> --}}
         @elserole('dokter')
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
+        <button class="btn btn-sm btn-danger" wire:click="">Selesai</button>
         @elserole("bidan")
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
         @elserole('staff')
