@@ -31,7 +31,7 @@
                         <table class="mb-0 table table-sm table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Nik</th>
+                                    <th>NIK</th>
                                     <th>Nama Lengkap</th>
                                     <th>Usia</th>
                                     <th>Jenis Kelamin</th>

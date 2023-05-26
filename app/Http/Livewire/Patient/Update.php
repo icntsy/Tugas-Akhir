@@ -15,6 +15,7 @@ class Update extends Component
     public $address;
     public $phone_number;
     public $study;
+    public $nik;
     // public $bpjs_number;
     public $profession;
     public $allergy;
@@ -27,6 +28,7 @@ class Update extends Component
         'phone_number' => 'required',
         'study' => 'required',
         'profession' => 'required',
+        'nik' => 'required',
     ];
 
     public function updated($input)
@@ -50,6 +52,7 @@ class Update extends Component
             // 'bpjs_number' => $this->bpjs_number,
             'profession' => $this->profession,
             'allergy' => $this->allergy,
+            'nik' => $this->nik,
         ]);
         return redirect("/pasien");
     }
@@ -65,6 +68,7 @@ class Update extends Component
         // $this->bpjs_number = $patient->bpjs_number;
         $this->profession = $patient->profession;
         $this->allergy = $patient->allergy;
+        $this->nik = $patient->nik;
     }
 
     /**

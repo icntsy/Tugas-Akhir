@@ -6,6 +6,15 @@
     <td>{{$queue->has_drug ? "Selesai" : "Belum"}}</td>
     <td>{{$queue->doctor->name}}</td>
     <td>{{$queue->service->name}}</td>
+    @if ($role === 'dokter' || ($role === 'admin' && $queue->doctor->role !== 'bidan'))
+    <td>{{ $queue->jenis_rawat }}</td>
+@elseif ($role === 'admin' && $queue->doctor->role === 'bidan')
+    <td>-</td>
+@endif
+
+    {{-- @if ($role === 'dokter' || $role === 'admin')
+    <td>{{ $queue->jenis_rawat }}</td>
+    @endif --}}
     <td>
         @role('admin')
         <a wire:click="delete" class="btn text-danger">
@@ -16,7 +25,11 @@
         </a> --}}
         @elserole('dokter')
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
-        <button class="btn btn-sm btn-danger" wire:click="">Selesai</button>
+        @if ($queue->jenis_rawat === 'Inap')
+    <button class="btn btn-sm btn-danger" wire:click="">Selesai</button>
+@endif
+
+        {{-- <button class="btn btn-sm btn-danger" wire:click="">Selesai</button> --}}
         @elserole("bidan")
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
         @elserole('staff')

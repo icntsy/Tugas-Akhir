@@ -31,9 +31,9 @@ aria-hidden="true">
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="">  Pilih Dokter </label>
+                        <label for="">  Pilih Dokter / Bidan</label>
                         <select name="id" class="form-control" id="id">
-                            <option value="">- Pilih Dokter -</option>
+                            <option value="">- Pilih Dokter / Bidan-</option>
                             @foreach ($users as $user)
                                 <option value="{{ $user->id }}">{{ $user->name }}</option>
                             @endforeach

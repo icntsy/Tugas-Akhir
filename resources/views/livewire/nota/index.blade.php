@@ -39,7 +39,7 @@
                                     <th>Tanggal Periksa</th>
                                     <th>Jumlah Pembayaran</th>
                                     <th>Obat</th>
-                                    <th>Dokter</th>
+                                    <th>Dokter / Bidan</th>
                                     <th>Layanan</th>
                                 </tr>
                             </thead>

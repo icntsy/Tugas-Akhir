@@ -93,7 +93,13 @@ class Process extends Component
     }
     public function render()
     {
-        return view('livewire.queue.process');
+        $user = Auth::user();
+        $role = $user->role;
+
+    return view('livewire.queue.process', [
+        'role' => $role,
+    ]);
+        // return view('livewire.queue.process');
     }
 
     public function addDiagnosa()

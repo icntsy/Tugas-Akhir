@@ -4,13 +4,16 @@ namespace App\Http\Livewire\Queue;
 
 use App\Models\Queue;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Single extends Component
 {
     public $queue;
+    public $role; // Tambahkan properti $role
 
     public function mount(Queue $queue){
         $this->queue = $queue;
+        $this->role = Auth::user()->role; // Inisialisasi $role
     }
 
     public function delete(){
@@ -19,7 +22,10 @@ class Single extends Component
     }
     public function render()
     {
-        return view('livewire.queue.single');
+        return view('livewire.queue.single', [
+            'role' => $this->role // Mengirimkan $role ke tampilan
+        ]);
+        // return view('livewire.queue.single');
     }
 
     public function processCheckup(){

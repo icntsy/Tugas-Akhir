@@ -43,8 +43,8 @@
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
-                                    <th>Dokter</th>
+                                    <th>No</th>
+                                    <th>Dokter / Bidan</th>
                                     <th>Harga Jasa</th>
 
                                 </tr>

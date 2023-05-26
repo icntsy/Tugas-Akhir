@@ -25,7 +25,7 @@ class Create extends Component
         ]);
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
-            'message' => 'Berhasil Menambah Data'
+            'message' => 'Berhasil Menambah Data Layanan'
         ]);
 
         $this->redirectRoute('service.index');

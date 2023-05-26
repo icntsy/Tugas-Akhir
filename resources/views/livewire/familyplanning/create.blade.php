@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="card">
             <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
-                
+
                 <div class="card-body row">
                     <div class='form-group col-md-6'>
                         <label for='name' class='control-label'> {{ __('Nama Lengkap') }}</label>
@@ -59,7 +59,7 @@
 
                 </div>
                 <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-info">{{ __('Simpan Data') }}</button>
+                    <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
                 </div>
             </form>
         </div>

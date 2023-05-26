@@ -29,7 +29,7 @@
                         <table class="mb-0 table table-sm table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>No</th>
                                     <th>Nama Pasien</th>
                                     <th>Tanggal Periksa</th>
                                     <th>Keluhan Utama</th>

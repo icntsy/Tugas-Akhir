@@ -34,11 +34,15 @@ class Index extends Component
         $queues->whereDate('created_at', Carbon::today())->where(
             'has_check', false,
         );
+
+       $role = Auth::user()->role; // Definisikan variabel $role
+
         if (Auth::user()->role == "admin") {
             $queues = $queues->paginate(5);
            } else {
             $queues = $queues->where("doctor_id", Auth::user()->id)->paginate(5);
            }
-         return view('livewire.queue.index', compact('queues'));
+           return view('livewire.queue.index', compact('queues', 'role')); // Mengirimkan $role ke view
+        //  return view('livewire.queue.index', compact('queues'));
     }
 }

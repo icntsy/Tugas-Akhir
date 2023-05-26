@@ -30,14 +30,14 @@
                         <table class="mb-0 table table-sm table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Id</th>
+                                    <th>No</th>
                                     <th>Nama</th>
                                     <th>Usia</th>
                                     <th>Alamat</th>
                                     <th>Berat Badan</th>
                                     <th>Golongan Darah</th>
-                                    <th>Keterangan</th> 
-                                    <th>Action</th> 
+                                    <th>Keterangan</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>

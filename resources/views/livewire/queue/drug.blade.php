@@ -35,7 +35,7 @@
                                     <th>No Antrian</th>
                                     <th>Selesai Checkup</th>
                                     <th>Selesai Obat</th>
-                                    <th>Dokter</th>
+                                    <th>Dokter / Bidan</th>
                                     <th>Layanan</th>
                                     <th>Action</th>
                                 </tr>

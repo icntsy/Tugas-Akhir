@@ -81,7 +81,7 @@
                         </div>
                         <div class="input-group mt-2" wire:ignore>
                             <div class="input-group-prepend">
-                                <button class="btn">Dokter&nbsp; &nbsp;&nbsp; :</button>
+                                <button class="btn">Dokter / Bidan&nbsp; &nbsp;&nbsp; :</button>
                             </div>
                             <select id="doctor" class="multiselect-dropdown form-control @error('doctor_id')
                                 is-invalid @enderror " >
@@ -157,7 +157,7 @@
             $("#doctor").select2({
                 theme: "bootstrap4",
 
-                placeholder: 'Pilih Dokter',
+                placeholder: 'Pilih Dokter / Bidan',
 
                 ajax: {
 

@@ -96,22 +96,54 @@
                                         <td>Umum </td>
                                     </tr> --}}
                                     <tr>
+                                        <td style="font-weight: bold;" width="35%">
+                                            @if ($role === 'dokter')
+                                                Dokter Pemeriksa
+                                            @elseif ($role === 'bidan')
+                                                Bidan Pemeriksa
+                                            @endif
+                                        </td>
+                                        <td>:</td>
+                                        <td>
+                                            @if ($role === 'dokter')
+                                                {{$queue->doctor->name}}
+                                            @elseif ($role === 'bidan')
+                                            {{$queue->doctor->name}}
+                                            @endif
+                                        </td>
+                                    </tr>
+
+                                    {{-- <tr>
                                         <td style="font-weight: bold;" width="35%">Dokter Pemeriksa</td>
                                         <td>:</td>
                                         <td>{{$queue->doctor->name}}</td>
-                                    </tr>
+                                    </tr> --}}
                                     <tr>
                                         <td style="font-weight: bold;" width="35%">Layanan </td>
                                         <td>:</td>
                                         <td>{{$queue->service->name}}</td>
                                     </tr>
-                                    <tr>
+                                    {{-- <tr>
                                         <td style="font-weight: bold;" width="35%">Jenis Rawat </td>
                                         <td>:</td>
                                         <td>{{$queue->jenis_rawat}}</td>
+                                    </tr> --}}
+                                    {{-- <tr>
+                                        <td style="font-weight: bold;" width="35%">Jenis Rawat</td>
+                                        <td>:</td>
+                                        @if ($role === 'dokter')
+                                            <td>{{ $queue->jenis_rawat }}</td>
+                                        @else
+                                            <td>-</td>
+                                        @endif
+                                    </tr> --}}
+                                    @if ($role === 'dokter')
+                                    <tr>
+                                        <td style="font-weight: bold;" width="35%">Jenis Rawat</td>
+                                        <td>:</td>
+                                        <td>{{ $queue->jenis_rawat }}</td>
                                     </tr>
-
-
+                                @endif
                                 </tbody></table>
                             </div>
                             <hr>

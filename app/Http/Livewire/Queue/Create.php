@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Queue;
 
+use Illuminate\Support\Facades\Auth;
 use App\Models\Patient;
 use App\Models\Queue;
 use App\Models\Service;
@@ -17,12 +18,34 @@ class Create extends Component
     public $main_complaint;
     public $jenis_rawat;
 
-    protected $rules = [
-           'service_id' => 'required',
-           'doctor_id' => 'required',
-           'patient' => 'required',
-           'jenis_rawat' => 'required'
+    // protected $rules = [
+    //        'service_id' => 'required',
+    //        'doctor_id' => 'required',
+    //        'patient' => 'required',
+    //        'jenis_rawat' => 'required'
+    //     ];
+
+    protected function rules()
+    {
+        $rules = [
+            'service_id' => 'required',
+            'doctor_id' => 'required',
+            'patient' => 'required',
         ];
+
+        // Check user role
+        if (Auth::check()) {
+            $user = Auth::user();
+            $role = $user->role; // Assuming the user role is stored in the 'role' field
+
+            // Apply additional validation rule if the role is 'dokter'
+            if ($role === 'dokter') {
+                $rules['jenis_rawat'] = 'required';
+            }
+        }
+
+        return $rules;
+    }
 
     protected $listeners = [
         'patientSelected'

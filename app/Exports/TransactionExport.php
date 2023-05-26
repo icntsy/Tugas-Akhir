@@ -45,7 +45,7 @@ class TransactionExport implements
 
             'Nama Lengkap',
             'Tanggal Periksa',
-            'Dokter',
+            'Dokter / Bidan',
             'Layanan',
             'Jumlah Pembayaran'
 

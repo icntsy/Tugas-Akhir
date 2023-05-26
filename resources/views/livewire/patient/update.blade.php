@@ -22,14 +22,21 @@
                         @error('birth_date')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
-                    <div class='form-group col-md-12'>
-                        {{--                        <label for='address' class='control-label'> {{ __('Alamat Lengkap') }}</label>--}}
+                    <div class='form-group col-md-6'>
+                        <label for='nik' class='control-label'> {{ __('NIK') }}</label>
+                        <input type='text' wire:model.lazy='nik'
+                               placeholder="NIK" class="form-control @error('birth_date') is-invalid @enderror" id='nik'>
+                        @error('nik')
+                        <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                    </div>
+                    <div class='form-group col-md-6'>
+                                               <label for='address' class='control-label'> {{ __('Alamat Lengkap') }}</label>
                         <textarea class="form-control" wire:model="address" placeholder="Alamat Lengkap"></textarea>
                         @error('address')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
                     <div class='form-group col-md-6'>
-                        {{--                        <label for='job' class='control-label'> {{ __('Nama Pekerjaan') }}</label>--}}
+                                               <label for='profession' class='control-label'> {{ __('Nama Pekerjaan') }}</label>
                         <input type='text' wire:model.lazy='profession'
                                class="form-control @error('pro') is-invalid @enderror" id='pro' placeholder="Nama Pekerjaan pasien">
                         @error('profession')
@@ -37,7 +44,7 @@
                     </div>
 
                     <div class='form-group col-md-6'>
-                        {{--                        <label for='phone_number' class='control-label'> {{ __('Nomer Handphone') }}</label>--}}
+                                               <label for='phone_number' class='control-label'> {{ __('Nomer Handphone') }}</label>
                         <input type='text' wire:model.lazy='phone_number'
                                class="form-control @error('phone_number') is-invalid @enderror" id='phone_number' placeholder="Nomer Handphone pasien">
                         @error('phone_number')
@@ -45,7 +52,7 @@
                     </div>
 
                     <div class='col-md-6 form-group'>
-                        {{--                        <label for='study' class='control-label'> {{ __('Pendidikan Terakhir') }}</label>--}}
+                                               <label for='gender' class='control-label'> {{ __('Jenis Kelamin') }}</label>
                         <select  id="gender" class="form-control custom-select" wire:model="gender" name="gender">
                             <option selected="selected" value="">--Pilih Jenis Kelamin--</option>
                             <option value="Laki-Laki">Laki Laki</option>
@@ -53,7 +60,7 @@
                         </select>
                     </div>
                     <div class='col-md-6 form-group'>
-                        {{--                        <label for='study' class='control-label'> {{ __('Pendidikan Terakhir') }}</label>--}}
+                                               <label for='study' class='control-label'> {{ __('Pendidikan Terakhir') }}</label>
                         <select  id="study" class="form-control custom-select" wire:model="study" name="study">
                             <option selected="selected" value="">--Pilih Pendidikan--</option>
                             <option value="Tidak Sekolah">Tidak Sekolah</option>
@@ -71,7 +78,7 @@
                         {{-- <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div> --}}
                     <div class='form-group col-md-12'>
-                        {{--                        --}}{{--                        <label for='address' class='control-label'> {{ __('Alamat Lengkap') }}</label>--}}
+                                               <label for='allergy' class='control-label'> {{ __('Alergi') }}</label>
                         <textarea class="form-control" wire:model="allergy" placeholder="List Alergi Yang di Derita"></textarea>
                         @error('allergy')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror

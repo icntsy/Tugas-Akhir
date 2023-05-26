@@ -1,4 +1,4 @@
-@php
+{{-- @php
     $data = json_decode($this->pyshicalTest)
 @endphp
 <table class="table">
@@ -61,4 +61,4 @@
       <td>{{ $data->temperature }}</td>
     </tr>
   </tbody>
-</table>
+</table> --}}
