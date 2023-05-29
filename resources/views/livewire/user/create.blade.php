@@ -35,7 +35,7 @@
                             {{-- <option value="pengguna">Pengguna</option> --}}
                         </select>
                     </div>
-                    <div class='form-group col-md-6'>
+                    {{-- <div class='form-group col-md-6'>
                         <label for='password' class='control-label'> {{ __('Password') }}</label>
                         <input type='password'  wire:model.lazy='password' placeholder="Masukan password"
                                class="form-control @error('password') is-invalid @enderror" id='password'>
@@ -48,15 +48,63 @@
                                class="form-control @error('password_confirmation') is-invalid @enderror" id='password_confirmation'>
                         @error('password_confirmation')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                    </div> --}}
+                    <div class='form-group col-md-6'>
+                        <label for='password' class='control-label'>{{ __('Password') }}</label>
+                        <div class='input-group'>
+                            <input type='{{ $passwordVisible ? "text" : "password" }}' wire:model.lazy='password' placeholder="Masukkan password"
+                                   class="form-control @error('password') is-invalid @enderror" id='password'>
+                            <div class='input-group-append'>
+                                <span class='input-group-text' id='password-toggle' wire:click="togglePasswordVisibility">
+                                    <i class='fa fa-eye{{ $passwordVisible ? "-slash" : "" }}'></i>
+                                </span>
+                            </div>
+                        </div>
+                        @error('password')
+                        <div class='invalid-feedback'>{{ $message }}</div>
+                        @enderror
                     </div>
-                    <div class="form-group col-md-6">
+                    <div class='form-group col-md-6'>
+                        <label for='password_confirmation' class='control-label'>{{ __('Password Confirmation') }}</label>
+                        <div class='input-group'>
+                            <input type='{{ $passwordConfirmationVisible ? "text" : "password" }}' wire:model.lazy='password_confirmation' placeholder="Ulangi Password"
+                                   class="form-control @error('password_confirmation') is-invalid @enderror" id='password_confirmation'>
+                            <div class='input-group-append'>
+                                <span class='input-group-text' id='password-confirmation-toggle' wire:click="togglePasswordConfirmationVisibility">
+                                    <i class='fa fa-eye{{ $passwordConfirmationVisible ? "-slash" : "" }}'></i>
+                                </span>
+                            </div>
+                        </div>
+                        @error('password_confirmation')
+                        <div class='invalid-feedback'>{{ $message }}</div>
+                        @enderror
+                    </div>
+
+
+                    {{-- <div class="form-group col-md-6">
                         <label for="image" class="control-label">{{ __('Image') }}</label>
                         <input type="file" wire:model="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
                         @error('image')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
 
+                    </div> --}}
+
+                    <div class="form-group col-md-6">
+                        <label for="image" class="control-label">{{ __('Image') }}</label>
+                        <input type="file" wire:model="image" id="image" class="form-control-file @error('image') is-invalid @enderror">
+                        @error('image')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+
+                        @if ($image)
+                        <div class="mt-2">
+                            <label></label>
+                            <img src="{{ $image->temporaryUrl() }}" alt="Preview" class="img-thumbnail" width="200" height="200">
+                        </div>
+                        @endif
                     </div>
+
                 </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>

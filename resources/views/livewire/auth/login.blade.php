@@ -26,7 +26,7 @@
                                             <div class='invalid-feedback'>{{ $message }}</div>@enderror
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
+                                    {{-- <div class="col-md-12">
                                         <div class="position-relative form-group">
                                             <label for="password" class="control-label">Password</label>
                                             <input wire:model="password" name="password" id="password"
@@ -35,7 +35,26 @@
                                             @error('password')
                                             <div class='invalid-feedback'>{{ $message }}</div>@enderror
                                         </div>
+                                    </div> --}}
+                                    <div class="col-md-12">
+                                        <div class="position-relative form-group">
+                                            <label for="password" class="control-label">Password</label>
+                                            <div class="input-group">
+                                                <input wire:model="password" name="password" id="password"
+                                                    placeholder="Masukan Password" type="{{ $passwordVisible ? 'text' : 'password' }}"
+                                                    class="form-control @error('password') is-invalid @enderror">
+                                                <div class="input-group-append">
+                                                    <span wire:click="togglePasswordVisibility" class="input-group-text">
+                                                        <i class="fa {{ $passwordVisible ? 'fa-eye-slash' : 'fa-eye' }}"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            @error('password')
+                                            <div class="invalid-feedback">{{ $message }}</div>
+                                            @enderror
+                                        </div>
                                     </div>
+
                                 </div>
                                 {{-- <div class="position-relative form-check">
                                     <input name="check" wire:model="keeplogin" id="exampleCheck" type="checkbox"

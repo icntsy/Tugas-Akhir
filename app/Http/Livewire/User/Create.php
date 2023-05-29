@@ -17,6 +17,8 @@ class Create extends Component
     public $password_confirmation;
     public $role;
     public $image;
+    public $passwordVisible = false;
+    public $passwordConfirmationVisible = false;
 
     protected $rules = [
         'name' => 'required|max:255',
@@ -49,6 +51,16 @@ class Create extends Component
             'message' => 'Sukses menambah data user'
         ]);
         $this->redirectRoute('user.index');
+    }
+
+    public function togglePasswordVisibility()
+    {
+        $this->passwordVisible = !$this->passwordVisible;
+    }
+
+    public function togglePasswordConfirmationVisibility()
+    {
+        $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
     }
     /**
      * Get the view / contents that represent the component.

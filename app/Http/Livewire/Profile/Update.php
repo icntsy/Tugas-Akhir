@@ -2,9 +2,12 @@
 
 namespace App\Http\Livewire\Profile;
 
+use App\Models\User;
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class Update extends Component
 {
@@ -14,47 +17,82 @@ class Update extends Component
     public $email;
     public $password;
     public $password_confirmation;
+    public $passwordVisible = false;
+    public $passwordConfirmationVisible = false;
+
+
     public $image;
 
-    public function mount()
+    protected $rules = [
+        'name' => 'required',
+        'email' => 'required|email',
+        'password' => 'nullable|confirmed',
+        'image' => 'nullable|image|mimes:jpeg,png,jpg'
+    ];
+
+    public function updated($input)
     {
-        $user = Auth::user();
-        $this->name = $user->name;
-        $this->email = $user->email;
+        $this->validateOnly($input);
     }
 
     public function update()
     {
-        $validatedData = $this->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'nullable|min:8|confirmed',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg',
-        ]);
+        $this->validate();
+
+        $userData = [
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => Hash::make($this->password),
+        ];
 
         $user = Auth::user();
         $user->name = $this->name;
         $user->email = $this->email;
 
         if (!empty($this->password)) {
-            $user->password = bcrypt($this->password);
+            $userData['password'] = Hash::make($this->password);
         }
 
-        if ($this->image) {
+        if ($this->image && $this->image->getClientOriginalName() !== $user->image) {
+            // Hapus gambar yang sudah ada sebelumnya
+            if ($user->image) {
+                Storage::disk('public')->delete('images/' . $user->image);
+            }
+
             $imageName = time() . '.' . $this->image->getClientOriginalExtension();
             $this->image->storeAs('public/images', $imageName);
-            $user->image = $imageName;
+            $userData['image'] = $imageName;
         }
 
-        $user->save();
+        $user->update($userData);
 
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
-            'message' => __('Data Profile Berhasil Diupdate', ['name' => __('Article')]),
+            'message' => 'Data User Berhasil Diupdate'
         ]);
 
-        return redirect("/profile");
+
+        return redirect('/profile');
     }
+
+    public function mount()
+    {
+        $user = Auth::user();
+        $this->name = $user->name;
+        $this->email = $user->email;
+        $this->password = $user->password;
+    }
+
+    public function togglePasswordVisibility()
+{
+    $this->passwordVisible = !$this->passwordVisible;
+}
+
+public function togglePasswordConfirmationVisibility()
+{
+    $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
+}
+
 
     public function render()
     {

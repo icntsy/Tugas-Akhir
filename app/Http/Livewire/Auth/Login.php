@@ -12,6 +12,8 @@ class Login extends Component
     public $password;
     public $email;
     public $keeplogin;
+    public $passwordVisible = false;
+    public $passwordConfirmationVisible = false;
 
     protected $rules = [
         'password' => 'required',
@@ -35,6 +37,16 @@ class Login extends Component
                 'message' => 'Login Gagal Pastikan email dan password yang anda inputkan benar.'
             ]);
         }
+    }
+
+    public function togglePasswordVisibility()
+    {
+        $this->passwordVisible = !$this->passwordVisible;
+    }
+
+    public function togglePasswordConfirmationVisibility()
+    {
+        $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
     }
     /**
      * Get the view / contents that represent the component.

@@ -5,6 +5,7 @@ namespace App\Http\Livewire\User;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class Update extends Component
 {
@@ -16,14 +17,16 @@ class Update extends Component
     public $password_confirmation;
     public $role;
     public $image;
+    public $passwordVisible = false;
+    public $passwordConfirmationVisible = false;
+
 
     protected $rules = [
         'name' => 'required',
-        // 'email' => 'required|email|unique:users,email',
         'email'=> 'required',
-        'password' => 'required|confirmed',
+        'password' => 'nullable|confirmed',
         'role' => 'required',
-        'image' => 'image|mimes:jpeg,png,jpg'
+        'image' => 'nullable|image|mimes:jpeg,png,jpg'
     ];
 
     public function updated($input)
@@ -46,7 +49,12 @@ class Update extends Component
             $userData['password'] = \Hash::make($this->password);
         }
 
-        if ($this->image) {
+        if ($this->image && $this->image->getClientOriginalName() !== $this->user->image) {
+            // Hapus gambar yang sudah ada sebelumnya
+            if ($this->user->image) {
+                Storage::disk('public')->delete('images/' . $this->user->image);
+            }
+
             $imageName = time() . '.' . $this->image->getClientOriginalExtension();
             $this->image->storeAs('public/images', $imageName);
             $userData['image'] = $imageName;
@@ -56,26 +64,11 @@ class Update extends Component
 
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
-            'message' => 'Sukses mengupdate data user'
+            'message' => 'Data User Berhasil Diupdate'
         ]);
 
         $this->redirect('/user');
     }
-
-    // public function update()
-    // {
-    //     $this->validate();
-
-    //     $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Data User Berhasil Diupdate', ['name' => __('Article')])]);
-
-    //     $this->user->update([
-    //         'name' => $this->name,
-    //         'email' => $this->email,
-    //         'password' => \Hash::make($this->password),
-    //         'role' => $this->role
-    //     ]);
-    //     return redirect("/user");
-    // }
 
     public function mount(User $user)
     {
@@ -85,6 +78,17 @@ class Update extends Component
         $this->password = $user->password;
         $this->role = $user->role;
     }
+
+    public function togglePasswordVisibility()
+{
+    $this->passwordVisible = !$this->passwordVisible;
+}
+
+public function togglePasswordConfirmationVisibility()
+{
+    $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
+}
+
     public function render()
     {
         return view('livewire.user.update');
