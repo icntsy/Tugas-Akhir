@@ -48,6 +48,8 @@ class Index extends Component
         ->orWhere('email', 'like', '%'.$this->search.'%')
         ->orWhere('role', 'like', '%'.$this->search.'%');
         $users = $users->paginate(5);
-        return view('livewire.user.index', compact('users', 'users1'));
+
+         $no = ($users->currentPage() - 1) * $users->perPage() + 1;
+        return view('livewire.user.index', compact('users', 'users1', 'no'));
     }
 }

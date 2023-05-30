@@ -10,8 +10,10 @@ class Single extends Component
     public $transaksi;
     public $available;
 
+
     public function mount(Transaction $transaksi){
         $this->transaksi = $transaksi;
+
         // $this->available = $drug->min_stok < $drug->stok;
     }
 

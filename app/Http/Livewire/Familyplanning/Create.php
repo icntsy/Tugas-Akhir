@@ -35,6 +35,10 @@ class Create extends Component
             'blood_pressure' => $this->blood_pressure,
             'description' => $this->description,
         ]);
+        $this->dispatchBrowserEvent('show-message', [
+            'type' => 'success',
+            'message' => 'Sukses menambah data kb'
+        ]);
 
         $this->redirectRoute('familyplanning.index');
     }

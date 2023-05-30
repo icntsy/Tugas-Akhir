@@ -45,7 +45,7 @@
                                 <tr>
 
                                     {{-- <td>{{ $user->id }}</td> --}}
-                                    <td>{{ ++$no  }}</td>
+                                    <td>{{  ($users->currentPage() - 1) * $users->perPage() + $loop->iteration   }}</td>
                                     <td>{{ $user->name }}</td>
                                     <td>{{ $user->email }}</td>
                                     <td>{{ $user->role }}</td>

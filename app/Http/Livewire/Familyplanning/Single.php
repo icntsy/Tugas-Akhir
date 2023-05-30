@@ -8,9 +8,11 @@ use Livewire\Component;
 class Single extends Component
 {
     public $familyplanning;
+    public $familyplanningIndex;
 
-    public function mount(Familyplanning $familyplanning){
-        $this->familyplanning = $familyplanning;   
+    public function mount(Familyplanning $familyplanning, $familyplanningIndex){
+        $this->familyplanning = $familyplanning;
+        $this->familyplanningIndex = $familyplanningIndex;
     }
 
     public function delete(){

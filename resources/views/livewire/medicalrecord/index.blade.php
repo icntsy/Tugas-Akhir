@@ -40,8 +40,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($records as $record)
-                                <livewire:medical-record.single :record="$record" :key="time() . $record->id" />
+                                {{-- @forelse($records as $record) --}}
+                                @forelse($records as $index => $record)
+                                <livewire:medical-record.single :record="$record" :recordIndex="$index + $records->firstItem()" :key="$record->id" />
+                                {{-- <livewire:medical-record.single :record="$record" :key="time() . $record->id" /> --}}
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse

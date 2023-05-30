@@ -1,6 +1,6 @@
 
 <tr>
-    <td>1</td>
+    <td>{{ $users->id }}</td>
     <td>
         {{ $users->name }}
     </td>

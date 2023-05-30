@@ -44,6 +44,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 @forelse($transaksi as $transaction)
                                 <livewire:nota.single :transaksi="$transaction" :key="time() . $transaction->id" />
                                 @empty

@@ -39,13 +39,14 @@ class Index extends Component
             $gravida->latest('id');
         }
 
-        $gravida = $gravida->where("bidan_id", Auth::user()->id)->paginate(5);
+        $gravida = $gravida->where("bidan_id", Auth::user()->id)->paginate(6);
 
         // if (Auth::user()->role == "admin") {
         //     $records = $records->paginate(5);
         //    } else {
         //     $records = $records->where("doctor_id", Auth::user()->id)->paginate(5);
         //    }
+
         return view('livewire.History.index', compact('gravida'));
     }
 }

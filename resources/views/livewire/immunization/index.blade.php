@@ -42,8 +42,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($immunizations as $immunization)
-                                    <livewire:immunization.single :immunization="$immunization" :key="time().$immunization->id" />
+                                @forelse($immunizations as $index => $immunization)
+                                <livewire:immunization.single :immunization="$immunization" :immunizationIndex="$index + $immunizations->firstItem()" :key="$immunization->id" />
+                                {{-- @forelse($immunizations as $immunization)
+                                    <livewire:immunization.single :immunization="$immunization" :key="time().$immunization->id" /> --}}
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse

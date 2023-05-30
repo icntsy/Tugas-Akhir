@@ -1,5 +1,6 @@
 <tr>
-    <td>{{$record->id}}</td>
+    {{-- <td>{{$record->id}}</td> --}}
+    <td>{{$recordIndex}}</td>
     <td>{{$record->patient->name}}</td>
     <td>{{\Carbon\Carbon::parse($record->created_at)->format('d F Y ')}}</td>
     {{-- <td>{{$record->created_at}}</td> --}}
@@ -13,7 +14,7 @@
     </td>
     <td><ul>
             @foreach($record->diagnoses as $diagnosis)
-                <li>{{$diagnosis->diagnosis}}</li>
+                <li>{{$diagnosis->indonesian_name}}</li>
             @endforeach
         </ul>
     </td>

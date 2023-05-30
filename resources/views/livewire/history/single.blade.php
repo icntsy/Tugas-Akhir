@@ -1,5 +1,8 @@
+
 <tr>
-    <td>{{$record->id}}</td>
+
+    {{-- <td>{{$record->id}}</td> --}}
+    <td>{{$recordIndex}}</td>
     <td>{{$record->patient->name}}</td>
     <td>{{$record->patient->nik}}</td>
     <td>{{$record->patient->gender}}</td>
@@ -14,3 +17,4 @@
     </td>
     </td>
 </tr>
+

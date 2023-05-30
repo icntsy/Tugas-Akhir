@@ -1,5 +1,5 @@
 @section('meta_title', 'Mediical History')
-@section('page_title', 'DATA HISTORY')
+@section('page_title', 'DATA PEMERIKSAAN ACN')
 @section('page_title_icon')
 <i class="fa fa-medkit" aria-hidden="true"></i>
     {{-- <i class="metismenu-icon fa fa-notes-medical"></i> --}}
@@ -39,11 +39,17 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($gravida as $gravida)
+                                @forelse($gravida as $index => $record)
+                                <livewire:history.single :gravida="$record" :recordIndex="$index + $gravida->firstItem()" :key="$record->id" />
+                            @empty
+                                @include('layouts.empty', ['colspan' => 7])
+                            @endforelse
+
+                                {{-- @forelse($gravida as $gravida)
                                 <livewire:history.single :gravida="$gravida" :key="time() . $gravida->id" />
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
-                                @endforelse
+                                @endforelse --}}
                             </tbody>
                         </table>
                     </div>

@@ -8,9 +8,11 @@ use Livewire\Component;
 class Single extends Component
 {
     public $immunization;
+    public $immunizationIndex;
 
-    public function mount(Immunization $immunization){
-        $this->immunization = $immunization;   
+    public function mount(Immunization $immunization, $immunizationIndex){
+        $this->immunization = $immunization;
+        $this->immunizationIndex = $immunizationIndex;
     }
 
     public function delete(){

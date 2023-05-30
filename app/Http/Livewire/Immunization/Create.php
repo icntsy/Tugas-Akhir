@@ -41,6 +41,10 @@ class Create extends Component
             'temperature' => $this->temperature,
             'description' => $this->description,
         ]);
+        $this->dispatchBrowserEvent('show-message', [
+            'type' => 'success',
+            'message' => 'Sukses menambah data imunisasi'
+        ]);
 
         $this->redirectRoute('immunization.index');
     }

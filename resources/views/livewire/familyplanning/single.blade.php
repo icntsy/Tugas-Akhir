@@ -1,5 +1,6 @@
 <tr>
-    <td>{{$familyplanning->id}}</td>
+    {{-- <td>{{$familyplanning->id}}</td> --}}
+    <td>{{$familyplanningIndex}}</td>
     <td>{{$familyplanning->name ?? "-"}}</td>
     <td>{{$familyplanning->age}}</td>
     {{-- <td>{{\Carbon\Carbon::parse($familyplanning->tempat_tanggal_lahir)->diffInYears()}}</td> --}}
@@ -14,8 +15,8 @@
         <a href="{{route('familyplanning.update', ['familyplanning' => $familyplanning->id])}}" class="btn text-warning">
             <i class="fa fa-edit fa-1x"></i>
         </a>
-        <a href="{{route('familyplanning.update', ['familyplanning' => $familyplanning->id])}}" class="btn text-success">
+        {{-- <a href="{{route('familyplanning.update', ['familyplanning' => $familyplanning->id])}}" class="btn text-success">
             <i class="fa fa-eye fa-1x"></i>
-        </a>
+        </a> --}}
     </td>
 </tr>

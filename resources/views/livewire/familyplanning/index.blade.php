@@ -41,8 +41,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($familyplannings as $familyplanning)
-                                    <livewire:familyplanning.single :familyplanning="$familyplanning" :key="time().$familyplanning->id" />
+                                @forelse($familyplannings as $index => $familyplanning)
+                                <livewire:familyplanning.single :familyplanning="$familyplanning" :familyplanningIndex="$index + $familyplannings->firstItem()" :key="$familyplanning->id" />
+                                {{-- @forelse($familyplannings as $familyplanning)
+                                    <livewire:familyplanning.single :familyplanning="$familyplanning" :key="time().$familyplanning->id" /> --}}
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse

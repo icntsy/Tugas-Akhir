@@ -12,7 +12,7 @@ class Index extends Component
     protected $listeners = ['familyplanningDeleted'];
     protected $paginationTheme = 'bootstrap';
     public $sortType;
-    public $sortColumn; 
+    public $sortColumn;
     public function familyplanningDeleted(){
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
@@ -41,7 +41,7 @@ class Index extends Component
         }else{
             $familyplannings->latest('id');
         }
-        $familyplannings = $familyplannings->paginate(5);
+        $familyplannings = $familyplannings->paginate(2);
         return view('livewire.familyplanning.index',['familyplannings' => $familyplannings]);
     }
 

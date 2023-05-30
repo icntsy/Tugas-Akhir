@@ -50,6 +50,7 @@
                                 </tr>
                             </thead>
                             <tbody>
+
                                 @forelse($user as $users)
                                 <livewire:jasa.single :users="$users" :key="time() . $users->id" />
                                 @empty
