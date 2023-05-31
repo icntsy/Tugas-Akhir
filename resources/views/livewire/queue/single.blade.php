@@ -25,9 +25,6 @@
         </a> --}}
         @elserole('dokter')
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
-        @if ($queue->jenis_rawat === 'Inap')
-    <button class="btn btn-sm btn-danger" wire:click="">Selesai</button>
-@endif
 
         {{-- <button class="btn btn-sm btn-danger" wire:click="">Selesai</button> --}}
         @elserole("bidan")

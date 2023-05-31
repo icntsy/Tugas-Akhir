@@ -57,6 +57,14 @@
                         Antrian Periksa
                     </a>
                 </li>
+
+                <li>
+                    <a href="{{ route('progres.index') }}" class="@if (Request::is('progres*')) mm-active @endif">
+                        <i class="metismenu-icon fa fa-clipboard fa-1x" aria-hidden="true"></i>
+                        {{-- <i class="metismenu-icon fa fa-clipboard-list"></i> --}}
+                        Progres Pemeriksaan
+                    </a>
+                </li>
                 {{-- <li>
                     <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-clipboard"></i>

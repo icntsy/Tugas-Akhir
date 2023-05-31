@@ -4,14 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class MedicalRecordDrugs extends Model
+class MedicalRecordDiagnosa extends Model
 {
     use HasFactory;
 
-    protected $table = "medical_record_drugs";
+    protected $table = "medical_record_diagnoses";
 
     protected $guarded = [''];
-
 }

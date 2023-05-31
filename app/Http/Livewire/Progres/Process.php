@@ -1,0 +1,216 @@
+<?php
+
+namespace App\Http\Livewire\Progres;
+
+use App\Models\Diagnosis;
+use App\Models\Lab;
+use App\Models\MedicalRecord;
+use App\Models\MedicalRecordDetail;
+use App\Models\MedicalRecordDiagnosa;
+use App\Models\MedicalRecordDrugs;
+use App\Models\MedicalRecordLab;
+use App\Models\MedicalRecordInap;
+use App\Models\Pregnantmom;
+use App\Models\Queue;
+use App\Models\Gravida;
+use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+
+class Process extends Component
+{
+    public $queue;
+    public $listDiagnosa = [];
+    public $listDrug = [];
+    public $listLab = [];
+
+    public $pemeriksaan_penunjang;
+    public $terapi_pulang;
+    public $terapi_tindakan;
+    public $keadaan;
+    public $cara_keluar;
+
+    public $kepala;
+    public $mata;
+    public $thoraks;
+    public $leher;
+    public $pulmo;
+    public $abdomen;
+    public $ekstremitas;
+    public $blood_pressure;
+    public $respiration;
+    public $pulse;
+    public $temperature;
+
+    public $complaint;
+
+        protected $listeners = [
+        'diagnosaAdded',
+        'labAdded',
+        'drugAdded'
+    ];
+
+
+    public function rules()
+    {
+        return [
+            'pemeriksaan_penunjang' => 'required',
+            'terapi_pulang' => 'required',
+            'terapi_tindakan' => 'required',
+            'keadaan' => 'required',
+            'cara_keluar' => 'required',
+            'blood_pressure' => 'required',
+            'respiration' => 'required',
+            'pulse' => 'required',
+            'temperature' => 'required',
+            'kepala' => 'required',
+            'mata' => 'required',
+            'leher' => 'required',
+            'thoraks' => 'required',
+            'pulmo' => 'required',
+            'abdomen' => 'required',
+            'ekstremitas' => 'required',
+        ];
+    }
+
+    public  function mount(Queue $queue)
+    {
+        $this->queue = $queue;
+        $this->allergy = $this->queue->patient->allergy;
+        $this->main_complaint = $this->queue->main_complaint;
+    }
+    public function render()
+    {
+        $user = Auth::user();
+        $role = $user->role;
+
+    return view('livewire.progres.process', [
+        'role' => $role,
+    ]);
+        // return view('livewire.queue.process');
+    }
+
+    public function addDiagnosa()
+    {
+        $this->dispatchBrowserEvent('show-model', [
+            'id' => 'diagnosa'
+        ]);
+    }
+    public function addLab()
+    {
+        $this->dispatchBrowserEvent('show-model', [
+            'id' => 'lab'
+        ]);
+    }
+    public function addDrug()
+    {
+        $this->dispatchBrowserEvent('show-model', [
+            'id' => 'drug'
+        ]);
+    }
+    public function deleteLab($id)
+    {
+        unset($this->listLab[$id]);
+        $this->listLab = array_values($this->listLab);
+    }
+
+    public function deleteDiagnosa($id)
+    {
+        unset($this->listDiagnosa[$id]);
+        $this->listDiagnosa = array_values($this->listDiagnosa);
+    }
+    public function deleteDrug($id)
+    {
+        unset($this->listDrug[$id]);
+        $this->listDrug = array_values($this->listDrug);
+    }
+
+
+    public function diagnosaAdded(Diagnosis $diagnosis)
+    {
+        if (!in_array($diagnosis, $this->listDiagnosa)) {
+            $this->listDiagnosa[] = [
+                "diagnosa" => $diagnosis,
+                "description" => "",
+            ];
+        }
+    }
+
+    public function labAdded(Lab $lab)
+    {
+        if (!in_array($lab, $this->listLab)) {
+            $this->listLab[] = [
+                "lab" => $lab,
+                "result" => "",
+            ];
+            $lab = $lab->paginate(5);
+        }
+    }
+
+    public function drugAdded(\App\Models\Drug $drug)
+    {
+        if (!in_array($drug, $this->listDrug)) {
+            $this->listDrug[] = [
+                "drug" => $drug,
+                "quantity" => 1,
+                "instruction" => ""
+            ];
+        }
+    }
+
+    // TODO:: Create queue update function
+    public function update()
+    {
+        # code...
+    }
+
+    public function save(Request $request)
+    {
+        try {
+            $medical_record_inap = MedicalRecordInap::create([
+                "medical_record_id" => $this->queue->medical_record_id,
+                "physical_test" => json_encode(
+                    [
+                        'pemeriksaan_penunjang' => $this->pemeriksaan_penunjang,
+                        "terapi_pulang" => $this->terapi_pulang,
+                        "terapi_tindakan" => $this->terapi_tindakan,
+                        "keadaan" => $this->keadaan,
+                        "cara_keluar" => $this->cara_keluar
+                    ]
+                ),
+                "doctor_id" => 1,
+                "patient_id" => 1
+            ]);
+
+            foreach ($this->listDiagnosa as $diagnosa) {
+                MedicalRecordDiagnosa::create([
+                    "medical_record_id" => $this->queue->medical_record_id,
+                    "diagnosis_id" => $diagnosa["diagnosa"]["id"],
+                    "description" => NULL
+                ]);
+            }
+
+            foreach ($this->listLab as $lab) {
+                MedicalRecordLab::create([
+                    "medical_record_id" => $this->queue->medical_record_id,
+                    "lab_id" => $lab["lab"]["id"],
+                    "result" => ""
+                ]);
+            }
+
+            foreach ($this->listDrug as $drug) {
+                MedicalRecordDrugs::create([
+                    "medical_record_id" => $this->queue->medical_record_id,
+                    "drug_id" => $drug["drug"]["id"],
+                    "quantity" => $drug["quantity"],
+                    "instruction" => $drug["instruction"]
+                ]);
+            }
+
+        } catch (\Exception $e) {
+            dd($e);
+        }
+
+        return redirect("/progres");
+    }
+}
