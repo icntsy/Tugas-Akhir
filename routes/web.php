@@ -69,7 +69,8 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
 
     // Route::get('readuser', [UserController::class, 'readuser'])->name('auth.readuser');
      Route::get("/readuser", [UserController::class,'readuser']);
-     Route::get('progres/process/{queue}', \App\Http\Livewire\Progres\Process::class)->name('progres.process');
+    Route::get('progres/process/{queue}', \App\Http\Livewire\Progres\Process::class)->name('progres.process');
+    Route::get('progres/selesai/{queue}', \App\Http\Livewire\Progres\Selesai::class)->name('progres.selesai');
     Route::post("/jasa", [\App\Http\Livewire\Jasa\Process::class, "store_harga"]);
     // Route::get("/history", [HistoryController::class,'index']);
     Route::get("/nota-obat", [TransactionController::class,'render']);

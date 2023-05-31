@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Progres;
 
 use App\Models\Queue;
 use Livewire\Component;
+use App\Models\MedicalRecordStatus;
 use Illuminate\Support\Facades\Auth;
 
 class Single extends Component
@@ -28,12 +29,21 @@ class Single extends Component
     }
 
     public function processCheckup(){
-        return view("livewire.progres.process", [
-            'queue' => $this->queue
-        ]);
+        // return view("livewire.progres.process", [
+        //     'queue' => $this->queue
+        //     ]);
+        $this->redirectRoute('progres.process', ['queue' => $this->queue->id]);
     }
 
     public function processDrug(){
-        $this->redirectRoute('queue.drug.process', ['queue' => $this->queue->id]);
+    }
+    public function selesai()
+    {
+        // MedicalRecordStatus::create([
+        //     "medical_record_inap" => $this->queue->medical_record_id,
+        //     "status" => 1
+        // ]);
+        $this->redirectRoute("progres.selesai", ["queue" => $this->queue]);
+        // return redirect("/progres");
     }
 }

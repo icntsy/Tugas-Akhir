@@ -10,5 +10,5 @@ class MedicalRecordStatus extends Model
     use HasFactory;
     protected $table = "medical_record_status";
 
-    protected $fillable = [''];
+    protected $guarded = [''];
 }

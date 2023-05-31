@@ -41,6 +41,12 @@ class Queue extends Model
     public function transaction(){
         return $this->hasOne(Transaction::class, 'queue_id', 'id');
     }
+
+    public function inap()
+    {
+        return $this->belongsTo("App\Models\MedicalRecordInap", "medical_record_id", "medical_record_id");
+    }
+
     protected $with = [
         'patient',
         'doctor',

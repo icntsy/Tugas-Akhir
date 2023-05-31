@@ -24,12 +24,6 @@ class Process extends Component
     public $listDrug = [];
     public $listLab = [];
 
-    public $pemeriksaan_penunjang;
-    public $terapi_pulang;
-    public $terapi_tindakan;
-    public $keadaan;
-    public $cara_keluar;
-
     public $kepala;
     public $mata;
     public $thoraks;
@@ -47,18 +41,13 @@ class Process extends Component
         protected $listeners = [
         'diagnosaAdded',
         'labAdded',
-        'drugAdded'
+        'drugAdded',
     ];
 
 
     public function rules()
     {
         return [
-            'pemeriksaan_penunjang' => 'required',
-            'terapi_pulang' => 'required',
-            'terapi_tindakan' => 'required',
-            'keadaan' => 'required',
-            'cara_keluar' => 'required',
             'blood_pressure' => 'required',
             'respiration' => 'required',
             'pulse' => 'required',
@@ -167,21 +156,6 @@ class Process extends Component
     public function save(Request $request)
     {
         try {
-            $medical_record_inap = MedicalRecordInap::create([
-                "medical_record_id" => $this->queue->medical_record_id,
-                "physical_test" => json_encode(
-                    [
-                        'pemeriksaan_penunjang' => $this->pemeriksaan_penunjang,
-                        "terapi_pulang" => $this->terapi_pulang,
-                        "terapi_tindakan" => $this->terapi_tindakan,
-                        "keadaan" => $this->keadaan,
-                        "cara_keluar" => $this->cara_keluar
-                    ]
-                ),
-                "doctor_id" => 1,
-                "patient_id" => 1
-            ]);
-
             foreach ($this->listDiagnosa as $diagnosa) {
                 MedicalRecordDiagnosa::create([
                     "medical_record_id" => $this->queue->medical_record_id,
@@ -212,5 +186,9 @@ class Process extends Component
         }
 
         return redirect("/progres");
+    }
+    public function selesai() {
+        // return view('livewire.progres.selesai');
+        dd($this->queue->medical_record_id);
     }
 }

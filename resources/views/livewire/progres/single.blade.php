@@ -8,10 +8,18 @@
             <i class="fa fa-trash fa-1x"></i>
         </a>
         @elserole('dokter')
+
+        @if ($queue->inap)
+        <strong>
+            <i>
+                Sudah Selesai
+            </i>
+        </strong>
+        @else
+        <button class="btn btn-sm btn-danger" wire:click="selesai">Selesai</button>
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
-        @if ($queue->jenis_rawat === 'Inap')
-        <button class="btn btn-sm btn-danger" wire:click="">Selesai</button>
         @endif
+
         @elserole("bidan")
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
         @elserole('staff')

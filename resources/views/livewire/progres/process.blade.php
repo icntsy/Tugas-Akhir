@@ -154,62 +154,12 @@
                 @role("dokter")
                 <div class="col-md-12">
                     <div class="main-card">
-                        <div class="card-header">
-                            Data Anamnesa
-                        </div>
-                        <input type='text' wire:model="medical_record_id" disabled value="{{ $queue }}" class="form-control @error('name') is-invalid @enderror" id='name' autofocus placeholder="Nama Lengkap pasien">
-                            @error('name')
-                            <div class='invalid-feedback'>{{ $message }}</div>
-                        @enderror
+
                         <div class="card-body row">
-                            <div class=" form-group col-md-6">
-                                <label for='pemeriksaan_penunjang' class='control-label'> {{ __('Pemeriksaaan Penunjang') }}</label>
-                                <textarea  wire:model.lazy='pemeriksaan_penunjang' placeholder="Pemeriksaan Penunjang"
-                                class="form-control @error('pemeriksaan_penunjang') is-invalid @enderror"
-                                id='pemeriksaan_penunjang'> </textarea>
-                                @error('pemeriksaan_penunjang')
-                                <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                            </div>
-                            <div class=" form-group col-md-6">
-                                <label for='terapi_pulang' class='control-label'> {{ __('Terapi Pulang') }}</label>
-                                <textarea  wire:model.lazy='terapi_pulang' placeholder="Terapi Pulang"
-                                class="form-control @error('terapi_pulang') is-invalid @enderror"
-                                id='terapi_pulang'> </textarea>
-                                @error('terapi_pulang')
-                                <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                            </div>
-                            <div class=" form-group col-md-12">
-                                <label for='terapi_tindakan' class='control-label'> {{ __('Terapi dan Tindakan') }}</label>
-                                <textarea  wire:model.lazy='terapi_tindakan' placeholder="Terapi dan Tindakan"
-                                class="form-control @error('terapi_tindakan') is-invalid @enderror"
-                                id='terapi_tindakan'> </textarea>
-                                @error('terapi_tindakan')
-                                <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                            </div>
-                            <div class='form-group col-md-6'>
-                                <label for='keadaan' class='control-label'> {{ __('Keadaan Pasien Waktu Pulang') }}</label>
-                                <select  wire:model.lazy='keadaan' class="form-control @error('keadaan') is-invalid @enderror" id='keadaan'>
-                                    <option value="" >--- Silahkan Pilih --</option>
-                                    <option value="1">Sembuh</option>
-                                    <option value="2">Perbaikan</option>
-                                    <option value="3">Tidak Ada Perbaikan</option>
-                                </select>
-                                @error('keadaan')
-                                <div class='invalid-feedback'>{{ $message }}</div>
-                                @enderror
-                            </div>
-                            <div class='form-group col-md-6'>
-                                <label for='cara_keluar' class='control-label'> {{ __('Cara Keluar') }}</label>
-                                <select  wire:model.lazy='cara_keluar' class="form-control @error('cara_keluar') is-invalid @enderror" id='cara_keluar'>
-                                    <option value="" >--- Silahkan Pilih --</option>
-                                    <option value="1">Atas Persetujuan</option>
-                                    <option value="2">Pulang Paksa</option>
-                                    <option value="3">Dirujuk</option>
-                                </select>
-                                @error('cara_keluar')
-                                <div class='invalid-feedback'>{{ $message }}</div>
-                                @enderror
-                            </div>
+
+
+
+
                             @endrole
                             @role("bidan")
                             <form class="form-horizontal" method="POST" action="{{ url('/antrian/process/'.$queue->id) }}">

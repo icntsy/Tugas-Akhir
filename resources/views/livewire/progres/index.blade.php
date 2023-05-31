@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row mt-4" wire:poll>
+                <div class="row mt-4">
                     <div class="col-md-12">
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
