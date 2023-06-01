@@ -34,4 +34,5 @@
         {{ $transaksi->queue->doctor->name }}
     </td>
     <td>{{ $transaksi->queue->service->name }}</td>
+
 </tr>

@@ -41,6 +41,7 @@
                                     <th>Obat</th>
                                     <th>Dokter / Bidan</th>
                                     <th>Layanan</th>
+
                                 </tr>
                             </thead>
                             <tbody>

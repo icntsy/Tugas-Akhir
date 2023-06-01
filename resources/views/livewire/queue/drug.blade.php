@@ -37,6 +37,7 @@
                                     <th>Selesai Obat</th>
                                     <th>Dokter / Bidan</th>
                                     <th>Layanan</th>
+                                    <th>Jenis Rawat</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>

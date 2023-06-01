@@ -43,13 +43,6 @@
                 </li>
                 @role('admin|dokter')
                 <li class="app-sidebar__heading">Data Antrian</li>
-
-                {{-- <li>
-                    <a href="{{ route('queue.index') }}" class="@if (Request::is('pendaftaran*')) mm-active @endif">
-                        <i class="metismenu-icon fa fa-clipboard-list"></i>
-                        Pendaftaran Antrian
-                    </a>
-                </li> --}}
                 <li>
                     <a href="{{ route('queue.index') }}" class="@if (Request::is('antrian*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-clipboard fa-1x" aria-hidden="true"></i>
@@ -57,11 +50,11 @@
                         Antrian Periksa
                     </a>
                 </li>
-
+                @role('dokter')
                 <li>
                     <a href="{{ route('progres.index') }}" class="@if (Request::is('progres*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-clipboard fa-1x" aria-hidden="true"></i>
-                        {{-- <i class="metismenu-icon fa fa-clipboard-list"></i> --}}
+
                         Progres Pemeriksaan
                     </a>
                 </li>
@@ -71,6 +64,7 @@
                         Antrian Obat
                     </a>
                 </li> --}}
+                @endrole
 
 
 

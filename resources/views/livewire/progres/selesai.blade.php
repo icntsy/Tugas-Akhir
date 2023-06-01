@@ -136,22 +136,14 @@
                                         <td>:</td>
                                         <td>{{$queue->jenis_rawat}}</td>
                                     </tr> --}}
-                                    <tr>
-                                        <td style="font-weight: bold;" width="35%">Jenis Rawat</td>
-                                        <td>:</td>
-                                        @if ($role === 'dokter')
-                                        <td>{{ $queue->jenis_rawat }}</td>
-                                        @else
-                                        <td>-</td>
-                                        @endif
-                                    </tr>
-                                    @if ($role === 'dokter')
+
+
                                     <tr>
                                         <td style="font-weight: bold;" width="35%">Jenis Rawat</td>
                                         <td>:</td>
                                         <td>{{ $queue->jenis_rawat }}</td>
                                     </tr>
-                                    @endif
+
                                 </tbody></table>
                             </div>
                             <hr>

@@ -114,12 +114,22 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
+                                            @if ($queue->jenis_rawat !== 'Inap')
                                             <th>No</th>
                                             <th>Nama Obat</th>
                                             <!-- {{-- <th>Harga Satuan</th> --}} -->
                                             <th>Qty</th>
                                             <th>Aturan Pakai</th>
                                             <th>Total</th>
+                                            @endif
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <th>No</th>
+                                            <th>Qty</th>
+                                            <th>Description</th>
+                                            <th>Harga</th>
+                                            <th>Total</th>
+
+                                            @endif
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -133,19 +143,23 @@
                                         <tr>
                                             <td>{{$drug->id}}</td>
                                             <td>{{$drug->nama}}</td>
-                                            <!-- {{-- <td>{{$drug->harga}}</td> --}} -->
                                             <td>{{$drug->pivot->quantity}}</td>
                                             <td>{{$drug->pivot->instruction}}</td>
-                                            {{-- <td>{{  $subtotal += $drug->harga * $drug->pivot->quantity }}</td> --}}
                                             <td>Rp. {{ number_format($drug->harga * $drug->pivot->quantity) }}</td>
-                                            {{-- <td>{{(int)($listDrug[$index]["quantity"]) * $drug["drug"]["harga"] }}</td> --}}
+
                                         </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
-
+                                @if ($queue->jenis_rawat !== 'Inap')
                                 {{-- Subtotal : <input type="text" name="payment" placeholder="payment" class="form-control"  id='payment' style="width: 50%" value="{{ number_format($subtotal + $queue->doctor->harga_jasa) }}" readonly> --}}
                                 Subtotal : <input type="text" name="payment" placeholder="payment" class="form-control"  id='payment' style="width: 50%" value="{{ $subtotal + $queue->doctor->harga_jasa }}" readonly>
+                                @endif
+                                @if ($queue->jenis_rawat == 'Inap')
+                                {{-- Subtotal : <input type="text" name="payment" placeholder="payment" class="form-control"  id='payment' style="width: 50%" value="{{ number_format($subtotal + $queue->doctor->harga_jasa) }}" readonly> --}}
+                                Subtotal : <input type="text" name="payment" placeholder="payment" class="form-control"  id='payment' style="width: 50%" value="{{ $subtotal + $queue->doctor->harga_jasa }}" readonly>
+                                @endif
+
                             </div>
                         </div>
                     </div>
