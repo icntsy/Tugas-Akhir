@@ -8,9 +8,11 @@ use Livewire\Component;
 class Single extends Component
 {
     public $diagnosis;
+    public $diagnosisIndex;
 
-    public function mount(Diagnosis $diagnosis){
+    public function mount(Diagnosis $diagnosis, $diagnosisIndex){
         $this->diagnosis = $diagnosis;
+        $this->diagnosisIndex = $diagnosisIndex;
     }
     public function render()
     {

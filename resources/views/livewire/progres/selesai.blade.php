@@ -186,9 +186,9 @@
                                 <label for='keadaan' class='control-label'> {{ __('Keadaan Pasien Waktu Pulang') }}</label>
                                 <select  wire:model.lazy='keadaan' class="form-control @error('keadaan') is-invalid @enderror" id='keadaan'>
                                     <option value="" >--- Silahkan Pilih --</option>
-                                    <option value="1">Sembuh</option>
-                                    <option value="2">Perbaikan</option>
-                                    <option value="3">Tidak Ada Perbaikan</option>
+                                    <option value="Sembuh">Sembuh</option>
+                                    <option value="Perbaikan">Perbaikan</option>
+                                    <option value="Tidak Ada Perbaikan">Tidak Ada Perbaikan</option>
                                 </select>
                                 @error('keadaan')
                                 <div class='invalid-feedback'>{{ $message }}</div>
@@ -198,9 +198,9 @@
                                 <label for='cara_keluar' class='control-label'> {{ __('Cara Keluar') }}</label>
                                 <select  wire:model.lazy='cara_keluar' class="form-control @error('cara_keluar') is-invalid @enderror" id='cara_keluar'>
                                     <option value="" >--- Silahkan Pilih --</option>
-                                    <option value="1">Atas Persetujuan</option>
-                                    <option value="2">Pulang Paksa</option>
-                                    <option value="3">Dirujuk</option>
+                                    <option value="Atas Persetujuan">Atas Persetujuan</option>
+                                    <option value="Pulang Paksa">Pulang Paksa</option>
+                                    <option value="Dirujuk">Dirujuk</option>
                                 </select>
                                 @error('cara_keluar')
                                 <div class='invalid-feedback'>{{ $message }}</div>

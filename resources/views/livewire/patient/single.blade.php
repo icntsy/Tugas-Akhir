@@ -1,4 +1,5 @@
 <tr>
+    <td>{{ $patientIndex }}</td>
     <td>{{$patient->nik ?? "-"}}</td>
     <td>{{$patient->name}}</td>
     <td>{{$patient->birth_date}}</td>

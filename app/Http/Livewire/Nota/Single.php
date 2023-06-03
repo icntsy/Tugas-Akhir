@@ -9,10 +9,13 @@ class Single extends Component
 {
     public $transaksi;
     public $available;
+    public $transaksiIndex;
 
 
-    public function mount(Transaction $transaksi){
+    public function mount(Transaction $transaksi, $transaksiIndex){
         $this->transaksi = $transaksi;
+        $this->transaksiIndex = $transaksiIndex;
+
 
         // $this->available = $drug->min_stok < $drug->stok;
     }

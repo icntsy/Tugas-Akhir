@@ -11,9 +11,11 @@ class Single extends Component
 {
     public $queue;
     public $role; // Tambahkan properti $role
+    public $progresIndex;
 
-    public function mount(Queue $queue){
+    public function mount(Queue $queue, $progresIndex){
         $this->queue = $queue;
+        $this->progresIndex = $progresIndex;
         $this->role = Auth::user()->role; // Inisialisasi $role
     }
 

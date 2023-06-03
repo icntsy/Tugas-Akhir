@@ -53,8 +53,8 @@
                 @role('dokter')
                 <li>
                     <a href="{{ route('progres.index') }}" class="@if (Request::is('progres*')) mm-active @endif">
-                        <i class="metismenu-icon fa fa-clipboard fa-1x" aria-hidden="true"></i>
-
+                        {{-- <i class="metismenu-icon fa fa-clipboard fa-1x" aria-hidden="true"></i> --}}
+                        <i class="metismenu-icon fa fa-spinner" aria-hidden="true"></i>
                         Progres Pemeriksaan
                     </a>
                 </li>

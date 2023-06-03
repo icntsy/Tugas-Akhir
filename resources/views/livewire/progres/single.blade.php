@@ -1,4 +1,5 @@
 <tr>
+    <td>{{$progresIndex}}</td>
     <td>{{$queue->patient->name}}</td>
     <td>{{$queue->service->name}}</td>
     <td>{{$queue->jenis_rawat}}</td>
@@ -10,11 +11,12 @@
         @elserole('dokter')
 
         @if ($queue->inap)
-        <strong>
+        {{-- <strong>
             <i>
                 Sudah Selesai
             </i>
-        </strong>
+        </strong> --}}
+        <button class="btn btn-sm btn-warning">Sudah Pulang</button>
         @else
         <button class="btn btn-sm btn-danger" wire:click="selesai">Selesai</button>
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>

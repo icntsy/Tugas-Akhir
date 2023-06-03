@@ -11,10 +11,12 @@ class Single extends Component
      * @var Lab $lab
      */
     public $lab;
+    public $labIndex;
 
-    public function mount(Lab $lab)
+    public function mount(Lab $lab, $labIndex)
     {
         $this->lab = $lab;
+        $this->labIndex = $labIndex;
     }
     public function render()
     {

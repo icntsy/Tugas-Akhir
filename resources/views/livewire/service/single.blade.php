@@ -1,4 +1,5 @@
 <tr>
+    <td>{{$serviceIndex}}</td>
     <td>{{$service->name}}</td>
     <td>
         @if ($service->status == 1)

@@ -46,8 +46,10 @@
                             </thead>
                             <tbody>
 
-                                @forelse($transaksi as $transaction)
-                                <livewire:nota.single :transaksi="$transaction" :key="time() . $transaction->id" />
+                                {{-- @forelse($transaksi as $transaction)
+                                <livewire:nota.single :transaksi="$transaction" :key="time() . $transaction->id" /> --}}
+                                    @forelse($transaksi as $index => $transaction)
+                                    <livewire:nota.single :transaksi="$transaction" :transaksiIndex="$index + $transaksi->firstItem()" :key="$transaction->id" />
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse

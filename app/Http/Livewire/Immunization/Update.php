@@ -38,7 +38,7 @@ class Update extends Component
     {
         $this->validate();
 
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Berhasil memperbarui data', ['name' => __('Article') ]) ]);
+        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Data Imunisasi Berhasil Diupdate', ['name' => __('Article') ]) ]);
 
         $this->immunization->update([
             'name' => $this->name,

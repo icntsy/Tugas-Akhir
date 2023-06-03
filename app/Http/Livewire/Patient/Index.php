@@ -15,7 +15,7 @@ class Index extends Component
     public $sortColumn;
     public function patientDeleted(){
         $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
+            'type' => 'error',
             'message' => 'Data Pasien Berhasil Di Hapus'
         ]);
     }

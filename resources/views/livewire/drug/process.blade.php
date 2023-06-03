@@ -141,7 +141,8 @@
                                         $subtotal += $drug->harga * $drug->pivot->quantity;
                                         @endphp
                                         <tr>
-                                            <td>{{$drug->id}}</td>
+                                            <td>{{ $loop->index + 1 }}</td>
+                                            {{-- <td>{{$drug->id}}</td> --}}
                                             <td>{{$drug->nama}}</td>
                                             <td>{{$drug->pivot->quantity}}</td>
                                             <td>{{$drug->pivot->instruction}}</td>

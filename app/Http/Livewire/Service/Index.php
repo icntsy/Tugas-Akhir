@@ -17,8 +17,8 @@ class Index extends Component
 
     public function serviceDeleted(){
         $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
-            'message' => 'Berhasil Menghapus Data'
+            'type' => 'error',
+            'message' => 'Data Layanan Berhasil Di Hapus'
         ]);
     }
 

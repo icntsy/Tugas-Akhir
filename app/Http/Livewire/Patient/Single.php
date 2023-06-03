@@ -9,9 +9,11 @@ use Carbon\Carbon;
 class Single extends Component
 {
     public $patient;
+    public $patientIndex;
 
-    public function mount(Patient $patient){
+    public function mount(Patient $patient, $patientIndex){
         $this->patient = $patient;
+        $this->patientIndex = $patientIndex;
         $this->patient->birth_date = Carbon::parse($patient->birth_date)->age;
     }
 

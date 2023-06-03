@@ -29,13 +29,13 @@ class Index extends Component
 
     public function downloadData()
     {
-        return Excel::download(new LabExport, 'Data-Lab.xlsx');
+        return Excel::download(new LabExport, 'data-lab.xlsx');
     }
 
     public function labDeleted()
     {
         $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
+            'type' => 'error',
             'message' => 'Data Lab Berhasil di Hapus'
         ]);
     }

@@ -27,7 +27,7 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="input-group">
                             <input type="text" class="form-control form-control" wire:model.lazy="search"
-                                placeholder="{{ __('Cari Diagnosa') }}" value="{{ request('search') }}">
+                                placeholder="{{ __('Cari Diagnosis') }}" value="{{ request('search') }}">
                             <div class="input-group-append">
                                 <button class="btn btn-default">
                                     <a wire:target="search" wire:loading.remove><i class="fa fa-search"></i></a>
@@ -42,6 +42,7 @@
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Category</th>
                                     <th style="cursor: pointer" wire:click="sort('type')">
                                         <i
@@ -57,8 +58,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($diagnoses as $diagnosis)
-                                <livewire:diagnosis.single :diagnosis="$diagnosis" :key="time() . $diagnosis->id" />
+                                @forelse($diagnoses as $index => $diagnosis)
+                                <livewire:diagnosis.single :diagnosis="$diagnosis" :diagnosisIndex="$index + $diagnoses->firstItem()" :key="$diagnosis->id" />
+                                {{-- @forelse($diagnoses as $diagnosis)
+                                <livewire:diagnosis.single :diagnosis="$diagnosis" :key="time() . $diagnosis->id" /> --}}
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse

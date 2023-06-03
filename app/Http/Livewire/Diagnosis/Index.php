@@ -21,7 +21,7 @@ class Index extends Component
 
     public function diagnosisImported()
     {
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => 'Data Berhasil Di Import']);
+        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => 'Data Diagnosis Berhasil Di Import']);
     }
 
     public function importData()
@@ -32,8 +32,8 @@ class Index extends Component
     public function diagnosisDeleted()
     {
         $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
-            'message' => 'Data Diagnosis Berhasil di Hapus'
+            'type' => 'error',
+            'message' => 'Data Diagnosis Berhasil Di Hapus'
         ]);
     }
 

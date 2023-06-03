@@ -31,14 +31,17 @@
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nama Layanan</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($services as $service)
-                                    <livewire:service.single :service="$service" :key="time().$service->id" />
+                                @forelse($services as $index => $service)
+                                <livewire:service.single :service="$service" :serviceIndex="$index + $services->firstItem()" :key="$service->id" />
+                                {{-- @forelse($services as $service)
+                                    <livewire:service.single :service="$service" :key="time().$service->id" /> --}}
                                 @empty
                                     @include('layouts.empty', ['colspan' => 2])
                                 @endforelse

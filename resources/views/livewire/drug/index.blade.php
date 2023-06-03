@@ -45,6 +45,7 @@
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nama Obat</th>
                                     {{-- <th>Keterangan</th> --}}
                                     <th style="cursor: pointer" wire:click="sort('harga')">
@@ -62,8 +63,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($drugs as $drug)
-                                <livewire:drug.single :drug="$drug" :key="time() . $drug->id" />
+                                @forelse($drugs as $index => $drug)
+                                <livewire:drug.single :drug="$drug" :drugIndex="$index + $drugs->firstItem()" :key="$drug->id" />
+                                {{-- @forelse($drugs as $drug)
+                                <livewire:drug.single :drug="$drug" :key="time() . $drug->id" /> --}}
                                     {{-- <livewire:drug.single :drug="$drug" :key="time().$drug->id" /> --}}
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])

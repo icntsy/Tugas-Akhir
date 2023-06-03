@@ -9,6 +9,7 @@ class Single extends Component
 {
 
     public $service;
+    public $serviceIndex;
 
     public function delete(){
         $this->service->delete();
@@ -16,8 +17,10 @@ class Single extends Component
 
     }
 
-    public function mount(Service $service){
+    public function mount(Service $service, $serviceIndex){
         $this->service = $service;
+        $this->serviceIndex = $serviceIndex;
+
     }
     public function render()
     {

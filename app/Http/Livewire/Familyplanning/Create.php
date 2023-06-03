@@ -37,7 +37,7 @@ class Create extends Component
         ]);
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
-            'message' => 'Sukses menambah data kb'
+            'message' => 'Sukses Menambah Data KB'
         ]);
 
         $this->redirectRoute('familyplanning.index');

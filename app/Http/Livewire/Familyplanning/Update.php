@@ -34,7 +34,7 @@ class Update extends Component
     {
         $this->validate();
 
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Berhasil memperbarui data', ['name' => __('Article') ]) ]);
+        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Data KB Berhasil Diupdate', ['name' => __('Article') ]) ]);
 
         $this->familyplanning->update([
             'name' => $this->name,

@@ -41,6 +41,7 @@
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nama Ruangan</th>
                                     <th>Harga Sewa</th>
                                     <th>Status</th>
@@ -48,8 +49,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($rooms as $room)
-                                    <livewire:room.single :room="$room" :key="time() . $room->id" />
+                                @forelse($rooms as $index => $room)
+                                <livewire:room.single :room="$room" :roomIndex="$index + $rooms->firstItem()" :key="$room->id" />
+                                {{-- @forelse($rooms as $room)
+                                    <livewire:room.single :room="$room" :key="time() . $room->id" /> --}}
                                 @empty
                                     @include('layouts.empty', ['colspan' => 4])
                                 @endforelse

@@ -36,7 +36,7 @@ class Create extends Component
 
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
-            'message' => 'Sukses menambah data obat'
+            'message' => 'Sukses Menambah Data Obat'
         ]);
         $this->redirectRoute('drug.index');
 

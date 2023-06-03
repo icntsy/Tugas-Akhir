@@ -29,7 +29,7 @@ class Index extends Component
 
     public function downloadData()
     {
-        return Excel::download(new RoomExport, 'Data-Ruangan.xlsx');
+        return Excel::download(new RoomExport, 'data-ruangan.xlsx');
     }
 
     public function roomDeleted()

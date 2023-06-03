@@ -8,10 +8,12 @@ use Livewire\Component;
 class Single extends Component
 {
     public $room;
+    public $roomIndex;
 
-    public function mount(Room $room)
+    public function mount(Room $room, $roomIndex)
     {
         $this->room = $room;
+        $this->roomIndex = $roomIndex;
     }
     /**
      * Get the view / contents that represent the component.

@@ -31,8 +31,8 @@ class Index extends Component
         $user->delete();
 
         $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
-            'message' => 'Data user berhasil dihapus.'
+            'type' => 'error',
+            'message' => 'Data User Berhasil Di Hapus.'
         ]);
     }
     /**

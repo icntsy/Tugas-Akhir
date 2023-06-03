@@ -41,6 +41,7 @@
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>Nama Laboratorium</th>
                                     <th>Harga</th>
                                     <th>Satuan</th>
@@ -48,13 +49,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($labs as $lab)
-                                {{-- @foreach ($labs as $lab) --}}
-                                    <livewire:lab.single :lab="$lab" :key="time() . $lab->id" />
+                                @forelse($labs as $index => $lab)
+                                <livewire:lab.single :lab="$lab" :labIndex="$index + $labs->firstItem()" :key="$lab->id" />
+                                {{-- @forelse ($labs as $lab)
+                                    <livewire:lab.single :lab="$lab" :key="time() . $lab->id" /> --}}
                                         @empty
                                         @include('layouts.empty', ['colspan' => 7])
                                 @endforelse
-                                {{-- @endforeach --}}
+
                             </tbody>
                         </table>
                     </div>

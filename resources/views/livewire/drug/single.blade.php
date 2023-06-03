@@ -5,6 +5,7 @@ $stok = MedicalRecordDrugs::where("drug_id", $drug["id"])->sum("quantity");
 @endphp
 
 <tr>
+    <td>{{ $drugIndex }}</td>
     <td>{{$drug->nama}}</td>
     {{-- <td>{{$drug->keterangan }}</td> --}}
     <td>@rupiah($drug->harga)</td>

@@ -31,7 +31,8 @@ class Index extends Component
 
     public function downloadData()
     {
-        return Excel::download(new DrugExport, 'drug-data.xlsx');
+        return Excel::download(new DrugExport, 'data-obat.xlsx');
+        // return Excel::download(new DrugExport, 'drug-data.xlsx');
     }
     public function drugCreated()
     {
@@ -39,7 +40,7 @@ class Index extends Component
     }
     public function drugImported()
     {
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => 'Data Berhasil Di Import']);
+        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => 'Data Obat Berhasil Di Import']);
     }
 
     public function sort($column)

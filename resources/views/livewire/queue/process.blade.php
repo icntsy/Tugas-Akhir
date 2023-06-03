@@ -237,7 +237,7 @@
                             <option value="B" >B</option>
                             <option value="AB" >AB</option>
                             <option value="O" >O</option>
-                            <option value="tidak" >Tidak Tahu</option>
+                            <option value="Tidak Tahu" >Tidak Tahu</option>
                         </select>
                         @error('blood')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
@@ -436,8 +436,8 @@
                     <select  wire:model.lazy='kepala'
                     class="form-control @error('kepala') is-invalid @enderror" id='kepala'>
                     <option value="" >---Kepala--</option>
-                    <option value="normochepal" >Normochepal</option>
-                    <option value="tidak" >Tidak</option>
+                    <option value="Normochepal" >Normochepal</option>
+                    <option value="Tidak" >Tidak</option>
                 </select>
                 @error('kepala')
                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
@@ -447,10 +447,10 @@
                     <select  wire:model.lazy='mata'
                     class="form-control @error('mata') is-invalid @enderror" id='mata'>
                     <option value="" >---Mata--</option>
-                    <option value="conjungtiva(-)" >Conjungtiva Anemis (-)</option>
-                    <option value="conjungtiva(+)" >Conjungtiva Anemis (+)</option>
-                    <option value="sklera(-)" >Sklera Ikterik (-)</option>
-                    <option value="sklera(+)" >Sklera Ikterik (+)</option>
+                    <option value="Conjungtiva Anemis (-)" >Conjungtiva Anemis (-)</option>
+                    <option value="Conjungtiva Anemis (+)" >Conjungtiva Anemis (+)</option>
+                    <option value="Sklera Ikterik (-)" >Sklera Ikterik (-)</option>
+                    <option value="Sklera Ikterik (+)" >Sklera Ikterik (+)</option>
                 </select>
                 @error('mata')
                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
@@ -470,12 +470,12 @@
                 <select  wire:model.lazy='thoraks'
                 class="form-control @error('thoraks') is-invalid @enderror" id='thoraks'>
                 <option value="" >---Thoraks--</option>
-                <option value="regular" >Bj I-II Murni regular</option>
-                <option value="iregular" >Bj I-II Murni iregular</option>
-                <option value="murmur(-)" >Murmur (-)</option>
-                <option value="murmur(+)" >Murmur (+)</option>
-                <option value="gallop(-)" >Gallop (-)</option>
-                <option value="gallop(+)" >Gallop (+)</option>
+                <option value="Bj I-II Murni regular" >Bj I-II Murni regular</option>
+                <option value="Bj I-II Murni iregular" >Bj I-II Murni iregular</option>
+                <option value="Murmur (-)" >Murmur (-)</option>
+                <option value="Murmur (+)" >Murmur (+)</option>
+                <option value="Gallop (-)" >Gallop (-)</option>
+                <option value="Gallop (+)" >Gallop (+)</option>
             </select>
             @error('thoraks')
             <div class='invalid-feedback'>{{ $message }}</div> @enderror
@@ -485,11 +485,11 @@
                 <select  wire:model.lazy='pulmo'
                 class="form-control @error('pulmo') is-invalid @enderror" id='pulmo'>
                 <option value="" >---Pulmo--</option>
-                <option value="vbs" >VBS Ka=Ki</option>
-                <option value="wheezing(-)" >Wheezing (-)</option>
-                <option value="wheezing(+)" >Wheezing (+)</option>
-                <option value="ronkhi(-)" >Ronkhi (-)</option>
-                <option value="ronkhi(+)" >Ronkhi (+)</option>
+                <option value="VBS Ka=Ki" >VBS Ka=Ki</option>
+                <option value="Wheezing (-)" >Wheezing (-)</option>
+                <option value="wheezing (+)" >Wheezing (+)</option>
+                <option value="Ronkhi (-)" >Ronkhi (-)</option>
+                <option value="Ronkhi (+)" >Ronkhi (+)</option>
             </select>
             @error('pulmo')
             <div class='invalid-feedback'>{{ $message }}</div> @enderror
@@ -500,8 +500,8 @@
                 <select  wire:model.lazy='abdomen'
                 class="form-control @error('abdomen') is-invalid @enderror" id='abdomen'>
                 <option value="" >---Abdomen--</option>
-                <option value="nyeri(-)" >Nyeri Tekan (-)</option>
-                <option value="nyeri(+)" >Nyeri Tekan (+)</option>
+                <option value="Nyeri Tekan (-)" >Nyeri Tekan (-)</option>
+                <option value="Nyeri Tekan (+)" >Nyeri Tekan (+)</option>
             </select>
             @error('abdomen')
             <div class='invalid-feedback'>{{ $message }}</div> @enderror
@@ -511,9 +511,9 @@
                 <select  wire:model.lazy='ekstremitas'
                 class="form-control @error('ekstremitas') is-invalid @enderror" id='ekstremitas'>
                 <option value="" >---Ekstremitas--</option>
-                <option value="hangat" >Akral Hangat</option>
-                <option value="dingin" >Akral Dingin</option>
-                <option value="crt" >CRT < 2 detik</option>
+                <option value="Akral Hangat" >Akral Hangat</option>
+                <option value="Akral Dingin" >Akral Dingin</option>
+                <option value="CRT < 2 detik" >CRT < 2 detik</option>
             </select>
             @error('ekstremitas')
             <div class='invalid-feedback'>{{ $message }}</div> @enderror

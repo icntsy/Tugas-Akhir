@@ -22,7 +22,7 @@ class Index extends Component
 
     public function downloadData()
     {
-        return Excel::download(new TransactionExport, 'nota-data.xlsx');
+        return Excel::download(new TransactionExport, 'data-nota.xlsx');
     }
     public function drugCreated()
     {

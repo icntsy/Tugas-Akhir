@@ -31,6 +31,7 @@
                         <table class="mb-0 table table-sm table-bordered">
                             <thead>
                                 <tr>
+                                    <th>No</th>
                                     <th>NIK</th>
                                     <th>Nama Lengkap</th>
                                     <th>Usia</th>
@@ -41,8 +42,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse($patients as $patient)
-                                    <livewire:patient.single :patient="$patient" :key="time().$patient->id" />
+                                @forelse($patients as $index => $patient)
+                                <livewire:patient.single :patient="$patient" :patientIndex="$index + $patients->firstItem()" :key="$patient->id" />
+                                {{-- @forelse($patients as $patient)
+                                    <livewire:patient.single :patient="$patient" :key="time().$patient->id" /> --}}
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse

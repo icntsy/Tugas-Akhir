@@ -23,7 +23,7 @@ class Index extends Component
     public function queueDeleted(){
         $this->dispatchBrowserEvent('show-message',[
             'type' => 'success',
-            'message' => 'Data Berhasil dihapus'
+            'message' => 'Data Antrian Berhasil dihapus'
         ]);
     }
     public function render()
