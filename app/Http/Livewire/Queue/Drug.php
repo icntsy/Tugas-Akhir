@@ -6,6 +6,8 @@ use App\Models\Queue;
 use Carbon\Carbon;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Illuminate\Support\Facades\Auth;
+
 
 class Drug extends Component
 {
@@ -30,6 +32,14 @@ class Drug extends Component
             //     $query->where('name', 'like', '%' . $this->search . '%');
             // })
             // ->with('queue.patient');
+
+         // Memeriksa peran pengguna yang sedang login
+    $user = Auth::user();
+    if ($user && $user->role === 'dokter') {
+        $queues->where('jenis_rawat', 'Inap');
+    } else {
+        $queues->where('jenis_rawat', 'Jalan');
+    }
 
         $queues->whereDate('created_at', Carbon::today())->where('has_check', true)->where('has_drug', false);
         $queues = $queues->paginate(5);

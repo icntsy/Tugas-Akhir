@@ -41,6 +41,7 @@
                                     <th>Obat</th>
                                     <th>Dokter / Bidan</th>
                                     <th>Layanan</th>
+                                    <th>Jenis Rawat</th>
 
                                 </tr>
                             </thead>

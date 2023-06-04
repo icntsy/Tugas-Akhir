@@ -38,4 +38,7 @@
     </td>
     <td>{{ $transaksi->queue->service->name }}</td>
 
+    <td>{{ $queue->jenis_rawat }}</td>
+
+
 </tr>

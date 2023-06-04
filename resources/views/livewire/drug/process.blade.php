@@ -266,7 +266,7 @@
                                 Subtotal : <input type="text" name="payment" placeholder="payment" class="form-control"  id='payment' style="width: 50%" value="{{ $subtotal + $queue->doctor->harga_jasa }}" readonly>
                                 @endif
                                 @if ($queue->jenis_rawat == 'Inap')
-                                Jumlah: <input type="text" name="payment" placeholder="payment" class="form-control" id="payment" style="width: 50%" value="{{ $jumlah }}" readonly>
+                                Jumlah Pembayaran : <input type="text" name="payment" placeholder="payment" class="form-control" id="payment" style="width: 50%" value="{{ $jumlah }}" readonly>
 
 
                                 @endif

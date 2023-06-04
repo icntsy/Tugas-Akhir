@@ -58,6 +58,13 @@
                         Progres Pemeriksaan
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
+                        <i class="metismenu-icon fa fa-clipboard" aria-hidden="true"></i>
+                        {{-- <i class="metismenu-icon fa fa-clipboard"></i> --}}
+                        Proses Pembayaran
+                    </a>
+                </li>
                 {{-- <li>
                     <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
                         <i class="metismenu-icon fa fa-clipboard"></i>
