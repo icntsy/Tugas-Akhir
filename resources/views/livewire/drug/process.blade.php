@@ -124,8 +124,9 @@
                                             @endif
                                             @if ($queue->jenis_rawat === 'Inap')
                                             <th>No</th>
-                                            <th>Qty</th>
+
                                             <th>Description</th>
+                                            <th>Qty</th>
                                             <th>Harga</th>
                                             <th>Total</th>
 
@@ -142,12 +143,143 @@
                                         @endphp
                                         <tr>
                                             <td>{{ $loop->index + 1 }}</td>
+                                            @if ($queue->jenis_rawat !== 'Inap')
                                             {{-- <td>{{$drug->id}}</td> --}}
                                             <td>{{$drug->nama}}</td>
                                             <td>{{$drug->pivot->quantity}}</td>
                                             <td>{{$drug->pivot->instruction}}</td>
                                             <td>Rp. {{ number_format($drug->harga * $drug->pivot->quantity) }}</td>
+                                            @endif
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>Ruangan</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
 
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 2 }}</td>
+                                            <td>Assesment Awal</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 3 }}</td>
+                                            <td>Pendaftaran</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 4 }}</td>
+                                            <td>Infus Set DEWASA+ Tindakan</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 5 }}</td>
+                                            <td>Tindakan Perawat</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 6 }}</td>
+                                            <td>Paket Obat DAN INFUS /hari</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 7 }}</td>
+                                            <td>Assesment dan Visite Dokter</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 8 }}</td>
+                                            <td>Obat Pulang</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 9 }}</td>
+                                            <td>EKG</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 10 }}</td>
+                                            <td>Cek Darah Lengkap</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 11 }}</td>
+                                            <td>Fisioterapi</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
+                                        </tr>
+                                        <tr>
+                                            @if ($queue->jenis_rawat === 'Inap')
+                                            <td>{{ $loop->index + 12 }}</td>
+                                            <td>Tindakan Tambahan</td>
+                                            <td><input type="text" name="qty" value="" class="form-control" /></td>
+
+                                            <td><input type="text" name="harga" value="" class="form-control" /></td>
+                                            <td><input type="text" name="total" value="" class="form-control" /></td>
+
+                                            @endif
                                         </tr>
                                         @endforeach
                                     </tbody>

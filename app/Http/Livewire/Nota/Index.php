@@ -62,7 +62,8 @@ class Index extends Component
         if ($this->sortColumn) {
             $transaksi->orderBy($this->sortColumn, $this->sortType);
         } else {
-            $transaksi->orderBy('id', 'asc');
+            $transaksi->orderBy('id', 'desc');
+            // $transaksi->orderBy('id', 'asc');
         }
         $transaksi = $transaksi->paginate(5);
 

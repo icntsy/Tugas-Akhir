@@ -27,7 +27,7 @@ class Index extends Component
     public function render()
     {
         $queues = Queue::query();
-        $queues = $queues->where("has_check", 1)->where("jenis_rawat", "Inap")->where("doctor_id", Auth::user()->id)->paginate(5);
+        $queues = $queues->where("has_check", 1)->where("jenis_rawat", "Inap")->where("doctor_id", Auth::user()->id)->orderByDesc('created_at')->paginate(5);
 
         return view("livewire.progres.index", compact("queues"));
     }
