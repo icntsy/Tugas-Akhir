@@ -22,7 +22,8 @@ class CreatePatientsTable extends Migration
             $table->text('address');
             $table->string('profession');
             $table->enum('study', ['Tidak Sekolah','SD', 'SMP', 'SMA', 'Perguruan Tinggi']);
-            $table->string('bpjs_number')->nullable();
+            $table->enum('blood_type', ['A','B', 'AB', 'O', 'Tidak Tahu']);
+            // $table->string('bpjs_number')->nullable();
             $table->string('phone_number')->nullable();
             $table->text('allergy')->nullable();
             $table->softDeletes();

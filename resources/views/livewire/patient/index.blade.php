@@ -36,6 +36,7 @@
                                     <th>Nama Lengkap</th>
                                     <th>Usia</th>
                                     <th>Jenis Kelamin</th>
+                                    <th>Gol. Darah</th>
                                     <th>Alamat</th>
                                     <th>No. Hp</th>
                                     <th>Action</th>

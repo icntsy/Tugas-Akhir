@@ -58,18 +58,18 @@
 
                                     <td>
                                         @if ($users->harga_jasa == NULL)
-                                        <span class="text-danger">
+                                        <button class="btn btn-sm btn-danger">Belum Ada Harga</button>
+                                        {{-- <span class="text-danger">
                                             <i>
                                                 <b>
                                                     Belum Ada Harga
                                                 </b>
                                             </i>
-                                        </span>
+                                        </span> --}}
                                         @else
                                         Rp. {{ number_format($users->harga_jasa) }}
                                         @endif
                                     </td>
-
                                 </tr>
                                 {{-- <livewire:jasa.single :users="$users" :key="time() . $users->id" /> --}}
 

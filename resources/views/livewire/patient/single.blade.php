@@ -4,6 +4,7 @@
     <td>{{$patient->name}}</td>
     <td>{{$patient->birth_date}}</td>
     <td>{{$patient->gender}}</td>
+    <td>{{$patient->blood_type}}</td>
     <td>{{$patient->address}}</td>
     <td>{{$patient->phone_number}}</td>
     <td>

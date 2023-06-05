@@ -7,6 +7,7 @@
     </td>
     <td>
         @if ($users->harga_jasa == NULL)
+
         <span class="text-danger">
             <i>
                 <b>

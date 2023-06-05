@@ -16,6 +16,7 @@ class Update extends Component
     public $phone_number;
     public $study;
     public $nik;
+    public $blood_type;
     // public $bpjs_number;
     public $profession;
     public $allergy;
@@ -29,6 +30,7 @@ class Update extends Component
         'study' => 'required',
         'profession' => 'required',
         'nik' => 'required',
+        'blood_type' => 'required',
     ];
 
     public function updated($input)
@@ -49,7 +51,7 @@ class Update extends Component
             'address' => $this->address,
             'phone_number' => $this->phone_number,
             'study' => $this->study,
-            // 'bpjs_number' => $this->bpjs_number,
+            'blood_type' => $this->blood_type,
             'profession' => $this->profession,
             'allergy' => $this->allergy,
             'nik' => $this->nik,
@@ -65,7 +67,7 @@ class Update extends Component
         $this->address = $patient->address;
         $this->phone_number = $patient->phone_number;
         $this->study = $patient->study;
-        // $this->bpjs_number = $patient->bpjs_number;
+        $this->blood_type = $patient->blood_type;
         $this->profession = $patient->profession;
         $this->allergy = $patient->allergy;
         $this->nik = $patient->nik;

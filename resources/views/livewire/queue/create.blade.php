@@ -51,6 +51,11 @@
                                 <td>{{$patient->gender ?? "-"}} / {{$patient ? \Carbon\Carbon::parse
                                 ($patient->birth_date)->diffInYears(): "-"}}</td>
                             </tr>
+                            <tr>
+                                <td style="font-weight: bold;">Gol. Darah</td>
+                                <td width="1%">:</td>
+                                <td>{{$patient->blood_type ?? "-"}}</td>
+                            </tr>
 
                             <tr>
                                 <td style="font-weight: bold;">Alamat</td>

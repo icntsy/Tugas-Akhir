@@ -55,7 +55,7 @@
                     </div>
 
                     <div class='col-md-6 form-group'>
-                                            <label for='study' class='control-label'> {{ __('Pendidikan Terakhir') }}</label>
+                                            <label for='study' class='control-label'> {{ __('Jenis Kelamin') }}</label>
                         <select  id="gender" class="form-control custom-select" wire:model="gender" name="gender">
                             <option selected="selected" value="">--Pilih Jenis Kelamin--</option>
                             <option value="Laki-Laki">Laki Laki</option>
@@ -73,6 +73,17 @@
                             <option value="Perguruan Tinggi">Perguruan Tinggi</option>
                         </select>
                     </div>
+                    <div class='col-md-6 form-group'>
+                 <label for='blood_type' class='control-label'> {{ __('Golongan Darah') }}</label>
+                        <select  id="blood_type" class="form-control custom-select" wire:model="blood_type" name="blood_type">
+                            <option value="" >---Golongan Darah--</option>
+                            <option value="A" >A</option>
+                            <option value="B" >B</option>
+                            <option value="AB" >AB</option>
+                            <option value="O" >O</option>
+                            <option value="Tidak Tahu" >Tidak Tahu</option>
+                        </select>
+                    </div>
                     {{-- <div class='form-group col-md-12'> --}}
 {{--                        <label for='bpjs_number' class='control-label'> {{ __('Nomer Bpjs (tidak wajib)') }}</label>--}}
                         {{-- <input type='text' wire:model.lazy='bpjs_number'
@@ -80,7 +91,7 @@
                         @error('bpjs_number') --}}
                         {{-- <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div> --}}
-                    <div class='form-group col-md-12'>
+                    <div class='form-group col-md-6'>
                                            <label for='allergy' class='control-label'> {{ __('Alergi') }}</label>
                         <textarea class="form-control" wire:model="allergy" placeholder="List Alergi Yang di derita"></textarea>
                         @error('allergy')

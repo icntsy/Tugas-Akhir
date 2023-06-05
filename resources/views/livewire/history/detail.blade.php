@@ -35,6 +35,11 @@
                                     <td>:</td>
                                     <td>{{$history->patient->gender}}</td>
                                 </tr>
+                                <tr>
+                                    <td style="font-weight: bold;" width="35%">Gol. Darah</td>
+                                    <td>:</td>
+                                    <td>{{$history->patient->blood_type}}</td>
+                                </tr>
 
 
                                 </tbody></table>
@@ -56,6 +61,7 @@
                                         <td>:</td>
                                         <td>{{$history->patient->phone_number}} </td>
                                     </tr>
+
                                     <tr>
                                         <td style="font-weight: bold;" width="35%">Umur</td>
                                         <td>:</td>
@@ -64,6 +70,7 @@
                                             ()}}
                                             Thn</td>
                                     </tr>
+
                                 </tbody></table>
 
                             </div>

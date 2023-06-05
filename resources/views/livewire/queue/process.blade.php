@@ -72,6 +72,13 @@
                                             {{$queue->patient->address}}
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td style="font-weight: bold;" width="35%">Gol. Darah</td>
+                                        <td width="1%">:</td>
+                                        <td>
+                                            {{$queue->patient->blood_type}}
+                                        </td>
+                                    </tr>
                                 </tbody></table>
                             </div>
                             <div class="col-md-6">
@@ -228,7 +235,7 @@
                             @error('color_blind')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div> --}}
-                        <div class='form-group col-md-3'>
+                        {{-- <div class='form-group col-md-3'>
                             <label for='blood' class='control-label'> {{ __('Golongan Darah') }}</label>
                             <select  wire:model.lazy='blood'
                             class="form-control @error('blood') is-invalid @enderror" id='blood'>
@@ -241,7 +248,7 @@
                         </select>
                         @error('blood')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                    </div>
+                    </div> --}}
                     {{-- <div class='form-group col-md-3'>
                         <label for='respiration' class='control-label'> {{ __('Respirasi (X/Menit)') }}</label>
                         <input type='number' autofocus wire:model.lazy='respiration' placeholder="Respirasi"
@@ -386,7 +393,8 @@
 
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary btn-sm">
+                        <button type="submit" class="btn-wide btn-outline-2x mr-md-2 btn btn-primary">
+                        {{-- <button type="submit" class="btn btn-primary btn-sm"> --}}
                             Simpan
                         </button>
                     </div>

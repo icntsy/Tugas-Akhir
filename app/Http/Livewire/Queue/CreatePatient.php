@@ -13,7 +13,7 @@ class CreatePatient extends Component
     public $address;
     public $phone_number;
     public $study;
-    // public $bpjs_number;
+    public $blood_type;
     public $profession;
     public $allergy;
     public $nik;
@@ -25,7 +25,7 @@ class CreatePatient extends Component
         'address' => 'required',
         'phone_number' => 'required',
         'study' => 'required',
-        // 'bpjs_number' => 'required',
+        'blood_type' => 'required',
         'profession' => 'required',
         'allergy' => 'required',
         'nik' => 'required|unique:patients,nik'
@@ -42,7 +42,7 @@ class CreatePatient extends Component
             'address' => $this->address,
             'phone_number' => $this->phone_number,
             'study' => $this->study,
-            // 'bpjs_number' => $this->bpjs_number,
+            'blood_type' => $this->blood_type,
             'profession' => $this->profession,
             'allergy' => $this->allergy,
             'nik' => $this->nik,

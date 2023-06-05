@@ -66,6 +66,13 @@
                                                 {{$queue->patient->address}}
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td style="font-weight: bold;" width="35%">Gol. Darah</td>
+                                            <td width="1%">:</td>
+                                            <td>
+                                                {{$queue->patient->blood_type}}
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
