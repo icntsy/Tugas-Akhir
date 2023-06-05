@@ -74,12 +74,20 @@
                     </div>
 
 
-                    <div class='form-group col-md-12'>
-                    {{--<label for='address' class='control-label'> {{ __('Alamat Lengkap') }}</label>--}}
+                    <div class='form-group col-md-6'>
+                    <label for='address' class='control-label'> {{ __('Keterangan') }}</label>
+                    <textarea wire:model.lazy='description'
+                    placeholder="Keterangan" class="form-control @error('description')
+                 is-invalid @enderror" id='description'></textarea>
+             @error('description')
+             <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                    </div>
+                    {{-- <div class='form-group col-md-6'>
+                    <label for='address' class='control-label'> {{ __('Keterangan') }}</label>
                         <textarea class="form-control" wire:model="description" placeholder="Keterangan"></textarea>
                         @error('description')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                    </div>
+                    </div> --}}
 
                 </div>
                 <div class="card-footer text-right">

@@ -9,7 +9,7 @@
             <form class="form-horizontal" wire:submit.prevent="update" enctype="multipart/form-data">
                 <div class="card-body row">
                     <div class="card-body row">
-                        
+
                         <div class='form-group col-md-6'>
                             <label for='name' class='control-label'> {{ __('Nama') }}</label>
                             <input type='text' wire:model.lazy='name'
@@ -25,7 +25,7 @@
                             @error('age')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
                         <div class='form-group col-md-6'>
                             <label for='address' class='control-label'> {{ __('Alamat') }}</label>
                             <input type='text' wire:model.lazy='address'
@@ -33,7 +33,7 @@
                             @error('address')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
                         <div class='form-group col-md-6'>
                             <label for='weight' class='control-label'> {{ __('Berat Badan') }}</label>
                             <input type='text' wire:model.lazy='weight'
@@ -41,7 +41,7 @@
                             @error('weight')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
                         <div class='form-group col-md-6'>
                             <label for='blood_pressure' class='control-label'> {{ __('Golongan Darah') }}</label>
                             <input type='text' wire:model.lazy='blood_pressure'
@@ -49,19 +49,19 @@
                             @error('blood_pressure')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
-    
-                        <div class='form-group col-md-12'>
-                        {{--<label for='address' class='control-label'> {{ __('Alamat Lengkap') }}</label>--}}
+
+
+                        <div class='form-group col-md-6'>
+                        <label for='address' class='control-label'> {{ __('Keterangan') }}</label>
                             <textarea class="form-control" wire:model="description" placeholder="Keterangan"></textarea>
                             @error('description')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
 
                 </div>
                 <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-info">{{ __('Simpan Data') }}</button>
+                    <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
                 </div>
             </form>
         </div>

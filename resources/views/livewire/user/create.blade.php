@@ -25,7 +25,8 @@
                     </div>
                     <div class='col-md-6 form-group'>
                         <label for='study' class='control-label'> {{ __('Type user') }}</label>
-                        <select  id="gender" class="form-control custom-select" wire:model="role" name="role">
+                        <select  id="gender" class="form-control @error('role') is-invalid @enderror"
+                        wire:model.lazy="role" name="role">
                             <option selected="selected" value="">--Pilih Type User--</option>
                             <option value="admin">Admin</option>
                             <option value="dokter">Dokter</option>
@@ -34,7 +35,24 @@
                             <option value="apoteker">Apoteker</option>
                             {{-- <option value="pengguna">Pengguna</option> --}}
                         </select>
+                        @error('role')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
                     </div>
+                    {{-- <div class='col-md-6 form-group'>
+                        <label for='study' class='control-label'> {{ __('Type user') }}</label>
+                        <select  id="gender" class="form-control custom-select" wire:model="role" name="role">
+                            <option selected="selected" value="">--Pilih Type User--</option>
+                            <option value="admin">Admin</option>
+                            <option value="dokter">Dokter</option>
+                            <option value="bidan">Bidan</option> --}}
+                            {{-- <option value="staff">Staff</option> --}}
+                            {{-- <option value="apoteker">Apoteker</option> --}}
+                            {{-- <option value="pengguna">Pengguna</option> --}}
+                        {{-- </select>
+                    </div> --}}
+
+
                     {{-- <div class='form-group col-md-6'>
                         <label for='password' class='control-label'> {{ __('Password') }}</label>
                         <input type='password'  wire:model.lazy='password' placeholder="Masukan password"

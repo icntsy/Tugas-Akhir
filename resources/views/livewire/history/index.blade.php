@@ -1,5 +1,5 @@
 @section('meta_title', 'Mediical History')
-@section('page_title', 'DATA PEMERIKSAAN ACN')
+@section('page_title', 'DATA PEMERIKSAAN ANC')
 @section('page_title_icon')
 <i class="fa fa-medkit" aria-hidden="true"></i>
     {{-- <i class="metismenu-icon fa fa-notes-medical"></i> --}}

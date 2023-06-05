@@ -27,6 +27,8 @@ class Create extends Component
         'study' => 'required',
         'profession' => 'required',
         'blood_type' => 'required',
+        'phone_number' => 'required',
+        'allergy' => 'required',
         'nik' => 'required|unique:patients,nik'
     ];
 

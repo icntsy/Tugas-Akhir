@@ -16,7 +16,7 @@
                             @error('name')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
                         <div class='form-group col-md-6'>
                             <label for='age' class='control-label'> {{ __('Usia') }}</label>
                             <input type='text' wire:model.lazy='age'
@@ -24,7 +24,7 @@
                             @error('age')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
                         <div class='form-group col-md-6'>
                             <label for='address' class='control-label'> {{ __('Alamat') }}</label>
                             <input type='text' wire:model.lazy='address'
@@ -32,7 +32,7 @@
                             @error('address')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
                         <div class='form-group col-md-6'>
                             <label for='birth_place' class='control-label'> {{ __('Tempat Lahir') }}</label>
                             <input type='text' wire:model.lazy='birth_place'
@@ -40,7 +40,7 @@
                             @error('birth_place')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
                         <div class='form-group col-md-6'>
                             <label for='birth_date' class='control-label'> {{ __('Tanggal Lahir') }}</label>
                             <input type='text' wire:model.lazy='birth_date'
@@ -48,7 +48,7 @@
                             @error('birth_date')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
                         <div class='form-group col-md-6'>
                             <label for='weight' class='control-label'> {{ __('Berat Badan') }}</label>
                             <input type='text' wire:model.lazy='weight'
@@ -56,16 +56,16 @@
                             @error('weight')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
+
                         <div class='form-group col-md-6'>
                             <label for='temperature' class='control-label'> {{ __('Suhu Tubuh') }}</label>
-                            <input type='text' wire:model.lazy='temperature' 
+                            <input type='text' wire:model.lazy='temperature'
                                    class="form-control @error('temperature') is-invalid @enderror" id='temperature' autofocus placeholder="Suhu Tubuh">
                             @error('temperature')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
-    
-                        <div class='form-group col-md-12'>
+
+                        <div class='form-group col-md-6'>
                         <label for='description' class='control-label'> {{ __('Keterangan') }}</label>
                             <textarea class="form-control" wire:model="description" placeholder="Keterangan"></textarea>
                             @error('description')
@@ -74,7 +74,7 @@
 
                 </div>
                 <div class="card-footer text-right">
-                    <button type="submit" class="btn btn-info">{{ __('Simpan Data') }}</button>
+                    <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
                 </div>
             </form>
         </div>

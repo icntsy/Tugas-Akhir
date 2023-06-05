@@ -41,12 +41,14 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
+
+
+
                             <tbody>
                                 @forelse($queues as $queue)
                                     @if (!$queue->transaction)
                                         <livewire:queue.drug-table :queue="$queue" :key="time() . $queue->id" />
-                                    {{-- @else
-                                    {{-- @include('layouts.empty', ['colspan' => 7]) --}}
+
                                         @endif
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])

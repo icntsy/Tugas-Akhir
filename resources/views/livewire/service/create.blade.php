@@ -21,13 +21,29 @@
                     </div>
                     <div class='col-md-6 form-group'>
                         <label for='study' class='control-label'> {{ __('Status') }}</label>
+                        <select  id="status" class="form-control @error('status') is-invalid @enderror"
+                        wire:model.lazy="status" name="status">
+                            <option selected="selected" value="">--Pilih Status Layanan--</option>
+                            <option value="1">dokter</option>
+                            <option value="2">bidan</option>
+
+                        </select>
+                        @error('status')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    {{-- <div class='col-md-6 form-group'>
+                        <label for='study' class='control-label'> {{ __('Status') }}</label>
                         <select  id="status" class="form-control custom-select" wire:model="status" name="status">
                             <option selected="selected" value="">--Pilih Status Layanan--</option>
                             <option value="1">dokter</option>
                             <option value="2">bidan</option>
 
                         </select>
-                    </div>
+                    </div> --}}
+
+
+
                 </div>
 
 
