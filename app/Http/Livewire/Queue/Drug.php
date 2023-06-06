@@ -9,6 +9,8 @@ use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
 
 
+
+
 class Drug extends Component
 {
     use WithPagination;
@@ -28,10 +30,7 @@ class Drug extends Component
     {
         $queues = Queue::query()
         ->where('queue_number', 'like', '%' . $this->search . '%');
-            // ->orWhereHas('queue.patient', function($query) {
-            //     $query->where('name', 'like', '%' . $this->search . '%');
-            // })
-            // ->with('queue.patient');
+
 
          // Memeriksa peran pengguna yang sedang login
     $user = Auth::user();
@@ -40,6 +39,9 @@ class Drug extends Component
     } else {
         $queues->where('jenis_rawat', 'Jalan');
     }
+
+
+
 
         $queues->whereDate('created_at', Carbon::today())->where('has_check', true)->where('has_drug', false);
         $queues = $queues->paginate(5);

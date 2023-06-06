@@ -41,10 +41,33 @@
                                     <th>Action</th>
                                 </tr>
                             </thead>
-
-
-
                             <tbody>
+                                @php
+                                    $hasQueue = false;
+                                @endphp
+                                @forelse($queues as $queue)
+                                    @if (!$queue->transaction)
+                                        <livewire:queue.drug-table :queue="$queue" :key="time() . $queue->id" />
+                                        @php
+                                            $hasQueue = true;
+                                        @endphp
+                                    @endif
+                                @empty
+                                    @php
+                                        $hasQueue = false;
+                                    @endphp
+                                @endforelse
+                                @if (!$hasQueue)
+                                    <tr>
+                                        <td colspan="7" class="text-center">
+                                            Data kosong
+                                        </td>
+                                    </tr>
+                                @endif
+                            </tbody>
+
+
+                            {{-- <tbody>
                                 @forelse($queues as $queue)
                                     @if (!$queue->transaction)
                                         <livewire:queue.drug-table :queue="$queue" :key="time() . $queue->id" />
@@ -53,7 +76,7 @@
                                 @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                 @endforelse
-                            </tbody>
+                            </tbody> --}}
                         </table>
                     </div>
                 </div>
