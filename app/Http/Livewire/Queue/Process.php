@@ -41,6 +41,7 @@ class Process extends Component
     public $pulmo;
     public $abdomen;
     public $ekstremitas;
+    public $jenis_rawat;
 
     public $anak_ke;
     public $hpht;
@@ -82,6 +83,7 @@ class Process extends Component
             'pulmo' => 'required',
             'abdomen' => 'required',
             'ekstremitas' => 'required',
+            'jenis_rawat' => 'required',
         ];
     }
 
@@ -275,6 +277,7 @@ class Process extends Component
                 $this->queue->update([
                     'has_check' => true,
                     'medical_record_id' => $medical_record->id,
+                    'jenis_rawat' => $this->jenis_rawat,
                 ]);
                 $this->redirectRoute('queue.index');
             } else if (Auth::user()->role == "bidan") {

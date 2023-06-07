@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Progres;
+namespace App\Http\Livewire\Jalan;
 
 use App\Models\Diagnosis;
 use App\Models\Lab;

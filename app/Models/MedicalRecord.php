@@ -38,4 +38,9 @@ class MedicalRecord extends Model
     {
         return $this->hasOne(MedicalRecordDrugs::class, 'medical_record_id', 'id');
     }
+
+    public function inap()
+    {
+        return $this->belongsTo("App\Models\MedicalRecordInap", "id", "medical_record_id");
+    }
 }

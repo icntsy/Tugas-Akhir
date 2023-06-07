@@ -41,7 +41,9 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Pasien</th>
-                                    <th>Layanan</th>
+                                    <th>NIK</th>
+                                    <th>Alamat</th>
+                                    <th>Dokter</th>
                                     <th>Jenis Rawat</th>
                                     <th>Action</th>
                                 </tr>

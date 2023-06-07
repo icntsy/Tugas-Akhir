@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Queue;
+namespace App\Http\Livewire\Jalan;
 
 use Illuminate\Support\Facades\Auth;
 use App\Models\Patient;
@@ -16,6 +16,7 @@ class Create extends Component
     public $service_id;
     public $doctor_id;
     public $main_complaint;
+    public $jenis_rawat;
 
     // protected $rules = [
     //        'service_id' => 'required',
@@ -87,11 +88,12 @@ class Create extends Component
                 'patient_id' => $this->patient->id,
                 'doctor_id' => $this->doctor_id,
                 'service_id' => $this->service_id,
+                'jenis_rawat' => $this->jenis_rawat,
                 'main_complaint' => $this->main_complaint,
             ]);
             $this->dispatchBrowserEvent('show-message', [
                 'type' => 'success',
-                'message' => 'Sukses Menambah Data Antrian'
+                'message' => 'Sukses menambah data pasien'
             ]);
             $this->redirectRoute('queue.index');
         }else{

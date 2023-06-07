@@ -51,11 +51,6 @@
                                 <td>{{$patient->gender ?? "-"}} / {{$patient ? \Carbon\Carbon::parse
                                 ($patient->birth_date)->diffInYears(): "-"}}</td>
                             </tr>
-                            <tr>
-                                <td style="font-weight: bold;">Gol. Darah</td>
-                                <td width="1%">:</td>
-                                <td>{{$patient->blood_type ?? "-"}}</td>
-                            </tr>
 
                             <tr>
                                 <td style="font-weight: bold;">Alamat</td>
@@ -72,6 +67,16 @@
                             </div>
                             <select id="service" class="multiselect-dropdown form-control @error('service_id')
                                 is-invalid @enderror" onclick="tampung()">
+                            </select>
+                        </div>
+                        <div id="optionMati" style="display: none" class="input-group mt-2" wire:ignore>
+                            <div class="input-group-prepend">
+                                <button class="btn"> Pilihan Rawat&nbsp;&nbsp;:</button>
+                            </div>
+                            <select id="jenis_rawat" class="form-control" wire:model="jenis_rawat" >
+                                <option value="">- Pilih -</option>
+                                <option value="Jalan">Rawat Jalan</option>
+                                <option value="Inap">Rawat Inap</option>
                             </select>
                         </div>
                         <div class="input-group mt-2" wire:ignore>

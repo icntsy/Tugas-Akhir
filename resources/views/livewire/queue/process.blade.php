@@ -404,6 +404,7 @@
         </div>
     </div>
     @role("dokter")
+
     <div class="col-md-12">
         <div class="main-card">
             <div class="card-header">
@@ -464,14 +465,7 @@
                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
 
-            <div class='form-group col-md-3'>
-                <label for='leher' class='control-label'> {{ __('Kelenjar Getah Bening Ka/Ki') }}</label>
-                <input type='text' autofocus wire:model.lazy='leher' placeholder="Leher"
-                class="form-control @error('leher') is-invalid @enderror"
-                id='leher'>
-                @error('leher')
-                <div class='invalid-feedback'>{{ $message }}</div> @enderror
-            </div>
+
 
             <div class='form-group col-md-3'>
                 <label for='thoraks' class='control-label'> {{ __('Thoraks') }}</label>
@@ -488,6 +482,18 @@
             @error('thoraks')
             <div class='invalid-feedback'>{{ $message }}</div> @enderror
         </div>
+        <div class='form-group col-md-3'>
+            <label for='ekstremitas' class='control-label'> {{ __('Ekstremitas') }}</label>
+            <select  wire:model.lazy='ekstremitas'
+            class="form-control @error('ekstremitas') is-invalid @enderror" id='ekstremitas'>
+            <option value="" >---Ekstremitas--</option>
+            <option value="Akral Hangat" >Akral Hangat</option>
+            <option value="Akral Dingin" >Akral Dingin</option>
+            <option value="CRT < 2 detik" >CRT < 2 detik</option>
+        </select>
+        @error('ekstremitas')
+        <div class='invalid-feedback'>{{ $message }}</div> @enderror
+    </div>
             <div class='form-group col-md-3'>
                 <label for='pulmo' class='control-label'> {{ __('Pulmo') }}</label>
                 <select  wire:model.lazy='pulmo'
@@ -514,18 +520,15 @@
             @error('abdomen')
             <div class='invalid-feedback'>{{ $message }}</div> @enderror
         </div>
-            <div class='form-group col-md-3'>
-                <label for='ekstremitas' class='control-label'> {{ __('Ekstremitas') }}</label>
-                <select  wire:model.lazy='ekstremitas'
-                class="form-control @error('ekstremitas') is-invalid @enderror" id='ekstremitas'>
-                <option value="" >---Ekstremitas--</option>
-                <option value="Akral Hangat" >Akral Hangat</option>
-                <option value="Akral Dingin" >Akral Dingin</option>
-                <option value="CRT < 2 detik" >CRT < 2 detik</option>
-            </select>
-            @error('ekstremitas')
+        <div class='form-group col-md-3'>
+            <label for='leher' class='control-label'> {{ __('Kelenjar Getah Bening Ka/Ki') }}</label>
+            <input type='text' autofocus wire:model.lazy='leher' placeholder="Leher"
+            class="form-control @error('leher') is-invalid @enderror"
+            id='leher'>
+            @error('leher')
             <div class='invalid-feedback'>{{ $message }}</div> @enderror
         </div>
+
 
                 <div class='form-group col-md-3'>
                     <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah (mmHg)') }}</label>
@@ -583,6 +586,17 @@
         @error('temperature')
         <div class='invalid-feedback'>{{ $message }}</div> @enderror
     </div>
+    <div class='form-group col-md-3' id="optionMati" wire:ignore >
+                            <label for='jenis_rawat' class='control-label'> {{ __('Pilihan Rawat') }}</label>
+                            <select  wire:model='jenis_rawat'
+                            class="form-control @error('jenis_rawat') is-invalid @enderror" id='jenis_rawat'>
+                            <option value="">- Pilih -</option>
+                                <option value="Jalan">Rawat Jalan</option>
+                                <option value="Inap">Rawat Inap</option>
+                        </select>
+                        @error('jenis_rawat')
+                        <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                    </div>
     </div>
 
             <div class="card-header">
@@ -727,6 +741,24 @@
             </div>
         </div>
     </div>
+    {{-- <div class="col-md-12">
+        <div class="main-card">
+    <div class="card-header">
+        Data Jenis Rawat
+    </div> --}}
+                        {{-- <div class='form-group col-md-12' id="optionMati" wire:ignore >
+                            <label for='jenis_rawat' class='control-label'> {{ __('Pilihan Rawat') }}</label>
+                            <select  wire:model='jenis_rawat'
+                            class="form-control @error('jenis_rawat') is-invalid @enderror" id='jenis_rawat'>
+                            <option value="">- Pilih -</option>
+                                <option value="Jalan">Rawat Jalan</option>
+                                <option value="Inap">Rawat Inap</option>
+                        </select>
+                        @error('jenis_rawat')
+                        <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                    </div> --}}
+        {{-- </div>
+        </div> --}}
     @endrole
 </div>
 </div>

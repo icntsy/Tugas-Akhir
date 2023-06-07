@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Progres;
+namespace App\Http\Livewire\Jalan;
 
 use App\Models\Queue;
 use Livewire\Component;
@@ -25,7 +25,7 @@ class Single extends Component
     }
     public function render()
     {
-        return view('livewire.progres.single', [
+        return view('livewire.jalan.single', [
             'role' => $this->role // Mengirimkan $role ke tampilan
         ]);
     }
@@ -49,7 +49,7 @@ class Single extends Component
         // return redirect("/progres");
     }
     public function history() {
-        $this->redirectRoute("progres.history", ["queue" => $this->queue]);
+        $this->redirectRoute("jalan.history", ["queue" => $this->queue]);
     }
 
     public function pulang()

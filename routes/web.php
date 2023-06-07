@@ -54,7 +54,8 @@ $list_menu = [
     'jasa' => 'jasa',
     'history' => 'history',
     'profile' => 'profile',
-    'progres' => 'progres'
+    'progres' => 'progres',
+    'jalan' => 'jalan'
 ];
 
 
@@ -71,6 +72,9 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
      Route::get("/readuser", [UserController::class,'readuser']);
     Route::get('progres/process/{queue}', \App\Http\Livewire\Progres\Process::class)->name('progres.process');
     Route::get('progres/selesai/{queue}', \App\Http\Livewire\Progres\Selesai::class)->name('progres.selesai');
+    Route::get('progres/history/{queue}', \App\Http\Livewire\Progres\History::class)->name('progres.history');
+    Route::get('jalan/history/{queue}', \App\Http\Livewire\Jalan\History::class)->name('jalan.history');
+    Route::get('progres/pulang/{queue}', \App\Http\Livewire\Progres\Pulang::class)->name('progres.pulang');
     Route::post("/jasa", [\App\Http\Livewire\Jasa\Process::class, "store_harga"]);
     // Route::get("/history", [HistoryController::class,'index']);
     Route::get("/nota-obat", [TransactionController::class,'render']);

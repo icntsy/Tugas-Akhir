@@ -36,7 +36,7 @@
                                     <th>Lab</th>
                                     <th>Diagnosis</th>
                                     <th>Obat</th>
-                                    <th>Action</th>
+                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
