@@ -22,7 +22,7 @@
     </li>
     <li>
         <a href="{{ route('jalan.index') }}" class="@if (Request::is('jalan*')) mm-active @endif">
-            <i class="metismenu-icon fa fa-spinner" aria-hidden="true"></i>
+            <i class="metismenu-icon fa fa-history" aria-hidden="true"></i>
             History Rawat Jalan
         </a>
     </li>

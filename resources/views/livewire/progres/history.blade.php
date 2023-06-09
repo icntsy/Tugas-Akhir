@@ -5,7 +5,7 @@
 @section('meta_title', 'MEDICAL RECORD')
 @section('page_title', 'HISTORY PEMERIKSAAN RAWAT INAP')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-list"></i>
+<i class="metismenu-icon fa fa-history"></i>
 @endsection
 <div class="row">
     <div class="card col-md-12">
@@ -60,13 +60,13 @@
                         </div>
                         <div class="col-md-6">
                             <table style="width: 100%">
-                                {{-- <tr>
+                                <tr>
                                     <td style="font-weight: bold;">Tanggal Masuk / Jam</td>
                                     <td>:</td>
                                     <td>
                                         {{\Carbon\Carbon::parse($queue->created_at)->format('d F Y / H:i')}}
                                     </td>
-                                </tr> --}}
+                                </tr>
                                 <tr>
                                     <td style="font-weight: bold;">No. Rekam Medis</td>
                                     <td>:</td>

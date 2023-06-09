@@ -5,7 +5,7 @@
 @section('meta_title', 'MEDICAL RECORD')
 @section('page_title', 'DATA KEPULANGAN PASIEN')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-list"></i>
+<i class="metismenu-icon fa fa-outdent" aria-hidden="true"></i>
 @endsection
 <div class="row">
     <div class="card col-md-12">

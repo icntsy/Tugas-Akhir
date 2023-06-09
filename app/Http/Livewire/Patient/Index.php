@@ -36,7 +36,9 @@ class Index extends Component
         ->orWhere('nik', 'like', '%'.$this->search.'%')
         ->orWhere('gender', 'like', '%'.$this->search.'%')
         ->orWhere('address', 'like', '%'.$this->search.'%')
+        ->orWhere('blood_type', 'like', '%'.$this->search.'%')
         ->orWhere('phone_number', 'like', '%'.$this->search.'%');
+
         if($this->sortColumn){
             $patients->orderBy($this->sortColumn, $this->sortType);
         }else{

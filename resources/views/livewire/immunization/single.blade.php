@@ -1,4 +1,4 @@
-room<tr>
+<tr>
     {{-- <td>{{$immunization->id }}</td> --}}
     <td>{{$immunizationIndex}}</td>
     <td>{{$immunization->name ?? "-"}}</td>

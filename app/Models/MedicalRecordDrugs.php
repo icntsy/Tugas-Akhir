@@ -14,4 +14,9 @@ class MedicalRecordDrugs extends Model
 
     protected $guarded = [''];
 
+    public function Drugs()
+    {
+        return $this->hasOne(Drug::class, 'id', 'drug_id');
+    }
+
 }

@@ -36,6 +36,9 @@
                                     <th>Lab</th>
                                     <th>Diagnosis</th>
                                     <th>Obat</th>
+                                   
+
+                                    {{-- <th>Jenis Rawat</th> --}}
                                     {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>

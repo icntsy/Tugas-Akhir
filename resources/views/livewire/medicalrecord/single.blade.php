@@ -25,6 +25,8 @@
             @endforeach
         </ul>
     </td>
+   
+
     {{-- <td>
         <livewire:medical-record.detail-medial-record :record="$record->physical_test" />
     </td> --}}

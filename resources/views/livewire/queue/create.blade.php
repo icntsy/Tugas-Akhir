@@ -84,6 +84,7 @@
                             @error('doctor_id')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
+
                         <div class='form-group mt-2'>
                             {{--                        --}}{{--                        <label for='address' class='control-label'> {{ __('Alamat Lengkap') }}</label>--}}
                             <textarea class="form-control @error('main_complaint')

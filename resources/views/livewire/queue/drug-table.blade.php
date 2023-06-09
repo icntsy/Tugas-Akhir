@@ -6,13 +6,13 @@
     <td>{{$queue->doctor->name}}</td>
     <td>{{$queue->service->name}}</td>
     {{-- <td>{{ $queue->jenis_rawat }}</td> --}}
-    {{-- <td>
+    <td>
         @if ($queue->doctor->role === 'bidan')
             {{ '-' }}
         @else
             {{ $queue->jenis_rawat }}
         @endif
-    </td> --}}
+    </td>
 
 
     <td>

@@ -19,4 +19,17 @@ class Transaction extends Model
     public function queue(){
         return $this->belongsTo(Queue::class);
     }
+
+    public function doctor(){
+        return $this->belongsTo(User::class, 'doctor_id');
+    }
+
+    public function service(){
+        return $this->belongsTo(Service::class);
+    }
+
+    public function jenis(){
+        return $this->belongsTo(Queue::class, 'jenis_rawat');
+    }
+    
 }

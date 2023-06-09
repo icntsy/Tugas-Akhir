@@ -33,6 +33,20 @@ class Index extends Component
     public function render()
     {
         $records = MedicalRecord::query()->where('id', 'like', '%' . $this->search . '%');
+        $records -> orWhere('id', 'like', '%'.$this->search.'%')
+        ->orWhereHas('drugs', function($query) {
+            $query->where('nama', 'like', '%' . $this->search . '%');
+        })
+        ->orWhereHas('labs', function($query) {
+            $query->where('nama', 'like', '%' . $this->search . '%');
+        })
+        ->orWhereHas('diagnoses', function($query) {
+            $query->where('indonesian_name', 'like', '%' . $this->search . '%');
+        })
+        ->orWhereHas('patient', function($query) {
+            $query->where('name', 'like', '%' . $this->search . '%');
+        })
+        ->orWhere('main_complaint', 'like', '%' . $this->search . '%');
         if ($this->sortColumn) {
             $records->orderBy($this->sortColumn, $this->sortType);
         } else {

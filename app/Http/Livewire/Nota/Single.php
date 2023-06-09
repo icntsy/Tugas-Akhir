@@ -31,7 +31,7 @@ class Single extends Component
 
     public function render()
     {
-        // return view('livewire.nota.single');
+
         return view('livewire.nota.single', [
             'role' => $this->role // Mengirimkan $role ke tampilan
         ]);

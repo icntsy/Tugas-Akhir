@@ -30,6 +30,7 @@
                         Nota Obat
                     </a>
                 </li>
+                
                 <li class="app-sidebar__heading">Setting</li>
                 <li>
                     <a href="{{ route('jasa.index') }}" class="@if (Request::is('jasa*')) mm-active @endif">

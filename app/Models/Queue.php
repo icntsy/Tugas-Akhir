@@ -33,7 +33,7 @@ class Queue extends Model
     public function service(){
         return $this->belongsTo(Service::class);
     }
-
+  
     public function medicalrecord(){
         return $this->belongsTo(MedicalRecord::class, 'medical_record_id');
     }

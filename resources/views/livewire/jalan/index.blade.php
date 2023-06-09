@@ -1,8 +1,7 @@
 @section('meta_title', 'LAB')
 @section('page_title', 'DATA HISTORY PEMERIKSAAN RAWAT JALAN')
 @section('page_title_icon')
-<i class="fa fa-clipboard fa-1x" aria-hidden="true"></i>
-    {{-- <i class="metismenu-icon fa fa-clipboard-list"></i> --}}
+<i class="metismenu-icon fa fa-history" aria-hidden="true"></i>
 @endsection
 <div class="row">
     <div class="col-12">

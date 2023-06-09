@@ -44,19 +44,27 @@ class Index extends Component
             ->orWhereHas('queue.patient', function($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
+            ->orWhereHas('queue.patient', function($query) {
+                $query->where('jenis_rawat', 'like', '%' . $this->search . '%');
+            })
             ->with('queue.patient')
             ->orWhereHas('queue.doctor', function($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
-            ->with('queue.doctor')
+            ->with('queue.patient')
             ->orWhereHas('queue.service', function($query) {
                 $query->where('name', 'like', '%' . $this->search . '%');
             })
+
             ->with('queue.service')
             ->orWhereHas('queue.medicalrecord', function($query) {
                 $query->where('created_at', 'like', '%' . $this->search . '%');
             })
-            ->with('queue.medicalrecord');
+            ->with('queue.medicalrecord')
+            ->orWhereHas('queue.medicalrecord.medicalRecordDrugs.Drugs', function($query) {
+                $query->where('nama', 'like', '%' . $this->search . '%');
+            })
+            ;
 
 
         if ($this->sortColumn) {

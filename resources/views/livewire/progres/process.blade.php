@@ -1,7 +1,7 @@
 @section('meta_title', 'MEDICAL RECORD')
 @section('page_title', 'PROCESS PEMERIKSAAN LANUT')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-list"></i>
+<i class="metismenu-icon fa fa-spinner"></i>
 @endsection
 @section('modal')
 <livewire:component.modal-diagnosa :id="$queue->id"/>
@@ -337,16 +337,6 @@
                     @error('mata')
                     <div class='invalid-feedback'>{{ $message }}</div> @enderror
                 </div>
-
-                <div class='form-group col-md-3'>
-                    <label for='leher' class='control-label'> {{ __('Kelenjar Getah Bening Ka/Ki') }}</label>
-                    <input type='text' autofocus wire:model.lazy='leher' placeholder="Leher"
-                    class="form-control @error('leher') is-invalid @enderror"
-                    id='leher'>
-                    @error('leher')
-                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                </div>
-
                 <div class='form-group col-md-3'>
                     <label for='thoraks' class='control-label'> {{ __('Thoraks') }}</label>
                     <select  wire:model.lazy='thoraks'
@@ -362,6 +352,22 @@
                 @error('thoraks')
                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
+            <div class='form-group col-md-3'>
+                <label for='ekstremitas' class='control-label'> {{ __('Ekstremitas') }}</label>
+                <select  wire:model.lazy='ekstremitas'
+                class="form-control @error('ekstremitas') is-invalid @enderror" id='ekstremitas'>
+                <option value="" >---Ekstremitas--</option>
+                <option value="Akral Hangat" >Akral Hangat</option>
+                <option value="Akral Dingin" >Akral Dingin</option>
+                <option value="CRT < 2 detik" >CRT < 2 detik</option>
+            </select>
+            @error('ekstremitas')
+            <div class='invalid-feedback'>{{ $message }}</div> @enderror
+        </div>
+
+
+
+
             <div class='form-group col-md-3'>
                 <label for='pulmo' class='control-label'> {{ __('Pulmo') }}</label>
                 <select  wire:model.lazy='pulmo'
@@ -388,18 +394,16 @@
         @error('abdomen')
         <div class='invalid-feedback'>{{ $message }}</div> @enderror
     </div>
+
     <div class='form-group col-md-3'>
-        <label for='ekstremitas' class='control-label'> {{ __('Ekstremitas') }}</label>
-        <select  wire:model.lazy='ekstremitas'
-        class="form-control @error('ekstremitas') is-invalid @enderror" id='ekstremitas'>
-        <option value="" >---Ekstremitas--</option>
-        <option value="Akral Hangat" >Akral Hangat</option>
-        <option value="Akral Dingin" >Akral Dingin</option>
-        <option value="CRT < 2 detik" >CRT < 2 detik</option>
-    </select>
-    @error('ekstremitas')
-    <div class='invalid-feedback'>{{ $message }}</div> @enderror
-</div>
+        <label for='leher' class='control-label'> {{ __('Kelenjar Getah Bening Ka/Ki') }}</label>
+        <input type='text' autofocus wire:model.lazy='leher' placeholder="Leher"
+        class="form-control @error('leher') is-invalid @enderror"
+        id='leher'>
+        @error('leher')
+        <div class='invalid-feedback'>{{ $message }}</div> @enderror
+    </div>
+
 
 <div class='form-group col-md-3'>
     <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah (mmHg)') }}</label>

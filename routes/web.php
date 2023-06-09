@@ -56,6 +56,7 @@ $list_menu = [
     'profile' => 'profile',
     'progres' => 'progres',
     'jalan' => 'jalan'
+    
 ];
 
 

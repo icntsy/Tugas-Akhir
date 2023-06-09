@@ -39,7 +39,7 @@ class Index extends Component
             $gravida->latest('id');
         }
 
-        $gravida = $gravida->where("bidan_id", Auth::user()->id)->paginate(2);
+        $gravida = $gravida->where("bidan_id", Auth::user()->id)->paginate(7);
 
         // if (Auth::user()->role == "admin") {
         //     $records = $records->paginate(5);
