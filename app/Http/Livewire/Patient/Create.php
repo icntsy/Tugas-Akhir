@@ -18,6 +18,7 @@ class Create extends Component
     public $profession;
     public $allergy;
     public $nik;
+    public $noRekamMedis;
 
     protected $rules = [
         'name' => 'required',
@@ -35,6 +36,10 @@ class Create extends Component
     public function create()
     {
         $this->validate();
+        $lastPatient = Patient::latest('no_rekam_medis')->first();
+        $lastNumber = $lastPatient ? intval(substr($lastPatient->no_rekam_medis, 3)) : 0;
+        $nextNumber = $lastNumber + 1;
+        $noRekamMedis = 'KP-' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
 
         Patient::create([
             'name' => $this->name,
@@ -47,6 +52,7 @@ class Create extends Component
             'profession' => $this->profession,
             'allergy' => $this->allergy,
             'nik' => $this->nik,
+            'no_rekam_medis' => $noRekamMedis,
         ]);
 
         $this->dispatchBrowserEvent('show-message', [

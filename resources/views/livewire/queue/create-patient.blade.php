@@ -75,8 +75,8 @@
         <select  id="gender" class="form-control @error('gender') is-invalid @enderror"
         wire:model.lazy="gender" name="gender">
             <option selected="selected" value="">--Pilih Jenis Kelamin--</option>
-            <option value="Laki-Laki">Laki Laki</option>
-            <option value="Perempuan">Perempuan</option>
+            <option value="L">Laki Laki</option>
+            <option value="P">Perempuan</option>
         </select>
         @error('gender')
         <div class="invalid-feedback">{{ $message }}</div>

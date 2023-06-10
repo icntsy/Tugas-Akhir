@@ -23,6 +23,7 @@ class PatientSeeder extends Seeder
             'address' => 'Jl. Kebon Jeruk No.1',
             'profession' => 'Petani',
             'study' => 'SD',
+            // 'no_rekam_medis' => 'KP-001'
         ]);
     }
 }

@@ -89,8 +89,7 @@
                                             <td style="font-weight: bold;" width="35%">No. Rekam Medis</td>
                                             <td width="1%">:</td>
                                             <td>
-                                                001
-                                            </td>
+                                                {{$queue->patient->no_rekam_medis}}
                                         </tr>
 
                                         {{-- <tr>

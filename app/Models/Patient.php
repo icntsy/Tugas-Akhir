@@ -23,6 +23,7 @@ class Patient extends Model
         'blood_type',
         'profession',
         'allergy',
+        'no_rekam_medis',
     ];
 
 

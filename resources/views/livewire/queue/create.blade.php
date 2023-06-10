@@ -28,6 +28,7 @@
                     <div class="col-md-6" style="border-right:solid 1px #ddd;">
                         <table class="table">
                             <tbody>
+                            
                             <tr>
                                 <td style="font-weight: bold;" width="20%">NIK</td>
                                 <td width="1%">:</td>

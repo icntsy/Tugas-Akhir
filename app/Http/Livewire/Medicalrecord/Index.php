@@ -46,6 +46,9 @@ class Index extends Component
         ->orWhereHas('patient', function($query) {
             $query->where('name', 'like', '%' . $this->search . '%');
         })
+        ->orWhereHas('patient', function($query) {
+            $query->where('no_rekam_medis', 'like', '%' . $this->search . '%');
+        })
         ->orWhere('main_complaint', 'like', '%' . $this->search . '%');
         if ($this->sortColumn) {
             $records->orderBy($this->sortColumn, $this->sortType);

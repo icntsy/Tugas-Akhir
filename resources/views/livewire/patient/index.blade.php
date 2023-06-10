@@ -32,8 +32,9 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>No. RM</th>
                                     <th>NIK</th>
-                                    <th>Nama Lengkap</th>
+                                    <th>Nama</th>
                                     <th>Usia</th>
                                     <th>Jenis Kelamin</th>
                                     <th>Gol. Darah</th>

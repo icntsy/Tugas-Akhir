@@ -17,6 +17,7 @@ class CreatePatient extends Component
     public $profession;
     public $allergy;
     public $nik;
+    public $noRekamMedis;
 
     protected $rules = [
         'name' => 'required',
@@ -35,6 +36,10 @@ class CreatePatient extends Component
     {
         $this->validate();
 
+        $lastPatient = Patient::latest('no_rekam_medis')->first();
+        $lastNumber = $lastPatient ? intval(substr($lastPatient->no_rekam_medis, 3)) : 0;
+        $nextNumber = $lastNumber + 1;
+        $noRekamMedis = 'KP-' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
         $patient =Patient::create([
             'name' => $this->name,
             'birth_date' => $this->birth_date,
@@ -46,12 +51,13 @@ class CreatePatient extends Component
             'profession' => $this->profession,
             'allergy' => $this->allergy,
             'nik' => $this->nik,
-        ]);
+            'no_rekam_medis' => $noRekamMedis,
+            ]);
 
-        $this->emit('patientSelected', $patient->id);
+            $this->emit('patientSelected', $patient->id);
+        }
+        public function render()
+        {
+            return view('livewire.queue.create-patient');
+        }
     }
-    public function render()
-    {
-        return view('livewire.queue.create-patient');
-    }
-}

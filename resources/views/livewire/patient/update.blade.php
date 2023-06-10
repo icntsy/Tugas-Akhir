@@ -55,8 +55,8 @@
                                                <label for='gender' class='control-label'> {{ __('Jenis Kelamin') }}</label>
                         <select  id="gender" class="form-control custom-select" wire:model="gender" name="gender">
                             <option selected="selected" value="">--Pilih Jenis Kelamin--</option>
-                            <option value="Laki-Laki">Laki Laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                            <option value="L">Laki Laki</option>
+                            <option value="P">Perempuan</option>
                         </select>
                     </div>
                     <div class='col-md-6 form-group'>

@@ -27,6 +27,7 @@
                                 <table class="mb-0 table table-striped table-bordered">
                                     <thead>
                                     <tr>
+                                        <th>No. RM</th>
                                         <th>NIK</th>
                                         <th>Nama Pasien</th>
                                         <th>Tanggal Lahir</th>

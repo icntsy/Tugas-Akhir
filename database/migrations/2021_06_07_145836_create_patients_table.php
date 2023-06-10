@@ -17,7 +17,7 @@ class CreatePatientsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('nik')->unique()->nullable();
-            $table->enum('gender', ['Laki-Laki', 'Perempuan']);
+            $table->enum('gender', ['L', 'P']);
             $table->date('birth_date');
             $table->text('address');
             $table->string('profession');
@@ -26,6 +26,7 @@ class CreatePatientsTable extends Migration
             // $table->string('bpjs_number')->nullable();
             $table->string('phone_number')->nullable();
             $table->text('allergy')->nullable();
+            $table->string('no_rekam_medis')->unique();
             $table->softDeletes();
             $table->timestamps();
         });

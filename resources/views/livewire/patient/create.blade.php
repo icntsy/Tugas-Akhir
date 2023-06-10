@@ -77,8 +77,8 @@
                         <select  id="gender" class="form-control @error('gender') is-invalid @enderror"
                         wire:model.lazy="gender" name="gender">
                             <option selected="selected" value="">--Pilih Jenis Kelamin--</option>
-                            <option value="Laki-Laki">Laki Laki</option>
-                            <option value="Perempuan">Perempuan</option>
+                            <option value="L">Laki Laki</option>
+                            <option value="P">Perempuan</option>
                         </select>
                         @error('gender')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -115,6 +115,7 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
+
 
                     {{-- <div class='col-md-6 form-group'>
                  <label for='blood_type' class='control-label'> {{ __('Golongan Darah') }}</label>

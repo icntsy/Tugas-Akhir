@@ -1,6 +1,7 @@
 <tr>
     {{-- <td>{{$record->id}}</td> --}}
     <td>{{$recordIndex}}</td>
+    <td>{{$record->patient->no_rekam_medis}}</td>
     <td>{{$record->patient->name}}</td>
     <td>{{\Carbon\Carbon::parse($record->created_at)->format('d F Y ')}}</td>
     {{-- <td>{{$record->created_at}}</td> --}}
@@ -25,7 +26,7 @@
             @endforeach
         </ul>
     </td>
-   
+
 
     {{-- <td>
         <livewire:medical-record.detail-medial-record :record="$record->physical_test" />

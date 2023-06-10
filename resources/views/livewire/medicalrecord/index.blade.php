@@ -30,6 +30,7 @@
                             <thead>
                                 <tr>
                                     <th>No</th>
+                                    <th>No. RM</th>
                                     <th>Nama Pasien</th>
                                     <th>Tanggal Periksa</th>
                                     <th>Keluhan Utama</th>

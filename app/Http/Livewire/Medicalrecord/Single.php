@@ -12,7 +12,8 @@ class Single extends Component
     public $record;
     public $available;
     public $recordIndex;
-  
+    public $no_rekam_medis;
+
 
 
     public function mount(MedicalRecord $record, $recordIndex){
