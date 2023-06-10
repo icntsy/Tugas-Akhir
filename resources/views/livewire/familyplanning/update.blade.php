@@ -42,14 +42,18 @@
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
 
-                        <div class='form-group col-md-6'>
+                        <div class='col-md-6 form-group'>
                             <label for='blood_pressure' class='control-label'> {{ __('Golongan Darah') }}</label>
-                            <input type='text' wire:model.lazy='blood_pressure'
-                                   class="form-control @error('blood_pressure') is-invalid @enderror" id='blood_pressure' autofocus placeholder="Golongan Darah">
-                            @error('blood_pressure')
-                            <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                            <select  id="blood_pressure" class="form-control custom-select" wire:model="blood_pressure" name="blood_pressure">
+                                <option selected="selected" value="">---Golongan Darah--</option>
+                                <option value="A" >A</option>
+                                <option value="B" >B</option>
+                                <option value="AB" >AB</option>
+                                <option value="O" >O</option>
+                                <option value="Tidak Tahu" >Tidak Tahu</option>
+                            </select>
                         </div>
-
+                       
 
                         <div class='form-group col-md-6'>
                         <label for='address' class='control-label'> {{ __('Keterangan') }}</label>

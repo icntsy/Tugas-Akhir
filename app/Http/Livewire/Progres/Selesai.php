@@ -47,6 +47,7 @@ class Selesai extends Component
 
     public function save()
     {
+        $validatedData = $this->validate();
         try {
             $medical_record_inap = MedicalRecordInap::create([
                 "medical_record_id" => $this->queue->medical_record_id,

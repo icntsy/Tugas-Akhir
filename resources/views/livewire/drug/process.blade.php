@@ -1,5 +1,5 @@
 @section('meta_title', 'MEDICAL RECORD')
-@section('page_title', 'PROCESS  PENYIAPAN OBAT')
+@section('page_title', 'PROCESS  PEMBAYARAN')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-list"></i>
 @endsection

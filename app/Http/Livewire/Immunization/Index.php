@@ -36,7 +36,13 @@ class Index extends Component
     {
         $immunizations = Immunization::query();
         $immunizations->where('name', 'like', '%'.$this->search.'%')
-        ->orWhere('age', 'like', '%'.$this->search.'%');
+        ->orWhere('age', 'like', '%'.$this->search.'%')
+        ->orWhere('address', 'like', '%'.$this->search.'%')
+        ->orWhere('birth_place', 'like', '%'.$this->search.'%')
+        ->orWhere('birth_date', 'like', '%'.$this->search.'%')
+        ->orWhere('weight', 'like', '%'.$this->search.'%')
+        ->orWhere('temperature', 'like', '%'.$this->search.'%')
+        ->orWhere('description', 'like', '%'.$this->search.'%');
         if($this->sortColumn){
             $immunizations->orderBy($this->sortColumn, $this->sortType);
         }else{

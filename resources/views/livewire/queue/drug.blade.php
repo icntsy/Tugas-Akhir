@@ -1,5 +1,5 @@
 @section('meta_title', 'LAB')
-@section('page_title', 'DATA ANTRIAN HARI INI')
+@section('page_title', 'DATA PEMBAYARAN')
 @section('page_title_icon')
     <i class="metismenu-icon fa fa-clipboard"></i>
 @endsection
@@ -16,7 +16,7 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="input-group">
                             <input type="text" class="form-control form-control" wire:model.lazy="search"
-                                placeholder="{{ __('Cari Antrian') }}" value="{{ request('search') }}">
+                                placeholder="{{ __('Pencarian') }}" value="{{ request('search') }}">
                             <div class="input-group-append">
                                 <button class="btn btn-default">
                                     <a wire:target="search" wire:loading.remove><i class="fa fa-search"></i></a>

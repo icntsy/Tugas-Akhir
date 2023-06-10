@@ -156,6 +156,7 @@ class Process extends Component
 
     public function save(Request $request)
     {
+        $validatedData = $this->validate();
         try {
 
             HistoryMcu::create([

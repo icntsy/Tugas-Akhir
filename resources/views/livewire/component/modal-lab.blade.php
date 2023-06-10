@@ -10,7 +10,7 @@
                     <div class="btn-actions-pane-right text-capitalize">
                         <div class="input-group">
                             <input type="text" class="form-control form-control" wire:model.lazy="search"
-                                   placeholder="{{ __('Cari lab') }}"
+                                   placeholder="{{ __('Pencarian') }}"
                                    value="{{ request('search') }}">
                             <div class="input-group-append">
                                 <button class="btn btn-primary">

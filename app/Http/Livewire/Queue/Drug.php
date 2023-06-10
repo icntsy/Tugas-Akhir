@@ -48,8 +48,10 @@ class Drug extends Component
             $user = Auth::user();
             if ($user && $user->role === 'dokter') {
                 $queues->where('jenis_rawat', 'Inap');
+                
             } else {
                 $queues->where('jenis_rawat', 'Jalan');
+
             }
 
 

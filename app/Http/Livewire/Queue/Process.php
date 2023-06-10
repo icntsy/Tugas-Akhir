@@ -180,7 +180,7 @@ class Process extends Component
 
     public function save(Request $request)
     {
-        // $this->validate();
+        // $validatedData = $this->validate();
         try {
             if (Auth::user()->role == "dokter") {
                 $medical_record = MedicalRecord::create([

@@ -50,6 +50,7 @@ class Update extends Component
             'temperature' => $this->temperature,
             'description' => $this->description,
         ]);
+        return redirect("/imunisasi");
     }
     public function mount(Immunization $immunization)
     {

@@ -44,6 +44,7 @@ class Update extends Component
             'blood_pressure' => $this->blood_pressure,
             'description' => $this->description,
         ]);
+        return redirect("/keluargaberencana");
     }
     public function mount(Familyplanning $familyplanning)
     {

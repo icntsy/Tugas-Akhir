@@ -35,7 +35,11 @@ class Index extends Component
     {
         $familyplannings = Familyplanning::query();
         $familyplannings->where('name', 'like', '%'.$this->search.'%')
-        ->orWhere('age', 'like', '%'.$this->search.'%');
+        ->orWhere('age', 'like', '%'.$this->search.'%')
+        ->orWhere('address', 'like', '%'.$this->search.'%')
+        ->orWhere('weight', 'like', '%'.$this->search.'%')
+        ->orWhere('blood_pressure', 'like', '%'.$this->search.'%')
+        ->orWhere('description', 'like', '%'.$this->search.'%');
         if($this->sortColumn){
             $familyplannings->orderBy($this->sortColumn, $this->sortType);
         }else{
