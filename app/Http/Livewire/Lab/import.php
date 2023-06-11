@@ -24,8 +24,6 @@ class Import extends Component
         'file' => 'file|mimes:xlsx,xls'
     ];
 
-
-
     public function render()
     {
         return view('livewire.lab.import');

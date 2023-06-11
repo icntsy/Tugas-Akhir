@@ -30,11 +30,10 @@ class DrugTable extends Component
     }
     public function render()
     {
-        // return view('livewire.queue.drug-table');
         return view('livewire.queue.drug-table', [
             'role' => $this->role // Mengirimkan $role ke tampilan
-        ]);
+            ]);
 
 
+        }
     }
-}

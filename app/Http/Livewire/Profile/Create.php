@@ -16,7 +16,6 @@ class Create extends Component
     protected $rules = [
         'name' => 'required|max:255',
         'email' => 'required|email:dns|unique:users,email',
-        // 'email' => 'required|email|unique:users,email',
         'password' => 'required|confirmed',
         'role' => 'required'
     ];
@@ -28,21 +27,21 @@ class Create extends Component
             'email' => $this->email,
             'password' => \Hash::make($this->password),
             'role' => $this->role
-        ]);
+            ]);
 
-        $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
-            'message' => 'Sukses menambah data user'
-        ]);
-        $this->redirectRoute('user.index');
-    }
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        return view('livewire.user.create');
-    }
-}
+            $this->dispatchBrowserEvent('show-message', [
+                'type' => 'success',
+                'message' => 'Sukses menambah data user'
+                ]);
+                $this->redirectRoute('user.index');
+            }
+            /**
+            * Get the view / contents that represent the component.
+            *
+            * @return \Illuminate\View\View|string
+            */
+            public function render()
+            {
+                return view('livewire.user.create');
+            }
+        }

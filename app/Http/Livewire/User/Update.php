@@ -65,32 +65,32 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
             'message' => 'Data User Berhasil Diupdate'
-        ]);
+            ]);
 
-        $this->redirect('/user');
+            $this->redirect('/user');
+        }
+
+        public function mount(User $user)
+        {
+            $this->user = $user;
+            $this->name = $user->name;
+            $this->email = $user->email;
+            $this->password = $user->password;
+            $this->role = $user->role;
+        }
+
+        public function togglePasswordVisibility()
+        {
+            $this->passwordVisible = !$this->passwordVisible;
+        }
+
+        public function togglePasswordConfirmationVisibility()
+        {
+            $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
+        }
+
+        public function render()
+        {
+            return view('livewire.user.update');
+        }
     }
-
-    public function mount(User $user)
-    {
-        $this->user = $user;
-        $this->name = $user->name;
-        $this->email = $user->email;
-        $this->password = $user->password;
-        $this->role = $user->role;
-    }
-
-    public function togglePasswordVisibility()
-{
-    $this->passwordVisible = !$this->passwordVisible;
-}
-
-public function togglePasswordConfirmationVisibility()
-{
-    $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
-}
-
-    public function render()
-    {
-        return view('livewire.user.update');
-    }
-}

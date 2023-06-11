@@ -1,7 +1,7 @@
 @section('meta_title', 'DIAGNOSA')
 @section('page_title', 'UPDATE DATA DIAGNOSA')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-file-alt"></i>
+<i class="metismenu-icon fa fa-file-alt"></i>
 @endsection
 <div class="row">
     <div class="col-md-12">
@@ -11,34 +11,34 @@
                     <div class='form-group col-md-6'>
                         <label for='category' class='control-label'> {{ __('Category') }}</label>
                         <input type='text' autofocus wire:model.lazy='category' placeholder="CONTOH: D001"
-                            class="form-control @error('category') is-invalid @enderror" id='category'>
+                        class="form-control @error('category') is-invalid @enderror" id='category'>
                         @error('category')
-                            <div class='invalid-feedback'>{{ $message }}</div>
+                        <div class='invalid-feedback'>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class='form-group col-md-6'>
                         <label for='subcategory' class='control-label'> {{ __('Subcategory') }}</label>
                         <input type='text' wire:model.lazy='subcategory'
-                            class="form-control @error('subcategory') is-invalid @enderror" id='subcategory'
-                            placeholder="CONTOH: 0-9">
+                        class="form-control @error('subcategory') is-invalid @enderror" id='subcategory'
+                        placeholder="CONTOH: 0-9">
                         @error('subcategory')
-                            <div class='invalid-feedback'>{{ $message }}</div>
+                        <div class='invalid-feedback'>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class='form-group col-md-12'>
                         <label for='english_name' class='control-label'> {{ __('English Name') }}</label>
                         <textarea wire:model="english_name" class="form-control @error('english_name') is-invalid
-@enderror">{{ $english_name }}</textarea>
+                        @enderror">{{ $english_name }}</textarea>
                         @error('english_name')
-                            <div class='invalid-feedback'>{{ $message }}</div>
+                        <div class='invalid-feedback'>{{ $message }}</div>
                         @enderror
                     </div>
                     <div class='form-group col-md-12'>
                         <label for='indonesian_name' class='control-label'> {{ __('Indonesian Name') }}</label>
                         <textarea wire:model="indonesian_name" class="form-control @error('indonesian_name') is-invalid
-@enderror">{{ $indonesian_name }}</textarea>
+                        @enderror">{{ $indonesian_name }}</textarea>
                         @error('indonesian_name')
-                            <div class='invalid-feedback'>{{ $message }}</div>
+                        <div class='invalid-feedback'>{{ $message }}</div>
                         @enderror
                     </div>
                 </div>

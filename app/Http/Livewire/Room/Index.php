@@ -37,26 +37,26 @@ class Index extends Component
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
             'message' => 'Data Berhasil di Hapus'
-        ]);
-    }
+            ]);
+        }
 
-    public function sort($column)
-    {
-        $sort = $this->sortType == 'desc' ? 'asc' : 'desc';
-        $this->sortColumn = $column;
-        $this->sortType = $sort;
+        public function sort($column)
+        {
+            $sort = $this->sortType == 'desc' ? 'asc' : 'desc';
+            $this->sortColumn = $column;
+            $this->sortType = $sort;
+        }
+        /**
+        * Get the view / contents that represent the component.
+        *
+        * @return \Illuminate\View\View|string
+        */
+        public function render()
+        {
+            $rooms = Room::query();
+            $rooms->where('name', 'like', '%' . $this->search . '%')
+            ->orWhere('price', 'like', '%'.$this->search.'%');
+            $rooms = $rooms->paginate(5);
+            return view('livewire.room.index', compact('rooms'));
+        }
     }
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        $rooms = Room::query();
-        $rooms->where('name', 'like', '%' . $this->search . '%')
-        ->orWhere('price', 'like', '%'.$this->search.'%');
-        $rooms = $rooms->paginate(5);
-        return view('livewire.room.index', compact('rooms'));
-    }
-}

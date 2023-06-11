@@ -13,21 +13,20 @@ class Datauser extends Component
     // protected $paginationTheme = 'bootstrap';
     protected $queryString = ['search'];
     /**
-     * @var mixed
-     */
+    * @var mixed
+    */
     public $search;
 
 
     /**
-     * Get the view / contents that represent the component.
-     *
-     * @return View|string
-     */
+    * Get the view / contents that represent the component.
+    *
+    * @return View|string
+    */
     public function render()
     {
         $patients = Patient::query();
         $patients->where('name', 'like', '%'.$this->search.'%');
-        // $patients = $patients->paginate(5);
         return view('livewire.medicalrecord.datauser', compact('patients'));
     }
 }

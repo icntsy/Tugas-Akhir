@@ -22,28 +22,28 @@ class Index extends Component
         $this->dispatchBrowserEvent('show-message',[
             'type' => 'success',
             'message' => 'Data Berhasil dihapus'
-        ]);
-    }
-    public function render()
-    {
-        $queues = Queue::query();
-        $queues = $queues->where("has_check", 1)->where("jenis_rawat", "Jalan")
-        ->where(function($query) {
-            $query->whereHas('patient', function($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
-                $query->orWhere('nik', 'like', '%' . $this->search . '%');
-                $query->orWhere('address', 'like', '%' . $this->search . '%');
-            });
-            $query->orWhereHas('doctor', function($query) {
-                $query->where('name', 'like', '%' . $this->search . '%');
-            });
-            $query->orWhereHas('patient', function($query) {
-                $query->where('jenis_rawat', 'like', '%' . $this->search . '%');
-            });
-        })
-        ->where("doctor_id", Auth::user()->id)->orderByDesc('created_at')->paginate(5);
-        // $queues = $queues->where("has_check", 1)->where("jenis_rawat", "Jalan")->where("doctor_id", Auth::user()->id)->orderByDesc('created_at')->paginate(5);
+            ]);
+        }
+        public function render()
+        {
+            $queues = Queue::query();
+            $queues = $queues->where("has_check", 1)->where("jenis_rawat", "Jalan")
+            ->where(function($query) {
+                $query->whereHas('patient', function($query) {
+                    $query->where('name', 'like', '%' . $this->search . '%');
+                    $query->orWhere('nik', 'like', '%' . $this->search . '%');
+                    $query->orWhere('address', 'like', '%' . $this->search . '%');
+                });
+                $query->orWhereHas('doctor', function($query) {
+                    $query->where('name', 'like', '%' . $this->search . '%');
+                });
+                $query->orWhereHas('patient', function($query) {
+                    $query->where('jenis_rawat', 'like', '%' . $this->search . '%');
+                });
+            })
+            ->where("doctor_id", Auth::user()->id)->orderByDesc('created_at')->paginate(5);
+            // $queues = $queues->where("has_check", 1)->where("jenis_rawat", "Jalan")->where("doctor_id", Auth::user()->id)->orderByDesc('created_at')->paginate(5);
 
-        return view("livewire.jalan.index", compact("queues"));
+            return view("livewire.jalan.index", compact("queues"));
+        }
     }
-}

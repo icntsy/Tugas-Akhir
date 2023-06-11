@@ -8,8 +8,8 @@ use Livewire\Component;
 class Single extends Component
 {
     /**
-     * @var Lab $lab
-     */
+    * @var Lab $lab
+    */
     public $lab;
     public $labIndex;
 

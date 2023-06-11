@@ -9,7 +9,7 @@ class Single extends Component
     public $response;
 
     public function mount(\App\Models\Response $response){
-        $this->response = $response;   
+        $this->response = $response;
     }
 
     public function delete(){
@@ -17,10 +17,10 @@ class Single extends Component
         $this->emit('responseDeleted');
     }
     /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
+    * Get the view / contents that represent the component.
+    *
+    * @return \Illuminate\View\View|string
+    */
 
     public function render()
     {

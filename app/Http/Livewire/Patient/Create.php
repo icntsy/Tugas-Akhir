@@ -35,11 +35,12 @@ class Create extends Component
 
     public function create()
     {
-        $this->validate();
         $lastPatient = Patient::latest('no_rekam_medis')->first();
         $lastNumber = $lastPatient ? intval(substr($lastPatient->no_rekam_medis, 3)) : 0;
         $nextNumber = $lastNumber + 1;
-        $noRekamMedis = 'KP-' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
+        $noRekamMedis = 'KP-' . str_pad($nextNumber, 7, '0', STR_PAD_LEFT);
+
+        $this->validate();
 
         Patient::create([
             'name' => $this->name,
@@ -53,17 +54,17 @@ class Create extends Component
             'allergy' => $this->allergy,
             'nik' => $this->nik,
             'no_rekam_medis' => $noRekamMedis,
-        ]);
+            ]);
 
-        $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
-            'message' => 'Sukses Menambah Data Pasien'
-        ]);
-        $this->redirectRoute('patient.index');
-    }
+            $this->dispatchBrowserEvent('show-message', [
+                'type' => 'success',
+                'message' => 'Sukses Menambah Data Pasien'
+                ]);
+                $this->redirectRoute('patient.index');
+            }
 
-    public function render()
-    {
-        return view('livewire.patient.create');
-    }
-}
+            public function render()
+            {
+                return view('livewire.patient.create');
+            }
+        }

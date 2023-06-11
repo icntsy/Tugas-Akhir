@@ -18,7 +18,6 @@ class TransactionController extends Controller
     public function render()
     {
         $transaction = Transaction::query();
-        // $transaction->where('payment', 'like', '%'.$this->search.'%');
         $transaction = $transaction->paginate(10);
         return view('livewire.nota-obat.index', compact("transaction"));
     }

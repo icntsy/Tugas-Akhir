@@ -22,9 +22,6 @@ class Create extends Component
         'method' => 'required'
     ];
 
-
-
-
     public function create()
     {
         $this->validate();

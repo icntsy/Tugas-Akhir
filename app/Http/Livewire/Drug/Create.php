@@ -79,12 +79,3 @@ class Create extends Component
     }
 }
 
-//         $this->reset();
-//         $this->redirectRoute('drug.index');
-//     }
-
-//     public function render()
-//     {
-//         return view('livewire.drug.create');
-//     }
-// }

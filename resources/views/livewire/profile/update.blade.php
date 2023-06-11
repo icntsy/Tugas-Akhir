@@ -1,7 +1,7 @@
 @section('meta_title', 'USER')
 @section('page_title', 'EDIT DATA PROFILE')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-users"></i>
+<i class="metismenu-icon fa fa-users"></i>
 @endsection
 
 <div class="row">
@@ -12,7 +12,7 @@
                     <div class='form-group col-md-6'>
                         <label for='name' class='control-label'> {{ __('Nama Lengkap') }}</label>
                         <input type='text' autofocus placeholder="Nama Lengkap" wire:model.lazy="name"
-                            class="form-control @error('name') is-invalid @enderror" id="name" name="name">
+                        class="form-control @error('name') is-invalid @enderror" id="name" name="name">
                         @error('name')
                         <div class='invalid-feedback'>{{ $message }}</div>
                         @enderror
@@ -20,7 +20,7 @@
                     <div class='form-group col-md-6'>
                         <label for='email' class='control-label'> {{ __('Email') }}</label>
                         <input type='email' placeholder="Email" wire:model.lazy="email"
-                            class="form-control @error('email') is-invalid @enderror" id='email' name="email">
+                        class="form-control @error('email') is-invalid @enderror" id='email' name="email">
                         @error('email')
                         <div class='invalid-feedback'>{{ $message }}</div>
                         @enderror
@@ -29,7 +29,7 @@
                         <label for="password" class="control-label">{{ __('Password') }}</label>
                         <div class="input-group">
                             <input type="{{ $passwordVisible ? 'text' : 'password' }}" wire:model.lazy="password" placeholder="Masukkan password"
-                                   class="form-control @error('password') is-invalid @enderror" id="password">
+                            class="form-control @error('password') is-invalid @enderror" id="password">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="password-toggle" wire:click="togglePasswordVisibility">
                                     <i class="fa fa-eye{{ $passwordVisible ? '-slash' : '' }}"></i>
@@ -44,7 +44,7 @@
                         <label for="password_confirmation" class="control-label">{{ __('Password Confirmation') }}</label>
                         <div class="input-group">
                             <input type="{{ $passwordConfirmationVisible ? 'text' : 'password' }}" wire:model.lazy="password_confirmation" placeholder="Ulangi Password"
-                                   class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation">
+                            class="form-control @error('password_confirmation') is-invalid @enderror" id="password_confirmation">
                             <div class="input-group-append">
                                 <span class="input-group-text" id="password-confirmation-toggle" wire:click="togglePasswordConfirmationVisibility">
                                     <i class="fa fa-eye{{ $passwordConfirmationVisible ? '-slash' : '' }}"></i>
@@ -55,15 +55,13 @@
                         <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-
-
                     <div class='form-group col-md-6'>
                         <label for='image' class='control-label'> {{ __('Image') }}</label>
                         <input type='file' wire:model="image" class="form-control @error('image') is-invalid @enderror" id='image' name="image">
                         @if ($image)
-                            <img src="{{ $image->temporaryUrl() }}" alt="Preview Image" class="img-thumbnail" width="200" height="200">
+                        <img src="{{ $image->temporaryUrl() }}" alt="Preview Image" class="img-thumbnail" width="200" height="200">
                         @elseif (Auth::user()->image)
-                            <img src="{{ asset('storage/images/'.Auth::user()->image) }}" alt="Current Image" class="img-thumbnail" width="200" height="200">
+                        <img src="{{ asset('storage/images/'.Auth::user()->image) }}" alt="Current Image" class="img-thumbnail" width="200" height="200">
                         @endif
                         @error('image')
                         <div class='invalid-feedback'>{{ $message }}</div>

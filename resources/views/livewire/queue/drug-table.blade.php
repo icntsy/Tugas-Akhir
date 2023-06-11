@@ -8,13 +8,11 @@
     {{-- <td>{{ $queue->jenis_rawat }}</td> --}}
     <td>
         @if ($queue->doctor->role === 'bidan')
-            {{ '-' }}
+        {{ '-' }}
         @else
-            {{ $queue->jenis_rawat }}
+        {{ $queue->jenis_rawat }}
         @endif
     </td>
-
-
     <td>
         @role('admin')
         <a wire:click="delete" class="btn text-danger">

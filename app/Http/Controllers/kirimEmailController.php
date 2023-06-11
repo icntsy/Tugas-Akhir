@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Mail;
 class kirimEmailController extends Controller
 {
     public function index(){
-        Mail::to("ilham.teguh55@gmail.com")->send(new kirimEmail());
+        Mail::to("icanatasya72@gmail.com")->send(new kirimEmail());
         return '<h1>Sukses mengirimkan email<h1>';
     }
 }

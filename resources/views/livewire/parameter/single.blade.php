@@ -4,7 +4,6 @@
     <td>{{$parameter->is_required}}</td>
     <td>{{$parameter->type}}</td>
     <td>{{$parameter->description}}</td>
-
     <td>
         <a wire:click="delete" class="btn text-danger">
             <i class="fa fa-trash fa-1x"></i>

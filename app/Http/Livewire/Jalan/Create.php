@@ -17,14 +17,7 @@ class Create extends Component
     public $doctor_id;
     public $main_complaint;
     public $jenis_rawat;
-
-    // protected $rules = [
-    //        'service_id' => 'required',
-    //        'doctor_id' => 'required',
-    //        'patient' => 'required',
-    //        'jenis_rawat' => 'required'
-    //     ];
-
+    
     protected function rules()
     {
         $rules = [
@@ -55,52 +48,52 @@ class Create extends Component
         $this->patient = $patient;
         $this->dispatchBrowserEvent('close-model', [
             'id' => 'selectPatient'
-        ]);
-        $this->dispatchBrowserEvent('close-model', [
-            'id' => 'newPatient'
-        ]);
-    }
-    public function selectPatient(){
-        $this->dispatchBrowserEvent('show-model', [
-            'id'=> 'selectPatient'
-        ]);
-    }
-
-    public function newPatient(){
-        $this->dispatchBrowserEvent('show-model', [
-            'id'=> 'newPatient'
-        ]);
-    }
-
-    public function render()
-    {
-       return view('livewire.queue.create', );
-    }
-
-    public function create(){
-        if(isset($this->patient)){
-            $this->validate();
-            $max_number =  Queue::whereDate('created_at', Carbon::today())->count();
-            Queue::create([
-                'queue_number' => $max_number+1,
-                'has_check' => false,
-                'has_drug' => false,
-                'patient_id' => $this->patient->id,
-                'doctor_id' => $this->doctor_id,
-                'service_id' => $this->service_id,
-                'jenis_rawat' => $this->jenis_rawat,
-                'main_complaint' => $this->main_complaint,
             ]);
-            $this->dispatchBrowserEvent('show-message', [
-                'type' => 'success',
-                'message' => 'Sukses menambah data pasien'
-            ]);
-            $this->redirectRoute('queue.index');
-        }else{
-            $this->dispatchBrowserEvent('show-message', [
-                'type' => 'error',
-                'message' => 'Silakan pilih pasien terlebih dahulu '
-            ]);
-        }
-    }
-}
+            $this->dispatchBrowserEvent('close-model', [
+                'id' => 'newPatient'
+                ]);
+            }
+            public function selectPatient(){
+                $this->dispatchBrowserEvent('show-model', [
+                    'id'=> 'selectPatient'
+                    ]);
+                }
+
+                public function newPatient(){
+                    $this->dispatchBrowserEvent('show-model', [
+                        'id'=> 'newPatient'
+                        ]);
+                    }
+
+                    public function render()
+                    {
+                        return view('livewire.queue.create', );
+                    }
+
+                    public function create(){
+                        if(isset($this->patient)){
+                            $this->validate();
+                            $max_number =  Queue::whereDate('created_at', Carbon::today())->count();
+                            Queue::create([
+                                'queue_number' => $max_number+1,
+                                'has_check' => false,
+                                'has_drug' => false,
+                                'patient_id' => $this->patient->id,
+                                'doctor_id' => $this->doctor_id,
+                                'service_id' => $this->service_id,
+                                'jenis_rawat' => $this->jenis_rawat,
+                                'main_complaint' => $this->main_complaint,
+                                ]);
+                                $this->dispatchBrowserEvent('show-message', [
+                                    'type' => 'success',
+                                    'message' => 'Sukses menambah data pasien'
+                                    ]);
+                                    $this->redirectRoute('queue.index');
+                                }else{
+                                    $this->dispatchBrowserEvent('show-message', [
+                                        'type' => 'error',
+                                        'message' => 'Silakan pilih pasien terlebih dahulu '
+                                        ]);
+                                    }
+                                }
+                            }

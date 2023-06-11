@@ -18,7 +18,6 @@ class Login extends Component
     protected $rules = [
         'password' => 'required',
         'email' => 'required|email:dns|exists:users,email'
-        // 'email' => 'required|email|exists:users,email'
     ];
 
     public function login()

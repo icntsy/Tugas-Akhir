@@ -3,12 +3,11 @@
     <td>{{$service->name}}</td>
     <td>
         @if ($service->status == 1)
-            dokter
+        dokter
         @elseif ($service->status == 2)
-            bidan
+        bidan
         @else
         @endif
-
     </td>
     <td>
         <button wire:click.prevent="delete" class="btn text-danger">

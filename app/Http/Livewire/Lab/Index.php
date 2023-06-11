@@ -37,26 +37,26 @@ class Index extends Component
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'error',
             'message' => 'Data Lab Berhasil di Hapus'
-        ]);
-    }
-    public function sort($column)
-    {
-        $sort = $this->sortType == 'desc' ? 'asc' : 'desc';
-        $this->sortColumn = $column;
-        $this->sortType = $sort;
-    }
-
-    public function render()
-    {
-        $labs = Lab::query()->where('nama', 'like', '%' . $this->search . '%')
-        ->orWhere('harga', 'like', '%'.$this->search.'%')
-        ->orWhere('satuan', 'like', '%'.$this->search.'%');
-        if ($this->sortColumn) {
-            $labs->orderBy($this->sortColumn, $this->sortType);
-        } else {
-            $labs->latest('id');
+            ]);
         }
-        $labs = $labs->paginate(5);
-        return view('livewire.lab.index', compact('labs'));
+        public function sort($column)
+        {
+            $sort = $this->sortType == 'desc' ? 'asc' : 'desc';
+            $this->sortColumn = $column;
+            $this->sortType = $sort;
+        }
+
+        public function render()
+        {
+            $labs = Lab::query()->where('nama', 'like', '%' . $this->search . '%')
+            ->orWhere('harga', 'like', '%'.$this->search.'%')
+            ->orWhere('satuan', 'like', '%'.$this->search.'%');
+            if ($this->sortColumn) {
+                $labs->orderBy($this->sortColumn, $this->sortType);
+            } else {
+                $labs->latest('id');
+            }
+            $labs = $labs->paginate(5);
+            return view('livewire.lab.index', compact('labs'));
+        }
     }
-}

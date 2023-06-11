@@ -28,18 +28,18 @@ class Update extends Component
         $this->service->update([
             'name' => $this->name,
 
-        ]);
-        return redirect("/layanan");
-    }
+            ]);
+            return redirect("/layanan");
+        }
 
-    public function mount(Service $service)
-    {
-        $this->service = $service;
-        $this->name = $service->name;
-    }
+        public function mount(Service $service)
+        {
+            $this->service = $service;
+            $this->name = $service->name;
+        }
 
-    public function render()
-    {
-        return view('livewire.service.update');
+        public function render()
+        {
+            return view('livewire.service.update');
+        }
     }
-}

@@ -33,9 +33,7 @@ class Create extends Component
             'type' => 'success',
             'message' => 'Sukses Menambah Data Diagnosis'
         ]);
-
-
-
+        
         $this->reset();
         $this->redirectRoute('diagnosis.index');
     }

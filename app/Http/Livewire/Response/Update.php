@@ -8,7 +8,7 @@ use App\Models\Response;
 class Update extends Component
 {
     public $response;
-
+    
     public $success;
     public $failed;
     public $description;
@@ -34,24 +34,24 @@ class Update extends Component
             'success' => $this->success,
             'failed' => $this->failed,
             'description' => $this->description,
-        ]);
-    }
-    public function mount(Response $response)
-    {
-        $this->response = $response;
-        $this->success = $response->success;
-        $this->failed = $response->failed;
-        $this->description = $response->description;
-    }
+            ]);
+        }
+        public function mount(Response $response)
+        {
+            $this->response = $response;
+            $this->success = $response->success;
+            $this->failed = $response->failed;
+            $this->description = $response->description;
+        }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
+        /**
+        * Get the view / contents that represent the component.
+        *
+        * @return \Illuminate\View\View|string
+        */
 
-    public function render()
-    {
-        return view('livewire.response.update');
+        public function render()
+        {
+            return view('livewire.response.update');
+        }
     }
-}

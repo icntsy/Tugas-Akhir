@@ -23,32 +23,28 @@ class Index extends Component
     {
         $this->user = Auth::user();
     }
-    // public function mount()
-    // {
-    //     $this->user = User::first();
-    // }
 
     public function userDeleted(){
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
             'message' => "Data User Berhasil Di Hapus"
-        ]);
-    }
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
+            ]);
+        }
+        /**
+        * Get the view / contents that represent the component.
+        *
+        * @return \Illuminate\View\View|string
+        */
 
 
-    public function render()
-    {
-        $users = User::query();
-        $users1 = User::query();
-        $users->where('name', 'like', '%'.$this->search.'%')
-        ->orWhere('email', 'like', '%'.$this->search.'%')
-        ->orWhere('role', 'like', '%'.$this->search.'%');
-        $users = $users->paginate(5);
-        return view('livewire.profile.index', compact('users', 'users1'));
+        public function render()
+        {
+            $users = User::query();
+            $users1 = User::query();
+            $users->where('name', 'like', '%'.$this->search.'%')
+            ->orWhere('email', 'like', '%'.$this->search.'%')
+            ->orWhere('role', 'like', '%'.$this->search.'%');
+            $users = $users->paginate(5);
+            return view('livewire.profile.index', compact('users', 'users1'));
+        }
     }
-}

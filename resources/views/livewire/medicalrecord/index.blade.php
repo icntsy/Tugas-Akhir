@@ -2,7 +2,6 @@
 @section('page_title', 'DATA REKAM MEDIS')
 @section('page_title_icon')
 <i class="fa fa-medkit" aria-hidden="true"></i>
-    {{-- <i class="metismenu-icon fa fa-notes-medical"></i> --}}
 @endsection
 <div class="row">
     <div class="col-12">
@@ -14,7 +13,7 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="input-group">
                             <input type="text" class="form-control form-control" wire:model.lazy="search"
-                                placeholder="{{ __('Pencarian') }}" value="{{ request('search') }}">
+                            placeholder="{{ __('Pencarian') }}" value="{{ request('search') }}">
                             <div class="input-group-append">
                                 <button class="btn btn-default">
                                     <a wire:target="search" wire:loading.remove><i class="fa fa-search"></i></a>
@@ -37,19 +36,13 @@
                                     <th>Lab</th>
                                     <th>Diagnosis</th>
                                     <th>Obat</th>
-
-
-                                    {{-- <th>Jenis Rawat</th> --}}
-                                    {{-- <th>Action</th> --}}
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @forelse($records as $record) --}}
                                 @forelse($records as $index => $record)
                                 <livewire:medical-record.single :record="$record" :recordIndex="$index + $records->firstItem()" :key="$record->id" />
-                                {{-- <livewire:medical-record.single :record="$record" :key="time() . $record->id" /> --}}
                                 @empty
-                                    @include('layouts.empty', ['colspan' => 7])
+                                @include('layouts.empty', ['colspan' => 7])
                                 @endforelse
                             </tbody>
                         </table>
@@ -60,7 +53,6 @@
                 </div>
                 <div wire:loading wire:target="nextPage,gotoPage,previousPage" class="loader-page"></div>
             </div>
-
         </div>
     </div>
 </div>

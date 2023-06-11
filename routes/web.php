@@ -56,7 +56,7 @@ $list_menu = [
     'profile' => 'profile',
     'progres' => 'progres',
     'jalan' => 'jalan'
-    
+
 ];
 
 
@@ -69,22 +69,20 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
         return view('welcome');
     })->name('home');
 
-    // Route::get('readuser', [UserController::class, 'readuser'])->name('auth.readuser');
-     Route::get("/readuser", [UserController::class,'readuser']);
+
+    Route::get("/readuser", [UserController::class,'readuser']);
     Route::get('progres/process/{queue}', \App\Http\Livewire\Progres\Process::class)->name('progres.process');
     Route::get('progres/selesai/{queue}', \App\Http\Livewire\Progres\Selesai::class)->name('progres.selesai');
     Route::get('progres/history/{queue}', \App\Http\Livewire\Progres\History::class)->name('progres.history');
     Route::get('jalan/history/{queue}', \App\Http\Livewire\Jalan\History::class)->name('jalan.history');
     Route::get('progres/pulang/{queue}', \App\Http\Livewire\Progres\Pulang::class)->name('progres.pulang');
     Route::post("/jasa", [\App\Http\Livewire\Jasa\Process::class, "store_harga"]);
-    // Route::get("/history", [HistoryController::class,'index']);
     Route::get("/nota-obat", [TransactionController::class,'render']);
     Route::get('/obat/kirim-email',[kirimEmailController::class,'index']);
     Route::post("/diagnosis/import", [ImportDiagnosisController::class, "import"]);
     Route::post("/lab/import", [ImportLabController::class, "import"]);
     Route::post("/ruangan/import", [ImportRoomController::class, "import"]);
     Route::post("/obat/import", [ImportObatController::class, "import"]);
-    // Route::get('antrian/process/{pendaftaran}', \App\Http\Livewire\Queue\Process::class)->name('queue.process');
     Route::get('antrian/process/{queue}', \App\Http\Livewire\Queue\Process::class)->name('queue.process');
     Route::post("antrian/process/{queue}", [\App\Http\Livewire\Queue\Process::class, "save"]);
     Route::get('dokumentasi/add-params-and-request/{doc}', AddParamAndRequest::class)->name('doc.add-param');
@@ -120,34 +118,18 @@ Route::group(['prefix' => 'select'], function () {
 
 // Route::get('/greet', 'UserController@greet');
 Route::post('logout', [UserController::class, 'logout'])->name('logout');
-// Route::post('readuser', [UserController::class, 'readuser'])->name('readuser');
 
 // Route generator
 Route::get('generator_builder', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@builder')
-   ->name('io_generator_builder');
+->name('io_generator_builder');
 Route::get('field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@fieldTemplate')
-   ->name('io_field_template');
+->name('io_field_template');
 Route::get('relation_field_template', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@relationFieldTemplate')
-   ->name('io_relation_field_template');
+->name('io_relation_field_template');
 Route::post('generator_builder/generate', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generate')
-   ->name('io_generator_builder_generate');
+->name('io_generator_builder_generate');
 Route::post('generator_builder/rollback', '\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@rollback')
-   ->name('io_generator_builder_rollback');
+->name('io_generator_builder_rollback');
 Route::post('generator_builder/generate-from-file','\InfyOm\GeneratorBuilder\Controllers\GeneratorBuilderController@generateFromFile')
-   ->name('io_generator_builder_generate_from_file');
+->name('io_generator_builder_generate_from_file');
 
-
-
-// Route::get('/tab1', function() {
-//     return view('dokumentasi_api.index');
-// });
-
-// Route::get('/tab2', function() {
-//     return view('dokumentasi_api.index');
-// });
-// Route::get('/tab3', function() {
-//     return  view('dokumentasi_api.index');
-// });
-
-
-// Route::get('/app', [DokumentasiController::class, 'app']);

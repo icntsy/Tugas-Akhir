@@ -18,7 +18,7 @@ class Create extends Component
         'type' => 'required',
         'description' => 'required',
     ];
-    
+
     public function create()
     {
         $this->validate();
@@ -28,13 +28,13 @@ class Create extends Component
             'is_required' => $this->is_required,
             'type' => $this->type,
             'description' => $this->description,
-        ]);
+            ]);
 
-        $this->redirectRoute('parameter.index');
-    }
+            $this->redirectRoute('parameter.index');
+        }
 
-    public function render()
-    {
-        return view('livewire.parameter.create');
+        public function render()
+        {
+            return view('livewire.parameter.create');
+        }
     }
-}

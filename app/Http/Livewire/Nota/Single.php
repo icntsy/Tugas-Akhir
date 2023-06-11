@@ -22,10 +22,8 @@ class Single extends Component
         $this->transaksiIndex = $transaksiIndex;
         $this->role = Auth::user()->role; // Inisialisasi $role
         // Mendapatkan $queue dari $transaksi
-    $this->queue = $transaksi->queue;
-
-
-
+        $this->queue = $transaksi->queue;
+        
         // $this->available = $drug->min_stok < $drug->stok;
     }
 
@@ -34,12 +32,12 @@ class Single extends Component
 
         return view('livewire.nota.single', [
             'role' => $this->role // Mengirimkan $role ke tampilan
-        ]);
-    }
+            ]);
+        }
 
-    public function delete(){
-        $this->drug->delete();
-        $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('Obat Terhapus', ['name' => __('Article') ]) ]);
-        $this->emit('articleDeleted');
+        public function delete(){
+            $this->drug->delete();
+            $this->dispatchBrowserEvent('show-message', ['type' => 'error', 'message' => __('Obat Terhapus', ['name' => __('Article') ]) ]);
+            $this->emit('articleDeleted');
+        }
     }
-}

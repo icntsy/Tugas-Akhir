@@ -43,7 +43,6 @@ class Create extends Component
         $this->redirectRoute('familyplanning.index');
     }
 
-
     public function render()
     {
         return view('livewire.familyplanning.create');

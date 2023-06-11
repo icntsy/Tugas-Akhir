@@ -3,12 +3,10 @@
 
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-credit-card" aria-hidden="true"></i>
-{{-- <i class="metismenu-icon fa fa-money" aria-hidden="true"></i> --}}
-    {{-- <i class="metismenu-icon fa fa-prescription-bottle-alt"></i> --}}
 @endsection
 
 @section('modal')
-    <livewire:jasa.import />
+<livewire:jasa.import />
 @endsection
 
 <div class="row">
@@ -17,18 +15,15 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        {{-- <button class="btn btn-secondary" wire:click="downloadData"><i class="fa fa-file-import"></i>
-                            Export
-                            Excel</button> --}}
-                            <button class="btn btn-secondary" wire:click="importData">
-                                <i class="fa fa-file-import"></i>
-                                Tambah Harga Jasa
-                            </button>
+                        <button class="btn btn-secondary" wire:click="importData">
+                            <i class="fa fa-file-import"></i>
+                            Tambah Harga Jasa
+                        </button>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="input-group">
                             <input type="text" class="form-control form-control" wire:model.lazy="search"
-                                placeholder="{{ __('Pencarian') }}" value="{{ request('search') }}">
+                            placeholder="{{ __('Pencarian') }}" value="{{ request('search') }}">
                             <div class="input-group-append">
                                 <button class="btn btn-default">
                                     <a wire:target="search" wire:loading.remove><i class="fa fa-search"></i></a>
@@ -46,35 +41,23 @@
                                     <th>No</th>
                                     <th>Dokter / Bidan</th>
                                     <th>Harga Jasa</th>
-
                                 </tr>
                             </thead>
                             <tbody>
-
                                 @forelse($user as $users)
                                 <tr>
                                     <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $users->name }}</td>
-
+                                    <td>{{ $users->name }}</td>
                                     <td>
                                         @if ($users->harga_jasa == NULL)
                                         <button class="btn btn-sm btn-danger">Belum Ada Harga</button>
-                                        {{-- <span class="text-danger">
-                                            <i>
-                                                <b>
-                                                    Belum Ada Harga
-                                                </b>
-                                            </i>
-                                        </span> --}}
                                         @else
                                         Rp. {{ number_format($users->harga_jasa) }}
                                         @endif
                                     </td>
                                 </tr>
-                                {{-- <livewire:jasa.single :users="$users" :key="time() . $users->id" /> --}}
-
                                 @empty
-                                    @include('layouts.empty', ['colspan' => 7])
+                                @include('layouts.empty', ['colspan' => 7])
                                 @endforelse
                             </tbody>
                         </table>

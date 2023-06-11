@@ -232,9 +232,7 @@ class DrugController extends Controller
         //
         $this->validate($request, [
             'nama' => 'required',
-            // 'keterangan' => 'required',
             'stok' => 'required',
-            // 'harga' => 'required',
             'min_stok' => 'required',
             'harga' => 'required'
         ]);
@@ -282,17 +280,13 @@ class DrugController extends Controller
 
         $request->validate([
             'nama' => 'required',
-            // 'keterangan' => 'required',
             'stok' => 'required',
-            // 'harga' => 'required',
             'min_stok' => 'required',
             'harga' => 'required'
         ]);
         $drug->update([
             'nama' => $request->nama,
-            // 'keterangan' => $request->keterangan,
             'stok' => $request->stok,
-            // 'harga' => $request->harga,
             'min_stok' => $request->min_stok,
             'harga' => $request->harga
         ]);

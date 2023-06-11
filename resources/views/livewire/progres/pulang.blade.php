@@ -49,6 +49,13 @@ $convert = json_decode($queue->medicalrecord->inap->physical_test, true);
                                             {{$queue->patient->address}}
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td style="font-weight: bold;" width="35%">Gol. Darah</td>
+                                        <td width="1%">:</td>
+                                        <td>
+                                            {{$queue->patient->blood_type}}
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                             <div class="col-md-6">
@@ -91,14 +98,12 @@ $convert = json_decode($queue->medicalrecord->inap->physical_test, true);
                                 </table>
                             </div>
                         </div>
-
                         <div class="card-header">
-                            Data Pulang
+                            Data Pulang Pasien
                         </div>
                         <div class="card-body row">
                             <div class="col-md-6">
                                 <table style="width: 100%">
-
                                     <tr>
                                         <td style="font-weight: bold;">Pemeriksaan Penunjang</td>
                                         <td>:</td>
@@ -111,7 +116,6 @@ $convert = json_decode($queue->medicalrecord->inap->physical_test, true);
                                         <td>:</td>
                                         <td>
                                             {{ $convert['terapi_pulang'] }}
-
                                         </td>
                                     </tr>
                                     <tr>
@@ -121,7 +125,6 @@ $convert = json_decode($queue->medicalrecord->inap->physical_test, true);
                                             {{ $convert['terapi_tindakan'] }}
                                         </td>
                                     </tr>
-
                                 </table>
                             </div>
                             <div class="col-md-6">
@@ -140,14 +143,9 @@ $convert = json_decode($queue->medicalrecord->inap->physical_test, true);
                                             {{ $convert['cara_keluar'] }}
                                         </td>
                                     </tr>
-
-
                                 </table>
                             </div>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>

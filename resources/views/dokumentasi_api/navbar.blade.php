@@ -6,16 +6,16 @@
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/dokumentasi_api"><i class="fa-solid fa-folder-open"></i>
                         Integrasi</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link"><i class="fa-solid fa-right-to-bracket"></i>LOGOUT</a>
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" hidden>
-                    {{ csrf_field() }}
-                    </form>
-                </li>
-            </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link"><i class="fa-solid fa-right-to-bracket"></i>LOGOUT</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" hidden>
+                            {{ csrf_field() }}
+                        </form>
+                    </li>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>

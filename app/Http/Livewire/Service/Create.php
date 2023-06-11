@@ -9,7 +9,7 @@ class Create extends Component
 {
     public $name;
     public $status;
-
+    
     public function rules(){
         return [
             'name' => 'required|unique:services,name',
@@ -22,17 +22,17 @@ class Create extends Component
         Service::create([
             'name' => $this->name,
             'status' => $this->status
-        ]);
-        $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
-            'message' => 'Sukses Menambah Data Layanan'
-        ]);
+            ]);
+            $this->dispatchBrowserEvent('show-message', [
+                'type' => 'success',
+                'message' => 'Sukses Menambah Data Layanan'
+                ]);
 
-        $this->redirectRoute('service.index');
-    }
+                $this->redirectRoute('service.index');
+            }
 
-    public function render()
-    {
-        return view('livewire.service.create');
-    }
-}
+            public function render()
+            {
+                return view('livewire.service.create');
+            }
+        }

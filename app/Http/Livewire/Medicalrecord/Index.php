@@ -58,10 +58,10 @@ class Index extends Component
         $records = $records->paginate(5);
 
         // if (Auth::user()->role == "admin") {
-        //     $records = $records->paginate(5);
-        //    } else {
-        //     $records = $records->where("doctor_id", Auth::user()->id)->paginate(5);
-        //    }
-        return view('livewire.medicalrecord.index', compact('records'));
-    }
-}
+            //     $records = $records->paginate(5);
+            //    } else {
+                //     $records = $records->where("doctor_id", Auth::user()->id)->paginate(5);
+                //    }
+                return view('livewire.medicalrecord.index', compact('records'));
+            }
+        }

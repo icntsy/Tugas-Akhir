@@ -17,7 +17,6 @@ class Update extends Component
     public function rules()
     {
         return [
-            // 'category' => 'required|unique:diagnoses,category,' . $this->diagnosis->id,
             'category' => 'required',
             'subcategory' => 'required',
             'english_name' => 'required',

@@ -20,7 +20,6 @@ class Table extends Component
         'labDeleted'
     ];
 
-
     public function render()
     {
         $records = History::query();

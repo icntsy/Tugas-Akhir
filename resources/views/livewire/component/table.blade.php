@@ -6,7 +6,7 @@
                     <thead>
                         <tr>
                             @foreach($header as $head)
-                                <th>$head</th>
+                            <th>$head</th>
                             @endforeach
                         </tr>
                     </thead>

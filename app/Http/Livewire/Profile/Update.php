@@ -19,8 +19,6 @@ class Update extends Component
     public $password_confirmation;
     public $passwordVisible = false;
     public $passwordConfirmationVisible = false;
-
-
     public $image;
 
     protected $rules = [
@@ -69,33 +67,32 @@ class Update extends Component
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
             'message' => 'Data User Berhasil Diupdate'
-        ]);
+            ]);
 
 
-        return redirect('/profile');
+            return redirect('/profile');
+        }
+
+        public function mount()
+        {
+            $user = Auth::user();
+            $this->name = $user->name;
+            $this->email = $user->email;
+            $this->password = $user->password;
+        }
+
+        public function togglePasswordVisibility()
+        {
+            $this->passwordVisible = !$this->passwordVisible;
+        }
+
+        public function togglePasswordConfirmationVisibility()
+        {
+            $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
+        }
+        
+        public function render()
+        {
+            return view('livewire.profile.update');
+        }
     }
-
-    public function mount()
-    {
-        $user = Auth::user();
-        $this->name = $user->name;
-        $this->email = $user->email;
-        $this->password = $user->password;
-    }
-
-    public function togglePasswordVisibility()
-{
-    $this->passwordVisible = !$this->passwordVisible;
-}
-
-public function togglePasswordConfirmationVisibility()
-{
-    $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
-}
-
-
-    public function render()
-    {
-        return view('livewire.profile.update');
-    }
-}

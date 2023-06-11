@@ -12,7 +12,6 @@ class Single extends Component
 
     public function mount(User $users){
         $this->users = $users;
-        // $this->available = $drug->min_stok < $drug->stok;
     }
 
     public function render()

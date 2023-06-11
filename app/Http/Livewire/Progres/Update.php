@@ -32,22 +32,22 @@ class Update extends Component
             'queue_number' => $this->queue_number,
             'doctor_id' => $this->doctor_id,
             'service_id' => $this->service_id,
-        ]);
-    }
+            ]);
+        }
 
-    public function mount(Queue $queue)
-    {
-        $this->queue = $queue;
-        $this->patient = $queue->patient;
+        public function mount(Queue $queue)
+        {
+            $this->queue = $queue;
+            $this->patient = $queue->patient;
 
-        $this->queue_number = $queue->queue_number;
-        $this->doctor_id = $queue->doctor_id;
-        $this->service_id = $queue->service_id;
-        $this->main_complaint = $queue->main_complaint;
-    }
+            $this->queue_number = $queue->queue_number;
+            $this->doctor_id = $queue->doctor_id;
+            $this->service_id = $queue->service_id;
+            $this->main_complaint = $queue->main_complaint;
+        }
 
-    public function render()
-    {
-        return view('livewire.queue.update');
+        public function render()
+        {
+            return view('livewire.queue.update');
+        }
     }
-}

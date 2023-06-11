@@ -17,30 +17,30 @@ class Index extends Component
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
             'message' => 'Data Berhasil Di Hapus'
-        ]);
-    }
-    /**
-     * @var mixed
-     */
-    public $search;
-
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-
-    public function render()
-    {
-        $parameters = Parameter::query();
-        $parameters->where('name', 'like', '%'.$this->search.'%')
-        ->orWhere('type', 'like', '%'.$this->search.'%');
-        if($this->sortColumn){
-            $parameters->orderBy($this->sortColumn, $this->sortType);
-        }else{
-            $parameters->latest('id');
+            ]);
         }
-        $parameters = $parameters->paginate(5);
-        return view('livewire.parameter.index', compact('parameters'));
+        /**
+        * @var mixed
+        */
+        public $search;
+
+        /**
+        * Get the view / contents that represent the component.
+        *
+        * @return \Illuminate\View\View|string
+        */
+
+        public function render()
+        {
+            $parameters = Parameter::query();
+            $parameters->where('name', 'like', '%'.$this->search.'%')
+            ->orWhere('type', 'like', '%'.$this->search.'%');
+            if($this->sortColumn){
+                $parameters->orderBy($this->sortColumn, $this->sortType);
+            }else{
+                $parameters->latest('id');
+            }
+            $parameters = $parameters->paginate(5);
+            return view('livewire.parameter.index', compact('parameters'));
+        }
     }
-}

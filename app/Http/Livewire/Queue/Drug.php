@@ -48,14 +48,11 @@ class Drug extends Component
             $user = Auth::user();
             if ($user && $user->role === 'dokter') {
                 $queues->where('jenis_rawat', 'Inap');
-                
+
             } else {
                 $queues->where('jenis_rawat', 'Jalan');
 
             }
-
-
-
 
             $queues->whereDate('created_at', Carbon::today())->where('has_check', true)->where('has_drug', false);
             $queues = $queues->paginate(5);

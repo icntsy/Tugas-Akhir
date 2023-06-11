@@ -14,13 +14,10 @@ class Single extends Component
     public $recordIndex;
     public $no_rekam_medis;
 
-
-
     public function mount(MedicalRecord $record, $recordIndex){
         $this->record = $record;
         $this->recordIndex = $recordIndex;
-
-
+        
     }
 
     public function render()

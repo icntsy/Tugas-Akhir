@@ -1,7 +1,7 @@
 @section('meta_title', 'LAB')
 @section('page_title', 'DATA ANTRIAN HARI INI')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-clipboard"></i>
+<i class="metismenu-icon fa fa-clipboard"></i>
 @endsection
 <div class="row">
     <div class="col-12">
@@ -9,14 +9,11 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
-                        {{-- <a href="{{ route('queue.create') }}" class="btn btn-secondary disabled"><i class="fa fa-plus"></i>
-                            Tambah
-                            Antrian</a> --}}
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="input-group">
                             <input type="text" class="form-control form-control" wire:model.lazy="search"
-                                placeholder="{{ __('Cari Antrian') }}" value="{{ request('search') }}">
+                            placeholder="{{ __('Cari Antrian') }}" value="{{ request('search') }}">
                             <div class="input-group-append">
                                 <button class="btn btn-default">
                                     <a wire:target="search" wire:loading.remove><i class="fa fa-search"></i></a>
@@ -42,13 +39,11 @@
                             </thead>
                             <tbody>
                                 @forelse($queues as $queue)
-                                    @if (!$queue->transaction)
-                                        <livewire:queue.drug-table :queue="$queue" :key="time() . $queue->id" />
-                                    {{-- @else
-                                    {{-- @include('layouts.empty', ['colspan' => 7]) --}}
-                                        @endif
+                                @if (!$queue->transaction)
+                                <livewire:queue.drug-table :queue="$queue" :key="time() . $queue->id" />
+                                @endif
                                 @empty
-                                    @include('layouts.empty', ['colspan' => 7])
+                                @include('layouts.empty', ['colspan' => 7])
                                 @endforelse
                             </tbody>
                         </table>

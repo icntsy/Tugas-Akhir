@@ -1,4 +1,3 @@
-{{-- {{ dd($queue) }} --}}
 <tr>
     <td>{{$queue->patient->name}}</td>
     <td>{{$queue->queue_number}}</td>
@@ -18,13 +17,8 @@
         <a wire:click="delete" class="btn text-danger">
             <i class="fa fa-trash fa-1x"></i>
         </a>
-        {{-- <a href="{{route('queue.update', ['queue' => $queue->id])}}" class="btn text-warning">
-            <i class="fa fa-edit fa-1x"></i>
-        </a> --}}
         @elserole('dokter')
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
-
-        {{-- <button class="btn btn-sm btn-danger" wire:click="">Selesai</button> --}}
         @elserole("bidan")
         <button class="btn btn-sm btn-primary" wire:click="processCheckup">Proses</button>
         @elserole('staff')

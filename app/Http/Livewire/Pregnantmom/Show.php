@@ -20,12 +20,12 @@ class Show extends Component
     public $weight;
     public $blood_pressure;
     public $tfu;
-    public $djj; 
-    public $immunization_tt; 
-    public $description; 
+    public $djj;
+    public $immunization_tt;
+    public $description;
     public $complaint;
 
-   
+
     public function mount(Pregnantmom $pregnantmom)
     {
         $this->$pregnantmom = $pregnantmom;
@@ -44,14 +44,14 @@ class Show extends Component
         $this->immunization_tt = $pregnantmom->immunization_tt;
         $this->description = $pregnantmom->description;
         $this->complaint = $pregnantmom->complaint;
-      
+
     }
 
     /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
+    * Get the view / contents that represent the component.
+    *
+    * @return \Illuminate\View\View|string
+    */
 
     public function render()
     {

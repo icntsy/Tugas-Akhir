@@ -27,25 +27,25 @@ class Process extends Component
             // dd($this->queue);
             $this->queue->update([
                 "has_drug" => true
-            ]);
-            foreach ($this->queue->medicalrecord->drugs as $drug) {
-                $drug->decrement('stok',1);
+                ]);
+                foreach ($this->queue->medicalrecord->drugs as $drug) {
+                    $drug->decrement('stok',1);
+                }
+                $this->redirectRoute('queue.drug');
+            } catch (\Exception $e) {
+                dd($e);
             }
-            $this->redirectRoute('queue.drug');
-        } catch (\Exception $e) {
-            dd($e);
         }
-    }
-    public function submit () {
-        $this->validate();
-        Transaction::create([
-            'queue_id' =>$this->queue->id,
-            'payment' => $this->payment
-        ]);
-        $this->redirectRoute('queue.drug');
-    }
-    public function render()
-    {
-        return view('livewire.drug.process');
-    }
-}
+        public function submit () {
+            $this->validate();
+            Transaction::create([
+                'queue_id' =>$this->queue->id,
+                'payment' => $this->payment
+                ]);
+                $this->redirectRoute('queue.drug');
+            }
+            public function render()
+            {
+                return view('livewire.drug.process');
+            }
+        }

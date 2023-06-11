@@ -34,12 +34,14 @@ class CreatePatient extends Component
 
     public function create()
     {
-        $this->validate();
 
         $lastPatient = Patient::latest('no_rekam_medis')->first();
         $lastNumber = $lastPatient ? intval(substr($lastPatient->no_rekam_medis, 3)) : 0;
         $nextNumber = $lastNumber + 1;
-        $noRekamMedis = 'KP-' . str_pad($nextNumber, 3, '0', STR_PAD_LEFT);
+        $noRekamMedis = 'KP-' . str_pad($nextNumber, 7, '0', STR_PAD_LEFT);
+
+        $this->validate();
+        
         $patient =Patient::create([
             'name' => $this->name,
             'birth_date' => $this->birth_date,

@@ -1,11 +1,11 @@
 @section('meta_description', 'Dokumentasi')
 @section('page_title', 'TAMBAH DATA DOKUMENTASI')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-portrait"></i>
+<i class="metismenu-icon fa fa-portrait"></i>
 @endsection
 @section('modal')
-    <livewire:component.response-modal/>
-    <livewire:component.parameter-modal/>
+<livewire:component.response-modal/>
+<livewire:component.parameter-modal/>
 @endsection
 
 <div class="row">

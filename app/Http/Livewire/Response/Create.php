@@ -26,12 +26,12 @@ class Create extends Component
             'success' => $this-> success,
             'failed' => $this-> failed,
             'description' => $this-> description,
-        ]);
+            ]);
 
-        $this->redirectRoute('response.index');
+            $this->redirectRoute('response.index');
+        }
+        public function render()
+        {
+            return view('livewire.response.create');
+        }
     }
-    public function render()
-    {
-        return view('livewire.response.create');
-    }
-}

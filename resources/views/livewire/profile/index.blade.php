@@ -1,7 +1,7 @@
 @section('meta_title', 'PROFILE')
 @section('page_title', 'DATA PROFILE')
 @section('page_title_icon')
-    <i class="metismenu-icon fa fa-users"></i>
+<i class="metismenu-icon fa fa-users"></i>
 @endsection
 
 <style>
@@ -12,7 +12,7 @@
         padding: 20px;
         margin-top: 20px;
     }
-
+    
     .form-group {
         margin-bottom: 20px;
     }
@@ -72,9 +72,9 @@
                     <div class="form-group">
                         <div class="profile-image-container">
                             @if ($user->image)
-                                <img src="{{ asset('storage/images/'.$user->image) }}" alt="Avatar" class="img-fluid profile-image">
+                            <img src="{{ asset('storage/images/'.$user->image) }}" alt="Avatar" class="img-fluid profile-image">
                             @else
-                                <p>No image available</p>
+                            <p>No image available</p>
                             @endif
                         </div>
                     </div>

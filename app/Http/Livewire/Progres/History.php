@@ -61,15 +61,15 @@ class History extends Component
                         "terapi_tindakan" => $this->terapi_tindakan,
                         "keadaan" => $this->keadaan,
                         "cara_keluar" => $this->cara_keluar
-                    ]
-                ),
-                "doctor_id" => 1,
-                "patient_id" => 1
-            ]);
-        } catch (\Exception $e) {
-            dd($e);
-        }
+                        ]
+                    ),
+                    "doctor_id" => 1,
+                    "patient_id" => 1
+                    ]);
+                } catch (\Exception $e) {
+                    dd($e);
+                }
 
-        return redirect("/progres");
-    }
-}
+                return redirect("/progres");
+            }
+        }

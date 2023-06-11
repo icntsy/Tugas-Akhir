@@ -29,12 +29,4 @@ class Import extends Component
         return view('livewire.drug.import');
     }
 
-    // public function drugimportexcel(Request $request){
-    //     $file = $request->file('file');
-    //     $namaFile = $file->getClientOriginalName();
-    //     $file->move('DataDrug', $namaFile);
-
-    //     Excel::import(new DrugImport, public_path('/DataDrug/'.$namaFile));
-    //     return view('livewire.drug');
-    // }
 }

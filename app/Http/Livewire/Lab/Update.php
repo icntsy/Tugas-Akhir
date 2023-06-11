@@ -34,18 +34,18 @@ class Update extends Component
             'nama' => $this->nama,
             'satuan' => $this->satuan,
             'harga' => $this->harga,
-        ]);
-        return redirect("/lab");
-    }
+            ]);
+            return redirect("/lab");
+        }
 
-    public function mount(Lab $lab){
-        $this->lab = $lab;
-        $this->nama = $lab->nama;
-        $this->satuan = $lab->satuan;
-        $this->harga = $lab->harga;
+        public function mount(Lab $lab){
+            $this->lab = $lab;
+            $this->nama = $lab->nama;
+            $this->satuan = $lab->satuan;
+            $this->harga = $lab->harga;
+        }
+        public function render()
+        {
+            return view('livewire.lab.update');
+        }
     }
-    public function render()
-    {
-        return view('livewire.lab.update');
-    }
-}

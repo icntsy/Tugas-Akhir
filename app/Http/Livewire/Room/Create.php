@@ -19,21 +19,21 @@ class Create extends Component
         Room::create([
             'name' => $this->name,
             'price' => $this->price,
-        ]);
+            ]);
 
-        $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
-            'message' => 'Sukses menambah data ruangan'
-        ]);
-        $this->redirectRoute('room.index');
-    }
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        return view('livewire.room.create');
-    }
-}
+            $this->dispatchBrowserEvent('show-message', [
+                'type' => 'success',
+                'message' => 'Sukses menambah data ruangan'
+                ]);
+                $this->redirectRoute('room.index');
+            }
+            /**
+            * Get the view / contents that represent the component.
+            *
+            * @return \Illuminate\View\View|string
+            */
+            public function render()
+            {
+                return view('livewire.room.create');
+            }
+        }

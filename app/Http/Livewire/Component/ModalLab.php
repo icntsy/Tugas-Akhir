@@ -16,8 +16,6 @@ class ModalLab extends Component
 
     public function render()
     {
-        // $labs = Lab::query()->where('nama', 'like', '%'. $this->search.'%');
-        // $labs = $labs->paginate(10);
         $labs = Lab::query()->where('nama', 'like', '%' . $this->search . '%')
         ->orWhere('harga', 'like', '%'.$this->search.'%')
         ->orWhere('satuan', 'like', '%'.$this->search.'%');

@@ -1,13 +1,10 @@
-
 <tr>
     <td>1</td>
-    {{-- <td>{{ $users->id }}</td> --}}
     <td>
         {{ $users->name }}
     </td>
     <td>
         @if ($users->harga_jasa == NULL)
-
         <span class="text-danger">
             <i>
                 <b>
@@ -19,5 +16,4 @@
         Rp. {{ number_format($users->harga_jasa) }}
         @endif
     </td>
-
 </tr>

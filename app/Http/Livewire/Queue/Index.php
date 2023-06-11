@@ -34,7 +34,7 @@ class Index extends Component
             $queues->where(
                 'has_check', false
             );
-// dd($queues->get());
+            // dd($queues->get());
             $queues->Where(function ($query)
             {
                 $query->where('queue_number', 'like', '%' . $this->search . '%');

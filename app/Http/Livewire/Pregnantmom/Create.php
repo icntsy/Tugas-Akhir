@@ -18,10 +18,10 @@ class Create extends Component
     public $weight;
     public $blood_pressure;
     public $tfu;
-    public $djj; 
-    public $immunization_tt; 
-    public $description; 
-    public $complaint; 
+    public $djj;
+    public $immunization_tt;
+    public $description;
+    public $complaint;
 
     protected $rules = [
         'name' => 'required',
@@ -61,13 +61,13 @@ class Create extends Component
             'immunization_tt' => $this->immunization_tt,
             'description' => $this->description,
             'complaint' => $this->complaint,
-        ]);
+            ]);
 
-        $this->redirectRoute('pregnantmom.index');
-    }
+            $this->redirectRoute('pregnantmom.index');
+        }
 
-    public function render()
-    {
-        return view('livewire.pregnantmom.create');
+        public function render()
+        {
+            return view('livewire.pregnantmom.create');
+        }
     }
-}

@@ -32,21 +32,21 @@
     <div class="scrollbar-sidebar">
         <div class="app-sidebar__inner">
             @if(Auth::user()->role == "admin")
-                @role("admin")
-                    @include("layouts.admin.partials.sidebar-admin")
-                @endrole
+            @role("admin")
+            @include("layouts.admin.partials.sidebar-admin")
+            @endrole
             @elseif(Auth::user()->role == "dokter")
-                @role("dokter")
-                    @include("layouts.admin.partials.sidebar-dokter")
-                @endrole
+            @role("dokter")
+            @include("layouts.admin.partials.sidebar-dokter")
+            @endrole
             @elseif(Auth::user()->role == "bidan")
-                @role("bidan")
-                    @include("layouts.admin.partials.sidebar-bidan")
-                @endrole
+            @role("bidan")
+            @include("layouts.admin.partials.sidebar-bidan")
+            @endrole
             @elseif(Auth::user()->role == "apoteker")
-                @role("apoteker")
-                    @include("layouts.admin.partials.sidebar-apoteker")
-                @endrole
+            @role("apoteker")
+            @include("layouts.admin.partials.sidebar-apoteker")
+            @endrole
             @endif
         </div>
     </div>

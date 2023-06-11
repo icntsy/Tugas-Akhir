@@ -17,7 +17,6 @@ class Update extends Component
     public $study;
     public $nik;
     public $blood_type;
-    // public $bpjs_number;
     public $profession;
     public $allergy;
 
@@ -55,31 +54,31 @@ class Update extends Component
             'profession' => $this->profession,
             'allergy' => $this->allergy,
             'nik' => $this->nik,
-        ]);
-        return redirect("/pasien");
-    }
-    public function mount(Patient $patient)
-    {
-        $this->patient = $patient;
-        $this->name = $patient->name;
-        $this->birth_date = $patient->birth_date;
-        $this->gender = $patient->gender;
-        $this->address = $patient->address;
-        $this->phone_number = $patient->phone_number;
-        $this->study = $patient->study;
-        $this->blood_type = $patient->blood_type;
-        $this->profession = $patient->profession;
-        $this->allergy = $patient->allergy;
-        $this->nik = $patient->nik;
-    }
+            ]);
+            return redirect("/pasien");
+        }
+        public function mount(Patient $patient)
+        {
+            $this->patient = $patient;
+            $this->name = $patient->name;
+            $this->birth_date = $patient->birth_date;
+            $this->gender = $patient->gender;
+            $this->address = $patient->address;
+            $this->phone_number = $patient->phone_number;
+            $this->study = $patient->study;
+            $this->blood_type = $patient->blood_type;
+            $this->profession = $patient->profession;
+            $this->allergy = $patient->allergy;
+            $this->nik = $patient->nik;
+        }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        return view('livewire.patient.update');
+        /**
+        * Get the view / contents that represent the component.
+        *
+        * @return \Illuminate\View\View|string
+        */
+        public function render()
+        {
+            return view('livewire.patient.update');
+        }
     }
-}

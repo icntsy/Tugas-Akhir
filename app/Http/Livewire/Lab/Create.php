@@ -25,19 +25,19 @@ class Create extends Component
                 'nama' => $this->nama,
                 'satuan' => $this->satuan,
                 'harga' => $this->harga,
-            ]
-        );
-        $this->dispatchBrowserEvent('show-message', [
-            'type' => 'success',
-            'message' => 'Sukses menambah data laboratorium'
-        ]);
+                ]
+            );
+            $this->dispatchBrowserEvent('show-message', [
+                'type' => 'success',
+                'message' => 'Sukses menambah data laboratorium'
+                ]);
 
 
-        $this->redirectRoute('lab.index');
-    }
+                $this->redirectRoute('lab.index');
+            }
 
-    public function render()
-    {
-        return view('livewire.lab.create');
-    }
-}
+            public function render()
+            {
+                return view('livewire.lab.create');
+            }
+        }

@@ -27,33 +27,25 @@ class Single extends Component
     {
         return view('livewire.progres.single', [
             'role' => $this->role // Mengirimkan $role ke tampilan
-        ]);
-    }
+            ]);
+        }
 
-    public function processCheckup(){
-        // return view("livewire.progres.process", [
-        //     'queue' => $this->queue
-        //     ]);
-        $this->redirectRoute('progres.process', ['queue' => $this->queue->id]);
-    }
+        public function processCheckup(){
+            $this->redirectRoute('progres.process', ['queue' => $this->queue->id]);
+        }
 
-    public function processDrug(){
-    }
-    public function selesai()
-    {
-        // MedicalRecordStatus::create([
-        //     "medical_record_inap" => $this->queue->medical_record_id,
-        //     "status" => 1
-        // ]);
-        $this->redirectRoute("progres.selesai", ["queue" => $this->queue]);
-        // return redirect("/progres");
-    }
-    public function history() {
-        $this->redirectRoute("progres.history", ["queue" => $this->queue]);
-    }
+        public function processDrug(){
+        }
+        public function selesai()
+        {
+            $this->redirectRoute("progres.selesai", ["queue" => $this->queue]);
+        }
+        public function history() {
+            $this->redirectRoute("progres.history", ["queue" => $this->queue]);
+        }
 
-    public function pulang()
-    {
-        $this->redirectRoute("progres.pulang", ["queue" => $this->queue]);
+        public function pulang()
+        {
+            $this->redirectRoute("progres.pulang", ["queue" => $this->queue]);
+        }
     }
-}

@@ -18,87 +18,88 @@ class Create extends Component
     public $main_complaint;
 
     // protected $rules = [
-    //        'service_id' => 'required',
-    //        'doctor_id' => 'required',
-    //        'patient' => 'required',
-    //        'jenis_rawat' => 'required'
-    //     ];
+        //        'service_id' => 'required',
+        //        'doctor_id' => 'required',
+        //        'patient' => 'required',
+        //        'jenis_rawat' => 'required'
+        //     ];
 
-    protected function rules()
-    {
-        $rules = [
-            'service_id' => 'required',
-            'doctor_id' => 'required',
-            'patient' => 'required',
+        protected function rules()
+        {
+            $rules = [
+                'service_id' => 'required',
+                'doctor_id' => 'required',
+                'patient' => 'required',
+            ];
+
+            // Check user role
+            if (Auth::check()) {
+                $user = Auth::user();
+                $role = $user->role; // Assuming the user role is stored in the 'role' field
+
+                // Apply additional validation rule if the role is 'dokter'
+                if ($role === 'dokter') {
+                    $rules['jenis_rawat'] = 'required';
+                }
+            }
+
+            return $rules;
+        }
+
+        protected $listeners = [
+            'patientSelected'
         ];
 
-        // Check user role
-        if (Auth::check()) {
-            $user = Auth::user();
-            $role = $user->role; // Assuming the user role is stored in the 'role' field
+        public function patientSelected(Patient $patient){
+            $this->patient = $patient;
+            $this->dispatchBrowserEvent('close-model', [
+                'id' => 'selectPatient'
+                ]);
+                $this->dispatchBrowserEvent('close-model', [
+                    'id' => 'newPatient'
+                    ]);
+                }
+                public function selectPatient(){
+                    $this->dispatchBrowserEvent('show-model', [
+                        'id'=> 'selectPatient'
+                        ]);
+                    }
 
-            // Apply additional validation rule if the role is 'dokter'
-            if ($role === 'dokter') {
-                $rules['jenis_rawat'] = 'required';
-            }
-        }
+                    public function newPatient(){
+                        $this->dispatchBrowserEvent('show-model', [
+                            'id'=> 'newPatient'
+                            ]);
+                        }
 
-        return $rules;
-    }
+                        public function render()
+                        {
+                            return view('livewire.queue.create', );
+                        }
 
-    protected $listeners = [
-        'patientSelected'
-    ];
-
-    public function patientSelected(Patient $patient){
-        $this->patient = $patient;
-        $this->dispatchBrowserEvent('close-model', [
-            'id' => 'selectPatient'
-        ]);
-        $this->dispatchBrowserEvent('close-model', [
-            'id' => 'newPatient'
-        ]);
-    }
-    public function selectPatient(){
-        $this->dispatchBrowserEvent('show-model', [
-            'id'=> 'selectPatient'
-        ]);
-    }
-
-    public function newPatient(){
-        $this->dispatchBrowserEvent('show-model', [
-            'id'=> 'newPatient'
-        ]);
-    }
-
-    public function render()
-    {
-       return view('livewire.queue.create', );
-    }
-
-    public function create(){
-        if(isset($this->patient)){
-            $this->validate();
-            $max_number =  Queue::whereDate('created_at', Carbon::today())->count();
-            Queue::create([
-                'queue_number' => $max_number+1,
-                'has_check' => false,
-                'has_drug' => false,
-                'patient_id' => $this->patient->id,
-                'doctor_id' => $this->doctor_id,
-                'service_id' => $this->service_id,
-                'main_complaint' => $this->main_complaint,
-            ]);
-            $this->dispatchBrowserEvent('show-message', [
-                'type' => 'success',
-                'message' => 'Sukses Menambah Data Antrian'
-            ]);
-            $this->redirectRoute('queue.index');
-        }else{
-            $this->dispatchBrowserEvent('show-message', [
-                'type' => 'error',
-                'message' => 'Silakan pilih pasien terlebih dahulu '
-            ]);
-        }
-    }
-}
+                        public function create(){
+                            if(isset($this->patient)){
+                                $this->validate();
+                                $max_number =  Queue::whereDate('created_at', Carbon::today())->count();
+                                Queue::create([
+                                    'queue_number' => $max_number+1,
+                                    'has_check' => false,
+                                    'has_drug' => false,
+                                    'patient_id' => $this->patient->id,
+                                    'doctor_id' => $this->doctor_id,
+                                    'service_id' => $this->service_id,
+                                    'main_complaint' => $this->main_complaint,
+                                    ]);
+                                    $this->dispatchBrowserEvent('show-message', [
+                                        'type' => 'success',
+                                        'message' => 'Sukses Menambah Data Antrian'
+                                        ]);
+                                        $this->redirectRoute('queue.index');
+                                    }else{
+                                        $this->dispatchBrowserEvent('show-message', [
+                                            'type' => 'error',
+                                            'message' => 'Silakan pilih pasien terlebih dahulu '
+                                            ]);
+                                        }
+                                    }
+                                }
+                                

@@ -32,7 +32,6 @@ class Index extends Component
     public function downloadData()
     {
         return Excel::download(new DrugExport, 'data-obat.xlsx');
-        // return Excel::download(new DrugExport, 'drug-data.xlsx');
     }
     public function drugCreated()
     {

@@ -28,6 +28,5 @@ class UserController extends Controller
 
     public function readuser() {
         return view('livewire.auth.readuser');
-        // return view('livewire.auth.readuser', compact("readuser"));
     }
 }

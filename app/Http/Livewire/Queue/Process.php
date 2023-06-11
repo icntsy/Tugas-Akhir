@@ -54,7 +54,7 @@ class Process extends Component
     public $description;
     public $complaint;
 
-        protected $listeners = [
+    protected $listeners = [
         'diagnosaAdded',
         'labAdded',
         'drugAdded'
@@ -98,196 +98,197 @@ class Process extends Component
         $user = Auth::user();
         $role = $user->role;
 
-    return view('livewire.queue.process', [
-        'role' => $role,
-    ]);
-        // return view('livewire.queue.process');
-    }
+        return view('livewire.queue.process', [
+            'role' => $role,
+            ]);
 
-    public function addDiagnosa()
-    {
-        $this->dispatchBrowserEvent('show-model', [
-            'id' => 'diagnosa'
-        ]);
-    }
-    public function addLab()
-    {
-        $this->dispatchBrowserEvent('show-model', [
-            'id' => 'lab'
-        ]);
-    }
-    public function addDrug()
-    {
-        $this->dispatchBrowserEvent('show-model', [
-            'id' => 'drug'
-        ]);
-    }
-    public function deleteLab($id)
-    {
-        unset($this->listLab[$id]);
-        $this->listLab = array_values($this->listLab);
-    }
-
-    public function deleteDiagnosa($id)
-    {
-        unset($this->listDiagnosa[$id]);
-        $this->listDiagnosa = array_values($this->listDiagnosa);
-    }
-    public function deleteDrug($id)
-    {
-        unset($this->listDrug[$id]);
-        $this->listDrug = array_values($this->listDrug);
-    }
-
-
-    public function diagnosaAdded(Diagnosis $diagnosis)
-    {
-        if (!in_array($diagnosis, $this->listDiagnosa)) {
-            $this->listDiagnosa[] = [
-                "diagnosa" => $diagnosis,
-                "description" => "",
-            ];
         }
-    }
 
-    public function labAdded(Lab $lab)
-    {
-        if (!in_array($lab, $this->listLab)) {
-            $this->listLab[] = [
-                "lab" => $lab,
-                "result" => "",
-            ];
-            $lab = $lab->paginate(5);
-        }
-    }
-
-    public function drugAdded(\App\Models\Drug $drug)
-    {
-        if (!in_array($drug, $this->listDrug)) {
-            $this->listDrug[] = [
-                "drug" => $drug,
-                "quantity" => 1,
-                "instruction" => ""
-            ];
-        }
-    }
-
-    // TODO:: Create queue update function
-    public function update()
-    {
-        # code...
-    }
-
-    public function save(Request $request)
-    {
-        // $validatedData = $this->validate();
-        try {
-            if (Auth::user()->role == "dokter") {
-                $medical_record = MedicalRecord::create([
-                    'anamnesis' => $this->anamnesis,
-                    'physical_test' => json_encode(
-                        [
-                            "height" => $this->height,
-                            "weight" => $this->weight,
-                            "blood" => $this->blood,
-                            "blood_pressure" => $this->blood_pressure,
-                            "color_blind" => $this->color_blind,
-                            "respiration" => $this->respiration,
-                            "pulse" => $this->pulse,
-                            "history_disease" => $this->history_disease,
-                            "disability" => $this->disability,
-                            "temperature" => $this->temperature,
-                            "komplikasi" => $this->komplikasi,
-                            "kepala" => $this->kepala,
-                            "mata" => $this->mata,
-                            "leher" => $this->leher,
-                            "thoraks" => $this->thoraks,
-                            "pulmo" => $this->pulmo,
-                            "abdomen" => $this->abdomen,
-                            "ekstremitas" => $this->ekstremitas
-                        ]
-                    ),
-                    'main_complaint' => $this->main_complaint,
-                    'doctor_id' => $this->queue->doctor->id,
-                    'patient_id' => $this->queue->patient->id,
+        public function addDiagnosa()
+        {
+            $this->dispatchBrowserEvent('show-model', [
+                'id' => 'diagnosa'
                 ]);
-
-                MedicalRecordDetail::create([
-                    "queue_id" => $medical_record->id,
-                    "status" => 0
-                ]);
-
-            } else if (Auth::user()->role == "bidan") {
-
-                $cek = Gravida::where("patien_id", $request->patient_id)->count();
-
-                if ($cek == 0) {
-                    $gravida = Gravida::create([
-
-                        "patien_id" => $request->patient_id,
-                        "bidan_id" => $request->doctor_id,
-                        "hpl" => "Senin"
-
+            }
+            public function addLab()
+            {
+                $this->dispatchBrowserEvent('show-model', [
+                    'id' => 'lab'
                     ]);
                 }
+                public function addDrug()
+                {
+                    $this->dispatchBrowserEvent('show-model', [
+                        'id' => 'drug'
+                        ]);
+                    }
+                    public function deleteLab($id)
+                    {
+                        unset($this->listLab[$id]);
+                        $this->listLab = array_values($this->listLab);
+                    }
 
-                $kondisi = Gravida::where("patien_id", $request->patient_id)->first();
+                    public function deleteDiagnosa($id)
+                    {
+                        unset($this->listDiagnosa[$id]);
+                        $this->listDiagnosa = array_values($this->listDiagnosa);
+                    }
+                    public function deleteDrug($id)
+                    {
+                        unset($this->listDrug[$id]);
+                        $this->listDrug = array_values($this->listDrug);
+                    }
 
-                if (empty($kondisi)) {
-                    $gravida_id = $request->gravida_id;
-                } else {
-                    $gravida_id = $kondisi->id;
-                }
 
-                $pregnantmoms = Pregnantmom::create([
-                    "gravida_id" => $gravida_id,
-                    "anak_ke" => $request->anak_ke,
-                    "hpht" => $request->hpht,
-                    "pregnant_age" => $request->pregnant_age,
-                    "lila" => $request->lila,
-                    "weight" => $request->weight,
-                    "blood_pressure" => $request->blood_pressure,
-                    "tfu" => $request->tfu,
-                    "djj" => $request->djj,
-                    "immunization_tt" => $request->immunization_tt,
-                    "description" => $request->description,
-                    "complaint" => $request->complaint
-                ]);
+                    public function diagnosaAdded(Diagnosis $diagnosis)
+                    {
+                        if (!in_array($diagnosis, $this->listDiagnosa)) {
+                            $this->listDiagnosa[] = [
+                                "diagnosa" => $diagnosis,
+                                "description" => "",
+                            ];
+                        }
+                    }
 
-            }
-            foreach ($this->listDiagnosa as $diagnosa) {
-                $medical_record->diagnoses()->attach($diagnosa["diagnosa"]["id"], [
-                    "description" => $diagnosa["description"]
-                ]);
-            }
-            foreach ($this->listLab as $lab) {
-                $medical_record->labs()->attach($lab["lab"]["id"], [
-                    "result" => $lab["result"]
-                ]);
-            }
+                    public function labAdded(Lab $lab)
+                    {
+                        if (!in_array($lab, $this->listLab)) {
+                            $this->listLab[] = [
+                                "lab" => $lab,
+                                "result" => "",
+                            ];
+                            $lab = $lab->paginate(5);
+                        }
+                    }
 
-            foreach ($this->listDrug as $drug) {
-                $medical_record->drugs()->attach($drug["drug"]["id"], [
-                    "quantity" => $drug["quantity"],
-                    "instruction" => $drug["instruction"]
-                ]);
-            }
+                    public function drugAdded(\App\Models\Drug $drug)
+                    {
+                        if (!in_array($drug, $this->listDrug)) {
+                            $this->listDrug[] = [
+                                "drug" => $drug,
+                                "quantity" => 1,
+                                "instruction" => ""
+                            ];
+                        }
+                    }
 
-            if (Auth::user()->role == "dokter") {
-                $this->queue->update([
-                    'has_check' => true,
-                    'medical_record_id' => $medical_record->id,
-                    'jenis_rawat' => $this->jenis_rawat,
-                ]);
-                $this->redirectRoute('queue.index');
-            } else if (Auth::user()->role == "bidan") {
-                Queue::where("patient_id", $request->patient_id)->update([
-                    "has_check" => true
-                ]);
-                return redirect("/antrian");
-            }
-        } catch (\Exception $e) {
-            dd($e);
-        }
-    }
-}
+                    // TODO:: Create queue update function
+                    public function update()
+                    {
+                        # code...
+                    }
+
+                    public function save(Request $request)
+                    {
+                        // $validatedData = $this->validate();
+                        try {
+                            if (Auth::user()->role == "dokter") {
+                                $medical_record = MedicalRecord::create([
+                                    'anamnesis' => $this->anamnesis,
+                                    'physical_test' => json_encode(
+                                        [
+                                            "height" => $this->height,
+                                            "weight" => $this->weight,
+                                            "blood" => $this->blood,
+                                            "blood_pressure" => $this->blood_pressure,
+                                            "color_blind" => $this->color_blind,
+                                            "respiration" => $this->respiration,
+                                            "pulse" => $this->pulse,
+                                            "history_disease" => $this->history_disease,
+                                            "disability" => $this->disability,
+                                            "temperature" => $this->temperature,
+                                            "komplikasi" => $this->komplikasi,
+                                            "kepala" => $this->kepala,
+                                            "mata" => $this->mata,
+                                            "leher" => $this->leher,
+                                            "thoraks" => $this->thoraks,
+                                            "pulmo" => $this->pulmo,
+                                            "abdomen" => $this->abdomen,
+                                            "ekstremitas" => $this->ekstremitas
+                                            ]
+                                        ),
+                                        'main_complaint' => $this->main_complaint,
+                                        'doctor_id' => $this->queue->doctor->id,
+                                        'patient_id' => $this->queue->patient->id,
+                                        ]);
+
+                                        MedicalRecordDetail::create([
+                                            "queue_id" => $medical_record->id,
+                                            "status" => 0
+                                            ]);
+
+                                        } else if (Auth::user()->role == "bidan") {
+
+                                            $cek = Gravida::where("patien_id", $request->patient_id)->count();
+
+                                            if ($cek == 0) {
+                                                $gravida = Gravida::create([
+
+                                                    "patien_id" => $request->patient_id,
+                                                    "bidan_id" => $request->doctor_id,
+                                                    "hpl" => "Senin"
+
+                                                    ]);
+                                                }
+
+                                                $kondisi = Gravida::where("patien_id", $request->patient_id)->first();
+
+                                                if (empty($kondisi)) {
+                                                    $gravida_id = $request->gravida_id;
+                                                } else {
+                                                    $gravida_id = $kondisi->id;
+                                                }
+
+                                                $pregnantmoms = Pregnantmom::create([
+                                                    "gravida_id" => $gravida_id,
+                                                    "anak_ke" => $request->anak_ke,
+                                                    "hpht" => $request->hpht,
+                                                    "pregnant_age" => $request->pregnant_age,
+                                                    "lila" => $request->lila,
+                                                    "weight" => $request->weight,
+                                                    "blood_pressure" => $request->blood_pressure,
+                                                    "tfu" => $request->tfu,
+                                                    "djj" => $request->djj,
+                                                    "immunization_tt" => $request->immunization_tt,
+                                                    "description" => $request->description,
+                                                    "complaint" => $request->complaint
+                                                    ]);
+
+                                                }
+                                                foreach ($this->listDiagnosa as $diagnosa) {
+                                                    $medical_record->diagnoses()->attach($diagnosa["diagnosa"]["id"], [
+                                                        "description" => $diagnosa["description"]
+                                                        ]);
+                                                    }
+                                                    foreach ($this->listLab as $lab) {
+                                                        $medical_record->labs()->attach($lab["lab"]["id"], [
+                                                            "result" => $lab["result"]
+                                                            ]);
+                                                        }
+
+                                                        foreach ($this->listDrug as $drug) {
+                                                            $medical_record->drugs()->attach($drug["drug"]["id"], [
+                                                                "quantity" => $drug["quantity"],
+                                                                "instruction" => $drug["instruction"]
+                                                                ]);
+                                                            }
+
+                                                            if (Auth::user()->role == "dokter") {
+                                                                $this->queue->update([
+                                                                    'has_check' => true,
+                                                                    'medical_record_id' => $medical_record->id,
+                                                                    'jenis_rawat' => $this->jenis_rawat,
+                                                                    ]);
+                                                                    $this->redirectRoute('queue.index');
+                                                                } else if (Auth::user()->role == "bidan") {
+                                                                    Queue::where("patient_id", $request->patient_id)->update([
+                                                                        "has_check" => true
+                                                                        ]);
+                                                                        return redirect("/antrian");
+                                                                    }
+                                                                } catch (\Exception $e) {
+                                                                    dd($e);
+                                                                }
+                                                            }
+                                                        }
+                                                        

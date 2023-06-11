@@ -24,15 +24,15 @@ class Single extends Component
     {
         return view('livewire.queue.single', [
             'role' => $this->role // Mengirimkan $role ke tampilan
-        ]);
-        // return view('livewire.queue.single');
-    }
+            ]);
+            
+        }
 
-    public function processCheckup(){
-        $this->redirectRoute('queue.process', ['queue' => $this->queue->id]);
-    }
+        public function processCheckup(){
+            $this->redirectRoute('queue.process', ['queue' => $this->queue->id]);
+        }
 
-    public function processDrug(){
-        $this->redirectRoute('queue.drug.process', ['queue' => $this->queue->id]);
+        public function processDrug(){
+            $this->redirectRoute('queue.drug.process', ['queue' => $this->queue->id]);
+        }
     }
-}

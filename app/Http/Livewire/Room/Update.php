@@ -37,16 +37,16 @@ class Update extends Component
         $this->room->update([
             'name' => $this->name,
             'price' => $this->price,
-        ]);
-        return redirect("/ruangan");
+            ]);
+            return redirect("/ruangan");
+        }
+        /**
+        * Get the view / contents that represent the component.
+        *
+        * @return \Illuminate\View\View|string
+        */
+        public function render()
+        {
+            return view('livewire.room.update');
+        }
     }
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
-    public function render()
-    {
-        return view('livewire.room.update');
-    }
-}

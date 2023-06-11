@@ -30,23 +30,43 @@ class Index extends Component
         $this->sortType = $sort;
     }
 
-    public function render()
-    {
-        $gravida = Gravida::query()->where('id', 'like', '%' . $this->search . '%');
-        if ($this->sortColumn) {
-            $gravida->orderBy($this->sortColumn, $this->sortType);
-        } else {
-            $gravida->latest('id');
-        }
+    // public function render()
+    // {
+        //     $gravida = Gravida::query()->where('id', 'like', '%' . $this->search . '%');
+        //     if ($this->sortColumn) {
+            //         $gravida->orderBy($this->sortColumn, $this->sortType);
+            //     } else {
+                //         $gravida->latest('id');
+                //     }
 
-        $gravida = $gravida->where("bidan_id", Auth::user()->id)->paginate(7);
+                //     $gravida = $gravida->where("bidan_id", Auth::user()->id)->paginate(7);
 
-        // if (Auth::user()->role == "admin") {
-        //     $records = $records->paginate(5);
-        //    } else {
-        //     $records = $records->where("doctor_id", Auth::user()->id)->paginate(5);
-        //    }
+                //     return view('livewire.History.index', compact('gravida'));
+                // }
 
-        return view('livewire.History.index', compact('gravida'));
-    }
-}
+
+                public function render()
+                {
+                    $query = Gravida::query()->where('id', 'like', '%' . $this->search . '%');
+
+                    if ($this->sortColumn) {
+                        $query->orderBy($this->sortColumn, $this->sortType);
+                    } else {
+                        $query->latest('id');
+                    }
+
+                    $query->where(function ($query) {
+                        $query->whereHas('patient', function ($query) {
+                            $query->where('name', 'like', '%' . $this->search . '%')
+                            ->orWhere('nik', 'like', '%' . $this->search . '%')
+                            ->orWhere('address', 'like', '%' . $this->search . '%');
+                        });
+                    });
+
+                    $gravida = $query->where("bidan_id", Auth::user()->id)->paginate(5);
+                    $gravida->appends(['search' => $this->search]);
+
+                    return view('livewire.History.index', compact('gravida'));
+                }
+
+            }

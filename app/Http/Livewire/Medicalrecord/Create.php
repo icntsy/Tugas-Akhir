@@ -18,10 +18,10 @@ class Create extends Component
         $this->dispatchBrowserEvent('showModal', ['id' => 'exampleModal']);
     }
     /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
+    * Get the view / contents that represent the component.
+    *
+    * @return \Illuminate\View\View|string
+    */
     public function render()
     {
         return view('livewire.medicalrecord.create');

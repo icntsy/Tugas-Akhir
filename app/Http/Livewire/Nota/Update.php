@@ -38,22 +38,22 @@ class Update extends Component
             'stok' => $this->stok,
             'min_stok' => $this->min_stok,
             'harga' => $this->harga,
-        ]);
+            ]);
 
-        return redirect("/obat");
-    }
+            return redirect("/obat");
+        }
 
-    public function mount(Drug $drug){
-        $this->drug = $drug;
-        $this->nama = $drug->nama;
-        $this->dosis = $drug->dosis;
-        $this->stok = $drug->stok;
-        $this->harga = $drug->harga;
-        $this->min_stok = $drug->min_stok;
+        public function mount(Drug $drug){
+            $this->drug = $drug;
+            $this->nama = $drug->nama;
+            $this->dosis = $drug->dosis;
+            $this->stok = $drug->stok;
+            $this->harga = $drug->harga;
+            $this->min_stok = $drug->min_stok;
 
+        }
+        public function render()
+        {
+            return view('livewire.drug.update');
+        }
     }
-    public function render()
-    {
-        return view('livewire.drug.update');
-    }
-}

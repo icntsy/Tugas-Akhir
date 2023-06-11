@@ -20,9 +20,9 @@ class Update extends Component
     public $weight;
     public $blood_pressure;
     public $tfu;
-    public $djj; 
-    public $immunization_tt; 
-    public $description; 
+    public $djj;
+    public $immunization_tt;
+    public $description;
     public $complaint;
 
     protected $rules = [
@@ -39,7 +39,7 @@ class Update extends Component
         'tfu' => 'required',
         'djj' => 'required',
         'immunization_tt' => 'required',
-        
+
     ];
 
     public function updated($input)
@@ -69,38 +69,38 @@ class Update extends Component
             'immunization_tt' => $this->immunization_tt,
             'description' => $this->description,
             'complaint' => $this->complaint,
-            
-        ]);
-    }
-    public function mount(Pregnantmom $pregnantmom)
-    {
-        $this->pregnantmom = $pregnantmom;
-        $this->name = $pregnantmom->name;
-        $this->age = $pregnantmom->age;
-        $this->address = $pregnantmom->address;
-        $this->anak_ke = $pregnantmom->anak_ke;
-        $this->hpht = $pregnantmom->hpht;
-        $this->hpl = $pregnantmom->hpl;
-        $this->pregnant_age = $pregnantmom->pregnant_age;
-        $this->lila = $pregnantmom->lila;
-        $this->weight = $pregnantmom->weight;
-        $this->blood_pressure = $pregnantmom->blood_pressure;
-        $this->tfu = $pregnantmom->tfu;
-        $this->djj = $pregnantmom->djj;
-        $this->immunization_tt = $pregnantmom->immunization_tt;
-        $this->description = $pregnantmom->description;
-        $this->complaint = $pregnantmom->complaint;
-      
-    }
 
-    /**
-     * Get the view / contents that represent the component.
-     *
-     * @return \Illuminate\View\View|string
-     */
+            ]);
+        }
+        public function mount(Pregnantmom $pregnantmom)
+        {
+            $this->pregnantmom = $pregnantmom;
+            $this->name = $pregnantmom->name;
+            $this->age = $pregnantmom->age;
+            $this->address = $pregnantmom->address;
+            $this->anak_ke = $pregnantmom->anak_ke;
+            $this->hpht = $pregnantmom->hpht;
+            $this->hpl = $pregnantmom->hpl;
+            $this->pregnant_age = $pregnantmom->pregnant_age;
+            $this->lila = $pregnantmom->lila;
+            $this->weight = $pregnantmom->weight;
+            $this->blood_pressure = $pregnantmom->blood_pressure;
+            $this->tfu = $pregnantmom->tfu;
+            $this->djj = $pregnantmom->djj;
+            $this->immunization_tt = $pregnantmom->immunization_tt;
+            $this->description = $pregnantmom->description;
+            $this->complaint = $pregnantmom->complaint;
 
-    public function render()
-    {
-        return view('livewire.pregnantmom.update');
+        }
+
+        /**
+        * Get the view / contents that represent the component.
+        *
+        * @return \Illuminate\View\View|string
+        */
+
+        public function render()
+        {
+            return view('livewire.pregnantmom.update');
+        }
     }
-}
