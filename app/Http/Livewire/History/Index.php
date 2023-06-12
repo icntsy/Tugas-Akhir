@@ -49,19 +49,22 @@ class Index extends Component
                 {
                     $query = Gravida::query()->where('id', 'like', '%' . $this->search . '%');
 
+
+                    $query->orWhere(function ($query) {
+                        $query->whereHas('patient', function ($query) {
+                            $query->where('name', 'like', '%' . $this->search . '%')
+                            ->orWhere('nik', 'like', '%' . $this->search . '%')
+                            ->orWhere('phone_number', 'like', '%' . $this->search . '%')
+                            ->orWhere('address', 'like', '%' . $this->search . '%');
+                        });
+                    });
+
                     if ($this->sortColumn) {
                         $query->orderBy($this->sortColumn, $this->sortType);
                     } else {
                         $query->latest('id');
                     }
 
-                    $query->where(function ($query) {
-                        $query->whereHas('patient', function ($query) {
-                            $query->where('name', 'like', '%' . $this->search . '%')
-                            ->orWhere('nik', 'like', '%' . $this->search . '%')
-                            ->orWhere('address', 'like', '%' . $this->search . '%');
-                        });
-                    });
 
                     $gravida = $query->where("bidan_id", Auth::user()->id)->paginate(5);
                     $gravida->appends(['search' => $this->search]);

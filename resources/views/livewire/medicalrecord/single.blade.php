@@ -3,6 +3,7 @@
     <td>{{$recordIndex}}</td>
     <td>{{$record->patient->no_rekam_medis}}</td>
     <td>{{$record->patient->name}}</td>
+
     <td>{{\Carbon\Carbon::parse($record->created_at)->format('d F Y ')}}</td>
     <td>{{$record->main_complaint}}</td>
     <td>
@@ -25,6 +26,7 @@
         @endforeach
     </ul>
 </td>
+<td>{{$record->queue->jenis_rawat}}</td>
 
 {{-- <td>
     <livewire:medical-record.detail-medial-record :record="$record->physical_test" />

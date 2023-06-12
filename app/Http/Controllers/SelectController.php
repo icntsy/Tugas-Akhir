@@ -12,16 +12,27 @@ class SelectController extends Controller
 {
    public function doctor(Request $request){
        $data = [];
+
+       $query = User::query();
+       $query->select("id","name");
+
+       if ($request->has("id_service")) {
+          
+           if ($request->id_service == "1") {
+               $query->where("role", "dokter");
+            }
+
+            if ($request->id_service == "2") {
+               $query->where("role", "bidan");
+           }
+       }
+
        if($request->has('q')){
            $search = $request->q;
-           $data = User::select("id","name")
-               ->where('role', 'dokter')->where('name','LIKE',"%$search%")
+           $data = $query->where('name','LIKE',"%$search%")
                ->get();
        }else{
-           $data =  User::select("id","name")
-               ->where('role', 'dokter')
-               ->orWhere("role", "bidan")
-               ->limit(5)->get();
+           $data =  $query->limit(5)->get();
        }
        return response()->json($data);
    }

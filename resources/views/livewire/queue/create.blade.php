@@ -68,7 +68,7 @@
                                 <button class="btn"> Layanan&nbsp;&nbsp;:</button>
                             </div>
                             <select id="service" class="multiselect-dropdown form-control @error('service_id')
-                            is-invalid @enderror" onclick="tampung()">
+                            is-invalid @enderror">
                         </select>
                     </div>
                     <div class="input-group mt-2" wire:ignore>
@@ -101,7 +101,9 @@
 
 @push('js')
 <script>
+    let idService = null;
     $(document).ready(function (){
+
         $("#service").select2({
             theme: "bootstrap4",
 
@@ -137,6 +139,7 @@
         }).on('change', function (e){
             var data = $('#service').select2("val")
             @this.set('service_id', data)
+            localStorage.setItem("id_service", data)
 
             if ($(this).val() === "1") {
                 $("#optionMati").show();
@@ -152,7 +155,10 @@
 
             ajax: {
 
-                url: '{{route('select.doctor')}}',
+                url: function () {
+                    var is_service = localStorage.getItem('id_service')
+                    return `{{ url('select/doctor') }}?id_service=`+is_service
+                },
                 dataType: 'json',
 
                 processResults: function (data) {
