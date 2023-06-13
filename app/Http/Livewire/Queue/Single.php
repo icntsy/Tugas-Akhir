@@ -25,7 +25,7 @@ class Single extends Component
         return view('livewire.queue.single', [
             'role' => $this->role // Mengirimkan $role ke tampilan
             ]);
-            
+
         }
 
         public function processCheckup(){

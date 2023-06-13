@@ -56,6 +56,7 @@ class Drug extends Component
 
             $queues->whereDate('created_at', Carbon::today())->where('has_check', true)->where('has_drug', false);
             $queues = $queues->paginate(5);
+
             return view('livewire.queue.drug', compact('queues'));
         }
     }

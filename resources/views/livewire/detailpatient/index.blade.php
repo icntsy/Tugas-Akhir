@@ -1,17 +1,14 @@
 @section('meta_title', 'Pasien')
-@section('page_title', 'DATA PASIEN')
+@section('page_title', 'DETAIL PASIEN')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-user-plus" aria-hidden="true"></i>
+<i class="fa fa-users" aria-hidden="true"></i>
 @endsection
 <div class="row">
     <div class="col-12">
         <div class="mb-3 card">
             <div class="card-body">
                 <div class="row">
-                    <div class="col-md-6 col-sm-12">
-                        <a href="{{ route('patient.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
-                            Tambah Data</a>
-                        </div>
+
                         <div class="col-md-6 col-sm-12">
                             <div class="input-group">
                                 <input type="text" class="form-control form-control" wire:model.lazy="search"
@@ -39,12 +36,14 @@
                                         <th>Gol. Darah</th>
                                         <th>Alamat</th>
                                         <th>No. Hp</th>
-                                        <th>Action</th>
+                                        <th>Detail</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     @forelse($patients as $index => $patient)
-                                    <livewire:patient.single :patient="$patient" :patientIndex="$index + $patients->firstItem()" :key="$patient->id" />
+                                    <livewire:detailpatient.single :patient="$patient" :patientIndex="$index + $patients->firstItem()" :key="$patient->id" />
                                     @empty
                                     @include('layouts.empty', ['colspan' => 7])
                                     @endforelse

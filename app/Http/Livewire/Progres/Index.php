@@ -46,4 +46,3 @@ class Index extends Component
             return view("livewire.progres.index", compact("queues"));
         }
     }
-    

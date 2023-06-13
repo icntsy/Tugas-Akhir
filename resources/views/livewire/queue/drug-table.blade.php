@@ -1,3 +1,10 @@
+@php
+    use App\Models\MedicalRecordInap;
+@endphp
+
+@php
+    $cek = MedicalRecordInap::where("medical_record_id", $queue->medical_record_id)->first();
+@endphp
 <tr>
     <td>{{$queue->patient->name}}</td>
     <td>{{$queue->queue_number}}</td>
@@ -13,7 +20,7 @@
         {{ $queue->jenis_rawat }}
         @endif
     </td>
-    <td>
+    <td class="text-center">
         @role('admin')
         <a wire:click="delete" class="btn text-danger">
             <i class="fa fa-trash fa-1x"></i>
@@ -22,7 +29,17 @@
             <i class="fa fa-edit fa-1x"></i>
         </a>
         @elserole('staff|apoteker|dokter')
-        <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>
+            @if ($cek)
+            <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>
+            @else
+                @if ($queue->jenis_rawat == "Inap")
+                <button class="btn btn-sm btn-danger">
+                    Belum Ada Record
+                </button>
+                @elseif($queue->jenis_rawat == "Jalan")
+                <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>
+                @endif
+            @endif
         @endrole
     </td>
 </tr>

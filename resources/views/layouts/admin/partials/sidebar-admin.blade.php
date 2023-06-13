@@ -16,7 +16,7 @@
     <li class="app-sidebar__heading">Data Master</li>
     <li>
         <a href="{{ route('patient.index') }}" class="@if (Request::is('pasien*')) mm-active @endif">
-            <i class="metismenu-icon fa fa-users" aria-hidden="true"></i>
+            <i class="metismenu-icon fa fa-user-plus" aria-hidden="true"></i>
             Data Pasien
         </a>
     </li>
@@ -59,7 +59,7 @@
     <li class="app-sidebar__heading">DATA USERS</li>
     <li>
         <a href="{{ route('user.index') }}" class="@if (Request::is('user*')) mm-active @endif">
-            <i class="metismenu-icon fa fa-user-plus" aria-hidden="true"></i>
+            <i class="metismenu-icon fa fa-user" aria-hidden="true"></i>
             Data User
         </a>
     </li>

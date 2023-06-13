@@ -1,7 +1,7 @@
 @section('meta_title', 'LAB')
 @section('page_title', 'DATA PEMBAYARAN')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-clipboard"></i>
+<i class="metismenu-icon fa fa-credit-card" aria-hidden="true"></i>
 @endsection
 <div class="row">
     <div class="col-12">

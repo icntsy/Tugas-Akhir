@@ -177,32 +177,33 @@ class Process extends Component
 
                         ]);
                     }
-                            public function render()
-                            {
+                    public function render()
+                    {
 
 
-                                $subtotal = 0;
+                        $subtotal = 0;
 
-                                // Calculate subtotal
-                                $subtotal += floatval($this->qty1) * floatval($this->harga1);
-                                $subtotal += floatval($this->qty2) * floatval($this->harga2);
-                                $subtotal += floatval($this->qty3) * floatval($this->harga3);
-                                $subtotal += floatval($this->qty4) * floatval($this->harga4);
-                                $subtotal += floatval($this->qty5) * floatval($this->harga5);
-                                $subtotal += floatval($this->qty6) * floatval($this->harga6);
-                                $subtotal += floatval($this->qty7) * floatval($this->harga7);
-                                $subtotal += floatval($this->qty8) * floatval($this->harga8);
-                                $subtotal += floatval($this->qty9) * floatval($this->harga9);
-                                $subtotal += floatval($this->qty10) * floatval($this->harga10);
-                                $subtotal += floatval($this->qty11) * floatval($this->harga11);
-                                $subtotal += floatval($this->qty12) * floatval($this->harga12);
-                                // Add other subtotal calculations here
+                        // Calculate subtotal
+                        $subtotal += floatval($this->qty1) * floatval($this->harga1);
+                        $subtotal += floatval($this->qty2) * floatval($this->harga2);
+                        $subtotal += floatval($this->qty3) * floatval($this->harga3);
+                        $subtotal += floatval($this->qty4) * floatval($this->harga4);
+                        $subtotal += floatval($this->qty5) * floatval($this->harga5);
+                        $subtotal += floatval($this->qty6) * floatval($this->harga6);
+                        $subtotal += floatval($this->qty7) * floatval($this->harga7);
+                        $subtotal += floatval($this->qty8) * floatval($this->harga8);
+                        $subtotal += floatval($this->qty9) * floatval($this->harga9);
+                        $subtotal += floatval($this->qty10) * floatval($this->harga10);
+                        $subtotal += floatval($this->qty11) * floatval($this->harga11);
+                        $subtotal += floatval($this->qty12) * floatval($this->harga12);
+                        // Add other subtotal calculations here
 
-                                $jumlah = $subtotal;
-                                return view('livewire.drug.process', [
-                                    'queue' => $this->queue,
-                                    'subtotal' => $subtotal,
-                                    'jumlah' => $jumlah
-                                    ]);
-                                }
-                            }
+                        $jumlah = $subtotal;
+
+                        return view('livewire.drug.process', [
+                            'queue' => $this->queue,
+                            'subtotal' => $subtotal,
+                            'jumlah' => $jumlah
+                            ]);
+                        }
+                    }

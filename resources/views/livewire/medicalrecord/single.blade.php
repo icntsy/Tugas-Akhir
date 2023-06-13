@@ -15,14 +15,14 @@
     </td>
     <td><ul>
         @foreach($record->diagnoses as $diagnosis)
-        <li>{{$diagnosis->indonesian_name}}</li>
+        <li>{{$diagnosis->indonesian_name }}</li>
         @endforeach
     </ul>
 </td>
 <td>
     <ul>
         @foreach($record->drugs as $drug)
-        <li>{{$drug->nama}}</li>
+        <li>{{$drug->nama }}</li>
         @endforeach
     </ul>
 </td>
