@@ -7,21 +7,39 @@ use Illuminate\View\View;
 use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
+// Tambah
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Session;
 
 
 class Index extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
-    protected $queryString = ['search'];
+    // protected $queryString = ['search'];
+
+    // Tambah
+    protected $queryString = ['search', 'startDate', 'endDate'];
 
     public $search;
     public $sortType;
     public $sortColumn;
 
+    // Tambah
+    public $startDate;
+    public $endDate;
+
     protected $listeners  = [
         'labDeleted'
     ];
+
+
+    // Tambah
+    public function mount()
+    {
+        $this->startDate = Session::get('startDate');
+        $this->endDate = Session::get('endDate');
+    }
 
     public function sort($column)
     {
@@ -30,38 +48,62 @@ class Index extends Component
         $this->sortType = $sort;
     }
 
+    // Tambah
+    public function filterByDate()
+    {
+        $this->resetPage();
+        Session::put('startDate', $this->startDate);
+        Session::put('endDate', $this->endDate);
+    }
+
     public function render()
     {
-        $records = MedicalRecord::query()->where('id', 'like', '%' . $this->search . '%');
-        $records -> orWhere('id', 'like', '%'.$this->search.'%')
-        ->orWhereHas('drugs', function($query) {
-            $query->where('nama', 'like', '%' . $this->search . '%');
-        })
-        ->orWhereHas('labs', function($query) {
-            $query->where('nama', 'like', '%' . $this->search . '%');
-        })
-        ->orWhereHas('diagnoses', function($query) {
-            $query->where('indonesian_name', 'like', '%' . $this->search . '%');
-        })
-        ->orWhereHas('patient', function($query) {
-            $query->where('name', 'like', '%' . $this->search . '%');
-        })
-        ->orWhereHas('patient', function($query) {
-            $query->where('no_rekam_medis', 'like', '%' . $this->search . '%');
-        })
-        ->orWhere('main_complaint', 'like', '%' . $this->search . '%');
-        if ($this->sortColumn) {
-            $records->orderBy($this->sortColumn, $this->sortType);
-        } else {
-            $records->latest('id');
-        }
-        $records = $records->paginate(5);
+        $query = MedicalRecord::query()
+        ->where(function ($q) {
+            $q->where('id', 'like', '%' . $this->search . '%')
+            ->orWhereHas('drugs', function ($query) {
+                $query->where('nama', 'like', '%' . $this->search . '%');
+            })
+            ->orWhereHas('queue', function ($query) {
+                $query->where('jenis_rawat', 'like', '%' . $this->search . '%');
+            })
+            ->orWhereHas('labs', function ($query) {
+                $query->where('nama', 'like', '%' . $this->search . '%');
+            })
+            ->orWhereHas('diagnoses', function ($query) {
+                $query->where('indonesian_name', 'like', '%' . $this->search . '%');
+            })
+            ->orWhereHas('patient', function ($query) {
+                $query->where('name', 'like', '%' . $this->search . '%');
+            })
+            ->orWhereHas('patient', function ($query) {
+                $query->where('no_rekam_medis', 'like', '%' . $this->search . '%');
+            })
+            ->orWhere('main_complaint', 'like', '%' . $this->search . '%');
+        });
 
+        if ($this->startDate && $this->endDate) {
+            $startDate = Carbon::parse($this->startDate)->startOfDay();
+            $endDate = Carbon::parse($this->endDate)->endOfDay();
+            $query->whereBetween('created_at', [$startDate, $endDate]);
+        }
+
+        if ($this->sortColumn) {
+            $query->orderBy($this->sortColumn, $this->sortType);
+        } else {
+            $query->latest('id');
+        }
+
+        $records = $query->paginate(5)->appends(['search' => $this->search, 'startDate' => $this->startDate, 'endDate' => $this->endDate]);
         // if (Auth::user()->role == "admin") {
             //     $records = $records->paginate(5);
             //    } else {
                 //     $records = $records->where("doctor_id", Auth::user()->id)->paginate(5);
                 //    }
+
                 return view('livewire.medicalrecord.index', compact('records'));
             }
         }
+
+
+

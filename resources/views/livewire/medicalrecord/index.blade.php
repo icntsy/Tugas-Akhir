@@ -25,6 +25,22 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col-md-12">
+                        <form class="mb-3" wire:ignore>
+                            <div class="form-row align-items-end">
+                                <div class="col-md-3">
+                                    <label for="start_date">Tanggal Mulai</label>
+                                    <input type="date" class="form-control" id="start_date" wire:model.defer="startDate">
+                                </div>
+                                <div class="col-md-3">
+                                    <label for="end_date">Tanggal Akhir</label>
+                                    <input type="date" class="form-control" id="end_date" wire:model.defer="endDate">
+                                </div>
+                                <div class="col-md-1">
+                                    <label>&nbsp;</label>
+                                    <button class="btn btn-primary btn-block" wire:click="filterByDate">Cari</button>
+                                </div>
+                            </div>
+                        </form>
                         <table class="mb-0 table table-sm table-bordered">
                             <thead>
                                 <tr>
