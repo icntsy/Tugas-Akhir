@@ -13,6 +13,13 @@
             Antrian Periksa
         </a>
     </li>
+    <li class="app-sidebar__heading">Data Transaksi</li>
+    <li>
+        <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
+            <i class="metismenu-icon fa fa-credit-card" aria-hidden="true"></i>
+            Proses Pembayaran
+        </a>
+    </li>
     <li class="app-sidebar__heading">Data Pemeriksaan</li>
     <li>
         <a href="{{ route('progres.index') }}" class="@if (Request::is('progres*')) mm-active @endif">
@@ -26,20 +33,14 @@
             History Rawat Jalan
         </a>
     </li>
+
+    <li class="app-sidebar__heading">Data Master</li>
     <li>
         <a href="{{ route('medicalrecord.index') }}" class="@if (Request::is('rekam-medis*')) mm-active @endif">
             <i class="metismenu-icon fa fa-medkit" aria-hidden="true"></i>
-            Data Seluruh Rekam Medis
+            Data Rekam Medis
         </a>
     </li>
-    <li class="app-sidebar__heading">Data Transaksi</li>
-    <li>
-        <a href="{{ route('queue.drug') }}" class="@if (Request::is('antri/*')) mm-active @endif">
-            <i class="metismenu-icon fa fa-credit-card" aria-hidden="true"></i>
-            Proses Pembayaran
-        </a>
-    </li>
-    <li class="app-sidebar__heading">Data Master</li>
     <li>
         <a href="{{ route('detailpatient.index') }}" class="@if (Request::is('detail*')) mm-active @endif">
             <i class="metismenu-icon fa fa-users" aria-hidden="true"></i>
