@@ -14,8 +14,9 @@ $cek = DB::table("medical_record_drugs")
     <td>{{$transaksiIndex}}</td>
     <td>{{ $transaksi->queue->patient->name }}</td>
     <td>
-        {!! Carbon::createFromFormat('Y-m-d H:i:s', $transaksi->queue->medicalrecord->created_at)->isoFormat('D MMMM Y') !!}
+        {!! Carbon::createFromFormat('Y-m-d H:i:s', $transaksi->created_at)->isoFormat('D MMMM Y') !!}
     </td>
+    {{-- $transaksi->queue->medicalrecord->created_at --}}
     <td>Rp. {{ number_format(floatval($transaksi->payment)) }}</td>
     <td>
         @foreach (json_decode($cek) as $item)

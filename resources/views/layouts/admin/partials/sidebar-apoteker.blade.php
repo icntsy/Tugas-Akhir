@@ -23,7 +23,7 @@
     <li>
         <a href="{{ route('nota.index') }}" class="@if (Request::is('nota*')) mm-active @endif">
             <i class="metismenu-icon fa fa-credit-card" aria-hidden="true"></i>
-            Nota Obat
+            Nota Pembayaran
         </a>
     </li>
     <li class="app-sidebar__heading">Setting</li>
