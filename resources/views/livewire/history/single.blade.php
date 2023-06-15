@@ -1,5 +1,5 @@
 <tr>
-    <td>{{$recordIndex}}</td>
+    <td>{{$recordIndex}}.</td>
     <td>{{$record->patient->name}}</td>
     <td>{{$record->patient->nik}}</td>
     <td>{{$record->patient->address}}</td>

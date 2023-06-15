@@ -27,7 +27,7 @@
                             <table class="mb-0 table table-sm table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>No.</th>
                                         <th>No. RM</th>
                                         <th>NIK</th>
                                         <th>Nama</th>

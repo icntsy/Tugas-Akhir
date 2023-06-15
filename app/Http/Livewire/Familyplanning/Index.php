@@ -45,7 +45,7 @@ class Index extends Component
         }else{
             $familyplannings->latest('id');
         }
-        $familyplannings = $familyplannings->paginate(2);
+        $familyplannings = $familyplannings->paginate(10);
         return view('livewire.familyplanning.index',['familyplannings' => $familyplannings]);
     }
 

@@ -30,7 +30,7 @@
                             <table class="mb-0 table table-sm table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>No.</th>
                                         <th>Nama Lengkap User</th>
                                         <th>Email User</th>
                                         <th>Type User</th>
@@ -42,7 +42,7 @@
                                     @php $no = 0 @endphp
                                     @foreach ($users as $user)
                                     <tr>
-                                        <td>{{  ($users->currentPage() - 1) * $users->perPage() + $loop->iteration   }}</td>
+                                        <td>{{  ($users->currentPage() - 1) * $users->perPage() + $loop->iteration   }}.</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->role }}</td>

@@ -67,13 +67,13 @@
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Data Fasilitas Lab</div>
-                        <div class="widget-subheading">Jumlah Fasilitas Lab</div>
-                        <div class="widget-numbers">{{\App\Models\Lab::count()}}</div>
+                        <div class="widget-heading">Data Rekam Medis</div>
+                        <div class="widget-subheading">Jumlah Rekam Medis</div>
+                        <div class="widget-numbers">{{\App\Models\MedicalRecord::count()}}</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="text-warning">
-                            <i class="fa fa-3x fa-file-medical-alt"></i>
+                            <i class="fa fa-3x fa fa-medkit"></i>
                         </div>
                     </div>
                 </div>

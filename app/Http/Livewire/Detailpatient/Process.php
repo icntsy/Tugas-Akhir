@@ -18,9 +18,13 @@ use App\Models\Gravida;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Livewire\WithPagination;
 
 class Process extends Component
 {
+
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
     public $queue;
     public $patient;
     public $listDiagnosa = [];
@@ -69,16 +73,19 @@ class Process extends Component
     {
         $this->patient = $patient;
     }
+
+
+
     public function render()
     {
-        $antrian = Queue::where("patient_id", $this->patient->id)->where("jenis_rawat", "!=", NULL)->paginate(10);
+        $antrian = Queue::where("patient_id", $this->patient->id)->where("jenis_rawat", "!=", NULL)->orderBy('created_at', 'desc')->paginate(10);
         return view('livewire.detailpatient.process', ["antrian" => $antrian]);
 
     }
 
-    public function historydetail()
-    {
-        dd($this->patient);
-        $this->redirect("/progress/history");
-    }
+    // public function historydetail()
+    // {
+    //     //dd($this->patient);
+    //     $this->redirect("/progress/history");
+    // }
 }

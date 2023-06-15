@@ -1,5 +1,5 @@
 <tr>
-    <td>{{$roomIndex}}</td>
+    <td>{{$roomIndex}}.</td>
     <td>{{$room->name}}</td>
     <td>@rupiah($room->price)</td>
     <td>

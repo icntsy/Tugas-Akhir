@@ -45,7 +45,7 @@ use App\Models\MedicalRecordDrugs;
                                     <table class="mb-0 table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
+                                                <th>No.</th>
                                                 <th>Nama Obat</th>
                                                 <th style="cursor: pointer" wire:click="sort('harga')">
                                                     <i class='fa @if ($sortType == 'desc' and $sortColumn == 'harga') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'harga') fa-sort-amount-up ml-2 @endif'></i>
@@ -53,11 +53,8 @@ use App\Models\MedicalRecordDrugs;
                                                 </th>
                                                 <th style="cursor: pointer" wire:click="sort('stok')"><i
                                                     class='fa @if ($sortType == 'desc' and $sortColumn == 'stok') fa-sort-amount-down ml-2 @elseif($sortType == 'asc' and $sortColumn == 'stok') fa-sort-amount-up ml-2 @endif'></i>
-
                                                     Stok
-
                                                 </th>
-
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

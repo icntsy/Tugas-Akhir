@@ -19,7 +19,7 @@ class ModalLab extends Component
         $labs = Lab::query()->where('nama', 'like', '%' . $this->search . '%')
         ->orWhere('harga', 'like', '%'.$this->search.'%')
         ->orWhere('satuan', 'like', '%'.$this->search.'%');
-        $labs = $labs->paginate(5);
+        $labs = $labs->paginate(10);
         return view('livewire.component.modal-lab', compact('labs'));
     }
 }

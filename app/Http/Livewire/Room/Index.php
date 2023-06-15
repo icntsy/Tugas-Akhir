@@ -56,7 +56,7 @@ class Index extends Component
             $rooms = Room::query();
             $rooms->where('name', 'like', '%' . $this->search . '%')
             ->orWhere('price', 'like', '%'.$this->search.'%');
-            $rooms = $rooms->paginate(5);
+            $rooms = $rooms->orderBy('created_at', 'desc')->paginate(10);
             return view('livewire.room.index', compact('rooms'));
         }
     }

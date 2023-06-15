@@ -265,7 +265,8 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                     $json = json_decode($item["physical_test"], true);
                                     @endphp
                                     <tr>
-                                        <td>{{ $loop->iteration }}.</td>
+                                        <td>{{ $no++ }}.</td>
+                                        {{-- <td>{{ $loop->iteration }}.</td> --}}
                                         <td> {{\Carbon\Carbon::parse($item['created_at'])->format('d F Y ')}}</td>
                                         <td>{{ $json["kepala"] }}</td>
                                         <td>{{ $json["mata"] }}</td>
@@ -284,6 +285,10 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                             </table>
                         </div>
                     </div>
+                    <div class="m-auto pt-3 pr-3">
+                        {{ $history->appends(request()->query())->links() }}
+                    </div>
+                    <div wire:loading wire:target="nextPage,gotoPage,previousPage" class="loader-page"></div>
                 </div>
             </div>
         </div>

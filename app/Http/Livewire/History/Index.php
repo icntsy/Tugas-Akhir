@@ -66,7 +66,7 @@ class Index extends Component
                     }
 
 
-                    $gravida = $query->where("bidan_id", Auth::user()->id)->paginate(5);
+                    $gravida = $query->where("bidan_id", Auth::user()->id)->paginate(10);
                     $gravida->appends(['search' => $this->search]);
 
                     return view('livewire.History.index', compact('gravida'));

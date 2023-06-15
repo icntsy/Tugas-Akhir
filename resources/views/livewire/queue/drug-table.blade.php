@@ -34,7 +34,7 @@
             @else
                 @if ($queue->jenis_rawat == "Inap")
                 <button class="btn btn-sm btn-danger">
-                    Belum Ada Record
+                    Pasien Belum Pulang
                 </button>
                 @elseif($queue->jenis_rawat == "Jalan")
                 <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>

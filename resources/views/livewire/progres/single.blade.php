@@ -1,5 +1,5 @@
 <tr>
-    <td>{{$progresIndex}}</td>
+    <td>{{$progresIndex}}.</td>
     <td>{{$queue->patient->name}}</td>
     <td>{{$queue->patient->nik}}</td>
     <td>{{$queue->patient->address}}</td>

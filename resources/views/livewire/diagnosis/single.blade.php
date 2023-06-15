@@ -1,5 +1,5 @@
 <tr>
-    <td>{{ $diagnosisIndex }}</td>
+    <td>{{ $diagnosisIndex }}.</td>
     <td>{{ $diagnosis->category }}</td>
     <td>{{ $diagnosis->subcategory }}</td>
     <td>{{ $diagnosis->english_name }}</td>

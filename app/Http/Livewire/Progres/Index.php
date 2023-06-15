@@ -41,7 +41,7 @@ class Index extends Component
                     $query->where('jenis_rawat', 'like', '%' . $this->search . '%');
                 });
             })
-            ->where("doctor_id", Auth::user()->id)->orderByDesc('created_at')->paginate(5);
+            ->where("doctor_id", Auth::user()->id)->orderByDesc('created_at')->paginate(10);
 
             return view("livewire.progres.index", compact("queues"));
         }

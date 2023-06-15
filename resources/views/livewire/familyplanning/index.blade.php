@@ -30,7 +30,7 @@
                             <table class="mb-0 table table-sm table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>No.</th>
                                         <th>Nama</th>
                                         <th>Usia</th>
                                         <th>Alamat</th>

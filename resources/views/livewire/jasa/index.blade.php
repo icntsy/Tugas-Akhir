@@ -38,7 +38,7 @@
                         <table class="mb-0 table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>No</th>
+                                    <th>No.</th>
                                     <th>Dokter / Bidan</th>
                                     <th>Harga Jasa</th>
                                 </tr>
@@ -46,7 +46,7 @@
                             <tbody>
                                 @forelse($user as $users)
                                 <tr>
-                                    <td>{{ $loop->index + 1 }}</td>
+                                    <td>{{ $loop->index + 1 }}.</td>
                                     <td>{{ $users->name }}</td>
                                     <td>
                                         @if ($users->harga_jasa == NULL)

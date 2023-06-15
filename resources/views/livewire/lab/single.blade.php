@@ -1,5 +1,5 @@
 <tr>
-    <td>{{$labIndex}}</td>
+    <td>{{$labIndex}}.</td>
     <td>{{ $lab->nama }}</td>
     <td>@rupiah( $lab->harga )</td>
     <td>{{ $lab->satuan }}</td>

@@ -1,5 +1,5 @@
 <tr>
-    <td>{{ $patientIndex }}</td>
+    <td>{{ $patientIndex }}.</td>
     <td>{{$patient->no_rekam_medis}}</td>
     <td>{{$patient->nik ?? "-"}}</td>
     <td>{{$patient->name}}</td>

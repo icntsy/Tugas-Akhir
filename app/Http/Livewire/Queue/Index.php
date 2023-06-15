@@ -50,9 +50,9 @@ class Index extends Component
             });
             $role = Auth::user()->role; // Definisikan variabel $role
             if (Auth::user()->role == "admin") {
-                $queues = $queues->paginate(5);
+                $queues = $queues->paginate(10);
             } else {
-                $queues = $queues->where("doctor_id", Auth::user()->id)->paginate(5);
+                $queues = $queues->where("doctor_id", Auth::user()->id)->paginate(10);
             }
             return view('livewire.queue.index', compact('queues', 'role')); // Mengirimkan $role ke view
 

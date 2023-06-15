@@ -48,7 +48,7 @@ class Index extends Component
         }else{
             $immunizations->latest('id');
         }
-        $immunizations = $immunizations->paginate(5);
+        $immunizations = $immunizations->paginate(10);
         return view('livewire.immunization.index',['immunizations' => $immunizations]);
     }
 }

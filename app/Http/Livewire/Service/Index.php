@@ -10,7 +10,7 @@ class Index extends Component
 {
     use WithPagination;
     public $search;
-    
+
     protected $listeners = [
         'serviceDeleted'
     ];
@@ -27,7 +27,7 @@ class Index extends Component
 
             $services = Service::query();
             $services->where('name', 'like', '%' . $this->search . '%');
-            $services = $services->paginate(5);
+            $services = $services->paginate(10);
             return view('livewire.service.index', compact('services'));
         }
     }

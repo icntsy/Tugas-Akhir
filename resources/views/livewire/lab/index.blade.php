@@ -41,7 +41,7 @@
                                     <table class="mb-0 table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>No</th>
+                                                <th>No.</th>
                                                 <th>Nama Laboratorium</th>
                                                 <th>Harga</th>
                                                 <th>Satuan</th>

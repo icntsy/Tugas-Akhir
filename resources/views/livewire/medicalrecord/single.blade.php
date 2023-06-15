@@ -1,6 +1,6 @@
 <tr>
 
-    <td>{{$recordIndex}}</td>
+    <td>{{$recordIndex}}.</td>
     <td>{{$record->patient->no_rekam_medis}}</td>
     <td>{{$record->patient->name}}</td>
 

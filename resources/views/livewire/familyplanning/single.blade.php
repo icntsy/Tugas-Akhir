@@ -1,6 +1,6 @@
 <tr>
 
-    <td>{{$familyplanningIndex}}</td>
+    <td>{{$familyplanningIndex}}.</td>
     <td>{{$familyplanning->name ?? "-"}}</td>
     <td>{{$familyplanning->age}}</td>
     <td>{{$familyplanning->address}}</td>

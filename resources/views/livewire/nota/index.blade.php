@@ -51,7 +51,7 @@
                             <table class="mb-0 table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>No</th>
+                                        <th>No.</th>
                                         <th>Nama Lengkap</th>
                                         <th>Tanggal Transaksi</th>
                                         <th>Jumlah Pembayaran</th>

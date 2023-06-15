@@ -94,7 +94,7 @@ class Index extends Component
             $query->latest('id');
         }
 
-        $records = $query->paginate(5)->appends(['search' => $this->search, 'startDate' => $this->startDate, 'endDate' => $this->endDate]);
+        $records = $query->paginate(10)->appends(['search' => $this->search, 'startDate' => $this->startDate, 'endDate' => $this->endDate]);
         // if (Auth::user()->role == "admin") {
             //     $records = $records->paginate(5);
             //    } else {

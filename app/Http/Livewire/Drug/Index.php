@@ -59,7 +59,7 @@ class Index extends Component
         } else {
             $drugs->orderBy('stok', 'asc');
         }
-        $drugs = $drugs->paginate(5);
+        $drugs = $drugs->paginate(10);
 
         return view('livewire.drug.index', ['drugs' => $drugs]);
     }

@@ -45,7 +45,7 @@ class Index extends Component
             }else{
                 $patients->latest('id');
             }
-            $patients = $patients->paginate(5);
+            $patients = $patients->paginate(10);
             return view('livewire.patient.index', compact('patients'));
         }
     }

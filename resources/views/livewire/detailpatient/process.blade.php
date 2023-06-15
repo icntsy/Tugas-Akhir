@@ -102,6 +102,10 @@ use Carbon\Carbon;
                         </div>
                         <hr>
                     </div>
+                    <div class="m-auto pt-3 pr-3">
+                        {{ $antrian->appends(request()->query())->links() }}
+                    </div>
+                    <div wire:loading wire:target="nextPage,gotoPage,previousPage" class="loader-page"></div>
                 </div>
             </div>
 
