@@ -29,7 +29,7 @@ class Create extends Component
             );
             $this->dispatchBrowserEvent('show-message', [
                 'type' => 'success',
-                'message' => 'Sukses menambah data laboratorium'
+                'message' => 'Sukses Menambah Data Laboratorium'
                 ]);
 
 

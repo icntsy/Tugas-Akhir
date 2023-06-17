@@ -15,6 +15,7 @@ class CreateFamilyPlanningExaminationTable extends Migration
     {
         Schema::create('family_planning_examination', function (Blueprint $table) {
             $table->id();
+            $table->integer('familyplannings_id');
             $table->date('arrival_date');
             $table->string('body_weight');
             $table->string('blood_pressure');

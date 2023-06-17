@@ -18,12 +18,30 @@ class TransactionExport implements
     WithStyles,
     ShouldAutoSize
 {
+
+    protected $startDate;
+    protected $endDate;
+
+    public function __construct($startDate, $endDate)
+    {
+        $this->startDate = $startDate;
+        $this->endDate = $endDate;
+    }
     /**
      * @return \Illuminate\Support\Collection
      */
     public function collection()
     {
-        return Transaction::all();
+        $query = Transaction::query();
+
+    if ($this->startDate && $this->endDate) {
+        $startDate = Carbon::parse($this->startDate)->startOfDay();
+        $endDate = Carbon::parse($this->endDate)->endOfDay();
+        $query->whereBetween('created_at', [$startDate, $endDate]);
+    }
+
+    return $query->get();
+        // return Transaction::all();
     }
 
     public function map($row): array
@@ -45,7 +63,7 @@ class TransactionExport implements
         return [
 
             'Nama Lengkap',
-            'Tanggal Periksa',
+            'Tanggal Transaksi',
             'Dokter / Bidan',
             'Layanan',
             'Jenis Rawat',

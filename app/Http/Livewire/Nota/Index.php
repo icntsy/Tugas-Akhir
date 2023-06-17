@@ -31,7 +31,11 @@ class Index extends Component
 
     public function downloadData()
     {
-        return Excel::download(new TransactionExport, 'data-nota.xlsx');
+        $startDate = Session::get('startDate');
+    $endDate = Session::get('endDate');
+
+    return Excel::download(new TransactionExport($startDate, $endDate), 'data-nota.xlsx');
+        // return Excel::download(new TransactionExport, 'data-nota.xlsx');
     }
     public function drugCreated()
     {
