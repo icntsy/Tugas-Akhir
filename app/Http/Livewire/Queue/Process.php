@@ -42,6 +42,7 @@ class Process extends Component
     public $abdomen;
     public $ekstremitas;
     public $jenis_rawat;
+    public $keterangan;
 
     public $anak_ke;
     public $hpht;
@@ -52,6 +53,7 @@ class Process extends Component
     public $djj;
     public $immunization_tt;
     public $description;
+    public $hpll;
     public $complaint;
 
     protected $listeners = [
@@ -84,6 +86,7 @@ class Process extends Component
             'abdomen' => 'required',
             'ekstremitas' => 'required',
             'jenis_rawat' => 'required',
+            'keterangan' => 'required',
         ];
     }
 
@@ -92,6 +95,9 @@ class Process extends Component
         $this->queue = $queue;
         $this->allergy = $this->queue->patient->allergy;
         $this->main_complaint = $this->queue->main_complaint;
+       // Mengambil data Pregnantmom terkait dengan antrian
+      //  $this->hpht = $pregnantmom->hpht;
+
     }
     public function render()
     {
@@ -204,7 +210,8 @@ class Process extends Component
                                             "thoraks" => $this->thoraks,
                                             "pulmo" => $this->pulmo,
                                             "abdomen" => $this->abdomen,
-                                            "ekstremitas" => $this->ekstremitas
+                                            "ekstremitas" => $this->ekstremitas,
+                                            "keterangan" => $this->keterangan
                                             ]
                                         ),
                                         'main_complaint' => $this->main_complaint,
@@ -251,7 +258,8 @@ class Process extends Component
                                                     "djj" => $request->djj,
                                                     "immunization_tt" => $request->immunization_tt,
                                                     "description" => $request->description,
-                                                    "complaint" => $request->complaint
+                                                    "complaint" => $request->complaint,
+                                                     "hpll" => $request->hpll,
                                                     ]);
 
                                                 }

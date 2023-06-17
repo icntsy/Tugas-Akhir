@@ -234,6 +234,13 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                             {{ $convert['ekstremitas'] }}
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td style="font-weight: bold;">Keterangan</td>
+                                        <td>:</td>
+                                        <td>
+                                            {{ $convert['keterangan'] }}
+                                        </td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -257,6 +264,7 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                         <th class="text-center">Respirasi</th>
                                         <th class="text-center">Detak Jantung</th>
                                         <th class="text-center">Suhu</th>
+                                        <th class="text-center">Keterangan</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -279,6 +287,7 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                         <td>{{ $json["respiration"] }}</td>
                                         <td>{{ $json["pulse"] }}</td>
                                         <td>{{ $json["temperature"] }}</td>
+                                        <td>{{ $json["keterangan"] }}</td>
                                     </tr>
                                     @endforeach
                                 </tbody>

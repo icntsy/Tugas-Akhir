@@ -10,17 +10,16 @@ class Create extends Component
     public $name;
     public $age;
     public $address;
-    public $weight;
-    public $blood_pressure;
-    public $description;
+    public $husbands_name;
+    public $entry_date;
+
 
     protected $rules = [
         'name' => 'required',
         'age' => 'required',
         'address' => 'required',
-        'weight' => 'required',
-        'blood_pressure' => 'required',
-        'description' => 'required'
+        'husbands_name' => 'required',
+        'entry_date' => 'required',
     ];
 
     public function create()
@@ -31,9 +30,8 @@ class Create extends Component
             'name' => $this->name,
             'age' => $this->age,
             'address' => $this->address,
-            'weight' => $this->weight,
-            'blood_pressure' => $this->blood_pressure,
-            'description' => $this->description,
+            'husbands_name' => $this->husbands_name,
+            'entry_date' => $this->entry_date,
         ]);
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',

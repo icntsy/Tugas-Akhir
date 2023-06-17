@@ -17,10 +17,17 @@
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
                     <div class='form-group col-md-6'>
-                        <label for='age' class='control-label'> {{ __('Usia') }}</label>
-                        <input type='text' wire:model.lazy='age'
+                        <label for='age' class='control-label'> {{ __('Tgl. Lahir') }}</label>
+                        <input type='date' wire:model.lazy='age'
                         class="form-control @error('age') is-invalid @enderror" id='age' autofocus placeholder="Usia">
                         @error('age')
+                        <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                    </div>
+                    <div class='form-group col-md-6'>
+                        <label for='husbands_name' class='control-label'> {{ __('Nama Suami') }}</label>
+                        <input type='text' wire:model.lazy='husbands_name'
+                        class="form-control @error('husbands_name') is-invalid @enderror" id='husbands_name' autofocus placeholder="Nama Lengkap Pasien">
+                        @error('husbands_name')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
                     <div class='form-group col-md-6'>
@@ -31,34 +38,12 @@
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
                     <div class='form-group col-md-6'>
-                        <label for='weight' class='control-label'> {{ __('Berat Badan') }}</label>
-                        <input type='text' wire:model.lazy='weight'
-                        class="form-control @error('weight') is-invalid @enderror" id='weight' autofocus placeholder="Berat badan">
-                        @error('weight')
+                        <label for='entry_date' class='control-label'> {{ __('Tgl. Masuk KB') }}</label>
+                        <input type='date' wire:model.lazy='entry_date'
+                        class="form-control @error('entry_date') is-invalid @enderror" id='entry_date' autofocus placeholder="Usia">
+                        @error('entry_date')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
-                    <div class='form-group col-md-6'>
-                        <label for='blood_pressure' class='control-label'> {{ __('Golongan Darah') }}</label>
-                        <select  wire:model.lazy='blood_pressure'
-                        class="form-control @error('blood_pressure') is-invalid @enderror" id='blood_pressure'>
-                        <option value="" >---Golongan Darah--</option>
-                        <option value="A" >A</option>
-                        <option value="B" >B</option>
-                        <option value="AB" >AB</option>
-                        <option value="O" >O</option>
-                        <option value="Tidak Tahu" >Tidak Tahu</option>
-                    </select>
-                    @error('blood_pressure')
-                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                </div>
-                <div class='form-group col-md-6'>
-                    <label for='address' class='control-label'> {{ __('Keterangan') }}</label>
-                    <textarea wire:model.lazy='description'
-                    placeholder="Keterangan" class="form-control @error('description')
-                    is-invalid @enderror" id='description'></textarea>
-                    @error('description')
-                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                </div>
             </div>
             <div class="card-footer text-right">
                 <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>

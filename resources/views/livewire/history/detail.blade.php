@@ -75,6 +75,7 @@
                                             <th>Tgl. Pemeriksaan</th>
                                             <th>Hamil Anak Ke</th>
                                             <th>HPHT</th>
+                                            <th>HPL</th>
                                             <th>Usia Kehamilan</th>
                                             <th>Lingkar Lengan Atas</th>
                                             <th>Berat Badan</th>
@@ -91,7 +92,8 @@
                                         <tr>
                                             <td>{{\Carbon\Carbon::parse($history->created_at)->format('H:i, d F Y')}}</td>
                                             <td>{{ $history->anak_ke }}</td>
-                                            <td>{{ $history->hpht }}</td>
+                                            <td>{{\Carbon\Carbon::parse($history->hpht)->format('d F Y')}}</td>
+                                            <td>{{\Carbon\Carbon::parse($history->hpll)->format('d F Y')}}</td>
                                             <td>{{ $history->pregnant_age }}</td>
                                             <td>{{ $history->lila }}</td>
                                             <td>{{ $history->weight }}</td>

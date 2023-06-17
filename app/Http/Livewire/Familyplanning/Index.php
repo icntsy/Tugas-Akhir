@@ -30,6 +30,7 @@ class Index extends Component
      *
      * @return \Illuminate\View\View|string
      */
+    
 
     public function render()
     {
@@ -37,9 +38,8 @@ class Index extends Component
         $familyplannings->where('name', 'like', '%'.$this->search.'%')
         ->orWhere('age', 'like', '%'.$this->search.'%')
         ->orWhere('address', 'like', '%'.$this->search.'%')
-        ->orWhere('weight', 'like', '%'.$this->search.'%')
-        ->orWhere('blood_pressure', 'like', '%'.$this->search.'%')
-        ->orWhere('description', 'like', '%'.$this->search.'%');
+        ->orWhere('entry_date', 'like', '%'.$this->search.'%')
+        ->orWhere('husbands_name', 'like', '%'.$this->search.'%');
         if($this->sortColumn){
             $familyplannings->orderBy($this->sortColumn, $this->sortType);
         }else{

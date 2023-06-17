@@ -20,8 +20,8 @@ class CreatePregnantmomsTable extends Migration
             // $table->text('address');
             $table->integer('gravida_id');
             $table->string('anak_ke');
-            $table->string('hpht');
-            // $table->string('hpl');
+            $table->date('hpht');
+            $table->date('hpll');
             $table->string('pregnant_age');
             $table->string('lila');
             $table->string('weight');

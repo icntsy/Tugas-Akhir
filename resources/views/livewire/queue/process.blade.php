@@ -192,9 +192,16 @@
                                     </div>
                                     <div class='form-group col-md-6'>
                                         <label for='hpht' class='control-label'> {{ __('HPHT') }}</label>
-                                        <input type='text' name='hpht'
-                                        class="form-control @error('hpht') is-invalid @enderror" id='hpht' autofocus placeholder="HPHT">
+                                        <input type='date' name='hpht'
+                                        class="form-control @error('hpht') is-invalid @enderror" id='hpht' autofocus placeholder="HPHT" >
                                         @error('hpht')
+                                        <div class='invalid-feedback'>{{ $message }}</div> @enderror
+                                    </div>
+                                    <div class='form-group col-md-6'>
+                                        <label for='hpll' class='control-label'> {{ __('HPL') }}</label>
+                                        <input type='date' name='hpll'
+                                        class="form-control @error('hpll') is-invalid @enderror" id='hpll' autofocus placeholder="HPL">
+                                        @error('hpll')
                                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                                     </div>
                                     <div class='form-group col-md-6'>
@@ -272,7 +279,6 @@
                     </div>
                 </div>
                 @role("dokter")
-
                 <div class="col-md-12">
                     <div class="main-card">
                         <div class="card-header">
@@ -344,7 +350,6 @@
             @error('pulmo')
             <div class='invalid-feedback'>{{ $message }}</div> @enderror
         </div>
-
         <div class='form-group col-md-3'>
             <label for='abdomen' class='control-label'> {{ __('Abdomen') }}</label>
             <select  wire:model.lazy='abdomen'
@@ -364,8 +369,6 @@
         @error('leher')
         <div class='invalid-feedback'>{{ $message }}</div> @enderror
     </div>
-
-
     <div class='form-group col-md-3'>
         <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah (mmHg)') }}</label>
         <input type='number' autofocus wire:model.lazy='blood_pressure' placeholder="Tekanan Darah"
@@ -407,6 +410,14 @@
         <option value="Inap">Rawat Inap</option>
     </select>
     @error('jenis_rawat')
+    <div class='invalid-feedback'>{{ $message }}</div> @enderror
+</div>
+<div class=" form-group col-md-6">
+    <label for='keterangan' class='control-label'> {{ __('Keterangan') }}</label>
+    <textarea  wire:model.lazy='keterangan' placeholder="keterangan"
+    class="form-control @error('keterangan') is-invalid @enderror"
+    id='keterangan'> </textarea>
+    @error('keterangan')
     <div class='invalid-feedback'>{{ $message }}</div> @enderror
 </div>
 </div>

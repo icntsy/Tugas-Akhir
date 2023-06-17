@@ -13,6 +13,7 @@ class Pregnantmom extends Model
         'gravida_id',
         'anak_ke',
         'hpht',
+        'hpll',
         'hpl',
         'pregnant_age',
         'lila',

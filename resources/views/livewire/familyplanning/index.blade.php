@@ -1,5 +1,5 @@
 @section('meta_title', 'Keluarga Berencana')
-@section('page_title', 'MASTER DATA KELUARGA BERENCANA')
+@section('page_title', 'DATA KELUARGA BERENCANA')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-portrait"></i>
 @endsection
@@ -32,11 +32,10 @@
                                     <tr>
                                         <th>No.</th>
                                         <th>Nama</th>
-                                        <th>Usia</th>
+                                        <th>Umur</th>
+                                        <th>Nama Suami</th>
                                         <th>Alamat</th>
-                                        <th>Berat Badan</th>
-                                        <th>Golongan Darah</th>
-                                        <th>Keterangan</th>
+                                        <th>Tgl. Masuk KB</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>

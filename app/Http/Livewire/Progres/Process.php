@@ -36,6 +36,7 @@ class Process extends Component
     public $respiration;
     public $pulse;
     public $temperature;
+    public $keterangan;
 
     public $complaint;
 
@@ -60,6 +61,7 @@ class Process extends Component
             'pulmo' => 'required',
             'abdomen' => 'required',
             'ekstremitas' => 'required',
+            'keterangan' => 'required',
         ];
     }
 
@@ -173,7 +175,8 @@ class Process extends Component
                                         "thoraks" => $this->thoraks,
                                         "pulmo" => $this->pulmo,
                                         "abdomen" => $this->abdomen,
-                                        "ekstremitas" => $this->ekstremitas
+                                        "ekstremitas" => $this->ekstremitas,
+                                        "keterangan" => $this->keterangan
                                         ]
                                     ),
                                     'patient_id' => $this->queue->patient->id,

@@ -339,6 +339,14 @@
         @error('temperature')
         <div class='invalid-feedback'>{{ $message }}</div> @enderror
     </div>
+    <div class=" form-group col-md-6">
+        <label for='keterangan' class='control-label'> {{ __('Keterangan') }}</label>
+        <textarea  wire:model.lazy='keterangan' placeholder="keterangan"
+        class="form-control @error('keterangan') is-invalid @enderror"
+        id='keterangan'> </textarea>
+        @error('keterangan')
+        <div class='invalid-feedback'>{{ $message }}</div> @enderror
+    </div>
 </div>
 <div class="card-header">
     Data Diagnosa, Laboratorium Dan Obat

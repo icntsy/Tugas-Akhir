@@ -10,11 +10,10 @@ class Familyplanning extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'age',
-        'address',
-        'husbands_name',
-        'entry_date',
+        'arrival_date',
+        'body_weight',
+        'blood_pressure',
+        'return_date',
     ];
 }
 

@@ -120,7 +120,6 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                             {{$queue->patient->allergy}}
                                         </td>
                                     </tr>
-
                                     <tr>
                                         <td style="font-weight: bold;">Keluhan Utama</td>
                                         <td>:</td>
@@ -239,6 +238,13 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                         <td>:</td>
                                         <td>
                                             {{ $convert['ekstremitas'] }}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-weight: bold;">Keterangan</td>
+                                        <td>:</td>
+                                        <td>
+                                            {{ $convert['keterangan'] }}
                                         </td>
                                     </tr>
                                 </table>

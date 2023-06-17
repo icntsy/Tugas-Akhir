@@ -148,7 +148,7 @@ class Index extends Component
         //     $transaksi->orderBy('id', 'desc');
         // }
 
-        $transaksi = $query->paginate(5)->appends(['search' => $this->search, 'startDate' => $this->startDate, 'endDate' => $this->endDate]);
+        $transaksi = $query->paginate(10)->appends(['search' => $this->search, 'startDate' => $this->startDate, 'endDate' => $this->endDate]);
         // $transaksi = $transaksi->paginate(5);
 
         return view('livewire.nota.index', ['transaksi' => $transaksi]);

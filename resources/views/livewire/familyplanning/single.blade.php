@@ -2,11 +2,11 @@
 
     <td>{{$familyplanningIndex}}.</td>
     <td>{{$familyplanning->name ?? "-"}}</td>
-    <td>{{$familyplanning->age}}</td>
+    <td>{{$this->getAge()}}</td>
+    {{-- <td>{{$familyplanning->age}}</td> --}}
+    <td>{{$familyplanning->husbands_name}}</td>
     <td>{{$familyplanning->address}}</td>
-    <td>{{$familyplanning->weight}}</td>
-    <td>{{$familyplanning->blood_pressure}}</td>
-    <td>{{$familyplanning->description}}</td>
+    <td>{{$familyplanning->entry_date}}</td>
     <td>
         <a wire:click="delete" class="btn text-danger">
             <i class="fa fa-trash fa-1x"></i>
@@ -16,3 +16,12 @@
         </a>
     </td>
 </tr>
+
+@push("js")
+<script>
+    var years = moment().diff('{{ $familyplanning->age }}', 'years');
+    console.log(years);
+</script>
+@endpush
+
+
