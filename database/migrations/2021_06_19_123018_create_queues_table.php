@@ -26,6 +26,7 @@ class CreateQueuesTable extends Migration
             $table->foreignIdFor(Patient::class);
             $table->foreignIdFor(Service::class);
             $table->foreignIdFor(\App\Models\MedicalRecord::class)->nullable();
+            $table->foreignIdFor(\App\Models\Pregnantmom::class)->nullable();
             $table->string("jenis_rawat")->nullable();
             $table->timestamps();
         });

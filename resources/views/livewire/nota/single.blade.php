@@ -1,14 +1,17 @@
 @php
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Models\MedicalRecordDrugs;
 @endphp
 
 @php
 $cek = DB::table("medical_record_drugs")
 ->rightJoin("drugs", "medical_record_drugs.drug_id", "=", "drugs.id")
-->where("medical_record_id", $transaksi->queue->medicalrecord->id)
+->where("medical_record_id", $transaksi->queue?->medicalrecord?->id)
 ->select("drugs.nama")
 ->get();
+// $cek = MedicalRecordDrugs::
+// dd($cek);
 @endphp
 <tr>
     <td>{{$transaksiIndex}}.</td>
@@ -33,5 +36,12 @@ $cek = DB::table("medical_record_drugs")
         {{ $transaksi->queue->doctor->name }}
     </td>
     <td>{{ $transaksi->queue->service->name }}</td>
-    <td>{{ $queue->jenis_rawat }}</td>
+    {{-- <td>{{ $queue->jenis_rawat }}</td> --}}
+    <td>
+        @if ($queue->jenis_rawat == NULL)
+        -
+        @else
+        {{$queue->jenis_rawat}}
+        @endif
+    </td>
 </tr>

@@ -47,9 +47,9 @@ class Index extends Component
         $user = User::query();
         $user->where('name', 'like', '%' . $this->search . '%');
         if ($this->sortColumn) {
-            $user->orderBy($this->sortColumn, $this->sortType)->where("role", "dokter");
+            $user->orderBy($this->sortColumn, $this->sortType)->where("role", "dokter")->orWhere("role", "bidan");
         } else {
-            $user->orderBy('id', 'asc')->where("role", "dokter");
+            $user->orderBy('id', 'asc')->where("role", "dokter")->orWhere("role", "bidan");
         }
         $user = $user->paginate(5);
 

@@ -19,7 +19,9 @@ class Queue extends Model
         'main_complaint',
         'service_id',
         'jenis_rawat',
-        'medical_record_id'
+        'medical_record_id',
+        'pregnantmom_id'
+
     ];
 
     public function patient(){
@@ -33,7 +35,7 @@ class Queue extends Model
     public function service(){
         return $this->belongsTo(Service::class);
     }
-  
+
     public function medicalrecord(){
         return $this->belongsTo(MedicalRecord::class, 'medical_record_id');
     }
@@ -45,6 +47,11 @@ class Queue extends Model
     public function inap()
     {
         return $this->belongsTo("App\Models\MedicalRecordInap", "medical_record_id", "medical_record_id");
+    }
+
+    public function pregnantmom()
+    {
+        return $this->belongsTo("App\Models\Pregnantmom", "pregnantmom_id", "id");
     }
 
     protected $with = [

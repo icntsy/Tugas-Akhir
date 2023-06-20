@@ -45,17 +45,26 @@ class Drug extends Component
 
 
             // Memeriksa peran pengguna yang sedang login
-            $user = Auth::user();
-            if ($user && $user->role === 'dokter') {
-                $queues->where('jenis_rawat', 'Inap');
 
-            } else {
-                $queues->where('jenis_rawat', 'Jalan');
+            $user = Auth::user();
+
+            if ($user && $user->role == 'dokter') {
+                $queues->where('jenis_rawat', 'Inap');
 
             }
 
-            $queues->whereDate('created_at', Carbon::today())->where('has_check', true)->where('has_drug', false);
-            $queues = $queues->paginate(5);
+             if ($user->role == "apoteker") {
+
+                 $queues->where(function($queues){
+                     $queues->where("jenis_rawat", "Jalan")->orWhere("jenis_rawat", NULL);
+                 });
+            }
+
+            $queues->where(function($query) {
+                $query->where('has_check', true)->orWhere('has_drug', false);
+            });
+            $queues = $queues->paginate(10);
+
 
             return view('livewire.queue.drug', compact('queues'));
         }

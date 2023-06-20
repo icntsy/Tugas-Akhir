@@ -43,16 +43,16 @@
                                 $hasQueue = false;
                                 @endphp
                                 @forelse($queues as $queue)
-                                @if (!$queue->transaction)
-                                <livewire:queue.drug-table :queue="$queue" :key="time() . $queue->id" />
-                                @php
-                                $hasQueue = true;
-                                @endphp
-                                @endif
+                                    @if (!$queue->transaction)
+                                        <livewire:queue.drug-table :queue="$queue" :key="time() . $queue->id" />
+                                        @php
+                                            $hasQueue = true;
+                                        @endphp
+                                    @endif
                                 @empty
-                                @php
-                                $hasQueue = false;
-                                @endphp
+                                    @php
+                                        $hasQueue = false;
+                                    @endphp
                                 @endforelse
                                 @if (!$hasQueue)
                                 <tr>

@@ -7,6 +7,7 @@ use App\Models\Lab;
 use App\Models\MedicalRecord;
 use App\Models\MedicalRecordDetail;
 use App\Models\Pregnantmom;
+use App\Models\DrugBidan;
 use App\Models\Queue;
 use App\Models\Gravida;
 use Livewire\Component;
@@ -55,6 +56,7 @@ class Process extends Component
     public $description;
     public $hpll;
     public $complaint;
+    public $harga;
 
     protected $listeners = [
         'diagnosaAdded',
@@ -87,6 +89,18 @@ class Process extends Component
             'ekstremitas' => 'required',
             'jenis_rawat' => 'required',
             'keterangan' => 'required',
+            'immunization_tt' => 'required',
+            'anak_ke' => 'required',
+            'hpht' => 'required',
+            'pregnant_age' => 'required',
+            'lila' => 'required',
+            'hpl' => 'required',
+            'tfu' => 'required',
+            'djj' => 'required',
+            'description' => 'required',
+            'hpll' => 'required',
+            'complaint' => 'required',
+            'harga' => "required"
         ];
     }
 
@@ -95,8 +109,8 @@ class Process extends Component
         $this->queue = $queue;
         $this->allergy = $this->queue->patient->allergy;
         $this->main_complaint = $this->queue->main_complaint;
-       // Mengambil data Pregnantmom terkait dengan antrian
-      //  $this->hpht = $pregnantmom->hpht;
+        // Mengambil data Pregnantmom terkait dengan antrian
+        //  $this->hpht = $pregnantmom->hpht;
 
     }
     public function render()
@@ -212,90 +226,100 @@ class Process extends Component
                                             "abdomen" => $this->abdomen,
                                             "ekstremitas" => $this->ekstremitas,
                                             "keterangan" => $this->keterangan
-                                            ]
-                                        ),
-                                        'main_complaint' => $this->main_complaint,
-                                        'doctor_id' => $this->queue->doctor->id,
-                                        'patient_id' => $this->queue->patient->id,
-                                        ]);
+                                        ]
+                                    ),
+                                    'main_complaint' => $this->main_complaint,
+                                    'doctor_id' => $this->queue->doctor->id,
+                                    'patient_id' => $this->queue->patient->id,
+                                ]);
 
-                                        MedicalRecordDetail::create([
-                                            "queue_id" => $medical_record->id,
-                                            "status" => 0
-                                            ]);
+                                MedicalRecordDetail::create([
+                                    "queue_id" => $medical_record->id,
+                                    "status" => 0
+                                ]);
 
-                                        } else if (Auth::user()->role == "bidan") {
+                            } else if (Auth::user()->role == "bidan") {
 
-                                            $cek = Gravida::where("patien_id", $request->patient_id)->count();
+                                $cek = Gravida::where("patien_id", $this->queue->patient->id)->count();
 
-                                            if ($cek == 0) {
-                                                $gravida = Gravida::create([
+                                if ($cek == 0) {
+                                    $gravida = Gravida::create([
+                                        "patien_id" => $this->queue->patient->id,
+                                        "bidan_id" => $this->queue->doctor->id,
+                                        "hpl" => $this->hpll
+                                    ]);
+                                }
 
-                                                    "patien_id" => $request->patient_id,
-                                                    "bidan_id" => $request->doctor_id,
-                                                    "hpl" => "Senin"
+                                $kondisi = Gravida::where("patien_id", $this->queue->patient->id)->first();
 
-                                                    ]);
-                                                }
+                                if (empty($kondisi)) {
+                                    $gravida_id = $request->gravida_id;
+                                } else {
+                                    $gravida_id = $kondisi->id;
+                                }
 
-                                                $kondisi = Gravida::where("patien_id", $request->patient_id)->first();
+                                $pregnantmoms = Pregnantmom::create([
+                                    "gravida_id" => $gravida_id,
+                                    "anak_ke" => $this->anak_ke,
+                                    "hpht" => $this->hpht,
+                                    "pregnant_age" => $this->pregnant_age,
+                                    "lila" => $this->lila,
+                                    "weight" => $this->weight,
+                                    "blood_pressure" => $this->blood_pressure,
+                                    "tfu" => $this->tfu,
+                                    "djj" => $this->djj,
+                                    "immunization_tt" => $this->immunization_tt,
+                                    "description" => $this->description,
+                                    "complaint" => $this->complaint,
+                                    "hpll" => $this->hpll,
+                                ]);
+                            }
 
-                                                if (empty($kondisi)) {
-                                                    $gravida_id = $request->gravida_id;
-                                                } else {
-                                                    $gravida_id = $kondisi->id;
-                                                }
+                            if (Auth::user()->role == "dokter") {
+                                foreach ($this->listDiagnosa as $diagnosa) {
+                                    $medical_record->diagnoses()->attach($diagnosa["diagnosa"]["id"], [
+                                        "description" => $diagnosa["description"]
+                                    ]);
+                                }
+                                foreach ($this->listLab as $lab) {
+                                    $medical_record->labs()->attach($lab["lab"]["id"], [
+                                        "result" => $lab["result"]
+                                    ]);
+                                }
+                                foreach ($this->listDrug as $drug) {
+                                    $medical_record->drugs()->attach($drug["drug"]["id"], [
+                                        "quantity" => $drug["quantity"],
+                                        "instruction" => $drug["instruction"]
+                                    ]);
+                                }
+                            } else if (Auth::user()->role == "bidan") {
+                                foreach ($this->listDrug as $drug) {
+                                    DrugBidan::create([
+                                        "pregnantmom_id" => $pregnantmoms["id"],
+                                        "drug_id" => $drug["drug"]["id"],
+                                        "quantity" => $drug["quantity"],
+                                        "instruction" => $drug["instruction"],
+                                        "harga" => $this->harga
+                                    ]);
+                                }
+                            }
 
-                                                $pregnantmoms = Pregnantmom::create([
-                                                    "gravida_id" => $gravida_id,
-                                                    "anak_ke" => $request->anak_ke,
-                                                    "hpht" => $request->hpht,
-                                                    "pregnant_age" => $request->pregnant_age,
-                                                    "lila" => $request->lila,
-                                                    "weight" => $request->weight,
-                                                    "blood_pressure" => $request->blood_pressure,
-                                                    "tfu" => $request->tfu,
-                                                    "djj" => $request->djj,
-                                                    "immunization_tt" => $request->immunization_tt,
-                                                    "description" => $request->description,
-                                                    "complaint" => $request->complaint,
-                                                     "hpll" => $request->hpll,
-                                                    ]);
-
-                                                }
-                                                foreach ($this->listDiagnosa as $diagnosa) {
-                                                    $medical_record->diagnoses()->attach($diagnosa["diagnosa"]["id"], [
-                                                        "description" => $diagnosa["description"]
-                                                        ]);
-                                                    }
-                                                    foreach ($this->listLab as $lab) {
-                                                        $medical_record->labs()->attach($lab["lab"]["id"], [
-                                                            "result" => $lab["result"]
-                                                            ]);
-                                                        }
-
-                                                        foreach ($this->listDrug as $drug) {
-                                                            $medical_record->drugs()->attach($drug["drug"]["id"], [
-                                                                "quantity" => $drug["quantity"],
-                                                                "instruction" => $drug["instruction"]
-                                                                ]);
-                                                            }
-
-                                                            if (Auth::user()->role == "dokter") {
-                                                                $this->queue->update([
-                                                                    'has_check' => true,
-                                                                    'medical_record_id' => $medical_record->id,
-                                                                    'jenis_rawat' => $this->jenis_rawat,
-                                                                    ]);
-                                                                    $this->redirectRoute('queue.index');
-                                                                } else if (Auth::user()->role == "bidan") {
-                                                                    Queue::where("patient_id", $request->patient_id)->update([
-                                                                        "has_check" => true
-                                                                        ]);
-                                                                        return redirect("/antrian");
-                                                                    }
-                                                                } catch (\Exception $e) {
-                                                                    dd($e);
-                                                                }
-                                                            }
-                                                        }
+                            if (Auth::user()->role == "dokter") {
+                                $this->queue->update([
+                                    'has_check' => true,
+                                    'medical_record_id' => $medical_record->id,
+                                    'jenis_rawat' => $this->jenis_rawat,
+                                ]);
+                                $this->redirectRoute('queue.index');
+                            } else if (Auth::user()->role == "bidan") {
+                                Queue::where("id", $this->queue->id)->update([
+                                    "pregnantmom_id" => $pregnantmoms["id"],
+                                    "has_check" => true
+                                ]);
+                                return redirect("/antrian");
+                            }
+                        } catch (\Exception $e) {
+                            dd($e);
+                        }
+                    }
+                }

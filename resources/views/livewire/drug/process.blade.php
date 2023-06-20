@@ -1,5 +1,6 @@
 @php
-    use App\Models\MedicalRecordDrugs;
+use App\Models\MedicalRecordDrugs;
+use App\Models\DrugBidan;
 @endphp
 @section('meta_title', 'MEDICAL RECORD')
 @section('page_title', 'PROCESS  PEMBAYARAN')
@@ -93,7 +94,13 @@
                                             <tr>
                                                 <td style="font-weight: bold;" width="35%">Jenis Rawat </td>
                                                 <td>:</td>
-                                                <td>{{$queue->jenis_rawat}}</td>
+                                                <td>
+                                                    @if ($queue->jenis_rawat == NULL)
+                                                    -
+                                                    @else
+                                                    {{$queue->jenis_rawat}}
+                                                    @endif
+                                                </td>
                                             </tr>
 
                                         </tbody>
@@ -103,7 +110,7 @@
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                @if ($queue->jenis_rawat !== 'Inap')
+                                                @if ($queue->jenis_rawat === 'Jalan')
                                                 <th>No</th>
                                                 <th>Nama Obat</th>
                                                 <th>Qty</th>
@@ -117,20 +124,28 @@
                                                 <th>Harga</th>
                                                 <th>Total</th>
                                                 @endif
+                                                @if ($queue->jenis_rawat === NULL)
+                                                <th>No</th>
+                                                <th>Qty</th>
+                                                <th>Nama</th>
+                                                <th>Aturan Pakai</th>
+                                                <th>Harga</th>
+                                                <th>Total</th>
+                                                @endif
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @if ($queue->jenis_rawat == "Inap")
                                             @php
-                                                $tampung = 0;
-                                                $qty = 0;
-                                                $total = 0;
-                                                $record_obat = MedicalRecordDrugs::where("medical_record_id", $queue->medical_record_id)->get();
-                                                foreach ($record_obat as $key => $value) {
-                                                    $tampung = $value->Drugs->harga;
-                                                    $qty = $value->quantity;
-                                                    $total += $tampung * $qty;
-                                                }
+                                            $tampung = 0;
+                                            $qty = 0;
+                                            $total = 0;
+                                            $record_obat = MedicalRecordDrugs::where("medical_record_id", $queue->medical_record_id)->get();
+                                            foreach ($record_obat as $key => $value) {
+                                                $tampung = $value->Drugs->harga;
+                                                $qty = $value->quantity;
+                                                $total += $tampung * $qty;
+                                            }
                                             @endphp
                                             <tr>
                                                 <td>1.</td>
@@ -220,7 +235,6 @@
                                                 <td><input type="number" name="harga12" wire:model="harga12" placeholder="Harga" class="form-control" /></td>
                                                 <td><input type="text" class="form-control" value="{{ isset($qty12) && isset($harga12) ? number_format((float)$qty12 * (float)$harga12) : '' }}" readonly></td>
                                             </tr>
-
                                             @elseif($queue->jenis_rawat == "Jalan")
                                             @foreach ($queue->medicalrecord->drugs as $drug)
                                             @php
@@ -232,6 +246,24 @@
                                                 <td>{{$drug->pivot->quantity}}</td>
                                                 <td>{{$drug->pivot->instruction}}</td>
                                                 <td>Rp. {{ number_format($drug->harga * $drug->pivot->quantity) }}</td>
+                                            </tr>
+                                            @endforeach
+                                            @elseif($queue->jenis_rawat == NULL)
+                                            @php
+                                            $subtotal = 0;
+                                            $drug_bidan = DrugBidan::where("pregnantmom_id", $queue->pregnantmom_id)->get();
+                                            @endphp
+                                            @foreach ($drug_bidan as $item)
+                                                @php
+                                                $subtotal += $item->harga * $item->quantity;
+                                                @endphp
+                                            <tr>
+                                                <td>{{ $loop->index + 1 }}</td>
+                                                <td>{{$item->quantity}}</td>
+                                                <td>{{$item->drug->nama}}</td>
+                                                <td>{{ $item->instruction }}</td>
+                                                <td>{{ $item->harga }}</td>
+                                                <td>{{ $item->harga * $item->quantity }}</td>
                                             </tr>
                                             @endforeach
                                             @endif

@@ -36,7 +36,7 @@
                 <button class="btn btn-sm btn-danger">
                     Pasien Belum Pulang
                 </button>
-                @elseif($queue->jenis_rawat == "Jalan")
+                @elseif($queue->jenis_rawat == "Jalan" || $queue->jenis_rawat == NULL)
                 <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>
                 @endif
             @endif

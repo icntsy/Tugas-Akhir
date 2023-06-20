@@ -27,7 +27,7 @@ class Import extends Component
 
     public function render()
     {
-        $data["users"] = User::where("role", "dokter")->get();
+        $data["users"] = User::where("role", "dokter")->orWhere("role", "bidan")->get();
 
         return view('livewire.jasa.import', $data);
     }
