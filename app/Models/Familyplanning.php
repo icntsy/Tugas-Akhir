@@ -16,5 +16,10 @@ class Familyplanning extends Model
         'husbands_name',
         'entry_date',
     ];
+
+    public function familyplanningexamination()
+{
+    return $this->belongsToMany("App\Models\FamilyPlanningExamination", "familyplanning_id", "id");
+}
 }
 

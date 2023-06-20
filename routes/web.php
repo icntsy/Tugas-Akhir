@@ -91,6 +91,8 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
     Route::get('antri/obat', \App\Http\Livewire\Queue\Drug::class)->name('queue.drug');
     Route::get('antri/obat/process/{queue}', \App\Http\Livewire\Drug\Process::class)->name('queue.drug.process');
     Route::post('antri/obat/process/{queue}', [\App\Http\Livewire\Drug\Store::class, "store"]);
+    Route::get('/keluargaberencana/buat', \App\Http\Livewire\Familyplanning\Buat::class)->name('familyplanning.buat');
+
 
     foreach ($list_menu as $key => $menu) {
         $name = ucfirst($key);

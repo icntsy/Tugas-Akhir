@@ -3,7 +3,6 @@
     <td>{{$familyplanningIndex}}.</td>
     <td>{{$familyplanning->name ?? "-"}}</td>
     <td>{{$this->getAge()}}</td>
-    {{-- <td>{{$familyplanning->age}}</td> --}}
     <td>{{$familyplanning->husbands_name}}</td>
     <td>{{$familyplanning->address}}</td>
     <td>{{$familyplanning->entry_date}}</td>
@@ -13,6 +12,9 @@
         </a>
         <a href="{{route('familyplanning.update', ['familyplanning' => $familyplanning->id])}}" class="btn text-warning">
             <i class="fa fa-edit fa-1x"></i>
+        </a>
+        <a href="{{route('familyplanning.buat')}}" class="btn text-success">
+            <i class="fa fa-plus-square" aria-hidden="true"></i>
         </a>
     </td>
 </tr>
