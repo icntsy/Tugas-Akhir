@@ -30,25 +30,9 @@ class Index extends Component
         $this->sortType = $sort;
     }
 
-    // public function render()
-    // {
-        //     $gravida = Gravida::query()->where('id', 'like', '%' . $this->search . '%');
-        //     if ($this->sortColumn) {
-            //         $gravida->orderBy($this->sortColumn, $this->sortType);
-            //     } else {
-                //         $gravida->latest('id');
-                //     }
-
-                //     $gravida = $gravida->where("bidan_id", Auth::user()->id)->paginate(7);
-
-                //     return view('livewire.History.index', compact('gravida'));
-                // }
-
-
                 public function render()
                 {
                     $query = Gravida::query()->where('id', 'like', '%' . $this->search . '%');
-
 
                     $query->orWhere(function ($query) {
                         $query->whereHas('patient', function ($query) {
@@ -64,7 +48,6 @@ class Index extends Component
                     } else {
                         $query->latest('id');
                     }
-
 
                     $gravida = $query->where("bidan_id", Auth::user()->id)->paginate(10);
                     $gravida->appends(['search' => $this->search]);

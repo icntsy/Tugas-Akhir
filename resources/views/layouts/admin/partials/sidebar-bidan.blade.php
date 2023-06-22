@@ -9,7 +9,6 @@
     <li class="app-sidebar__heading">Data Antrian</li>
     <li>
         <a href="{{ route('queue.index') }}" class="@if (Request::is('antrian*')) mm-active @endif">
-
             <i class="metismenu-icon fa fa-clipboard" aria-hidden="true"></i>
             Antrian Periksa
         </a>
@@ -30,7 +29,7 @@
     </li>
     <li>
         <a href="{{ route('familyplanning.index') }}" class="@if (Request::is('keluargaberencana*')) mm-active @endif">
-            <i class="metismenu-icon fa fa-clipboard-list"></i>
+            <i class="metismenu-icon fa fa-child" aria-hidden="true"></i>
             Data Keluarga Berencana
         </a>
     </li>

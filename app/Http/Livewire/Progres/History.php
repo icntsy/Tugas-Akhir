@@ -51,7 +51,6 @@ class History extends Component
         $data["history"] = HistoryMcu::where("medical_record_id", $this->queue->medicalrecord->id)->orderBy('created_at', 'desc')->paginate(10);
         // $data["history"] = HistoryMcu::where("medical_record_id", $this->queue->medicalrecord->id)->get();
         $no = ($data["history"]->currentPage() - 1) * $data["history"]->perPage() + 1;
-        // return view('livewire.progres.history', $data);
         return view('livewire.progres.history', ['history' => $data['history'], 'no' => $no]);
     }
 

@@ -1,13 +1,13 @@
 @section('meta_title', 'Keluarga Berencana')
 @section('page_title', 'TAMBAH DATA KELUARGA BERENCANA')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-portrait"></i>
+<i class="metismenu-icon fa fa-child" aria-hidden="true"></i>
 @endsection
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
-
                 <div class="card-body row">
                     <div class='form-group col-md-6'>
                         <label for='name' class='control-label'> {{ __('Nama Lengkap') }}</label>

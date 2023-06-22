@@ -3,7 +3,6 @@
     <td>{{$recordIndex}}.</td>
     <td>{{$record->patient->no_rekam_medis}}</td>
     <td>{{$record->patient->name}}</td>
-
     <td>{{\Carbon\Carbon::parse($record->created_at)->format('d F Y ')}}</td>
     <td>{{$record->main_complaint}}</td>
     <td>

@@ -12,5 +12,4 @@ class HistoryMcu extends Model
 
     protected $guarded = [''];
 
-
 }

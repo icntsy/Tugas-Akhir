@@ -51,7 +51,7 @@ class Index extends Component
         } else {
             $user->orderBy('id', 'asc')->where("role", "dokter")->orWhere("role", "bidan");
         }
-        $user = $user->paginate(5);
+        $user = $user->paginate(10);
 
         return view('livewire.jasa.index', ['user' => $user]);
     }

@@ -38,7 +38,7 @@ class Index extends Component
             }else{
                 $responses->latest('id');
             }
-            $responses = $responses->paginate(5);
+            $responses = $responses->paginate(10);
             return view('livewire.response.index', compact('responses'));
         }
     }

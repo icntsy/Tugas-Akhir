@@ -11,7 +11,6 @@
                 </div>
             </div>
         </div>
-
         <div class="page-title-actions">
             @yield('page_title_buttons')
         </div>

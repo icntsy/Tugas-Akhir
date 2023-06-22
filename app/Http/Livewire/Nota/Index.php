@@ -17,7 +17,6 @@ class Index extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $search;
-    // protected $queryString = ['search'];
      // Tambah
      protected $queryString = ['search', 'startDate', 'endDate'];
 

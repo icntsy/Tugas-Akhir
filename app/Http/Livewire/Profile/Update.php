@@ -69,7 +69,6 @@ class Update extends Component
             'message' => 'Data User Berhasil Diupdate'
             ]);
 
-
             return redirect('/profile');
         }
 
@@ -90,7 +89,7 @@ class Update extends Component
         {
             $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
         }
-        
+
         public function render()
         {
             return view('livewire.profile.update');

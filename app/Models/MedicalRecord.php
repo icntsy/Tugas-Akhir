@@ -29,20 +29,16 @@ class MedicalRecord extends Model
     public function labs(){
         return $this->belongsToMany(Lab::class, 'medical_record_labs')->withPivot('result');
     }
-
     public function diagnoses(){
         return $this->belongsToMany(Diagnosis::class, 'medical_record_diagnoses');
     }
-
     public function medicalRecordDrugs()
     {
         return $this->hasOne(MedicalRecordDrugs::class, 'medical_record_id', 'id');
     }
-
     public function queue() {
         return $this->hasOne(Queue::class, 'medical_record_id', 'id');
     }
-
     public function inap()
     {
         return $this->belongsTo("App\Models\MedicalRecordInap", "id", "medical_record_id");

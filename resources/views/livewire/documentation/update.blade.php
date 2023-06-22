@@ -7,7 +7,6 @@
     <div class="col-md-12">
         <div class="card">
             <form class="form-horizontal" wire:submit.prevent="update" enctype="multipart/form-data">
-
                 <div class="card-body row">
                     <div class='form-group col-md-6'>
                         <label for='title' class='control-label'> {{ __('Nama') }}</label>

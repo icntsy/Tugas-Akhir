@@ -14,7 +14,6 @@ class DiagnosaSingle extends Component
     }
 
     public function select(){
-//        $this->emitTo('queue.process','diagnosaAdded', $this->diagnosis->id );
         $this->emit('diagnosaAdded', $this->diagnosis->id);
     }
     public function render()

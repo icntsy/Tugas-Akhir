@@ -1,7 +1,7 @@
 @section('meta_title', 'Lab')
 @section('page_title', 'TAMBAH DATA LAYANAN')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-list"></i>
+<i class="metismenu-icon fa fa-server" aria-hidden="true"></i>
 @endsection
 <div class="row">
     <div class="col-md-12">
@@ -15,7 +15,7 @@
                         <label for='name' class='control-label'> {{ __('Nama Layanan') }}</label>
                         <input type='text' wire:model.lazy='name'
                         class="form-control @error('name') is-invalid @enderror" id='name'
-                        placeholder="Contoh : Poliklinik">
+                        placeholder="Contoh : Layanan">
                         @error('name')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>

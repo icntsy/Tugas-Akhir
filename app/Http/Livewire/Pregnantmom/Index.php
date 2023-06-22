@@ -41,7 +41,7 @@ class Index extends Component
             }else{
                 $pregnantmoms->latest('id');
             }
-            $pregnantmoms = $pregnantmoms->paginate(5);
+            $pregnantmoms = $pregnantmoms->paginate(10);
             return view('livewire.pregnantmom.index', compact('pregnantmoms'));
         }
     }

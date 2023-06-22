@@ -4,7 +4,6 @@
 <i class="metismenu-icon fa fa-outdent" aria-hidden="true"></i>
 @endsection
 
-
 <div class="row">
     <div class="card col-md-12">
         @role("dokter")

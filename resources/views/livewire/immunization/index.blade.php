@@ -1,8 +1,9 @@
 @section('meta_title', 'Imunisasi')
 @section('page_title', 'DATA IMUNISASI')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-portrait"></i>
+<i class="metismenu-icon fa fa-clipboard"></i>
 @endsection
+
 <div class="row">
     <div class="col-12">
         <div class="mb-3 card">

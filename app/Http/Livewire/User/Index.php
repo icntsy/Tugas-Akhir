@@ -18,7 +18,6 @@ class Index extends Component
     public $sortType;
     public $sortColumn;
 
-
     public function delete(User $user)
     {
         $user->delete();

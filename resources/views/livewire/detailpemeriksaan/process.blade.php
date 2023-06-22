@@ -57,7 +57,6 @@ use Carbon\Carbon;
                                             {{ $antrian->entry_date }}
                                         </td>
                                     </tr>
-
                                 </tbody>
                             </table>
                         </div>
@@ -65,7 +64,6 @@ use Carbon\Carbon;
                     </div>
                 </div>
             </div>
-
             <div class="col-md-12">
                 <div class="main-card">
                     <div class="card-header">
@@ -100,28 +98,17 @@ use Carbon\Carbon;
                         </div>
                         <hr>
                     </div>
-                    {{-- <div class="m-auto pt-3 pr-3"> --}}
-                         {{-- {{ $value->appends(request()->query())->links() }} --}}
-                    {{-- </div> --}}
                     <div class="m-auto pt-3 pr-3">
                         {{ $familyPlanningExaminations->appends(request()->query())->links() }}
                     </div>
-
-
-
                     <div wire:loading wire:target="nextPage,gotoPage,previousPage" class="loader-page"></div>
                 </div>
             </div>
-
             <div class="col-md-12">
                 <div class="main-card">
-
-
                     <div class="card-body row">
                         <div class="col-md-12">
                             <div class="card-main">
-
-
                             </div>
                         </div>
                     </div>

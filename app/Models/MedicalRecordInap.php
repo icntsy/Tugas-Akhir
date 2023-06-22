@@ -15,11 +15,9 @@ class MedicalRecordInap extends Model
     public function drugs(){
         return $this->belongsToMany("App\Models\Drug", "medical_record_id", "medical_record_id")->withPivot(['quantity', 'instruction']);
     }
-
     public function labs(){
         return $this->belongsToMany("App\Models\Lab", "medical_record_id", "medical_record_id")->withPivot('result');
     }
-
     public function diagnoses(){
         return $this->belongsToMany("App\Models\Diagnosis", "medical_record_id", "id");
     }

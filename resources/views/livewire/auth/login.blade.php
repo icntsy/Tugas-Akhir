@@ -5,7 +5,6 @@
                 <form class="" method="post" wire:submit.prevent="login">
                     @csrf
                     <div class="modal-content">
-
                         <div class="modal-body">
                             <div class="h5 modal-title text-center">
                                 <h4 class="mt-2">
@@ -63,5 +62,4 @@
             </div>
         </div>
     </div>
-    {{-- </div> --}}
 </div>

@@ -20,10 +20,6 @@ class CreateDocumentationsTable extends Migration
             $table->string('description');
             $table->string('url');
             $table->string('method');
-            // $table->foreignId('parameter_id');
-            // $table->foreignId('response_id');
-            // $table->foreignIdFor(\App\Models\Parameter::class);
-            // $table->foreignIdFor(\App\Models\Response::class);
             $table->timestamps();
         });
     }

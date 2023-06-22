@@ -25,6 +25,4 @@ class Patient extends Model
         'allergy',
         'no_rekam_medis',
     ];
-
-
 }

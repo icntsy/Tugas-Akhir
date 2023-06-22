@@ -12,7 +12,6 @@
     <td>{{$queue->has_drug ? "Selesai" : "Belum"}}</td>
     <td>{{$queue->doctor->name}}</td>
     <td>{{$queue->service->name}}</td>
-    {{-- <td>{{ $queue->jenis_rawat }}</td> --}}
     <td>
         @if ($queue->doctor->role === 'bidan')
         {{ '-' }}

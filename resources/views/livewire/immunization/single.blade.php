@@ -1,5 +1,4 @@
 <tr>
-
     <td>{{$immunizationIndex}}.</td>
     <td>{{$immunization->name ?? "-"}}</td>
     <td>{{$immunization->age}}</td>

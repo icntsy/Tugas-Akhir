@@ -23,7 +23,6 @@ class CreatePatientsTable extends Migration
             $table->string('profession');
             $table->enum('study', ['Tidak Sekolah','SD', 'SMP', 'SMA', 'Perguruan Tinggi']);
             $table->enum('blood_type', ['A','B', 'AB', 'O', 'Tidak Tahu']);
-            // $table->string('bpjs_number')->nullable();
             $table->string('phone_number')->nullable();
             $table->text('allergy')->nullable();
             $table->string('no_rekam_medis')->unique();

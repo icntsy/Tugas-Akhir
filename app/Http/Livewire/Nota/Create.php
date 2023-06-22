@@ -34,7 +34,6 @@ class Create extends Component
             'harga' => $this->harga,
             ]);
 
-
             if ($this->stok <= 10) {
                 $mail = new PHPMailer(true);
 
@@ -73,4 +72,4 @@ class Create extends Component
         }
     }
 
-    
+

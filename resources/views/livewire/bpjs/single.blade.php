@@ -14,5 +14,4 @@
     </td>
 </tr>
 @push("js")
-
 @endpush

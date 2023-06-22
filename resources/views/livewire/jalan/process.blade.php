@@ -276,7 +276,6 @@
                 @error('pulmo')
                 <div class='invalid-feedback'>{{ $message }}</div> @enderror
             </div>
-
             <div class='form-group col-md-3'>
                 <label for='abdomen' class='control-label'> {{ __('Abdomen') }}</label>
                 <select  wire:model.lazy='abdomen'
@@ -300,7 +299,6 @@
         @error('ekstremitas')
         <div class='invalid-feedback'>{{ $message }}</div> @enderror
     </div>
-
     <div class='form-group col-md-3'>
         <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah (mmHg)') }}</label>
         <input type='number' autofocus wire:model.lazy='blood_pressure' placeholder="Tekanan Darah"
@@ -334,7 +332,6 @@
         <div class='invalid-feedback'>{{ $message }}</div> @enderror
     </div>
 </div>
-
 <div class="card-header">
     Data Diagnosa, Laboratorium Dan Obat
 </div>

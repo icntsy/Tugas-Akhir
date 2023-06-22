@@ -15,9 +15,6 @@ class CreatePregnantmomsTable extends Migration
     {
         Schema::create('pregnantmoms', function (Blueprint $table) {
             $table->id();
-            // $table->string('name');
-            // $table->string('age');
-            // $table->text('address');
             $table->integer('gravida_id');
             $table->string('anak_ke');
             $table->date('hpht');
@@ -29,7 +26,6 @@ class CreatePregnantmomsTable extends Migration
             $table->string('tfu');
             $table->string('djj');
             $table->string('immunization_tt');
-            $table->text('description');
             $table->text('complaint');
             $table->timestamps();
         });

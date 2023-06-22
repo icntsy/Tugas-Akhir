@@ -20,7 +20,6 @@ class Update extends Component
     public $passwordVisible = false;
     public $passwordConfirmationVisible = false;
 
-
     protected $rules = [
         'name' => 'required',
         'email'=> 'required',

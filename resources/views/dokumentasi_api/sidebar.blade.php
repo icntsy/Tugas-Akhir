@@ -55,7 +55,6 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($result->parameters as $item)
-
                                         <tr>
                                             <td>{{  $item->name ?? ""}} </td>
                                             <td>{{  $item->is_required ?? ""}} </td>
@@ -117,7 +116,6 @@
                             @endforeach
                             <br>
                         </div>
-
                         <nav id="sidebar">
                             <div class="p-4 pt-5">
                                 <h5>Memulai</h5>
@@ -140,7 +138,6 @@
                     </nav>
                 </div>
                 <div class="containernavbar navbar-expand-lg navbar-dark bg-success">
-
                     <section class="">
                         <!-- Footer -->
                         <footer class="text-center text-white" style="background-color: #02af67;">
@@ -160,7 +157,6 @@
                         </footer>
                     </section>
                 </div>
-
                 <script>
                     hljs.initHighlightingOnLoad();
                 </script>

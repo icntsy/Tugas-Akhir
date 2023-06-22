@@ -33,7 +33,6 @@
             History Rawat Jalan
         </a>
     </li>
-
     <li class="app-sidebar__heading">Data Master</li>
     <li>
         <a href="{{ route('medicalrecord.index') }}" class="@if (Request::is('rekam-medis*')) mm-active @endif">

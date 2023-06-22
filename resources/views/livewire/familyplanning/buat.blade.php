@@ -1,14 +1,13 @@
 @section('meta_title', 'Keluarga Berencana')
 @section('page_title', 'TAMBAH DATA PEMERIKSAAN KB')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-portrait"></i>
+<i class="metismenu-icon fa fa-child" aria-hidden="true"></i>
 @endsection
-<div class="row">
 
+<div class="row">
     <div class="col-md-12">
         <div class="card">
             <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
-
                 <div class="card-body row">
                     <div class='form-group col-md-6'>
                         <label for='arrival_date' class='control-label'> {{ __('Tgl. Datang') }}</label>
@@ -38,11 +37,11 @@
                         @error('return_date')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
-            </div>
-            <div class="card-footer text-right">
-                <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
-            </div>
-        </form>
+                </div>
+                <div class="card-footer text-right">
+                    <button type="submit" class="btn btn-success">{{ __('Simpan Data') }}</button>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 </div>

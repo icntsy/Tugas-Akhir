@@ -159,12 +159,9 @@ class Process extends Component
 
                 $jumlah = $subtotal;
 
-
                 Transaction::create([
                     'queue_id' => $this->queue->id,
                     'payment' => $this->payment
-
-
                     ]);
 
                     $this->redirectRoute('queue.drug');
@@ -179,8 +176,6 @@ class Process extends Component
                     }
                     public function render()
                     {
-
-
                         $subtotal = 0;
 
                         // Calculate subtotal

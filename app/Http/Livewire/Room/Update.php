@@ -16,7 +16,6 @@ class Update extends Component
         'price' => 'required|numeric',
     ];
 
-
     public function mount(Room  $room){
         $this->room = $room;
         $this->price = $room->price;

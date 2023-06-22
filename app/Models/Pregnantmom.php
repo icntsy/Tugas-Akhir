@@ -22,7 +22,6 @@ class Pregnantmom extends Model
         'tfu',
         'djj',
         'immunization_tt',
-        'description',
         'complaint',
     ];
 }

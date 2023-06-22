@@ -3,7 +3,6 @@ aria-labelledby="myLargeModalLabel"
 aria-hidden="true">
 <div class="modal-dialog modal-lg">
     <div class="modal-content">
-
         <div class="card">
             <div class="card-header">
                 PILIH DIAGNOSA

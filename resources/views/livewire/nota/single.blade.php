@@ -10,8 +10,6 @@ $cek = DB::table("medical_record_drugs")
 ->where("medical_record_id", $transaksi->queue?->medicalrecord?->id)
 ->select("drugs.nama")
 ->get();
-// $cek = MedicalRecordDrugs::
-// dd($cek);
 @endphp
 <tr>
     <td>{{$transaksiIndex}}.</td>
@@ -19,7 +17,6 @@ $cek = DB::table("medical_record_drugs")
     <td>
         {!! Carbon::createFromFormat('Y-m-d H:i:s', $transaksi->created_at)->isoFormat('D MMMM Y') !!}
     </td>
-    {{-- $transaksi->queue->medicalrecord->created_at --}}
     <td>Rp. {{ number_format(floatval($transaksi->payment)) }}</td>
     <td>
         @foreach (json_decode($cek) as $item)
@@ -36,7 +33,6 @@ $cek = DB::table("medical_record_drugs")
         {{ $transaksi->queue->doctor->name }}
     </td>
     <td>{{ $transaksi->queue->service->name }}</td>
-    {{-- <td>{{ $queue->jenis_rawat }}</td> --}}
     <td>
         @if ($queue->jenis_rawat == NULL)
         -

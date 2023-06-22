@@ -46,14 +46,7 @@
                                             Dokter / Bidan
                                             @endif
                                         </th>
-
-                                        {{-- <th>Dokter</th> --}}
                                         <th>Layanan</th>
-
-
-                                        {{-- @if ($role === 'dokter' || $role === 'admin')
-                                        <th>Jenis Rawat</th>
-                                        @endif --}}
                                         <th>Action</th>
                                     </tr>
                                 </thead>

@@ -77,7 +77,7 @@ class Process extends Component
         return view('livewire.progres.process', [
             'role' => $role,
             ]);
-            
+
         }
 
         public function addDiagnosa()
@@ -133,7 +133,7 @@ class Process extends Component
                                 "lab" => $lab,
                                 "result" => "",
                             ];
-                            $lab = $lab->paginate(5);
+                            $lab = $lab->paginate(10);
                         }
                     }
 

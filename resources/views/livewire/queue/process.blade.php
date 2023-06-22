@@ -20,7 +20,6 @@
             </div>
         </div>
         @endrole
-
         @role("bidan")
         <div class="card-header">
             <div class="btn-actions-pane-right text-capitalize">
@@ -30,7 +29,6 @@
             </div>
         </div>
         @endrole
-
         <div class="card-body row">
             <div class="col-md-12">
                 <div class="main-card">
@@ -260,13 +258,6 @@
                     <input type='text' wire:model.lazy='immunization_tt'
                     class="form-control @error('immunization_tt') is-invalid @enderror" id='immunization_tt' autofocus placeholder="Imunisasi TT">
                     @error('immunization_tt')
-                    <div class='invalid-feedback'>{{ $message }}</div> @enderror
-                </div>
-                <div class='form-group col-md-6'>
-                    <label for='description' class='control-label'> {{ __('Keterangan Obat') }}</label>
-                    <input type='text' wire:model.lazy='description'
-                    class="form-control @error('description') is-invalid @enderror" id='description' autofocus placeholder="Keterangan Obat">
-                    @error('description')
                     <div class='invalid-feedback'>{{ $message }}</div> @enderror
                 </div>
                 <div class='form-group col-md-6'>

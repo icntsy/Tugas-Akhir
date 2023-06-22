@@ -38,20 +38,17 @@
                                 <td width="1%">:</td>
                                 <td>{{$patient->name ?? "-"}}</td>
                             </tr>
-
                             <tr>
                                 <td style="font-weight: bold;">Tanggal Lahir</td>
                                 <td width="1%">:</td>
                                 <td>{{$patient->birth_date ?? "-"}}</td>
                             </tr>
-
                             <tr>
                                 <td style="font-weight: bold;">Sex/Umur</td>
                                 <td width="1%">:</td>
                                 <td>{{$patient->gender ?? "-"}} / {{$patient ? \Carbon\Carbon::parse
                                     ($patient->birth_date)->diffInYears(): "-"}}</td>
                                 </tr>
-
                                 <tr>
                                     <td style="font-weight: bold;">Alamat</td>
                                     <td width="1%">:</td>

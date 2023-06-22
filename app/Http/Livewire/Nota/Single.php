@@ -15,7 +15,6 @@ class Single extends Component
     public $role;
     public $queue;
 
-
     public function mount(Transaction $transaksi, $transaksiIndex){
 
         $this->transaksi = $transaksi;
@@ -23,8 +22,6 @@ class Single extends Component
         $this->role = Auth::user()->role; // Inisialisasi $role
         // Mendapatkan $queue dari $transaksi
         $this->queue = $transaksi->queue;
-        
-        // $this->available = $drug->min_stok < $drug->stok;
     }
 
     public function render()

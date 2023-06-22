@@ -6,9 +6,9 @@
     <td>{{$record->patient->gender}}</td>
     <td>{{$record->patient->phone_number}}</td>
     <td>
-        <a href="{{ route('history.update', ['history' => $record->id]) }}" class="btn text-warning">
-            <i class="fa fa-history" aria-hidden="true"></i>
-        </a>
+        <button class="btn btn-sm btn-primary"  onclick="location.href='{{ route('history.update', ['history' => $record->id]) }}'">
+            History Pemeriksaan
+        </button>
     </td>
 </td>
 </tr>

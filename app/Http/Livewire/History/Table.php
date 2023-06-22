@@ -23,7 +23,7 @@ class Table extends Component
     public function render()
     {
         $records = History::query();
-        $records = $records->paginate(5);
+        $records = $records->paginate(10);
 
         return view('livewire.History.table', compact('records'));
     }

@@ -44,7 +44,7 @@ class Index extends Component
             $users->where('name', 'like', '%'.$this->search.'%')
             ->orWhere('email', 'like', '%'.$this->search.'%')
             ->orWhere('role', 'like', '%'.$this->search.'%');
-            $users = $users->paginate(5);
+            $users = $users->paginate(10);
             return view('livewire.profile.index', compact('users', 'users1'));
         }
     }

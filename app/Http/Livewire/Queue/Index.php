@@ -13,7 +13,6 @@ use Illuminate\Support\Facades\Auth;
 class Index extends Component
 
 {
-
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $search;
@@ -55,6 +54,5 @@ class Index extends Component
                 $queues = $queues->where("doctor_id", Auth::user()->id)->paginate(10);
             }
             return view('livewire.queue.index', compact('queues', 'role')); // Mengirimkan $role ke view
-
         }
     }

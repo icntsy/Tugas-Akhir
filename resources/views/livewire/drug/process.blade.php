@@ -102,7 +102,6 @@ use App\Models\DrugBidan;
                                                     @endif
                                                 </td>
                                             </tr>
-
                                         </tbody>
                                     </table>
                                 </div>

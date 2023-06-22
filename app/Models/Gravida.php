@@ -16,12 +16,12 @@ class Gravida extends Model
         'hpl',
     ];
 
-public function patient()
-{
-    return $this->belongsTo("App\Models\Patient", "patien_id", "id");
-}
-public function pregnantmoms()
-{
-    return $this->belongsToMany("App\Models\Pregnantmoms", "gravida_id", "id");
-}
+    public function patient()
+    {
+        return $this->belongsTo("App\Models\Patient", "patien_id", "id");
+    }
+    public function pregnantmoms()
+    {
+        return $this->belongsToMany("App\Models\Pregnantmoms", "gravida_id", "id");
+    }
 }

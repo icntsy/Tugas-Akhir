@@ -46,7 +46,6 @@ class Process extends Component
         'drugAdded',
     ];
 
-
     public function rules()
     {
         return [
@@ -79,7 +78,6 @@ class Process extends Component
         return view('livewire.progres.process', [
             'role' => $role,
             ]);
-
         }
 
         public function addDiagnosa()
@@ -117,7 +115,6 @@ class Process extends Component
                         $this->listDrug = array_values($this->listDrug);
                     }
 
-
                     public function diagnosaAdded(Diagnosis $diagnosis)
                     {
                         if (!in_array($diagnosis, $this->listDiagnosa)) {
@@ -135,7 +132,7 @@ class Process extends Component
                                 "lab" => $lab,
                                 "result" => "",
                             ];
-                            $lab = $lab->paginate(5);
+                            $lab = $lab->paginate(10);
                         }
                     }
 
@@ -181,7 +178,6 @@ class Process extends Component
                                     ),
                                     'patient_id' => $this->queue->patient->id,
                                     ]);
-
 
                                     foreach ($this->listDiagnosa as $diagnosa) {
                                         MedicalRecordDiagnosa::create([

@@ -1,7 +1,7 @@
 @section('meta_title', 'Poliklinik')
-@section('page_title', 'EDIT DATA POLIKLINIK')
+@section('page_title', 'EDIT DATA LAYANAN')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-prescription-bottle-alt"></i>
+<i class="metismenu-icon fa fa-server" aria-hidden="true"></i>
 @endsection
 <div class="row">
     <div class="col-md-12">

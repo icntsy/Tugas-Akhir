@@ -5,9 +5,12 @@ namespace App\Http\Livewire\History;
 use App\Models\Gravida;
 use App\Models\Pregnantmom;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class Update extends Component
 {
+    use WithPagination;
+    protected $paginationTheme = 'bootstrap';
 
     public $record;
 
@@ -42,16 +45,12 @@ class Update extends Component
 
     public function mount(Gravida $history){
         $this->history = $history;
-        // $this->nama = $drug->nama;
-        // $this->dosis = $drug->dosis;
-        // $this->stok = $drug->stok;
-        // $this->harga = $drug->harga;
-        // $this->min_stok = $drug->min_stok;
 
     }
     public function render()
     {
-        $data = Pregnantmom::where("gravida_id", $this->history->id)->get();
+        $data = Pregnantmom::where("gravida_id", $this->history->id)->orderBy('created_at', 'desc')->paginate(10);
+        // $data = Pregnantmom::where("gravida_id", $this->history->id)->get();
 
         return view('livewire.history.detail', compact("data"));
     }

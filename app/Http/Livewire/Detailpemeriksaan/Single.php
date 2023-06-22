@@ -14,9 +14,7 @@ class Single extends Component
     public function mount(Familyplanning $familyplanning, $familyplanningIndex){
         $this->familyplanning = $familyplanning;
         $this->familyplanningIndex = $familyplanningIndex;
-
     }
-
 
     public function getAge()
     {

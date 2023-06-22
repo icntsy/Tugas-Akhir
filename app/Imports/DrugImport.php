@@ -20,10 +20,8 @@ class DrugImport implements ToModel, WithHeadingRow
             'nama' => $row['nama'],
             'keterangan' => $row['keterangan'],
             'stok' => $row['stok'],
-            // 'harga' => $row['harga'],
             'min_stok' => $row['min_stok'],
             'harga' => $row['harga'],
-            // 'expire_date' => $row['expire_date'],
         ]);
     }
 }

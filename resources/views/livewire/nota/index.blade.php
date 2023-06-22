@@ -30,7 +30,6 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-md-12">
-
                             <form class="mb-3" wire:ignore>
                                 <div class="form-row align-items-end">
                                     <div class="col-md-3">
@@ -47,7 +46,6 @@
                                     </div>
                                 </div>
                             </form>
-
                             <table class="mb-0 table table-striped table-bordered">
                                 <thead>
                                     <tr>

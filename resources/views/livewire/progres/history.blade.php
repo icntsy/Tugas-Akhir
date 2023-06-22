@@ -274,7 +274,6 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                     @endphp
                                     <tr>
                                         <td>{{ $no++ }}.</td>
-                                        {{-- <td>{{ $loop->iteration }}.</td> --}}
                                         <td> {{\Carbon\Carbon::parse($item['created_at'])->format('d F Y ')}}</td>
                                         <td>{{ $json["kepala"] }}</td>
                                         <td>{{ $json["mata"] }}</td>

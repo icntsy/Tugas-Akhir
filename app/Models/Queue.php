@@ -21,7 +21,6 @@ class Queue extends Model
         'jenis_rawat',
         'medical_record_id',
         'pregnantmom_id'
-
     ];
 
     public function patient(){

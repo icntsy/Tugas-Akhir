@@ -15,7 +15,6 @@ class Update extends Component
     public $husbands_name;
     public $entry_date;
 
-
     protected $rules = [
         'name' => 'required',
         'age' => 'required',

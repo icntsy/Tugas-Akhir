@@ -17,7 +17,6 @@ class Single extends Component
 
     }
 
-
     public function getAge()
     {
         return Carbon::parse($this->familyplanning->age)->age;

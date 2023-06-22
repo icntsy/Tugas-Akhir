@@ -14,7 +14,6 @@
             TAMBAH DOKUMENTASI
         </div>
         <div class="card-body row">
-
             <div class='form-group col-md-12'>
                 <label for='title' class='control-label'> {{ __('Nama') }}</label>
                 <input type='text' wire:model.lazy='title'

@@ -52,9 +52,6 @@ class Buat extends Component
     return redirect()->route('familyplanning.index');
 }
 
-
-
-
     public function render()
     {
         return view('livewire.familyplanning.buat');

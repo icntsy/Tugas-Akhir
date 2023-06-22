@@ -83,7 +83,6 @@
                                             <th>Tinggi Fudus Uteri</th>
                                             <th>Denyut Jantung Janin</th>
                                             <th>Imunisasi TT</th>
-                                            <th>Keterangan Obat</th>
                                             <th>Keluhan</th>
                                         </tr>
                                     </thead>
@@ -101,7 +100,6 @@
                                             <td>{{ $history->tfu }}</td>
                                             <td>{{ $history->djj }}</td>
                                             <td>{{ $history->immunization_tt }}</td>
-                                            <td>{{ $history->description }}</td>
                                             <td>{{ $history->complaint }}</td>
                                         </tr>
                                         @endforeach
@@ -109,6 +107,10 @@
                                 </table>
                             </div>
                         </div>
+                        <div class="float-left pt-3 pr-3">
+                            {{ $data->appends(request()->query())->links() }}
+                        </div>
+                        <div wire:loading wire:target="nextPage,gotoPage,previousPage" class="loader-page"></div>
                     </div>
                 </div>
             </div>

@@ -1,13 +1,13 @@
 @section('meta_title', 'Lab')
 @section('page_title', 'UBAH DATA RUANGAN')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-door-open"></i>
+<i class="metismenu-icon fa fa-bed" aria-hidden="true"></i>
 @endsection
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                UBAH Data Rungan
+                Ubah Data Rungan
             </div>
             <form class="form-horizontal" wire:submit.prevent="update" enctype="multipart/form-data">
                 <div class="card-body row">

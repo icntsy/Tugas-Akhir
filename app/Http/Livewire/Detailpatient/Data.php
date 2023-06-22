@@ -15,7 +15,6 @@ class Data extends Component
     public function mount(Queue $value, $valueIndex){
         $this->value = $value;
         $this->valueIndex = $valueIndex;
-        // $this->patientIndex = $patientIndex;
     }
 
     public function detail(){

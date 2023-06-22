@@ -34,6 +34,5 @@ class DrugTable extends Component
             'role' => $this->role // Mengirimkan $role ke tampilan
             ]);
 
-
         }
     }

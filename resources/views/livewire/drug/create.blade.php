@@ -6,7 +6,6 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-
             <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
                 <div class="card-body row">
                     <div class='form-group col-md-12'>

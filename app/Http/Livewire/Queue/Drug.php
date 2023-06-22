@@ -8,9 +8,6 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Auth;
 
-
-
-
 class Drug extends Component
 {
     use WithPagination;
@@ -43,7 +40,6 @@ class Drug extends Component
                 });
             });
 
-
             // Memeriksa peran pengguna yang sedang login
 
             $user = Auth::user();
@@ -64,7 +60,6 @@ class Drug extends Component
                 $query->where('has_check', true)->orWhere('has_drug', false);
             });
             $queues = $queues->paginate(10);
-
 
             return view('livewire.queue.drug', compact('queues'));
         }

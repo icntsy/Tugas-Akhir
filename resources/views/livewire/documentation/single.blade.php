@@ -16,7 +16,6 @@
         <br>
         {{ $documentation->response->description }}
     </td>
-
     <td>
         <a wire:click="delete" class="btn text-danger">
             <i class="fa fa-trash fa-1x"></i>

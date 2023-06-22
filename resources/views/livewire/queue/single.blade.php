@@ -5,13 +5,6 @@
     <td>{{$queue->has_drug ? "Selesai" : "Belum"}}</td>
     <td>{{$queue->doctor->name}}</td>
     <td>{{$queue->service->name}}</td>
-    {{-- @if ($role === 'dokter' || ($role === 'admin' && $queue->doctor->role !== 'bidan'))
-    <td>{{ $queue->jenis_rawat }}</td>
-@elseif ($role === 'admin' && $queue->doctor->role === 'bidan')
-    <td>-</td>
-@endif --}}
-
-
     <td>
         @role('admin')
         <a wire:click="delete" class="btn text-danger">

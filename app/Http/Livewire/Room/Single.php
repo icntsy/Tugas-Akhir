@@ -21,7 +21,6 @@ class Single extends Component
     * @return \Illuminate\View\View|string
     */
 
-
     public function render()
     {
         $room = $this->room;

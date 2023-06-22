@@ -169,7 +169,6 @@
                                         @error('blood_pressure')
                                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                                     </div>
-
                                     <div class='form-group col-md-6'>
                                         <label for='tfu' class='control-label'> {{ __('Tinggi Fudus Uteri') }}</label>
                                         <input type='text' name='tfu'

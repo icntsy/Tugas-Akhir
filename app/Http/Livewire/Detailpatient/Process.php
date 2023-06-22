@@ -82,10 +82,4 @@ class Process extends Component
         return view('livewire.detailpatient.process', ["antrian" => $antrian]);
 
     }
-
-    // public function historydetail()
-    // {
-    //     //dd($this->patient);
-    //     $this->redirect("/progress/history");
-    // }
 }

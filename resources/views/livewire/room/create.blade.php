@@ -1,7 +1,7 @@
 @section('meta_title', 'Lab')
 @section('page_title', 'TAMBAH DATA RUANGAN')
 @section('page_title_icon')
-<i class="metismenu-icon fa fa-door-open"></i>
+<i class="metismenu-icon fa fa-bed" aria-hidden="true"></i>
 @endsection
 <div class="row">
     <div class="col-md-12">

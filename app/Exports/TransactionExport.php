@@ -41,7 +41,6 @@ class TransactionExport implements
     }
 
     return $query->get();
-        // return Transaction::all();
     }
 
     public function map($row): array

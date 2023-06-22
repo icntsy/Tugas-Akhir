@@ -95,11 +95,9 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                             {{ $queue->jenis_rawat }}
                                         </td>
                                     </tr>
-
                                 </table>
                             </div>
                         </div>
-
                         <div class="card-header">
                             Data Pemeriksaan Rawat Jalan
                         </div>
@@ -132,7 +130,6 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                         <td>:</td>
                                         <td>
                                             {{ $convert['history_disease'] }}
-
                                         </td>
                                     </tr>
                                     <tr>
@@ -170,7 +167,6 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                             {{ $convert['mata'] }}
                                         </td>
                                     </tr>
-
                                 </table>
                             </div>
                             <div class="col-md-6">
@@ -203,14 +199,12 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                                             {{ $convert['blood_pressure'] }}
                                         </td>
                                     </tr>
-
                                     <tr>
                                         <td style="font-weight: bold;">Kelenjar Getah Bening Ka/Ki</td>
                                         <td>:</td>
                                         <td>
                                             {{ $convert['leher'] }}
                                         </td>
-
                                     </tr>
                                     <tr>
                                         <td style="font-weight: bold;">Thoraks</td>

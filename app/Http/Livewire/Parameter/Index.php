@@ -40,7 +40,7 @@ class Index extends Component
             }else{
                 $parameters->latest('id');
             }
-            $parameters = $parameters->paginate(5);
+            $parameters = $parameters->paginate(10);
             return view('livewire.parameter.index', compact('parameters'));
         }
     }

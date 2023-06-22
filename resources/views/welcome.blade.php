@@ -19,7 +19,7 @@
                     </div>
                     <div class="widget-content-right">
                         <div class="text-success">
-                            <i class="fa fa-3x fa-users"></i>
+                            <i class="fa fa-3x fa fa-user-plus"></i>
                         </div>
                     </div>
                 </div>
@@ -130,7 +130,6 @@
                     </div>
                     <div class="widget-content-right">
                         <div class="text-danger">
-
                             <i class="fa fa-3x fa fa-credit-card"></i>
                         </div>
                     </div>
@@ -138,7 +137,6 @@
             </div>
         </div>
     </div>
-
     <div class="col-md-3">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
@@ -235,7 +233,7 @@
 </div>
 @elserole('bidan')
 <div class="row">
-    <div class="col-md-3">
+    {{-- <div class="col-md-3">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
@@ -252,26 +250,26 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-md-3">
+    </div> --}}
+    <div class="col-md-6">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Data KB</div>
+                        <div class="widget-heading">Data Keluarga Berencana</div>
                         <div class="widget-subheading">Jumlah Data KB</div>
                         <div class="widget-numbers">{{\App\Models\familyplanning::count()}}</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="text-warning">
-                            <i class="fa fa-3x fa-file-medical-alt"></i>
+                            <i class="fa fa-3x fa fa-child"></i>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-6">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
@@ -282,7 +280,7 @@
                     </div>
                     <div class="widget-content-right">
                         <div class="text-primary">
-                            <i class="fa fa-3x fa-file-medical"></i>
+                            <i class="fa fa-3x fa fa-clipboard"></i>
                         </div>
                     </div>
                 </div>

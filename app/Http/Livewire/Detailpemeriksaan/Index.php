@@ -40,22 +40,5 @@ class Index extends Component
             }
             $familyplannings = $familyplannings->paginate(10);
             return view('livewire.detailpemeriksaan.index',['familyplannings' => $familyplannings]);
-            // $patients = Patient::query();
-            // $patients->where('name', 'like', '%'.$this->search.'%')
-            // ->orWhere('nik', 'like', '%'.$this->search.'%')
-            // ->orWhere('gender', 'like', '%'.$this->search.'%')
-            // ->orWhere('address', 'like', '%'.$this->search.'%')
-            // ->orWhere('blood_type', 'like', '%'.$this->search.'%')
-            // ->orWhere('no_rekam_medis', 'like', '%'.$this->search.'%')
-            // ->orWhere('phone_number', 'like', '%'.$this->search.'%');
-
-            // if($this->sortColumn){
-            //     $patients->orderBy($this->sortColumn, $this->sortType);
-            // }else{
-            //     $patients->latest('id');
-            // }
-            // $patients = $patients->paginate(10);
-            // return view('livewire.detailpemeriksaan.index');
-            // return view('livewire.detailpemeriksaan.index', compact('patients'));
         }
     }

@@ -40,14 +40,12 @@ aria-hidden="true">
                         @error('profession')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
-
                     <div class='form-group col-md-6'>
                         <input type='text' wire:model.lazy='phone_number'
                         class="form-control @error('phone_number') is-invalid @enderror" id='phone_number' placeholder="Nomer Handphone pasien">
                         @error('phone_number')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
-
                     <div class='col-md-6 form-group'>
                         <select  id="gender" class="form-control custom-select" wire:model="gender" name="gender">
                             <option selected="selected" value="">--Pilih Jenis Kelamin--</option>
