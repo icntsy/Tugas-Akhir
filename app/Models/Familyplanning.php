@@ -17,9 +17,15 @@ class Familyplanning extends Model
         'entry_date',
     ];
 
-    public function familyplanningexamination()
+//     public function familyplanningexamination()
+// {
+//     return $this->belongsToMany("App\Models\FamilyPlanningExamination", "familyplanning_id", "id");
+// }
+public function familyPlanningExaminations()
 {
-    return $this->belongsToMany("App\Models\FamilyPlanningExamination", "familyplanning_id", "id");
+    return $this->hasMany(FamilyPlanningExamination::class, 'familyplanning_id');
 }
+
+
 }
 

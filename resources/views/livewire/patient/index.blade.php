@@ -9,8 +9,10 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-6 col-sm-12">
+                        @if (Auth::user()->role == 'admin')
                         <a href="{{ route('patient.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
                             Tambah Data</a>
+                            @endif
                         </div>
                         <div class="col-md-6 col-sm-12">
                             <div class="input-group">

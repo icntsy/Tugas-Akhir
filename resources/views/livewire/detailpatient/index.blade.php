@@ -7,7 +7,7 @@
     <div class="col-12">
         <div class="mb-3 card">
             <div class="card-body">
-                <div class="row">
+                <div class="row d-flex justify-content-end">
 
                         <div class="col-md-6 col-sm-12">
                             <div class="input-group">

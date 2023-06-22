@@ -4,6 +4,7 @@
 <i class="metismenu-icon fa fa-portrait"></i>
 @endsection
 <div class="row">
+
     <div class="col-md-12">
         <div class="card">
             <form class="form-horizontal" wire:submit.prevent="create" enctype="multipart/form-data">
@@ -17,14 +18,14 @@
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
                     <div class='form-group col-md-6'>
-                        <label for='body_weight' class='control-label'> {{ __('Berat Badan') }}</label>
+                        <label for='body_weight' class='control-label'> {{ __('Berat Badan (KG)') }}</label>
                         <input type='text' wire:model.lazy='body_weight'
                         class="form-control @error('body_weight') is-invalid @enderror" id='body_weight' autofocus placeholder="Berat Badan">
                         @error('body_weight')
                         <div class='invalid-feedback'>{{ $message }}</div> @enderror
                     </div>
                     <div class='form-group col-md-6'>
-                        <label for='blood_pressure' class='control-label'> {{ __('Tensi') }}</label>
+                        <label for='blood_pressure' class='control-label'> {{ __('Tensi (mmHG)') }}</label>
                         <input type='text' wire:model.lazy='blood_pressure'
                         class="form-control @error('blood_pressure') is-invalid @enderror" id='blood_pressure' autofocus placeholder="Tensi">
                         @error('blood_pressure')

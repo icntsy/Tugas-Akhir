@@ -34,4 +34,10 @@
             Data Keluarga Berencana
         </a>
     </li>
+    <li>
+        <a href="{{ route('detailpemeriksaan.index') }}" class="@if (Request::is('detailpemeriksaan*')) mm-active @endif">
+            <i class="metismenu-icon fa fa-history" aria-hidden="true"></i>
+            History Pemeriksaan KB
+        </a>
+    </li>
 </ul>

@@ -7,7 +7,7 @@
     <div class="col-12">
         <div class="mb-3 card">
             <div class="card-body">
-                <div class="row">
+                <div class="row d-flex justify-content-end">
                     @role('admin')
                     <div class="col-md-6 col-sm-12">
                         <a href="{{ route('queue.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
