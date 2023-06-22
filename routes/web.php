@@ -94,6 +94,9 @@ Route::middleware(['auth:web'])->group(function () use ($list_menu) {
     Route::post('antri/obat/process/{queue}', [\App\Http\Livewire\Drug\Store::class, "store"]);
     Route::get('/keluargaberencana/buat/{familyPlanning}', \App\Http\Livewire\Familyplanning\Buat::class)->name('familyplanning.buat');
     Route::get('detailpemeriksaan/{familyplanning}', \App\Http\Livewire\Detailpemeriksaan\Process::class)->name('detailpemeriksaan.process');
+    Route::get('/nota/{transaksi}/{transaksiIndex}/print', [\App\Http\Livewire\Nota\Single::class, 'print'])->name('nota.print');
+    // Route::get('/nota/{transaksi}/{transaksiIndex}/print', [\App\Http\Livewire\Nota\Single::class, 'print'])->name('nota.print');
+
 
 
     foreach ($list_menu as $key => $menu) {

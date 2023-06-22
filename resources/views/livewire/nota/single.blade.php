@@ -40,4 +40,10 @@ $cek = DB::table("medical_record_drugs")
         {{$queue->jenis_rawat}}
         @endif
     </td>
+    <td>
+        <button class="btn btn-sm btn-primary" onclick="location.href='{{ route('nota.print', ['transaksi' => $transaksi, 'transaksiIndex' => $transaksiIndex]) }}'">
+            Print
+        </button>
+    </td>
+
 </tr>
