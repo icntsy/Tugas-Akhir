@@ -136,7 +136,8 @@ use App\Models\MedicalRecordDrugs;
                 <tbody>
                     <tr>
                         <td>1.</td>
-                        <td>{{ $transaksi->queue->service->name }}</td>
+                        <td>Rawat {{$transaksi->queue->jenis_rawat = "Jalan"}}</td>
+                        {{-- <td>{{ $transaksi->queue->service->name }}</td> --}}
                         <td>Rp. {{ number_format(floatval($transaksi->payment)) }}</td>
                     </tr>
                 </tbody>

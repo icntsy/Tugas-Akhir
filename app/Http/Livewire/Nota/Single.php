@@ -42,6 +42,7 @@ class Single extends Component
 
         public function print(Transaction $transaksi)
         {
+            $this->queue = $transaksi->queue;
             // Mendapatkan data transaksi untuk dicetak
             $dataTransaksi = $transaksi;
 
@@ -72,6 +73,17 @@ class Single extends Component
 
             // Simpan file PDF di direktori penyimpanan yang diinginkan
             $dompdf->stream($fileName, ['Attachment' => false]);
+        }
+
+        public function nota_inap() {
+            $template = new \PhpOffice\PhpWord\TemplateProcessor('./nota_inap.docx');
+            $template->setValues([
+                'number' =>'123'
+
+            ]);
+
+            $template->saveAs('arsip/nota/nota_inap.docx');
+             return response()->download(public_path('arsip/nota/nota_inap.docx'));
         }
 
         public function delete(){
