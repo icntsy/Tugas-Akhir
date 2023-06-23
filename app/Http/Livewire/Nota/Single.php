@@ -19,6 +19,7 @@ class Single extends Component
 
     public function mount(Transaction $transaksi, $transaksiIndex){
 
+
         $this->transaksi = $transaksi;
         $this->transaksiIndex = $transaksiIndex;
         $this->role = Auth::user()->role; // Inisialisasi $role
@@ -39,10 +40,15 @@ class Single extends Component
             ]);
         }
 
-        public function print()
+        public function print(Transaction $transaksi)
         {
             // Mendapatkan data transaksi untuk dicetak
-            $dataTransaksi = $this->transaksi;
+            $dataTransaksi = $transaksi;
+
+            // $imagePath = asset('/images/logo-inversesss.png');
+            // $imageType = pathinfo($imagePath, PATHINFO_EXTENSION);
+            // $imageGetContent = file_get_contents($imagePath);
+            // $imageBase64 = 'data:image/' . $imageType . ';base64,' . base64_encode($imageGetContent);
 
             // Membuat objek Dompdf
             $dompdf = new Dompdf();
@@ -50,7 +56,7 @@ class Single extends Component
             // Render tampilan view 'livewire.nota.print' dengan data transaksi
             $pdfContent = view('livewire.nota.print', ['transaksi' => $dataTransaksi])->render();
 
-           
+
 
             // Memasukkan konten PDF ke Dompdf
             $dompdf->loadHtml($pdfContent);

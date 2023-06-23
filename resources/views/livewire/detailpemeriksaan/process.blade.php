@@ -82,7 +82,7 @@ use Carbon\Carbon;
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($antrian->familyPlanningExaminations as $index => $value)
+                                    @forelse ($antrian->familyPlanningExaminations()->orderByDesc('created_at')->paginate(10) as $index => $value)
                                     <tr>
                                         <td>{{ $index + 1 }}.</td>
                                         <td>{{ $value["arrival_date"] }}</td>

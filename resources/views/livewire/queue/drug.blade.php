@@ -43,24 +43,22 @@
                                 $hasQueue = false;
                                 @endphp
                                 @forelse($queues as $queue)
-                                    @if (!$queue->transaction)
+                                    {{-- @if (!$queue->transaction) --}}
                                         <livewire:queue.drug-table :queue="$queue" :key="time() . $queue->id" />
-                                        @php
+                                        {{-- @php
                                             $hasQueue = true;
                                         @endphp
-                                    @endif
+                                    @endif --}}
                                 @empty
                                     @php
                                         $hasQueue = false;
                                     @endphp
-                                @endforelse
-                                @if (!$hasQueue)
                                 <tr>
                                     <td colspan="7" class="text-center">
                                         Data kosong
                                     </td>
                                 </tr>
-                                @endif
+                                @endforelse
                             </tbody>
                         </table>
                     </div>

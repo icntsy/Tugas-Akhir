@@ -34,7 +34,7 @@ class Process extends Component
 {
     $familyPlanningExaminations = $this->familyplanning->familyPlanningExaminations()
         ->orderByDesc('created_at')
-        ->paginate(10);
+        ->paginate(2);
 
     return view('livewire.detailpemeriksaan.process', [
         "antrian" => $this->familyplanning,
