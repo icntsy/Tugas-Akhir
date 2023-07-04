@@ -3,17 +3,17 @@
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-server" aria-hidden="true"></i>
 @endsection
-<div class="row">
+<div class="row ">
     <div class="col-12">
         <div class="mb-3 card">
             <div class="card-body">
-                <div class="row">
+                <div class="row d-flex justify-content-end">
                     <div class="col-md-6 col-sm-12">
                         <a href="{{ route('service.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
                             Tambah
                             Data</a>
                         </div>
-                        <div class="col-md-6 col-sm-12">
+                        <div class="col-md-6 col-sm-12 d-flex justify-content-end">
                             <div class="input-group">
                                 <input type="text" class="form-control form-control" wire:model.lazy="search"
                                 placeholder="{{ __('Pencarian') }}" value="{{ request('search') }}">
