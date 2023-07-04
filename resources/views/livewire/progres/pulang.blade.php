@@ -61,7 +61,7 @@ $convert = json_decode($queue->medicalrecord->inap->physical_test, true);
                             <div class="col-md-6">
                                 <table style="width: 100%">
                                     <tr>
-                                        <td style="font-weight: bold;">Tanggal Keluar / Jam</td>
+                                        <td style="font-weight: bold;">Tanggal Pulang / Jam</td>
                                         <td>:</td>
                                         <td>
                                             {{\Carbon\Carbon::parse($queue->medicalrecord->inap->created_at)->format('d F Y / H:i')}}

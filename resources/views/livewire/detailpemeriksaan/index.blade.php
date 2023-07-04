@@ -30,7 +30,7 @@
                                     <th>Nama</th>
                                     <th>Umur</th>
                                     <th>Nama Suami</th>
-                                    <th>History</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>

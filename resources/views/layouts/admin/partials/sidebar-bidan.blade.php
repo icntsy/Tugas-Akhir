@@ -21,12 +21,12 @@
         </a>
     </li>
     <li class="app-sidebar__heading">Data Master</li>
-    <li>
+    {{-- <li>
         <a href="{{ route('immunization.index') }}" class="@if (Request::is('imunisasi*')) mm-active @endif">
             <i class="metismenu-icon fa fa-clipboard"></i>
             Data Imunisasi
         </a>
-    </li>
+    </li> --}}
     <li>
         <a href="{{ route('familyplanning.index') }}" class="@if (Request::is('keluargaberencana*')) mm-active @endif">
             <i class="metismenu-icon fa fa-child" aria-hidden="true"></i>

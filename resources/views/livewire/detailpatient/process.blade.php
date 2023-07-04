@@ -86,7 +86,7 @@ use Carbon\Carbon;
                                             <th>Keluhan Utama</th>
                                             <th>Layanan</th>
                                             <th>Jenis Rawat</th>
-                                            <th>Tanggal / Jam</th>
+                                            <th>Tanggal Periksa / Jam</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>

@@ -18,7 +18,7 @@
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror
                         </div>
                         <div class='form-group col-md-6'>
-                            <label for='age' class='control-label'> {{ __('Umur') }}</label>
+                            <label for='age' class='control-label'> {{ __('Tgl. Lahir') }}</label>
                             <input type='date' wire:model.lazy='age'
                             class="form-control @error('age') is-invalid @enderror" id='age' autofocus placeholder="Usia">
                             @error('age')

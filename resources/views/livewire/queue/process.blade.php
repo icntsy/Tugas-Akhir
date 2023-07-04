@@ -81,7 +81,7 @@
                             <table width="100%">
                                 <tbody>
                                     <tr>
-                                        <td style="font-weight: bold;" width="35%">Tanggal Masuk / Jam</td>
+                                        <td style="font-weight: bold;" width="35%">Tanggal Periksa / Jam</td>
                                         <td width="1%">:</td>
                                         <td>{{\Carbon\Carbon::parse($queue->created_at)->format('d F Y / H:i')}}</td>
                                     </tr>

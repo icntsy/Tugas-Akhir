@@ -21,6 +21,15 @@ $cek = DB::table("medical_record_drugs")
     <td>
         @foreach (json_decode($cek) as $item)
         <ul>
+            @foreach($item as $i => $key)
+            <li>{{$key}} ({{$key->pivot->instruction ?? "-"}})</li>
+            @endforeach
+        </ul>
+        @endforeach
+    </td>
+    {{-- <td>
+        @foreach (json_decode($cek) as $item)
+        <ul>
             @foreach ($item as $i => $key)
             <li>
                 {{ $key }}
@@ -28,7 +37,7 @@ $cek = DB::table("medical_record_drugs")
             @endforeach
         </ul>
         @endforeach
-    </td>
+    </td> --}}
     <td>
         {{ $transaksi->queue->doctor->name }}
     </td>

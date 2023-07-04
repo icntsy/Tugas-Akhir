@@ -31,5 +31,9 @@ class Transaction extends Model
     public function jenis(){
         return $this->belongsTo(Queue::class, 'jenis_rawat');
     }
-    
+
+    public function drug(){
+        return $this->belongsToMany(Drug::class, 'medical_record_drugs')->withPivot('instruction');
+    }
+
 }

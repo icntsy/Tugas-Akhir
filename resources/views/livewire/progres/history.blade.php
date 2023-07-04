@@ -61,7 +61,7 @@ $convert = json_decode($queue->medicalrecord->physical_test, true);
                             <div class="col-md-6">
                                 <table style="width: 100%">
                                     <tr>
-                                        <td style="font-weight: bold;">Tanggal Masuk / Jam</td>
+                                        <td style="font-weight: bold;">Tanggal Periksa / Jam</td>
                                         <td>:</td>
                                         <td>
                                             {{\Carbon\Carbon::parse($queue->created_at)->format('d F Y / H:i')}}
