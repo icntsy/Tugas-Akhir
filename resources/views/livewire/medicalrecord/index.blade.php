@@ -49,7 +49,7 @@
                                     <th>Nama Pasien</th>
                                     <th>Tanggal Periksa</th>
                                     <th>Keluhan Utama</th>
-                                    <th>Lab</th>
+                                    {{-- <th>Lab</th> --}}
                                     <th>Diagnosis</th>
                                     <th>Obat</th>
                                     <th>Jenis Rawat</th>

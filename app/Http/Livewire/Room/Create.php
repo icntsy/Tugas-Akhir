@@ -12,13 +12,13 @@ class Create extends Component
 
     protected $rules = [
         'name' => 'required',
-        'price' => 'required|numeric',
+        // 'price' => 'required|numeric',
     ];
     public function create(){
         $this->validate();
         Room::create([
             'name' => $this->name,
-            'price' => $this->price,
+            // 'price' => $this->price,
             ]);
 
             $this->dispatchBrowserEvent('show-message', [

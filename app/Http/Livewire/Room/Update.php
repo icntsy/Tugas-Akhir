@@ -9,16 +9,16 @@ class Update extends Component
 {
     public $room;
     public $name;
-    public $price;
+    // public $price;
 
     protected $rules = [
         'name' => 'required',
-        'price' => 'required|numeric',
+        // 'price' => 'required|numeric',
     ];
 
     public function mount(Room  $room){
         $this->room = $room;
-        $this->price = $room->price;
+        // $this->price = $room->price;
         $this->name = $room->name;
     }
 
@@ -35,7 +35,7 @@ class Update extends Component
 
         $this->room->update([
             'name' => $this->name,
-            'price' => $this->price,
+            // 'price' => $this->price,
             ]);
             return redirect("/ruangan");
         }

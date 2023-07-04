@@ -29,8 +29,8 @@ class RoomExport implements
     {
         return [
             $row->name,
-            $row->price,
-            $row->status
+            // $row->price,
+            // $row->status
         ];
     }
 
@@ -38,8 +38,8 @@ class RoomExport implements
     {
         return [
             'Nama Ruangan',
-            'Harga Ruangan',
-            'Status'
+            // 'Harga Ruangan',
+            // 'Status'
         ];
     }
 

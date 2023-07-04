@@ -1,10 +1,10 @@
 <tr>
     <td>{{$roomIndex}}.</td>
     <td>{{$room->name}}</td>
-    <td>@rupiah($room->price)</td>
+    {{-- <td>@rupiah($room->price)</td>
     <td>
         <span  class="badge @if($room->status =="available") badge-primary @else badge-danger @endif">{{$room->status}}</span>
-    </td>
+    </td> --}}
     <td>
         <button wire:click.prevent="delete" class="btn text-danger">
             <i class="fa fa-trash fa-1x"></i>

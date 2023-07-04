@@ -43,8 +43,8 @@
                                             <tr>
                                                 <th>No.</th>
                                                 <th>Nama Ruangan</th>
-                                                <th>Harga Sewa</th>
-                                                <th>Status</th>
+                                                {{-- <th>Harga Sewa</th>
+                                                <th>Status</th> --}}
                                                 <th>Action</th>
                                             </tr>
                                         </thead>

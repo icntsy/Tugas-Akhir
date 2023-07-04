@@ -348,11 +348,11 @@
     </div>
 </div>
 <div class="card-header">
-    Data Diagnosa, Laboratorium Dan Obat
+    Data Diagnosa Dan Data Obat
 </div>
 <div class="card-body row">
     <div class="col-md-12">
-        <div class="card-main">
+        {{-- <div class="card-main">
             <div class="card-header">
                 Data Labs
                 <div class="btn-actions-pane-right text-capitalize">
@@ -391,7 +391,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> --}}
 </div>
 <div class="col-md-12">
     <div class="card-main">

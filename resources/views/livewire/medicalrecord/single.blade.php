@@ -5,13 +5,13 @@
     <td>{{$record->patient->name}}</td>
     <td>{{\Carbon\Carbon::parse($record->created_at)->format('d F Y ')}}</td>
     <td>{{$record->main_complaint}}</td>
-    <td>
+    {{-- <td>
         <ul>
             @foreach($record->labs as $lab)
             <li>{{$lab->nama}} ({{$lab->pivot->result ?? "-"}} {{$lab->satuan}})</li>
             @endforeach
         </ul>
-    </td>
+    </td> --}}
     <td><ul>
         @foreach($record->diagnoses as $diagnosis)
         <li>{{$diagnosis->indonesian_name }} ({{$diagnosis->pivot->description ?? "-"}})</li>

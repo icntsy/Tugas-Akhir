@@ -81,7 +81,7 @@
                             <table width="100%">
                                 <tbody>
                                     <tr>
-                                        <td style="font-weight: bold;" width="35%">Tanggal Periksa / Jam</td>
+                                        <td style="font-weight: bold;" width="35%">Tanggal Masuk / Jam</td>
                                         <td width="1%">:</td>
                                         <td>{{\Carbon\Carbon::parse($queue->created_at)->format('d F Y / H:i')}}</td>
                                     </tr>
@@ -461,11 +461,11 @@
                         </div>
                     </div>
                     <div class="card-header">
-                        Data Diagnosa, Laboratorium Dan Obat
+                        Data Diagnosa Dan Data Obat
                     </div>
                     <div class="card-body row">
                         <div class="col-md-12">
-                            <div class="card-main">
+                            {{-- <div class="card-main">
                                 <div class="card-header">
                                     Data Labs
                                     <div class="btn-actions-pane-right text-capitalize">
@@ -503,7 +503,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="col-md-12">
                             <div class="card-main">

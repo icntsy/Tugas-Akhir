@@ -15,9 +15,9 @@ class RoomImport implements ToModel
     public function model(array $row)
     {
         return new Room([
-            "name" => $row[0],
-            "price" => $row[1],
-            "status" => $row[2]
+            "name" => $row[0]
+            // "price" => $row[1],
+            // "status" => $row[2]
         ]);
     }
 }

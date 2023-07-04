@@ -32,12 +32,12 @@
             Data Obat
         </a>
     </li>
-    <li>
+    {{-- <li>
         <a href="{{ route('lab.index') }}" class="@if (Request::is('lab*')) mm-active @endif">
             <i class="metismenu-icon fa fa-file-medical-alt"></i>
             Data Laboratorium
         </a>
-    </li>
+    </li> --}}
     <li>
         <a href="{{ route('room.index') }}" class="@if (Request::is('ruangan*')) mm-active @endif">
             <i class="metismenu-icon fa fa-bed" aria-hidden="true"></i>
