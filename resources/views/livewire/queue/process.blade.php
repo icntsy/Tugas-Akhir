@@ -387,7 +387,7 @@
                                 <option value="" >---Pulmo--</option>
                                 <option value="VBS Ka=Ki" >VBS Ka=Ki</option>
                                 <option value="Wheezing (-)" >Wheezing (-)</option>
-                                <option value="wheezing (+)" >Wheezing (+)</option>
+                                <option value="Wheezing (+)" >Wheezing (+)</option>
                                 <option value="Ronkhi (-)" >Ronkhi (-)</option>
                                 <option value="Ronkhi (+)" >Ronkhi (+)</option>
                             </select>
