@@ -274,13 +274,13 @@
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Data Imunisasi</div>
-                        <div class="widget-subheading">Jumlah Data Imunisasi</div>
-                        <div class="widget-numbers">{{\App\Models\immunization::count()}}</div>
+                        <div class="widget-heading">Pemeriksaan ANC</div>
+                        <div class="widget-subheading">Jumlah Data Pemeriksaan ANC</div>
+                        <div class="widget-numbers">{{\App\Models\gravida::count()}}</div>
                     </div>
                     <div class="widget-content-right">
                         <div class="text-primary">
-                            <i class="fa fa-3x fa fa-clipboard"></i>
+                            <i class="fa fa-3x fa fa-medkit"></i>
                         </div>
                     </div>
                 </div>
