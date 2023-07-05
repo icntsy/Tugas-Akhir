@@ -226,14 +226,14 @@
                     <div class='invalid-feedback'>{{ $message }}</div> @enderror
                 </div>
                 <div class='form-group col-md-6'>
-                    <label for='weight' class='control-label'> {{ __('Berat Badan') }}</label>
+                    <label for='weight' class='control-label'> {{ __('Berat Badan (KG)') }}</label>
                     <input type='text' wire:model.lazy='weight'
                     class="form-control @error('weight') is-invalid @enderror" id='weight' autofocus placeholder="Berat Badan">
                     @error('weight')
                     <div class='invalid-feedback'>{{ $message }}</div> @enderror
                 </div>
                 <div class='form-group col-md-6'>
-                    <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah') }}</label>
+                    <label for='blood_pressure' class='control-label'> {{ __('Tekanan Darah (mmHg)') }}</label>
                     <input type='text' wire:model.lazy='blood_pressure'
                     class="form-control @error('blood_pressure') is-invalid @enderror" id='blood_pressure' autofocus placeholder="Tekanan Darah">
                     @error('blood_pressure')
@@ -454,7 +454,7 @@
                         </div>
                         <div class=" form-group col-md-6">
                             <label for='keterangan' class='control-label'> {{ __('Keterangan') }}</label>
-                            <textarea  wire:model.lazy='keterangan' placeholder="keterangan" class="form-control @error('keterangan') is-invalid @enderror" id='keterangan'>
+                            <textarea  wire:model.lazy='keterangan' placeholder="Keterangan" class="form-control @error('keterangan') is-invalid @enderror" id='keterangan'>
                             </textarea>
                             @error('keterangan')
                             <div class='invalid-feedback'>{{ $message }}</div> @enderror

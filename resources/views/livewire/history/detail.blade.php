@@ -78,8 +78,8 @@
                                             <th>HPL</th>
                                             <th>Usia Kehamilan</th>
                                             <th>Lingkar Lengan Atas</th>
-                                            <th>Berat Badan</th>
-                                            <th>Tekanan Darah</th>
+                                            <th>Berat Badan (KG)</th>
+                                            <th>Tekanan Darah (mmHg)</th>
                                             <th>Tinggi Fudus Uteri</th>
                                             <th>Denyut Jantung Janin</th>
                                             <th>Imunisasi TT</th>
