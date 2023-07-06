@@ -49,13 +49,6 @@ class Single extends Component
             $this->queue = $transaksi->queue;
             // Mendapatkan data transaksi untuk dicetak
             $dataTransaksi = $transaksi;
-
-            // $imagePath = asset('/images/logo-inversesss.png');
-            // $imageType = pathinfo($imagePath, PATHINFO_EXTENSION);
-            // $imageGetContent = file_get_contents($imagePath);
-            // $imageBase64 = 'data:image/' . $imageType . ';base64,' . base64_encode($imageGetContent);
-
-            // Membuat objek Dompdf
             $dompdf = new Dompdf();
 
             // Render tampilan view 'livewire.nota.print' dengan data transaksi
@@ -73,10 +66,11 @@ class Single extends Component
             $dompdf->render();
 
             // Generate nama file PDF yang unik
-            $fileName = 'nota_' . time() . '.pdf';
+            $fileName = 'Kwitansi-Rawat-Jalan-' . Str::slug($transaksi->queue->patient->name) . '.pdf';
+            // $fileName = 'nota_' . time() . '.pdf';
 
             // Simpan file PDF di direktori penyimpanan yang diinginkan
-            $dompdf->stream($fileName, ['Attachment' => false]);
+            $dompdf->stream($fileName, ['Attachment' => true]);
         }
 
         public function nota_inap($transaksi_id)
@@ -100,10 +94,10 @@ class Single extends Component
             $fisioterapi = json_decode($qty_ruangan["fisioterapi"], true);
             $tambahan = json_decode($qty_ruangan["tambahan"], true);
 
-            $pdf = PDF::loadView("livewire.nota.download", ["ruangan" => $ruangan, "assesment" => $assesment, "pendaftaran" => $pendaftaran, "infus" => $infus, "tindakan" => $tindakan, "obat" => $obat, "visite" => $visite, "pulang" => $pulang, "ekg" => $ekg, "darah" => $darah, "fisioterapi" => $fisioterapi, "tambahan" => $tambahan, "transaksi" => $transaksi])->setPaper("A3");
+            $pdf = PDF::loadView("livewire.nota.download", ["ruangan" => $ruangan, "assesment" => $assesment, "pendaftaran" => $pendaftaran, "infus" => $infus, "tindakan" => $tindakan, "obat" => $obat, "visite" => $visite, "pulang" => $pulang, "ekg" => $ekg, "darah" => $darah, "fisioterapi" => $fisioterapi, "tambahan" => $tambahan, "transaksi" => $transaksi])->setPaper('A4', 'portrait');
 
-
-            return $pdf->download("KUITANSI-RAWAT-INAP-". Str::slug($transaksi->queue->patient->name) .".pdf");
+            return $pdf->download("Kwitansi-Rawat-Inap-" . Str::slug($transaksi->queue->patient->name) . ".pdf");
+            // return $pdf->download("KUITANSI-RAWAT-INAP-". Str::slug($transaksi->queue->patient->name) .".pdf");
             // $template = new \PhpOffice\PhpWord\TemplateProcessor('arsip/nota/nota_inap_new.docx');
 
             // $transaction = Transaction::get();

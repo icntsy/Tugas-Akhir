@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Kwitansi Rawat Inap</title>
+    <title>PDF NOTA</title>
     <style>
         body {
             margin: 0px;
@@ -17,21 +17,17 @@
 
         .deskripsi_apotek {
             text-align: center;
-            width: 300px;
-            position: relative;
-    top: -50px; /* Adjust the value as needed */
-        }
+            width: 500px;        }
 
         .nama_apotek {
-            font-size: 17px;
+            font-size: 25px;
             color:green;
             font-weight: bold;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
         }
 
         .bold_text_sub {
             font-weight: bold;
-            font-size: 13px;
         }
 
         .border {
@@ -44,9 +40,8 @@
         }
 
         .thead {
-            padding-top: 5px;
-            padding-bottom: 5px;
-            font-size: 12px;
+            padding-top: 15px;
+            padding-bottom: 15px;
         }
 
         .tbody {
@@ -56,17 +51,8 @@
         }
 
         .note {
-            margin-top: 30px;
+            margin-top: 50px;
             padding-left: 70px;
-            font-size: 14px;
-        }
-
-        .atur {
-            font-size: 12px;
-            padding-top: 0px;
-            padding-bottom: 5px;
-            position: relative;
-    top: -35px; /* Adjust the value as needed */
         }
     </style>
 </head>
@@ -75,31 +61,28 @@
     <table style="width: 100%" cellpadding="10" cellspacing="0">
         <tr>
             <td style="width: 100px">
-                <center style="position: relative; top: -10px;">
-                    <img src="{{ public_path('images/logo-inversesss.png') }}" style="width: 90px; height: 90px">
+                <center>
+                    <img src="{{ public_path('images/logo-inversesss.png') }}" style="width: 70px; height: 70px">
                 </center>
             </td>
             <td class="deskripsi_apotek">
-                <div class="atur">
-                    <p>
-                        <div class="nama_apotek">
-                            KLINIK PRATAMA LAA - TACHZAN
-                        </div>
-                        Jl. Bypass Kliwed lama Kec. Kertasemaya Kab. Indramayu
-                        <br>
-                        Provinsi Jawa Barat 45274
-                        <br>
-                        Telp (0234) 7141496 Email:
-                        <a href="kliniklaatachzan@gmail.com">
-                            kliniklaatachzan@gmail.com
-                        </a>
-                        <br>
-                        <small>
-                            Klinik Laa-Tachzan dalam naungan PT. RAPRI FAMILI PUTRA
-                        </small>
-                    </p>
-                </div>
-
+                <p>
+                    <div class="nama_apotek">
+                        KLINIK PRATAMA LAA - TACHZAN
+                    </div>
+                    Jl. Bypass Kliwed lama Kec. Kertasemaya Kab. Indramayu
+                    <br>
+                    Provinsi Jawa Barat 45274
+                    <br>
+                    Telp (0234) 7141496 Email:
+                    <a href="kliniklaatachzan@gmail.com">
+                        kliniklaatachzan@gmail.com
+                    </a>
+                    <br>
+                    <small>
+                        Klinik Laa-Tachzan dalam naungan PT. RAPRI FAMILI PUTRA
+                    </small>
+                </p>
             </td>
             <td>
                 <table style="width: 100%">
@@ -108,7 +91,7 @@
                         <td>:</td>
                         <td>
 
-                            {{ Carbon::parse($transaksi->created_at)->isoFormat('dddd, D MMMM YYYY ') }}
+                            {{ Carbon::parse($transaksi->created_at)->isoFormat('dddd, D MMMM YYYY H:mm:ss') }}
                         </td>
                     </tr>
                     <tr>
@@ -192,7 +175,7 @@
                             echo $assesment["qty"];
                         @endphp
                     </td>
-                    <td class="tbody">Assesment Awal</td>
+                    <td class="tbody">Assesment</td>
                     <td class="tbody">
                         @php
                         echo "Rp." . number_format($assesment["harga"]);
@@ -231,7 +214,7 @@
                             echo $infus["qty"];
                         @endphp
                     </td>
-                    <td class="tbody">Infus Set DEWASA+ Tindakan</td>
+                    <td class="tbody">Infus</td>
                     <td class="tbody">
                         @php
                            echo "Rp." . number_format($infus["harga"]);
@@ -250,7 +233,7 @@
                             echo $tindakan["qty"];
                         @endphp
                     </td>
-                    <td class="tbody">Tindakan Perawat</td>
+                    <td class="tbody">Tindakan</td>
                     <td class="tbody">
                         @php
                              echo "Rp." . number_format($tindakan["harga"]);
@@ -269,7 +252,7 @@
                             echo $obat["qty"];
                         @endphp
                     </td>
-                    <td class="tbody">Paket Obat DAN INFUS /hari </td>
+                    <td class="tbody">Obat</td>
                     <td class="tbody">
                         @php
                           echo "Rp." . number_format($obat["harga"]);
@@ -288,7 +271,7 @@
                             echo $visite["qty"];
                         @endphp
                     </td>
-                    <td class="tbody">Assesment dan Visite Dokter</td>
+                    <td class="tbody">Visite</td>
                     <td class="tbody">
                         @php
                           echo "Rp." . number_format($visite["harga"]);
@@ -307,7 +290,7 @@
                             echo $pulang["qty"];
                         @endphp
                     </td>
-                    <td class="tbody">Obat Pulang</td>
+                    <td class="tbody">Pulang</td>
                     <td class="tbody">
                         @php
                            echo "Rp." . number_format($pulang["harga"]);
@@ -326,7 +309,7 @@
                             echo $ekg["qty"];
                         @endphp
                     </td>
-                    <td class="tbody">EKG</td>
+                    <td class="tbody">Ekg</td>
                     <td class="tbody">
                         @php
                             echo "Rp." . number_format($ekg["harga"]);
@@ -345,7 +328,7 @@
                             echo $darah["qty"];
                         @endphp
                     </td>
-                    <td class="tbody">Cek Darah Lengkap</td>
+                    <td class="tbody">Darah</td>
                     <td class="tbody">
                         @php
                             echo "Rp." . number_format($darah["harga"]);
@@ -383,7 +366,7 @@
                             echo $tambahan["qty"];
                         @endphp
                     </td>
-                    <td class="tbody">Tindakan Tambahan</td>
+                    <td class="tbody">Tambahan</td>
                     <td class="tbody">
                         @php
                              echo "Rp." . number_format($tambahan["harga"]);
@@ -398,8 +381,8 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="4" style="text-align: right; padding-top: 10px; padding-bottom: 10px; font-size: 16px; font-weight: bold; padding-right: 10px;">
-                        TOTAL PAYMENT
+                    <td colspan="4" style="text-align: right; padding-top: 30px; padding-bottom: 30px; font-size: 16px; font-weight: bold; padding-right: 30px;">
+                        Total Payment
                     </td>
                     <td class="tbody">
                         Rp. {{ number_format($transaksi->payment) }}
@@ -425,7 +408,7 @@
                     </p>
                 </td>
                 <td colspan="3" style="padding-left: 150px;">
-                    <i style="font-size: 20px;">
+                    <i style="font-size: 25px;">
                         ___ TERIMAKASIH ___
                     </i>
                 </td>
@@ -437,7 +420,7 @@
                 * Invoice ini merupakan tanda terima pembayaran resmi setelah di stempel oleh kasir
             </p>
             <p>
-                * Terimakasih atas kepercayaan melakukan pemeriksaan di Klinik Laa Tachzan
+                * Terimakasih atas kepercayaan melakukan pemeriksaan di KlinikLaaTachzan
             </p>
         </div>
     </div>
