@@ -7,6 +7,7 @@ use App\Models\Queue;
 use App\Models\Transaction;
 use Livewire\Component;
 use Illuminate\Support\Facades\View;
+use App\Models\DetailNota;
 
 class Process extends Component
 {
@@ -158,6 +159,23 @@ class Process extends Component
                 // Add other subtotal calculations here
 
                 $jumlah = $subtotal;
+
+                DetailNota::create([
+                    "queue_id" => $this->queue->id,
+                    "ruangan" => json_encode(["qty" => $this->qty1, "harga" => $this->harga1, "amount" => $this->qty1 * $this->harga1]),
+                    "assesment" => json_encode(["qty" => $this->qty2, "harga" => $this->harga2, "amount" => $this->qty2 * $this->harga2]),
+                    "pendaftaran" => json_encode(["qty" => $this->qty3, "harga" => $this->harga3, "amount" => $this->qty3 * $this->harga3]),
+                    "infus" => json_encode(["qty" => $this->qty4, "harga" => $this->harga4, "amount" => $this->qty4 * $this->harga4]),
+                    "tindakan" => json_encode(["qty" => $this->qty5, "harga" => $this->harga5, "amount" => $this->qty5 * $this->harga5]),
+                    "obat" => json_encode(["qty" => $this->qty6, "harga" => $this->harga6, "amount" => $this->qty6 * $this->harga6]),
+                    "visite" => json_encode(["qty" => $this->qty7, "harga" => $this->harga7, "amount" => $this->qty7 * $this->harga7]),
+                    "pulang" => json_encode(["qty" => $this->qty8, "harga" => $this->harga8, "amount" => $this->qty8 * $this->harga8]),
+                    "ekg" => json_encode(["qty" => $this->qty9, "harga" => $this->harga9, "amount" => $this->qty9 * $this->harga9]),
+                    "darah" => json_encode(["qty" => $this->qty10, "harga" => $this->harga10, "amount" => $this->qty10 * $this->harga10]),
+                    "fisioterapi" => json_encode(["qty" => $this->qty11, "harga" => $this->harga11, "amount" => $this->qty11 * $this->harga11]),
+                    "tambahan" => json_encode(["qty" => $this->qty12, "harga" => $this->harga12, "amount" => $this->qty12 * $this->harga12])
+
+                ]);
 
                 Transaction::create([
                     'queue_id' => $this->queue->id,

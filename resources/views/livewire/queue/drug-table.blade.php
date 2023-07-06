@@ -29,7 +29,7 @@
         </a>
         @elserole('staff|apoteker|dokter')
             @if ($cek)
-            <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>
+                <button class="btn btn-sm btn-primary" wire:click="processDrug">Proses</button>
             @else
                 @if ($queue->jenis_rawat == "Inap")
                 <button class="btn btn-sm btn-danger">

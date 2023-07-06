@@ -45,14 +45,14 @@ class Drug extends Component
             $user = Auth::user();
 
             if ($user && $user->role == 'dokter') {
-                $queues->where('jenis_rawat', 'Inap');
+                $queues->where('jenis_rawat', 'Inap')->whereDoesntHave("transaction");
 
             }
 
              if ($user->role == "apoteker") {
 
                  $queues->where(function($queues){
-                     $queues->where('has_check', "1")
+                     $queues->where('has_check', "1")->where("jenis_rawat", "Jalan")->orWhere("jenis_rawat", NULL)
                      ->whereDoesntHave('transaction');
                  });
                 //  $queues->where(function($queues){
@@ -63,7 +63,7 @@ class Drug extends Component
             $queues->where(function($query) {
                 $query->where('has_check', true)->orWhere('has_drug', false);
             });
-            $queues = $queues->paginate(10);
+            $queues = $queues->with("transaction")->paginate(10);
 
             return view('livewire.queue.drug', compact('queues'));
         }

@@ -8,7 +8,11 @@ use App\Models\MedicalRecordDrugs;
 $cek = DB::table("medical_record_drugs")
 ->rightJoin("drugs", "medical_record_drugs.drug_id", "=", "drugs.id")
 ->where("medical_record_id", $transaksi->queue?->medicalrecord?->id)
-->select("drugs.nama")
+->select("drugs.nama", "medical_record_drugs.instruction")
+->get();
+$drug_bidan = DB::table("drug_bidan")
+->rightJoin("drugs", "drug_bidan.drug_id", "=", "drugs.id")
+->where("pregnantmom_id", $transaksi->queue?->pregnantmom?->id)
 ->get();
 @endphp
 <tr>
@@ -19,13 +23,27 @@ $cek = DB::table("medical_record_drugs")
     </td>
     <td>Rp. {{ number_format(floatval($transaksi->payment)) }}</td>
     <td>
-        @foreach (json_decode($cek) as $item)
+        @if (empty($transaksi->queue->pregnantmom))
+        @foreach ($cek as $item)
         <ul>
-            @foreach($item as $i => $key)
-            <li>{{$key}} ({{$key->pivot->instruction ?? "-"}})</li>
-            @endforeach
+            <li>
+                {{ $item->nama }} ( {{ $item->instruction }} )
+            </li>
         </ul>
         @endforeach
+        @else
+        @if (empty($transaksi->queue->pregnantmom->id))
+        -
+        @else
+        <ul>
+            @foreach ($drug_bidan as $item)
+            <li>
+                {{ $item->nama }} ( {{ $item->instruction }} )
+            </li>
+            @endforeach
+        </ul>
+        @endif
+        @endif
     </td>
     {{-- <td>
         @foreach (json_decode($cek) as $item)
@@ -50,19 +68,26 @@ $cek = DB::table("medical_record_drugs")
         @endif
     </td>
     @if($transaksi->queue->doctor->role == 'dokter')
-    <td>
-        <button class="btn btn-sm btn-primary" onclick="location.href='{{ route('nota.print', ['transaksi' => $transaksi, 'transaksiIndex' => $transaksiIndex]) }}'">
-            Print
-        </button>
-        {{-- <button class="btn btn-sm btn-primary" wire:click="nota_inap">
+    {{-- <td> --}}
+        {{-- <button class="btn btn-sm btn-primary" onclick="location.href='{{ route('nota.print', ['transaksi' => $transaksi, 'transaksiIndex' => $transaksiIndex]) }}'">
             Print
         </button> --}}
-    </td>
-@endif
-    {{-- <td>
-        <button class="btn btn-sm btn-primary" onclick="location.href='{{ route('nota.print', ['transaksi' => $transaksi, 'transaksiIndex' => $transaksiIndex]) }}'">
+        {{-- <button class="btn btn-sm btn-primary" wire:click="nota_inap">
             Print
         </button>
     </td> --}}
+
+    <td>
+        @if ($transaksi->queue->jenis_rawat == 'Inap')
+        <a href="{{ url('/nota/download/'.$transaksi->id) }}" target="_blank" class="btn btn-sm btn-primary">
+            Print
+        </a>
+        @else
+        <button class="btn btn-sm btn-primary" onclick="location.href='{{ route('nota.print', ['transaksi' => $transaksi, 'transaksiIndex' => $transaksiIndex]) }}'">
+            Print
+        </button>
+        @endif
+    </td>
+    @endif
 
 </tr>

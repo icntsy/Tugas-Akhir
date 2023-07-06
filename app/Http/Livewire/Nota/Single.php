@@ -5,9 +5,12 @@ namespace App\Http\Livewire\Nota;
 use Dompdf\Dompdf;
 use App\Models\Queue;
 use App\Models\Transaction;
+use App\Models\DetailNota;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Crypt;
+use PDF;
+use Illuminate\Support\Str;
 
 class Single extends Component
 {
@@ -16,6 +19,7 @@ class Single extends Component
     public $transaksiIndex;
     public $role;
     public $queue;
+    public $jenis_rawat;
 
     public function mount(Transaction $transaksi, $transaksiIndex){
 
@@ -75,15 +79,47 @@ class Single extends Component
             $dompdf->stream($fileName, ['Attachment' => false]);
         }
 
-        public function nota_inap() {
-            $template = new \PhpOffice\PhpWord\TemplateProcessor('./nota_inap.docx');
-            $template->setValues([
-                'number' =>'123'
+        public function nota_inap($transaksi_id)
+        {
 
-            ]);
+            $transaksi = Transaction::where("id", $transaksi_id)->first();
 
-            $template->saveAs('arsip/nota/nota_inap.docx');
-             return response()->download(public_path('arsip/nota/nota_inap.docx'));
+            $nota = DetailNota::where("queue_id", $transaksi->queue_id)->first();
+
+            $qty_ruangan = json_decode($nota, true);
+            $ruangan = json_decode($qty_ruangan["ruangan"], true);
+            $assesment = json_decode($qty_ruangan["assesment"], true);
+            $pendaftaran = json_decode($qty_ruangan["pendaftaran"], true);
+            $infus = json_decode($qty_ruangan["infus"], true);
+            $tindakan = json_decode($qty_ruangan["tindakan"], true);
+            $obat = json_decode($qty_ruangan["obat"], true);
+            $visite = json_decode($qty_ruangan["visite"], true);
+            $pulang = json_decode($qty_ruangan["pulang"], true);
+            $ekg = json_decode($qty_ruangan["ekg"], true);
+            $darah = json_decode($qty_ruangan["darah"], true);
+            $fisioterapi = json_decode($qty_ruangan["fisioterapi"], true);
+            $tambahan = json_decode($qty_ruangan["tambahan"], true);
+
+            $pdf = PDF::loadView("livewire.nota.download", ["ruangan" => $ruangan, "assesment" => $assesment, "pendaftaran" => $pendaftaran, "infus" => $infus, "tindakan" => $tindakan, "obat" => $obat, "visite" => $visite, "pulang" => $pulang, "ekg" => $ekg, "darah" => $darah, "fisioterapi" => $fisioterapi, "tambahan" => $tambahan, "transaksi" => $transaksi])->setPaper("A3");
+
+
+            return $pdf->download("KUITANSI-RAWAT-INAP-". Str::slug($transaksi->queue->patient->name) .".pdf");
+            // $template = new \PhpOffice\PhpWord\TemplateProcessor('arsip/nota/nota_inap_new.docx');
+
+            // $transaction = Transaction::get();
+            // $nomer = 0;
+
+            // $placeholder = "transaction";
+            // $template->cloneRow($placeholder, count($transaction));
+
+            // foreach ($transaction as $row) {
+            //     $template->setValue("queue_id", $value);
+            // }
+
+            // $file = "E";
+
+            // $template->saveAs($file . '.docx');
+            //  return response()->download($file . ".docx")->deleteFileAfterSend(true);
         }
 
         public function delete(){
