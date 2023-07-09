@@ -19,10 +19,13 @@ class Store extends Component
         $queue = Queue::findOrFail($queue);
 
         if ($queue->jenis_rawat == NULL) {
+             // Jika jenis_rawat kosong, artinya antrian untuk ibu hamil
             $antrian = $queue->pregnantmom;
 
+            // Mendapatkan obat yang terkait dengan ibu hamil
             $drug_bidan = DrugBidan::where("pregnantmom_id", $antrian->id)->get();
 
+            // Mengurangi stok obat yang diberikan kepada ibu hamil
             foreach ($drug_bidan as $item) {
                 Drug::where("id", $item["drug_id"])->update([
                     "stok" => $item["drug"]["stok"] - $item["quantity"]
@@ -30,6 +33,7 @@ class Store extends Component
             }
 
         } else {
+            // Jika jenis_rawat tidak kosong, artinya antrian untuk pasien lain
             foreach ($queue->medicalrecord->drugs as $drug) {
                 Drug::where('id', $drug->pivot->drug_id)->update([
                     'stok' => $drug->stok - $drug->pivot->quantity
@@ -37,6 +41,7 @@ class Store extends Component
             }
         }
 
+        // Membuat detail nota berdasarkan request yang diterima
         DetailNota::create([
             "queue_id" => $queue->id,
             "ruangan" => json_encode(["qty" => $req->qty1, "harga" => $req->harga1, "amount" => $req->qty1 * $req->harga1]),
@@ -54,6 +59,7 @@ class Store extends Component
 
         ]);
 
+        // Membuat transaksi dengan informasi antrian dan pembayaran yang diterima
         Transaction::create([
             'queue_id' => $queue->id,
             'payment' => $req->payment

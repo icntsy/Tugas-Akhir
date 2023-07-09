@@ -7,12 +7,12 @@ use Livewire\Component;
 
 class Single extends Component
 {
-    public $room;
-    public $roomIndex;
+    public $room; // Properti untuk menyimpan data room
+    public $roomIndex; // Properti untuk menyimpan indeks room
 
     public function mount(Room $room, $roomIndex)
     {
-        $this->room = $room;
+        $this->room = $room; // Menginisialisasi properti $room dengan data room yang diberikan
         $this->roomIndex = $roomIndex;
     }
     /**
@@ -24,7 +24,7 @@ class Single extends Component
     public function render()
     {
         $room = $this->room;
-        return view('livewire.room.single', compact("room"));
+        return view('livewire.room.single', compact("room")); // Mengembalikan tampilan "livewire.room.single"
     }
     public function delete()
     {

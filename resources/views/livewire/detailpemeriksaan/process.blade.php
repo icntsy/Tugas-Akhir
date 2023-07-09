@@ -54,7 +54,8 @@ use Carbon\Carbon;
                                         <td style="font-weight: bold;" width="35%">Tgl. Masuk</td>
                                         <td width="1%">:</td>
                                         <td>
-                                            {{ $antrian->entry_date }}
+                                            {{\Carbon\Carbon::parse($antrian->entry_date)->format('d F Y')}}
+                                            {{-- {{ $antrian->entry_date }} --}}
                                         </td>
                                     </tr>
                                 </tbody>
@@ -82,13 +83,14 @@ use Carbon\Carbon;
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($antrian->familyPlanningExaminations()->orderByDesc('created_at')->paginate(10) as $index => $value)
+                                    {{-- @forelse ($antrian->familyPlanningExaminations()->orderByDesc('created_at')->paginate(1) as $index => $value) --}}
+                                     @forelse ($antrian->familyPlanningExaminations()->get() as $index => $value)
                                     <tr>
                                         <td>{{ $index + 1 }}.</td>
-                                        <td>{{ $value["arrival_date"] }}</td>
+                                        <td> {{\Carbon\Carbon::parse($value->arrival_date)->format('d F Y')}}</td>
                                         <td>{{ $value["body_weight"] }}</td>
                                         <td>{{ $value["blood_pressure"] }}</td>
-                                        <td>{{ $value["return_date"] }}</td>
+                                        <td> {{\Carbon\Carbon::parse($value->return_date)->format('d F Y')}}</td>
                                     </tr>
                                     @empty
                                     @include('layouts.empty', ['colspan' => 7])

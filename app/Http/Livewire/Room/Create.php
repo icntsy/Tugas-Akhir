@@ -7,25 +7,22 @@ use Livewire\Component;
 
 class Create extends Component
 {
-    public $name;
-    public $price;
+    public $name; // Properti untuk menyimpan nama ruangan
 
     protected $rules = [
-        'name' => 'required',
-        // 'price' => 'required|numeric',
+        'name' => 'required', // Aturan validasi: nama harus diisi
     ];
     public function create(){
-        $this->validate();
+        $this->validate(); // Validasi form input dengan menggunakan aturan validasi yang didefinisikan
         Room::create([
-            'name' => $this->name,
-            // 'price' => $this->price,
+            'name' => $this->name, // Simpan nama ruangan dari properti $name
             ]);
 
             $this->dispatchBrowserEvent('show-message', [
                 'type' => 'success',
                 'message' => 'Sukses Menambah Data Ruangan'
-                ]);
-                $this->redirectRoute('room.index');
+                ]); // Memicu event browser untuk menampilkan pesan sukses
+                $this->redirectRoute('room.index'); // Mengarahkan pengguna ke rute 'room.index'
             }
             /**
             * Get the view / contents that represent the component.
@@ -34,6 +31,6 @@ class Create extends Component
             */
             public function render()
             {
-                return view('livewire.room.create');
+                return view('livewire.room.create'); // Mengembalikan tampilan "livewire.room.create"
             }
         }

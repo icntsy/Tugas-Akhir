@@ -7,16 +7,16 @@ use Livewire\Component;
 
 class Update extends Component
 {
-    public $familyplanning;
+    public $familyplanning; // Properti untuk menyimpan data KB
 
-    public $name;
+    public $name; // Properti untuk menyimpan nama
     public $age;
     public $address;
     public $husbands_name;
     public $entry_date;
 
     protected $rules = [
-        'name' => 'required',
+        'name' => 'required', // Aturan validasi: nama harus diisi
         'age' => 'required',
         'address' => 'required',
         'husbands_name' => 'required',
@@ -25,14 +25,14 @@ class Update extends Component
 
     public function updated($input)
     {
-        $this->validateOnly($input);
+        $this->validateOnly($input); // Validasi hanya input yang telah diperbarui
     }
 
     public function update()
     {
-        $this->validate();
+        $this->validate(); // Validasi form input
 
-        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Data KB Berhasil Diupdate', ['name' => __('Article') ]) ]);
+        $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Data KB Berhasil Diupdate', ['name' => __('Article') ]) ]); // Memicu event browser untuk menampilkan pesan sukses
 
         $this->familyplanning->update([
             'name' => $this->name,
@@ -40,12 +40,12 @@ class Update extends Component
             'address' => $this->address,
             'husbands_name' => $this->husbands_name,
             'entry_date' => $this->entry_date,
-        ]);
-        return redirect("/keluargaberencana");
+        ]); // Memperbarui data KB menggunakan metode update pada model Familyplanning
+        return redirect("/keluargaberencana"); // Mengarahkan pengguna kembali ke halaman "/keluargaberencana"
     }
     public function mount(Familyplanning $familyplanning)
     {
-        $this->familyplanning = $familyplanning;
+        $this->familyplanning = $familyplanning; // Menginisialisasi properti $familyplanning dengan data KB yang diberikan
         $this->name = $familyplanning->name;
         $this->age = $familyplanning->age;
         $this->address = $familyplanning->address;

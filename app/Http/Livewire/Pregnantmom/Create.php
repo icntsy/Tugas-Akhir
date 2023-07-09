@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Create extends Component
 {
+    // Mendefinisikan properti yang akan digunakan dalam komponen ini
     public $name;
     public $age;
     public $address;
@@ -23,6 +24,7 @@ class Create extends Component
     public $description;
     public $complaint;
 
+    // Mendefinisikan aturan validasi untuk properti yang diisi oleh pengguna
     protected $rules = [
         'name' => 'required',
         'age' => 'required',
@@ -41,10 +43,13 @@ class Create extends Component
         'complaint' => 'required',
     ];
 
+    // Metode ini akan dipanggil saat tombol "create" ditekan
     public function create()
     {
+         // Melakukan validasi input dari pengguna
         $this->validate();
 
+        // Membuat data pregnantmom baru dalam database
         Pregnantmom::create([
             'name' => $this->name,
             'age' => $this->age,
@@ -63,6 +68,7 @@ class Create extends Component
             'complaint' => $this->complaint,
             ]);
 
+             // Mengarahkan pengguna ke halaman index pregnantmom setelah data berhasil ditambahkan
             $this->redirectRoute('pregnantmom.index');
         }
 

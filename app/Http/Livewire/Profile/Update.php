@@ -11,9 +11,9 @@ use Illuminate\Support\Facades\Hash;
 
 class Update extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads; // Menggunakan fitur upload file Livewire
 
-    public $name;
+    public $name; // Properti untuk menyimpan nama pengguna
     public $email;
     public $password;
     public $password_confirmation;
@@ -22,7 +22,7 @@ class Update extends Component
     public $image;
 
     protected $rules = [
-        'name' => 'required',
+        'name' => 'required', // Aturan validasi: nama harus diisi
         'email' => 'required|email',
         'password' => 'nullable|confirmed',
         'image' => 'nullable|image|mimes:jpeg,png,jpg'
@@ -30,17 +30,17 @@ class Update extends Component
 
     public function updated($input)
     {
-        $this->validateOnly($input);
+        $this->validateOnly($input); // Validasi hanya input yang telah diperbarui
     }
 
     public function update()
     {
-        $this->validate();
+        $this->validate(); // Validasi form input
 
         $userData = [
             'name' => $this->name,
             'email' => $this->email,
-            'password' => Hash::make($this->password),
+            'password' => Hash::make($this->password), // Enkripsi kata sandi menggunakan Hashing jika kata sandi diisi
         ];
 
         $user = Auth::user();
@@ -75,23 +75,23 @@ class Update extends Component
         public function mount()
         {
             $user = Auth::user();
-            $this->name = $user->name;
+            $this->name = $user->name; // Menginisialisasi properti $user dengan data pengguna yang diberikan
             $this->email = $user->email;
             $this->password = $user->password;
         }
 
         public function togglePasswordVisibility()
         {
-            $this->passwordVisible = !$this->passwordVisible;
+            $this->passwordVisible = !$this->passwordVisible; // Toggle visibilitas kata sandi
         }
 
         public function togglePasswordConfirmationVisibility()
         {
-            $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
+            $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible; // Toggle visibilitas konfirmasi kata sandi
         }
 
         public function render()
         {
-            return view('livewire.profile.update');
+            return view('livewire.profile.update'); // Mengembalikan tampilan "livewire.profile.update"
         }
     }

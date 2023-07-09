@@ -7,15 +7,15 @@ use Livewire\Component;
 
 class Single extends Component
 {
-    public $user;
-    
+    public $user; // Properti untuk menyimpan data pengguna
+
     public function mount(User $user){
-        $this->user = $user;
+        $this->user = $user; // Menginisialisasi properti $user dengan data pengguna yang diberikan
     }
 
     public function delete(){
-        $this->user->delete();
-        $this->emit('userDeleted');
+        $this->user->delete(); // Menghapus data pengguna
+        $this->emit('userDeleted'); // Memancarkan event 'userDeleted'
     }
     /**
     * Get the view / contents that represent the component.
@@ -24,6 +24,6 @@ class Single extends Component
     */
     public function render()
     {
-        return view('livewire.user.single');
+        return view('livewire.user.single'); // Mengembalikan tampilan "livewire.user.single"
     }
 }

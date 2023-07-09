@@ -7,6 +7,7 @@ use Livewire\Component;
 class Logout extends Component
 {
 
+     // Metode ini digunakan untuk logout pengguna
     public function logout(){
         \Auth::logout();
         $this->redirectRoute('login');
@@ -18,6 +19,7 @@ class Logout extends Component
      */
     public function render()
     {
+        // Mengembalikan tampilan komponen logout
         return view('livewire.auth.logout');
     }
 }

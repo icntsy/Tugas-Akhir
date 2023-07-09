@@ -8,6 +8,7 @@ use Livewire\Component;
 
 class Create extends Component
 {
+    // Mendefinisikan properti yang akan digunakan dalam komponen ini
     public $name;
     public $birth_date;
     public $gender;
@@ -20,6 +21,7 @@ class Create extends Component
     public $nik;
     public $noRekamMedis;
 
+    // Mendefinisikan aturan validasi untuk properti yang diisi oleh pengguna
     protected $rules = [
         'name' => 'required',
         'birth_date' => 'required|date',
@@ -33,15 +35,19 @@ class Create extends Component
         'nik' => 'required|unique:patients,nik'
     ];
 
+     // Metode ini akan dipanggil saat tombol "create" ditekan
     public function create()
     {
+        // Membuat nomor rekam medis berdasarkan nomor terakhir yang ada di database
         $lastPatient = Patient::latest('no_rekam_medis')->first();
         $lastNumber = $lastPatient ? intval(substr($lastPatient->no_rekam_medis, 3)) : 0;
         $nextNumber = $lastNumber + 1;
         $noRekamMedis = 'KP-' . str_pad($nextNumber, 7, '0', STR_PAD_LEFT);
 
+         // Melakukan validasi input dari pengguna
         $this->validate();
 
+        // Membuat data pasien baru dalam database
         Patient::create([
             'name' => $this->name,
             'birth_date' => $this->birth_date,
@@ -56,6 +62,7 @@ class Create extends Component
             'no_rekam_medis' => $noRekamMedis,
             ]);
 
+            // Menampilkan pesan sukses setelah data berhasil ditambahkan
             $this->dispatchBrowserEvent('show-message', [
                 'type' => 'success',
                 'message' => 'Sukses Menambah Data Pasien'
@@ -63,6 +70,7 @@ class Create extends Component
                 $this->redirectRoute('patient.index');
             }
 
+            // Mengarahkan pengguna ke halaman index pasien setelah data berhasil ditambahkan
             public function render()
             {
                 return view('livewire.patient.create');

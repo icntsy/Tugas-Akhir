@@ -11,10 +11,10 @@ use App\Models\DetailNota;
 
 class Process extends Component
 {
-    public $queue;
-    public $payment;
-    public $qty1;
-    public $harga1;
+    public $queue; // Menyimpan data antrian
+    public $payment; // Menyimpan nilai pembayaran
+    public $qty1; // Menyimpan nilai kuantitas 1
+    public $harga1; // Menyimpan nilai harga 1
     public $qty2;
     public $harga2;
     public $qty3;
@@ -50,7 +50,6 @@ class Process extends Component
     {
         // TODO:: Create invoice print function before update!!
         try {
-            // dd($this->queue);
             $this->queue->update([
                 "has_drug" => true
                 ]);

@@ -26,6 +26,7 @@ class DrugExport implements
         return Drug::all();
     }
 
+    // Metode ini digunakan untuk memetakan setiap baris data menjadi array yang sesuai dengan struktur kolom
     public function map($row): array
     {
         return [
@@ -36,6 +37,7 @@ class DrugExport implements
         ];
     }
 
+    // Metode ini mengembalikan array yang berisi judul kolom pada file Excel
     public function headings(): array
     {
         return [
@@ -46,6 +48,7 @@ class DrugExport implements
         ];
     }
 
+    // Metode ini mengatur gaya tampilan pada file Excel
     public function styles(Worksheet $sheet)
     {
         return [

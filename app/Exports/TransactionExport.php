@@ -43,6 +43,7 @@ class TransactionExport implements
     return $query->get();
     }
 
+    // Metode ini digunakan untuk memetakan setiap baris data menjadi array yang sesuai dengan struktur kolom
     public function map($row): array
     {
         return [
@@ -51,13 +52,13 @@ class TransactionExport implements
             Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->isoFormat('D MMMM Y'),
             $row->queue->doctor->name,
             $row->queue->service->name,
-            // $row->queue->jenis_rawat,
             $row->queue->jenis_rawat ?? '-',
             $row->payment,
 
         ];
     }
 
+    // Metode ini mengembalikan array yang berisi judul kolom pada file Excel
     public function headings(): array
     {
         return [
@@ -72,6 +73,7 @@ class TransactionExport implements
         ];
     }
 
+    // Metode ini mengatur gaya tampilan pada file Excel
     public function styles(Worksheet $sheet)
     {
         return [

@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Auth;
 
 class Index extends Component
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
+    use WithPagination; // Menggunakan fitur paginasi Livewire
+    protected $paginationTheme = 'bootstrap'; // Mengatur tema paginasi menjadi 'bootstrap'
     public $search;
     protected $queryString = ['search'];
 
     protected $listeners = ['userDeleted'];
-    public $sortType;
-    public $sortColumn;
+    public $sortType; // Properti untuk menyimpan tipe pengurutan
+    public $sortColumn; // Properti untuk menyimpan kolom pengurutan
 
 
     public function mount()
@@ -45,6 +45,6 @@ class Index extends Component
             ->orWhere('email', 'like', '%'.$this->search.'%')
             ->orWhere('role', 'like', '%'.$this->search.'%');
             $users = $users->paginate(10);
-            return view('livewire.profile.index', compact('users', 'users1'));
+            return view('livewire.profile.index', compact('users', 'users1')); // Mengembalikan tampilan "livewire.profile.index"
         }
     }

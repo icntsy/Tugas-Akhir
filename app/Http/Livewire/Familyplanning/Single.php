@@ -8,18 +8,18 @@ use Carbon\Carbon;
 
 class Single extends Component
 {
-    public $familyplanning;
-    public $familyplanningIndex;
+    public $familyplanning; // Properti untuk menyimpan data KB
+    public $familyplanningIndex; // Properti untuk menyimpan indeks data KB
 
     public function mount(Familyplanning $familyplanning, $familyplanningIndex){
-        $this->familyplanning = $familyplanning;
-        $this->familyplanningIndex = $familyplanningIndex;
+        $this->familyplanning = $familyplanning; // Menginisialisasi properti $familyplanning dengan data KB yang diberikan
+        $this->familyplanningIndex = $familyplanningIndex; // Menginisialisasi properti $familyplanningIndex dengan indeks data KB
 
     }
 
     public function getAge()
     {
-        return Carbon::parse($this->familyplanning->age)->age;
+        return Carbon::parse($this->familyplanning->age)->age; // Menghitung usia berdasarkan tanggal lahir pada data KB menggunakan Carbon
     }
 
     public function delete(){

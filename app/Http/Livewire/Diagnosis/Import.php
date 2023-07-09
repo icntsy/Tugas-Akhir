@@ -9,11 +9,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class Import extends Component
 {
-    use WithFileUploads;
-    public $file;
+    use WithFileUploads; // Menggunakan fitur upload file pada Livewire
+    public $file; // Menyimpan file yang diupload oleh pengguna
 
     public function render()
     {
-        return view('livewire.diagnosis.import');
+        return view('livewire.diagnosis.import'); // Mengembalikan view 'livewire.diagnosis.import'
     }
 }

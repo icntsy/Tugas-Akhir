@@ -27,6 +27,7 @@ class Update extends Component
 
     public function mount(Diagnosis $diagnosis)
     {
+        // Menginisialisasi data Diagnosis yang akan diupdate
         $this->category = $diagnosis->category;
         $this->subcategory = $diagnosis->subcategory;
         $this->english_name = $diagnosis->english_name;
@@ -35,20 +36,20 @@ class Update extends Component
 
     public function update()
     {
-        $this->validate();
+        $this->validate(); // Validasi input dengan menggunakan aturan validasi yang telah ditentukan
         $this->diagnosis->update([
             'category' => $this->category,
             'subcategory' => $this->subcategory,
             'english_name' => $this->english_name,
             'indonesian_name' => $this->indonesian_name
-        ]);
+        ]); // Mengupdate data Diagnosis dengan menggunakan metode `update()`
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Data Diagnosis Berhasil Diupdate', ['name' => __('Article')])]);
-        return redirect("/diagnosis");
+        return redirect("/diagnosis"); // Mengarahkan pengguna kembali ke halaman daftar Diagnosis
     }
 
     public function render()
     {
-        return view('livewire.diagnosis.update');
+        return view('livewire.diagnosis.update'); // Mengembalikan view 'livewire.diagnosis.update'
     }
 }

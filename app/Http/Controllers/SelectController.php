@@ -10,6 +10,7 @@ use App\Models\Response;
 
 class SelectController extends Controller
 {
+    // Metode ini digunakan untuk mendapatkan daftar dokter atau bidan berdasarkan jenis layanan yang dipilih
    public function doctor(Request $request){
        $data = [];
 
@@ -17,7 +18,7 @@ class SelectController extends Controller
        $query->select("id","name");
 
        if ($request->has("id_service")) {
-          
+
            if ($request->id_service == "1") {
                $query->where("role", "dokter");
             }
@@ -37,6 +38,7 @@ class SelectController extends Controller
        return response()->json($data);
    }
 
+    // Metode ini digunakan untuk mendapatkan daftar layanan
     public function service(Request $request){
         $data = Service::all();
         if($request->has('q')){

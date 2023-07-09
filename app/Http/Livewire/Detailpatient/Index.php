@@ -9,19 +9,15 @@ use Livewire\WithPagination;
 class Index extends Component
 {
     use WithPagination;
-    protected $listeners = ['patientDeleted'];
+     // Mengatur tema paginasi menjadi 'bootstrap'
     protected $paginationTheme = 'bootstrap';
+    // Properti untuk pengurutan data
     public $sortType;
     public $sortColumn;
-    public function patientDeleted(){
-        $this->dispatchBrowserEvent('show-message', [
-            'type' => 'error',
-            'message' => 'Data Pasien Berhasil Di Hapus'
-            ]);
-        }
         /**
         * @var mixed
         */
+        // Properti untuk pencarian data
         public $search;
 
         /**
@@ -31,6 +27,7 @@ class Index extends Component
         */
         public function render()
         {
+            // Membuat query untuk mendapatkan data pasien berdasarkan kata kunci pencarian
             $patients = Patient::query();
             $patients->where('name', 'like', '%'.$this->search.'%')
             ->orWhere('nik', 'like', '%'.$this->search.'%')
@@ -40,12 +37,15 @@ class Index extends Component
             ->orWhere('no_rekam_medis', 'like', '%'.$this->search.'%')
             ->orWhere('phone_number', 'like', '%'.$this->search.'%');
 
+            // Menerapkan pengurutan jika kolom pengurutan dan tipe pengurutan ditentukan
             if($this->sortColumn){
                 $patients->orderBy($this->sortColumn, $this->sortType);
             }else{
                 $patients->latest('id');
             }
+            // Mendapatkan data pasien dengan menggunakan paginasi
             $patients = $patients->paginate(10);
+            // Mengembalikan tampilan komponen Index dengan menyertakan data pasien yang diperoleh
             return view('livewire.detailpatient.index', compact('patients'));
         }
     }

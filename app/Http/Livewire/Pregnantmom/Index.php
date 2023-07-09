@@ -11,9 +11,9 @@ class Index extends Component
 {
     use WithPagination;
     protected $listeners = ['pregnantmomDeleted'];
-    protected $paginationTheme = 'bootstrap';
-    public $sortType;
-    public $sortColumn;
+    protected $paginationTheme = 'bootstrap'; // Menggunakan tema paginasi 'bootstrap'
+    public $sortType; // Tipe pengurutan (asc/desc)
+    public $sortColumn; // Kolom untuk pengurutan
     public function pregnantmomDeleted(){
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
@@ -23,7 +23,7 @@ class Index extends Component
         /**
         * @var mixed
         */
-        public $search;
+        public $search; // Variabel untuk menyimpan kata kunci pencarian
 
         /**
         * Get the view / contents that represent the component.
@@ -39,9 +39,9 @@ class Index extends Component
             if($this->sortColumn){
                 $pregnantmoms->orderBy($this->sortColumn, $this->sortType);
             }else{
-                $pregnantmoms->latest('id');
+                $pregnantmoms->latest('id'); // Mengurutkan berdasarkan ID terbaru secara default
             }
-            $pregnantmoms = $pregnantmoms->paginate(10);
-            return view('livewire.pregnantmom.index', compact('pregnantmoms'));
+            $pregnantmoms = $pregnantmoms->paginate(10); // Mengambil data preganantmom dengan paginasi 10 data per halaman
+            return view('livewire.pregnantmom.index', compact('pregnantmoms')); // Mengembalikan view 'livewire.preganantmom.index' dengan data pasien
         }
     }

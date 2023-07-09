@@ -34,7 +34,6 @@ class Index extends Component
     $endDate = Session::get('endDate');
 
     return Excel::download(new TransactionExport($startDate, $endDate), 'data-nota.xlsx');
-        // return Excel::download(new TransactionExport, 'data-nota.xlsx');
     }
     public function drugCreated()
     {

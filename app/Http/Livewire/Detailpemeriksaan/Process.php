@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Detailpemeriksaan;
 
-
+use App\Models\FamilyPlanningExamination;
 use App\Models\Familyplanning;
 use App\Models\Gravida;
 use Livewire\Component;
@@ -14,27 +14,32 @@ use Carbon\Carbon;
 class Process extends Component
 {
 
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
-    public $familyplanning;
-    public $sortType;
-    public $sortColumn;
+    use WithPagination; // Menggunakan fitur pagination pada Livewire
+    protected $paginationTheme = 'bootstrap'; // Menentukan tema pagination yang digunakan
+    public $familyplanning; // Menyimpan data Familyplanning
+    public $sortType; // Menyimpan tipe pengurutan data
+    public $sortColumn; // Menyimpan kolom yang digunakan untuk pengurutan data
 
     public  function mount(Familyplanning $familyplanning)
     {
         $this->familyplanning = $familyplanning;
     }
 
+
     public function getAge()
     {
+        // Menghitung usia berdasarkan tanggal lahir yang ada pada data Familyplanning
         return Carbon::parse($this->familyplanning->age)->age;
     }
 
     public function render()
 {
+   //  Mengambil daftar familyPlanningExaminations terkait dengan Familyplanning saat ini, diurutkan berdasarkan tanggal dibuat secara menurun, dan menggunakan pagination
+
     $familyPlanningExaminations = $this->familyplanning->familyPlanningExaminations()
         ->orderByDesc('created_at')
         ->paginate(2);
+
 
     return view('livewire.detailpemeriksaan.process', [
         "antrian" => $this->familyplanning,

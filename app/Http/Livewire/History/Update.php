@@ -50,7 +50,6 @@ class Update extends Component
     public function render()
     {
         $data = Pregnantmom::where("gravida_id", $this->history->id)->orderBy('created_at', 'desc')->paginate(10);
-        // $data = Pregnantmom::where("gravida_id", $this->history->id)->get();
 
         return view('livewire.history.detail', compact("data"));
     }

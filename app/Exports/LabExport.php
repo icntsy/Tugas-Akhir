@@ -43,6 +43,7 @@ class LabExport implements
         ];
     }
 
+    // Metode ini mengatur gaya tampilan pada file Excel
     public function styles(Worksheet $sheet)
     {
         return [

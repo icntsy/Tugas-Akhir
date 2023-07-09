@@ -25,19 +25,19 @@ class Create extends Component
 
     public function create()
     {
-        $this->validate();
+        $this->validate(); // Validasi input dengan menggunakan aturan validasi yang telah ditentukan
 
         Drug::create([
             'nama' => $this->nama,
             'stok' => $this->stok,
             'min_stok' => $this->min_stok,
             'harga' => $this->harga,
-        ]);
+        ]); // Membuat record baru dalam model Drug berdasarkan data yang diinputkan
 
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
             'message' => 'Sukses Menambah Data Obat'
-        ]);
+        ]); // Memancarkan event 'show-message' ke browser untuk menampilkan pesan sukses
         $this->redirectRoute('drug.index');
 
 

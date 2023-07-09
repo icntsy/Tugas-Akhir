@@ -10,27 +10,30 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class Index extends Component
 {
-    use WithPagination;
-    protected $paginationTheme = 'bootstrap';
-    public $search;
-    protected $queryString = ['search'];
+    use WithPagination; // Menggunakan fitur pagination pada Livewire
+    protected $paginationTheme = 'bootstrap'; // Menentukan tema pagination yang digunakan
+    public $search; // Menyimpan kata kunci pencarian
+    protected $queryString = ['search']; // Menentukan parameter pencarian yang akan disertakan dalam URL
 
-    protected $listeners = ['diagnosisDeleted', 'diagnosisCreated', 'diagnosisImported'];
-    public $sortType;
-    public $sortColumn;
+    protected $listeners = ['diagnosisDeleted', 'diagnosisCreated', 'diagnosisImported']; // Mendefinisikan event listener
+    public $sortType; // Menyimpan tipe pengurutan data
+    public $sortColumn; // Menyimpan kolom yang digunakan untuk pengurutan data
 
     public function diagnosisImported()
     {
+        // Menampilkan pesan sukses setelah data Diagnosis diimpor
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => 'Data Diagnosis Berhasil Di Import']);
     }
 
     public function importData()
     {
+        // Memunculkan modal untuk mengunggah file data Diagnosis
         $this->dispatchBrowserEvent('show-model', ['id' => 'modal']);
     }
 
     public function diagnosisDeleted()
     {
+        // Menampilkan pesan setelah data Diagnosis dihapus
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'error',
             'message' => 'Data Diagnosis Berhasil Di Hapus'
@@ -39,6 +42,7 @@ class Index extends Component
 
     public function sort($column)
     {
+        // Mengatur kolom dan tipe pengurutan data
         $sort = $this->sortType == 'desc' ? 'asc' : 'desc';
         $this->sortColumn = $column;
         $this->sortType = $sort;
@@ -61,6 +65,7 @@ class Index extends Component
 
     public function exportData()
     {
+        // Mengexport data Diagnosis dalam format Excel
         return Excel::download(new DiagnosisExport, 'data-diagnosis.xlsx');
     }
 }

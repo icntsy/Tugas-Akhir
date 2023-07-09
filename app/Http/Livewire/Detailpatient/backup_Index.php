@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Livewire\Patient;
+namespace App\Http\Livewire\Detailpatient;
 
 use App\Models\Patient;
 use Livewire\Component;
@@ -10,11 +10,10 @@ class Index extends Component
 {
     use WithPagination;
     protected $listeners = ['patientDeleted'];
-    protected $paginationTheme = 'bootstrap'; // Menggunakan tema paginasi 'bootstrap'
-    public $sortType;  // Tipe pengurutan (asc/desc)
-    public $sortColumn; // Kolom untuk pengurutan
+    protected $paginationTheme = 'bootstrap';
+    public $sortType;
+    public $sortColumn;
     public function patientDeleted(){
-        // Memicu peristiwa browser untuk menampilkan pesan error
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'error',
             'message' => 'Data Pasien Berhasil Di Hapus'
@@ -23,7 +22,7 @@ class Index extends Component
         /**
         * @var mixed
         */
-        public $search; // Variabel untuk menyimpan kata kunci pencarian
+        public $search;
 
         /**
         * Get the view / contents that represent the component.
@@ -32,7 +31,7 @@ class Index extends Component
         */
         public function render()
         {
-            $patients = Patient::query(); // Query builder untuk model Patient
+            $patients = Patient::query();
             $patients->where('name', 'like', '%'.$this->search.'%')
             ->orWhere('nik', 'like', '%'.$this->search.'%')
             ->orWhere('gender', 'like', '%'.$this->search.'%')
@@ -44,9 +43,9 @@ class Index extends Component
             if($this->sortColumn){
                 $patients->orderBy($this->sortColumn, $this->sortType);
             }else{
-                $patients->latest('id'); // Mengurutkan berdasarkan ID terbaru secara default
+                $patients->latest('id');
             }
-            $patients = $patients->paginate(10); // Mengambil data pasien dengan paginasi 10 data per halaman
-            return view('livewire.patient.index', compact('patients')); // Mengembalikan view 'livewire.patient.index' dengan data pasien
+            $patients = $patients->paginate(10);
+            return view('livewire.detailpatient.index', compact('patients'));
         }
     }

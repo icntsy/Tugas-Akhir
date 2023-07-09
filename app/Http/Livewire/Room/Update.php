@@ -7,37 +7,39 @@ use Livewire\Component;
 
 class Update extends Component
 {
-    public $room;
+    public $room; // Objek model Room
     public $name;
-    // public $price;
 
+     // Aturan validasi
     protected $rules = [
         'name' => 'required',
-        // 'price' => 'required|numeric',
     ];
 
+     // Metode mount dijalankan saat komponen diinisialisasi
     public function mount(Room  $room){
         $this->room = $room;
-        // $this->price = $room->price;
-        $this->name = $room->name;
+        $this->name = $room->name; // Mengatur properti name dengan nama ruangan
     }
 
+     // Metode ini dipicu saat ada perubahan pada input field
     public function updated($input)
     {
-        $this->validateOnly($input);
+        $this->validateOnly($input); // Melakukan validasi hanya untuk field yang diperbarui
     }
 
+
+     // Metode ini dipicu saat tombol "update" diklik
     public function update()
     {
-        $this->validate();
+        $this->validate(); // Melakukan validasi untuk semua field
 
         $this->dispatchBrowserEvent('show-message', ['type' => 'success', 'message' => __('Data Ruangan Berhasil Diupdate', ['name' => __('Article') ]) ]);
 
+        // Memperbarui nama ruangan di database
         $this->room->update([
             'name' => $this->name,
-            // 'price' => $this->price,
             ]);
-            return redirect("/ruangan");
+            return redirect("/ruangan"); // Mengarahkan pengguna ke URL "/ruangan"
         }
         /**
         * Get the view / contents that represent the component.

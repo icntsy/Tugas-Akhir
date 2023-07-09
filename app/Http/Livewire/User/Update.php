@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Storage;
 
 class Update extends Component
 {
-    use WithFileUploads;
+    use WithFileUploads; // Menggunakan fitur upload file Livewire
 
-    public $name;
+    public $name; // Properti untuk menyimpan nama pengguna
     public $email;
     public $password;
     public $password_confirmation;
@@ -21,7 +21,7 @@ class Update extends Component
     public $passwordConfirmationVisible = false;
 
     protected $rules = [
-        'name' => 'required',
+        'name' => 'required', // Aturan validasi: nama harus diisi
         'email'=> 'required',
         'password' => 'nullable|confirmed',
         'role' => 'required',
@@ -30,12 +30,12 @@ class Update extends Component
 
     public function updated($input)
     {
-        $this->validateOnly($input);
+        $this->validateOnly($input); // Validasi hanya input yang telah diperbarui
     }
 
     public function update()
     {
-        $this->validate();
+        $this->validate(); // Validasi form input
 
         $userData = [
             'name' => $this->name,
@@ -45,7 +45,7 @@ class Update extends Component
         ];
 
         if (!empty($this->password)) {
-            $userData['password'] = \Hash::make($this->password);
+            $userData['password'] = \Hash::make($this->password); // Enkripsi kata sandi menggunakan Hashing jika kata sandi diisi
         }
 
         if ($this->image && $this->image->getClientOriginalName() !== $this->user->image) {
@@ -56,22 +56,22 @@ class Update extends Component
 
             $imageName = time() . '.' . $this->image->getClientOriginalExtension();
             $this->image->storeAs('public/images', $imageName);
-            $userData['image'] = $imageName;
+            $userData['image'] = $imageName; // Simpan nama file gambar baru ke dalam data pengguna
         }
 
-        $this->user->update($userData);
+        $this->user->update($userData); // Memperbarui data pengguna menggunakan metode update pada model User
 
         $this->dispatchBrowserEvent('show-message', [
             'type' => 'success',
             'message' => 'Data User Berhasil Diupdate'
-            ]);
+            ]); // Memicu event browser untuk menampilkan pesan sukses
 
-            $this->redirect('/user');
+            $this->redirect('/user'); // Mengarahkan pengguna kembali ke halaman "/user"
         }
 
         public function mount(User $user)
         {
-            $this->user = $user;
+            $this->user = $user; // Menginisialisasi properti $user dengan data pengguna yang diberikan
             $this->name = $user->name;
             $this->email = $user->email;
             $this->password = $user->password;
@@ -80,16 +80,16 @@ class Update extends Component
 
         public function togglePasswordVisibility()
         {
-            $this->passwordVisible = !$this->passwordVisible;
+            $this->passwordVisible = !$this->passwordVisible; // Toggle visibilitas kata sandi
         }
 
         public function togglePasswordConfirmationVisibility()
         {
-            $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible;
+            $this->passwordConfirmationVisible = !$this->passwordConfirmationVisible; // Toggle visibilitas konfirmasi kata sandi
         }
 
         public function render()
         {
-            return view('livewire.user.update');
+            return view('livewire.user.update'); // Mengembalikan tampilan "livewire.user.update"
         }
     }

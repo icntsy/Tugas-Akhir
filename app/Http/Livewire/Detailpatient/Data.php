@@ -12,12 +12,15 @@ class Data extends Component
     public $value;
     public $valueIndex;
 
+    // Metode `mount` akan dipanggil saat komponen diinisialisasi dengan menerima sebuah objek Queue dan nilai index
     public function mount(Queue $value, $valueIndex){
         $this->value = $value;
         $this->valueIndex = $valueIndex;
     }
 
+    // Metode `detail` dipanggil saat tombol "Detail" ditekan
     public function detail(){
+        // Mengarahkan pengguna ke halaman detail proses dengan menyertakan ID pasien
         $this->redirectRoute('detailpatient.process', ['patient' => $this->patient->id]);
     }
 
@@ -28,11 +31,14 @@ class Data extends Component
     */
     public function render()
     {
+        // Mengembalikan tampilan komponen Data
         return view('livewire.detailpatient.data');
     }
 
+    // Metode `historydetail` dipanggil saat tombol "Histori" ditekan
     public function historydetail()
     {
+        // Memeriksa jenis rawat pada objek Queue dan mengarahkan pengguna ke halaman histori yang sesuai
         if ($this->value->jenis_rawat == "Inap") {
             $this->redirectRoute("progres.history", ["queue" => $this->value]);
         } else if ($this->value->jenis_rawat == "Jalan") {
