@@ -1,3 +1,6 @@
+@php
+use Carbon\Carbon;
+@endphp
 <tr>
 
     <td>{{$familyplanningIndex}}.</td>
@@ -5,7 +8,7 @@
     <td>{{$this->getAge()}} Thn</td>
     <td>{{$familyplanning->husbands_name}}</td>
     <td>{{$familyplanning->address}}</td>
-    <td>{{$familyplanning->entry_date}}</td>
+    <td>{{\Carbon\Carbon::parse($familyplanning->arrival_date)->format('d F Y')}}</td>
     <td>
         <button class="btn btn-sm btn-warning"  onclick="location.href='{{ route('familyplanning.update', ['familyplanning' => $familyplanning->id]) }}'">
             Edit Data KB
@@ -22,5 +25,7 @@
     console.log(years);
 </script>
 @endpush
+
+
 
 
