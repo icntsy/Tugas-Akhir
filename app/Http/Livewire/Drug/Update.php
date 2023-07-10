@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Update extends Component
 {
+    public $drug;
     public $nama; // Properti untuk menyimpan nama obat
     public $stok;
     public $harga;
@@ -32,7 +33,6 @@ class Update extends Component
 
         $this->drug->update([
             'nama' => $this->nama,
-            'dosis' => $this->dosis,
             'stok' => $this->stok,
             'min_stok' => $this->min_stok,
             'harga' => $this->harga,
