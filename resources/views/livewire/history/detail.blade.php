@@ -72,6 +72,7 @@
                                 <table class="table table-responsive">
                                     <thead>
                                         <tr>
+                                            <th>No.</th>
                                             <th>Tgl. Pemeriksaan</th>
                                             <th>Hamil Anak Ke</th>
                                             <th>HPHT</th>
@@ -89,6 +90,7 @@
                                     <tbody>
                                         @foreach ($data as $history)
                                         <tr>
+                                            <td>{{ $loop->iteration }}.</td>
                                             <td>{{\Carbon\Carbon::parse($history->created_at)->format('H:i, d F Y')}}</td>
                                             <td>{{ $history->anak_ke }}</td>
                                             <td>{{\Carbon\Carbon::parse($history->hpht)->format('d F Y')}}</td>
