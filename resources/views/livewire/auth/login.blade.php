@@ -9,7 +9,7 @@
                             <div class="h5 modal-title text-center">
                                 <h4 class="mt-2">
                                     <img src="{{asset('images/zyro-image (2).png')}}" alt="">
-                                    <div class="mt-3">E-Klinik Laa Tachzan</div>
+                                    <div class="mt-3">Aplikasi Pelayanan Kesehatan Klinik Laa Tachzan (ALASKA)</div>
                                 </h4>
                             </div>
                             <div class="form-row">
