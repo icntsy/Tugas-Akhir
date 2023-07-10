@@ -1,5 +1,5 @@
 @section('meta_title', 'Poliklinik')
-@section('page_title', 'EDIT DATA LAYANAN')
+@section('page_title', 'UPDATE DATA LAYANAN')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-server" aria-hidden="true"></i>
 @endsection

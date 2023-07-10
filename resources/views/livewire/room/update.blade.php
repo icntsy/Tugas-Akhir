@@ -1,5 +1,5 @@
 @section('meta_title', 'Lab')
-@section('page_title', 'UBAH DATA RUANGAN')
+@section('page_title', 'UPDATE DATA RUANGAN')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-bed" aria-hidden="true"></i>
 @endsection

@@ -15,7 +15,13 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         Service::create([
-            'name' => 'Umum'
+            'name' => 'Umum',
+            'status' => 1
+        ]);
+
+        Service::create([
+            'name' => 'KIA',
+            'status' => 2
         ]);
     }
 }

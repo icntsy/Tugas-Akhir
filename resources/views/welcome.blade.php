@@ -5,6 +5,12 @@
 <i class="metismenu-icon fa fa-chart-bar"></i>
 @endsection
 
+@php
+use Illuminate\Support\Facades\DB;
+use App\Models\Queue;
+$max_number = Queue::whereDate('created_at', \Carbon\Carbon::today())->count();
+@endphp
+
 @section('content')
 @role('admin')
 <div class="row">
@@ -90,7 +96,8 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">List Antrian Obat</div>
                         <div class="widget-subheading">Jumlah Pasien</div>
-                        <div class="widget-numbers">{{\App\Models\Queue::count()}}</div>
+                        <div class="widget-numbers">{{ $max_number }}</div>
+                        {{-- <div class="widget-numbers">{{\App\Models\Queue::count()}}</div> --}}
                     </div>
                     <div class="widget-content-right">
                         <div class="text-success">
@@ -165,7 +172,8 @@
                     <div class="widget-content-left">
                         <div class="widget-heading">List Antrian Hari Ini</div>
                         <div class="widget-subheading">Jumlah Pasien</div>
-                        <div class="widget-numbers">{{\App\Models\Queue::count()}}</div>
+                        <div class="widget-numbers">{{ $max_number }}</div>
+                        {{-- <div class="widget-numbers">{{\App\Models\Queue::count()}}</div> --}}
                     </div>
                     <div class="widget-content-right">
                         <div class="text-success">
@@ -251,6 +259,7 @@
             </div>
         </div>
     </div> --}}
+
     <div class="col-md-6">
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
@@ -346,3 +355,10 @@
     </div>
 </div>@endrole
 @endsection
+
+
+@push('scripts')
+<script>
+    var max_number = {{ \App\Models\Queue::whereDate('created_at', \Carbon\Carbon::today())->count() }};
+</script>
+@endpush

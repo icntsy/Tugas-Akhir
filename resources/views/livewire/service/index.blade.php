@@ -8,11 +8,11 @@
         <div class="mb-3 card">
             <div class="card-body">
                 <div class="row d-flex justify-content-end">
-                    <div class="col-md-6 col-sm-12">
+                    {{-- <div class="col-md-6 col-sm-12">
                         <a href="{{ route('service.create') }}" class="btn btn-primary"><i class="fa fa-plus"></i>
                             Tambah
                             Data</a>
-                        </div>
+                        </div> --}}
                         <div class="col-md-6 col-sm-12 d-flex justify-content-end">
                             <div class="input-group">
                                 <input type="text" class="form-control form-control" wire:model.lazy="search"
