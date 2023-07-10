@@ -49,12 +49,22 @@ class Drug extends Component
 
             }
 
-             if ($user->role == "apoteker") {
+            //  if ($user->role == "apoteker") {
 
-                 $queues->where(function($queues){
-                     $queues->where('has_check', "1")->where("jenis_rawat", "Jalan")->orWhere("jenis_rawat", NULL)
-                     ->whereDoesntHave('transaction');
-                 });
+            //      $queues->where(function($queues){
+            //          $queues->where('has_check', "1")->where("jenis_rawat", "Jalan")->orWhere("jenis_rawat", NULL)
+            //          ->whereDoesntHave('transaction');
+            //      });
+            // }
+            if ($user->role == "apoteker") {
+                $queues->where(function($queues) {
+                    $queues->where('has_check', "1")
+                        ->where(function($query) {
+                            $query->where("jenis_rawat", "Jalan")
+                                ->orWhereNull("jenis_rawat");
+                        })
+                        ->whereDoesntHave('transaction');
+                });
             }
 
             $queues->where(function($query) {

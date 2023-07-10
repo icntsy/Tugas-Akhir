@@ -36,9 +36,7 @@ class Process extends Component
 {
    //  Mengambil daftar familyPlanningExaminations terkait dengan Familyplanning saat ini, diurutkan berdasarkan tanggal dibuat secara menurun, dan menggunakan pagination
 
-    $familyPlanningExaminations = $this->familyplanning->familyPlanningExaminations()
-        ->orderByDesc('created_at')
-        ->paginate(2);
+    $familyPlanningExaminations = $this->familyplanning->familyPlanningExaminations()->get();
 
 
     return view('livewire.detailpemeriksaan.process', [

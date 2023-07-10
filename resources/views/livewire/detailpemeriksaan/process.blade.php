@@ -84,9 +84,10 @@ use Carbon\Carbon;
                                 </thead>
                                 <tbody>
                                     {{-- @forelse ($antrian->familyPlanningExaminations()->orderByDesc('created_at')->paginate(1) as $index => $value) --}}
-                                     @forelse ($antrian->familyPlanningExaminations()->get() as $index => $value)
+                                     @forelse ($paginate = $antrian->familyPlanningExaminations()->paginate(10) as $index => $value)
                                     <tr>
-                                        <td>{{ $index + 1 }}.</td>
+                                        {{-- <td>{{ $index + 1 }}.</td> --}}
+                                        <td>{{ ($paginate->currentPage() - 1 ) * $paginate->perPage() + $index + 1}}.</td>
                                         <td> {{\Carbon\Carbon::parse($value->arrival_date)->format('d F Y')}}</td>
                                         <td>{{ $value["body_weight"] }}</td>
                                         <td>{{ $value["blood_pressure"] }}</td>
@@ -101,7 +102,7 @@ use Carbon\Carbon;
                         <hr>
                     </div>
                     <div class="m-auto pt-3 pr-3">
-                        {{ $familyPlanningExaminations->appends(request()->query())->links() }}
+                        {{ $antrian->familyPlanningExaminations()->paginate(10)->appends(request()->query())->links() }}
                     </div>
                     <div wire:loading wire:target="nextPage,gotoPage,previousPage" class="loader-page"></div>
                 </div>
