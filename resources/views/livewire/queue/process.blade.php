@@ -1,8 +1,22 @@
-@section('meta_title', 'MEDICAL RECORD')
-@section('page_title', 'PROCESS CHECKUP MEDICAL RECORD')
+@if(Auth::user()->role == 'dokter')
+    @section('meta_title', 'MEDICAL RECORD')
+    @section('page_title', 'PROSES REKAM MEDIS PASIEN')
+    @section('page_title_icon')
+        <i class="metismenu-icon fa fa-list"></i>
+    @endsection
+@elseif(Auth::user()->role == 'bidan')
+    @section('meta_title', 'MEDICAL RECORD')
+    @section('page_title', 'PROSES PEMERIKSAAN IBU HAMIL')
+    @section('page_title_icon')
+        <i class="metismenu-icon fa fa-list"></i>
+    @endsection
+@endif
+
+{{-- @section('meta_title', 'MEDICAL RECORD')
+@section('page_title', 'PROSES REKAM MEDIS PASIEN')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-list"></i>
-@endsection
+@endsection --}}
 @section('modal')
 <livewire:component.modal-diagnosa :id="$queue->id"/>
 <livewire:component.modal-lab/>

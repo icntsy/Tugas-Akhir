@@ -1,5 +1,5 @@
 @section('meta_title', 'Keluarga Berencana')
-@section('page_title', 'UPDATE DATA KELUARGA BERENCANA')
+@section('page_title', 'EDIT DATA KELUARGA BERENCANA')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-child" aria-hidden="true"></i>
 @endsection

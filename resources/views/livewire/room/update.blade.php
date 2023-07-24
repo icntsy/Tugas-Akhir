@@ -1,5 +1,5 @@
 @section('meta_title', 'Lab')
-@section('page_title', 'UPDATE DATA RUANGAN')
+@section('page_title', 'EDIT DATA RUANGAN')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-bed" aria-hidden="true"></i>
 @endsection
@@ -7,7 +7,7 @@
     <div class="col-md-12">
         <div class="card">
             <div class="card-header">
-                Ubah Data Rungan
+                Edit Data Rungan
             </div>
             <form class="form-horizontal" wire:submit.prevent="update" enctype="multipart/form-data">
                 <div class="card-body row">

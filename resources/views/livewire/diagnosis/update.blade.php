@@ -1,5 +1,5 @@
 @section('meta_title', 'DIAGNOSA')
-@section('page_title', 'UPDATE DATA DIAGNOSA')
+@section('page_title', 'EDIT DATA DIAGNOSA')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-file-alt"></i>
 @endsection

@@ -1,5 +1,5 @@
 @section('meta_title', 'OBAT')
-@section('page_title', 'UPDATE DATA OBAT')
+@section('page_title', 'EDIT DATA OBAT')
 @section('page_title_icon')
 <i class="metismenu-icon fa fa-prescription-bottle-alt"></i>
 @endsection
