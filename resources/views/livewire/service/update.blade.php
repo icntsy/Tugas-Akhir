@@ -9,7 +9,7 @@
             <form class="form-horizontal" wire:submit.prevent="update" enctype="multipart/form-data">
                 <div class="card-body row">
                     <div class='form-group col-md-6'>
-                        <label for='name' class='control-label'> {{ __('Nama Poliklinik') }}</label>
+                        <label for='name' class='control-label'> {{ __('Nama Layanan') }}</label>
                         <input type='text' autofocus wire:model.lazy='name' placeholder="Nama Poliklinik"
                         class="form-control @error('name') is-invalid @enderror" id='name'>
                         @error('name')
